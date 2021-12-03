@@ -1,0 +1,169 @@
+/*In dieser Datei sind allgemeine Angaben zum Haupt Layout*/
+/*Destop Version*/
+body {
+    max-height: 100%;
+    background-color: #0D172E;
+    margin: 0px;
+    padding: 0px;
+
+    color: white;
+    font-family: Poppins;
+
+    overflow-x: hidden;
+}
+
+/*Navbar [Oben]*/
+#LeisteOben{
+    width: 100%;
+    min-height: 8%;
+    display: flex;
+
+    margin-top: 0px;
+
+    background-color: #17213D;
+}min-height
+
+#LeisteObenTitle {
+    width: 15% !important;
+
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 2%;
+    margin-right: 0px;
+    padding-right: 0px;
+
+    font-size: 40px;
+}
+.LeisteObenPB {
+    padding-top: 0.8%;
+    padding-bottom: 0.8%;
+    height: 58px;
+    width: 58px;
+
+    margin-left: 68%;
+    border-radius: 100%;
+}
+.LeisteObenLink{
+    list-style: none;
+
+    margin-right: 2%;
+    margin-top: 1.5%;
+
+    font-size: 20px;
+
+    cursor: pointer;
+}
+/*Navbar [Links]*/
+#LeisteLinks {
+    width: 13%;
+    min-height: 100%;
+
+    background-color: #17213D;
+    display: block;
+}
+#displayBereich {
+    width: 100%;
+    min-height: 87%;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.LeisteLinksPunkt {
+    list-style: none;
+    padding-left: 15%;
+    padding-top: 6%;
+
+    font-size: 135%;
+    color: #C7CDD8;
+
+    cursor: pointer;
+}
+.LeisteLinksPunktAktiv {
+    color: #E53333;
+    size: 20px;
+}
+
+/*Footer*/
+#footer {
+    width: 100%;
+    min-height: 3%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    background-color: #0D172E;
+}
+.footerItem {
+    color: #7B8B9E;
+}
+/*Dropdown*/
+#DropdownUserMenu{
+    position: absolute;
+    width: 10vw;
+    min-height: 18vh;
+
+    left: 87.1%;
+    border-radius: 12%;
+
+    background-color: #17213D;
+
+    box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.25);
+
+    display: none;
+}
+#DropdownUserMenuListe {
+    padding: 0px;
+    margin: 0px;
+}
+.DropdownUserMenuListeElement{
+    list-style: none;
+    font-size: 170%;
+    cursor: pointer;
+
+    padding-top: 2.6%;
+    padding-bottom: 2.6%;
+    padding-left: 12%;
+    padding-right: 12%;
+}
+.DropdownUserMenuListeElement:hover {
+    background-color: #0D172E;
+}
+.DropdownUserMenuListeElementFrist{
+    padding-top: 5.2% !important;
+}
+.DropdownUserMenuListeElementred {
+    color: #E53333;
+}
+
+/*Haupt bereich*/
+#MainSek_container{
+    width: 81%;
+    min-height: 92%;
+
+    margin: 0px;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-top: 2%;
+
+    border-radius: 10px;
+
+    color: white;
+    background-color: #17213D;
+}
+#MainSekMobileController{
+    display: none;
+}
+#MainSek {
+    width: 100%;
+    min-height: 100%;
+ }
+.mobileSwitchLlogo {
+    font-size: 450%;
+    margin-top: 20%;
+    margin-left: 1%;
+}
+.onlyMobile {
+    display: none;
+}

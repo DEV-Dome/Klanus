@@ -1,0 +1,87 @@
+<?php
+session_start();
+
+$overPath = "../";
+if(!isset($_SESSION["Login"])){
+    ?>
+    <script>
+        location.href = "../index.php";
+    </script>
+    <?php
+    exit();
+}
+
+// rang
+include_once "../php/sql/connection.php";
+include_once "../php/rang/Rang.php";
+$rang = new Rang($_SESSION['Rang'], $pdo);
+//
+//Permission abfrage!
+?>
+<html>
+<head>
+    <title>Klanus - ACP</title>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script src="../js/Main.js"></script>
+    <script src="js/acpLoader.js"></script>
+    <script src="js/rang.js"></script>
+
+    <link href="../css/Main.css" rel="stylesheet">
+    <link href="../css/MainHandy.css" rel="stylesheet">
+    <link href="../css/MainPages/userDasboard.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+
+    <link href="css/Classes.css" rel="stylesheet">
+    <link href="css/MainPage/rang.css" rel="stylesheet">
+    <link href="css/MainPage/rang_handy.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav id="LeisteOben" onmouseover="ShowDropDown()" onmouseleave="DiesableDropDown()">
+    <span id="LeisteObenTitle">Custy - ACP</span>
+
+    <li class="LeisteObenLink" >Team</li>
+    <li class="LeisteObenLink" >Partner</li>
+
+    <?php
+    $loadPgClasses = "LeisteObenPB";
+    $loadPgOnClick = "";
+    include "../php/user/get/UserImage.php";
+    ?>
+</nav>
+
+<div id="displayBereich">
+    <nav id="LeisteLinks">
+        <li onclick='' class="LeisteLinksPunkt"><i class="bi bi-columns-gap LeisteLinksPunktAktiv"></i> Dashboard</li>
+        <li class="LeisteLinksPunkt"><i class="bi bi-person"></i> User Verwaltung</li>
+        <li onclick="loadMainPage('rang/rang.php');" class="LeisteLinksPunkt"><i class="bi bi-shield"></i> Rang Verwaltung</li>
+        <li class="LeisteLinksPunkt"><i class="bi bi-terminal"></i> Module</li>
+        <li class="LeisteLinksPunkt"><i class="bi bi-pin-angle"></i> Ankündigungen</li>
+        <li onclick="openbar()" class="LeisteLinksPunkt onlyMobile"><i class="bi bi-x-lg"></i> schlissen</li>
+    </nav>
+
+    <div id="MainSek_container" >
+        <div onclick="openbar()" id="MainSekMobileController" > <i  class="bi bi-justify mobileSwitchLlogo"></i> </div>
+        <div id="MainSek"></div>
+    </div>
+
+    <div id="DropdownUserMenu" onmouseover="ShowDropDown()" onmouseleave="DiesableDropDown()">
+        <ul id="DropdownUserMenuListe">
+            <li onclick="location.href = '../' " class="DropdownUserMenuListeElement DropdownUserMenuListeElementFrist">Front end</li>
+            <li onclick="" class="DropdownUserMenuListeElement DropdownUserMenuListeElementred">Abmelden</li>
+        </ul>
+    </div>
+</div>
+
+<footer id="footer">
+    <span class="footerItem">Datenschutz</span>
+    <span class="footerItem">Impressum</span>
+</footer>
+<script>
+    loadMainPage("addminDashboard.php");
+</script>
+</body>
+</html>

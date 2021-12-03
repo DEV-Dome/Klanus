@@ -1,0 +1,1 @@
+1. Upload Ordner Löschen, so das der ordner komplett leer ist. [LINUX] dem ordner 777 geben.
