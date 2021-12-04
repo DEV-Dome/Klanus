@@ -48,8 +48,13 @@
     height: 15% !important;
 
     padding-top: 1%;
-
 }
 .input_fild_normal::placeholder{
     color: #7B8B9E;
+}
+.bg-red {
+    background-color: #E53333;
+}
+.color-green {
+    color: #45FF58 !important;
 }

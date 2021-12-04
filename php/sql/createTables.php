@@ -12,6 +12,8 @@ Name VARCHAR(100) NOT NULL,
 Dscribe TEXT(500),
 BackgroundColor VARCHAR(64), 
 Color VARCHAR(64), 
+Prioritat int,  
+    
 Isdefault bool NOT NULL
 )");
 

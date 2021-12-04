@@ -27,25 +27,27 @@ $rang = new Rang($_SESSION['Rang'], $pdo);
 <div class="page_main" >
     <?php
 
-    $sth = $pdo->prepare("SELECT * FROM rang");
+    $sth = $pdo->prepare("SELECT * FROM rang ORDER BY Prioritat DESC");
     $sth->execute();
 
     foreach($sth->fetchAll() as $row) {
+        $sth = $pdo->query("SELECT * FROM user WHERE Rang = ". $row["ID"]);
         ?>
         <!--ondrop="drop(event)" ondragover="allowDrop(event)" -->
-        <div ondragstart="dragstart(event)" ondrop="drop(event)" ondragover="allowDrop(event)"  class="rangUbersichtConatiner" draggable="true">
-                <i class="bi bi-grid-3x3-gap-fill rangUbersichtMoveItem"></i>
+        <div id="<?php echo $row["ID"];?>" ondragstart="dragstart(event)" ondrop="drop(event)" ondragover="allowDrop(event)"  class="rangUbersichtConatiner" draggable="true">
+                <i id="<?php echo $row["ID"];?>" class="bi bi-grid-3x3-gap-fill rangUbersichtMoveItem dragtaget"></i>
                 <button class="rangUbersichtName " style="background-color: <?php echo $row["BackgroundColor"]?>;color: <?php echo $row["Color"]?>;"><?php echo $row["Name"] . "<br/>"; ?></button>
 
-                <span class="rangUbersichtUserZahl"> 1 <i class="bi bi-person"></i></span>
+                <span class="rangUbersichtUserZahl"> <?php echo $sth->rowCount() ?> <i class="bi bi-person"></i></span>
                 <i class="rangUbersichtDscribe"><?php echo substr($row["Dscribe"], 0, 50);  if(strlen($row["Dscribe"]) >= 51) echo " [...]"; ?></i>
 
                <?php if(!$row["Isdefault"]){ ?> <button onclick="delRank(<?php echo $row["ID"];?>)" class="button buttonEdit"><i class="bi bi-x-circle"></i></button> <?php } ?>
-                <button class="button buttonDelete"><i class="bi bi-pencil"></i></button>
+                <button onclick="loadMainPage('rang/rangCreate.php', <?php echo $row["ID"]; ?>)" class="button buttonDelete"><i class="bi bi-pencil"></i></button>
                 <!-- <button onclick="loadMainPage('rang/rangCreate.php')" class="button buttonAdd"><i class="bi bi-plus-circle"></i></button> -->
             </div>
         <?php
     }
     ?>
     <button onclick="loadMainPage('rang/rangCreate.php')" class="button buttonSave">Neuen Rang</button>
+    <span id="output"></span>
 </div>

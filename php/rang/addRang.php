@@ -72,7 +72,7 @@ if(isset($_GET["update"])){
     }
 }
 
-$beschreibung = xss_clean( $_GET["beschreibung"]);
+$beschreibung = trim(xss_clean( $_GET["beschreibung"]));
 if($beschreibung != ""){
 
     $temp = str_split($beschreibung);
@@ -92,7 +92,7 @@ if($beschreibung != ""){
     exit();
 }
 
-$name = xss_clean($_GET["name"]);
+$name = trim(xss_clean($_GET["name"]));
 if($name != ""){
     $temp = str_split($name);
     $max = sizeof($temp);
@@ -123,9 +123,9 @@ if($name != ""){
     exit();
 }
 
-$color = "#" . $_GET["color"];
+$color = "#" . trim($_GET["color"]);
 
-if($color == "") {
+if($color == "#") {
     echo("Du musst eine Farbe angeben!");
     exit();
 }
@@ -137,7 +137,7 @@ $pem = $_GET["perm"];
 if($update){
     $pdo->query("UPDATE rang SET Name='$name',Dscribe='$beschreibung' WHERE ID like $id_update");
     for($i = 0; $i < sizeof($pem); $i++){
-        $tmp = explode(">:",$pem[$i]);
+        $tmp = explode(":",$pem[$i]);
 
         $permission = 0;
         if($tmp[1] == "yes"){
@@ -150,11 +150,12 @@ if($update){
         foreach ($sth->fetchAll() as $row) {
             $id = $row["ID"];
 
+
             $sth = $pdo->prepare("UPDATE rang_permission_syc SET Permission=?,Rang=?,Haspermission=? WHERE Permission = ? AND Rang = ?");
             $sth->bindParam(1, $id);
             $sth->bindParam(2, $id_update);
-            $sth->bindParam(3, $id);
-            $sth->bindParam(4, $permission);
+            $sth->bindParam(3, $permission);
+            $sth->bindParam(4, $id);
             $sth->bindParam(5, $id_update);
             $sth->execute();
         }
@@ -178,12 +179,16 @@ if($update){
         $rang = $row["ID"];
     }
 
+    $sth = $pdo->prepare("UPDATE rang SET Prioritat=? WHERE ID = ?");
+    $sth->bindParam(1, $rang);
+    $sth->bindParam(2, $rang);
+    $sth->execute();
+
     for ($i = 0; $i < sizeof($pem); $i++) {
         $tmp = explode(":", $pem[$i]);
 
         $permission = 0;
         if ($tmp[1] == "yes") $permission = 1;
-
 
 
         foreach ($pdo->query("SELECT * FROM rang_permission WHERE Permission like '$tmp[0]'") as $row) {

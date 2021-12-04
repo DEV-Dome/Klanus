@@ -1,6 +1,9 @@
-function loadMainPage(seite){
+function loadMainPage(seite, id = ""){
     var form_data = new FormData();
 
+    if(id != ""){
+        form_data.append("id", id)
+    }
 
     $.ajax({
         type: 'POST',

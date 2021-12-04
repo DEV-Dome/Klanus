@@ -7,8 +7,8 @@ foreach ($pdo->query("SELECT * FROM rang WHERE Isdefault = 1") as $row) {
     if ($row["Name"] == "User") $user = true;
 }
 
-if (!$admin) $pdo->query("INSERT INTO rang (Name, Dscribe, Isdefault, color, BackgroundColor) VALUES ('Admin', 'Dieser Rang hat alle Berechtigungen; es ist mit Vorsicht umzugehen!',true, '#E53333', 'rgba(229, 51, 51, 0.25);' )");
-if (!$user) $pdo->query("INSERT INTO rang (Name, Isdefault, color, BackgroundColor) VALUES ('User', true, '#C7CDD8', 'rgba(199, 205, 216, 0.25)')");
+if (!$admin) $pdo->query("INSERT INTO rang (Name, Dscribe, Isdefault, color, BackgroundColor, Prioritat) VALUES ('Admin', 'Dieser Rang hat alle Berechtigungen; es ist mit Vorsicht umzugehen!',true, '#E53333', 'rgba(229, 51, 51, 0.25)',  100)");
+if (!$user) $pdo->query("INSERT INTO rang (Name, Isdefault, color, BackgroundColor, Prioritat) VALUES ('User', true, '#C7CDD8', 'rgba(199, 205, 216, 0.25)', 1)");
 
 
 /*Rang*/
