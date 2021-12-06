@@ -26,6 +26,8 @@ $rang = new Rang($_SESSION['Rang'], $pdo);
     <script src="js/acpLoader.js"></script>
     <script src="js/rang.js"></script>
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
     <link href="../css/Main.css" rel="stylesheet">
     <link href="../css/MainHandy.css" rel="stylesheet">
     <link href="../css/MainPages/userDasboard.css" rel="stylesheet">
@@ -34,6 +36,8 @@ $rang = new Rang($_SESSION['Rang'], $pdo);
     <link href="css/Classes.css" rel="stylesheet">
     <link href="css/MainPage/rang.css" rel="stylesheet">
     <link href="css/MainPage/rang_handy.css" rel="stylesheet">
+
+    <link href="css/MainPage/User.css" rel="stylesheet">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,7 +60,7 @@ $rang = new Rang($_SESSION['Rang'], $pdo);
 <div id="displayBereich">
     <nav id="LeisteLinks">
         <li onclick='' class="LeisteLinksPunkt"><i class="bi bi-columns-gap LeisteLinksPunktAktiv"></i> Dashboard</li>
-        <li class="LeisteLinksPunkt"><i class="bi bi-person"></i> User Verwaltung</li>
+        <li onclick="loadMainPage('user/user.php');" class="LeisteLinksPunkt"><i class="bi bi-person"></i> User Verwaltung</li>
         <li onclick="loadMainPage('rang/rang.php');" class="LeisteLinksPunkt"><i class="bi bi-shield"></i> Rang Verwaltung</li>
         <li class="LeisteLinksPunkt"><i class="bi bi-terminal"></i> Module</li>
         <li class="LeisteLinksPunkt"><i class="bi bi-pin-angle"></i> Ankündigungen</li>
@@ -80,6 +84,8 @@ $rang = new Rang($_SESSION['Rang'], $pdo);
     <span class="footerItem">Datenschutz</span>
     <span class="footerItem">Impressum</span>
 </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script>
     loadMainPage("addminDashboard.php");
 </script>

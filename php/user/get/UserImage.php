@@ -24,17 +24,24 @@ if(!isset($loadPgClasses)) {
 if(!isset($loadPgOnClick)) {
     $loadPgOnClick = "";
 }
+if(!isset($bid)) {
+    $bid = $_SESSION["ID"];
+}
+if(!isset($outputpfad)){
+    $outputpfad = $overPath;
+}
 
 $verzeichnis = $overPath."php/upload/user/profielimg/";
-$out = '<img onclick="'.$loadPgOnClick.'" id="pb_settings" width="200px" src="assets/Default_profiel.png" class="'.$loadPgClasses.'" alt="Dein Profiel Bild konnte nicht geladen werden">';
+$verzeichnisout = $outputpfad."php/upload/user/profielimg/";
+$out = '<img onclick="'.$loadPgOnClick.'" id="pb_settings" width="200px" src="'.$outputpfad.'/assets/Default_profiel.png" class="'.$loadPgClasses.'" alt="Dein Profiel Bild konnte nicht geladen werden">';
 
 if ( is_dir ( $verzeichnis )){
     if ( $handle = opendir($verzeichnis) ) {
         // einlesen der Verzeichnisses
         while (($file = readdir($handle)) !== false) {
             if($file == "." || $file == "..") continue;
-            if(str_starts_with($file, $_SESSION["ID"])){
-                $pgPath = $verzeichnis . $file;
+            if(str_starts_with($file, $bid)){
+                $pgPath = $verzeichnisout . $file;
                 $out = '<img onclick="'.$loadPgOnClick.'" id="pb_settings" width="200px" src="'.$pgPath.'" class="'.$loadPgClasses.'" alt="Dein Profiel Bild konnte nicht geladen werden">';
             }
         }

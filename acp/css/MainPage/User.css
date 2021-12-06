@@ -1,0 +1,63 @@
+.userNameDisplay {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+
+    width: 20%;
+
+    margin: 0px;
+}
+.userUbersichtRang{
+    width: 43%;
+    height: 100%;
+
+    font-weight: 500;
+    font-size: 150%;
+    line-height: 27px;
+
+    border: none;
+    outline:none;
+
+    border-radius: 10px;
+}
+.columMainbereich {
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+
+    height: 8%;
+    width: 100%;
+}
+.userListeBild {
+    width: 10%;
+    height: auto;
+
+    margin-right: 5%;
+    border-radius: 25%;
+}
+.userListName {
+    font-size: 22px;
+}
+.userListName:first-letter {
+    text-transform: uppercase;
+}
+.userEditButton {
+    width: 15% !important;
+    height: 115% !important;
+
+    background-color: rgba(69, 255, 88, 0.25);
+    color: #45FF58;
+}
+.userBlockButton {
+    width: 15% !important;
+    height: 115% !important;
+
+    background-color: rgba(229, 51, 51, 0.25);
+    color: #E53333;
+}
+.userMessageButton{
+    width: 15% !important;
+    height: 115% !important;
+
+    background-color: rgba(51, 143, 229, 0.25);
+    color: #338FE5;
+}

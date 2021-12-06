@@ -18,7 +18,7 @@ include_once "../../../../php/rang/rang.php";
 $rang = new Rang($_SESSION['Rang'], $pdo);
 //
 //Permission abfrage!
-
+$default = false;
 if(isset($_POST["id"])){
     //update
     $id =  $_POST["id"];
@@ -31,12 +31,12 @@ if(isset($_POST["id"])){
     $color = "";
     $desc = "";
 
-
     $kat = "-";
     foreach($sth->fetchAll() as $row) {
         $name = $row["Name"];
         $color = $row["Color"];
         $desc = $row["Dscribe"];
+        $default = $row["Isdefault"];
     }
 }
 ?>
@@ -46,7 +46,7 @@ if(isset($_POST["id"])){
 </div>
 
 <div class="page_main" >
-    <input <?php if($id != null) echo "value='$name'";?> type="text" placeholder="Name" id="name" class="input_fild_normal">
+    <input <?php if($id != null) echo "value='$name'";?> <?php if($default) echo "disabled" ?> type="text" placeholder="Name" id="name" class="input_fild_normal">
     <input <?php if($id != null) echo "value='".str_replace("#", "", $color)."'";?> id="color" type="text" placeholder="Farbe [in Hexadezimal]" class="input_fild_normal">
 
     <textarea id="beschreibung" class="input_fild_normal input_fild_normal_textarea" rows="4" placeholder="Beschreibung"><?php if($id != null) echo "$desc";?></textarea>

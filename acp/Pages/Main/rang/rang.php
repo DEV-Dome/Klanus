@@ -34,16 +34,15 @@ $rang = new Rang($_SESSION['Rang'], $pdo);
         $sth = $pdo->query("SELECT * FROM user WHERE Rang = ". $row["ID"]);
         ?>
         <!--ondrop="drop(event)" ondragover="allowDrop(event)" -->
-        <div id="<?php echo $row["ID"];?>" ondragstart="dragstart(event)" ondrop="drop(event)" ondragover="allowDrop(event)"  class="rangUbersichtConatiner" draggable="true">
-                <i id="<?php echo $row["ID"];?>" class="bi bi-grid-3x3-gap-fill rangUbersichtMoveItem dragtaget"></i>
+        <div id="<?php echo $row["ID"];?>" ondragstart="dragstart(event)" ondrop="drop(event)" ondragover="allowDrop(event)" draggable="true" class="rangUbersichtConatiner">
+                <i  id="<?php echo $row["ID"];?>" class="bi bi-grid-3x3-gap-fill rangUbersichtMoveItem dragtaget"></i>
                 <button class="rangUbersichtName " style="background-color: <?php echo $row["BackgroundColor"]?>;color: <?php echo $row["Color"]?>;"><?php echo $row["Name"] . "<br/>"; ?></button>
 
                 <span class="rangUbersichtUserZahl"> <?php echo $sth->rowCount() ?> <i class="bi bi-person"></i></span>
                 <i class="rangUbersichtDscribe"><?php echo substr($row["Dscribe"], 0, 50);  if(strlen($row["Dscribe"]) >= 51) echo " [...]"; ?></i>
 
-               <?php if(!$row["Isdefault"]){ ?> <button onclick="delRank(<?php echo $row["ID"];?>)" class="button buttonEdit"><i class="bi bi-x-circle"></i></button> <?php } ?>
-                <button onclick="loadMainPage('rang/rangCreate.php', <?php echo $row["ID"]; ?>)" class="button buttonDelete"><i class="bi bi-pencil"></i></button>
-                <!-- <button onclick="loadMainPage('rang/rangCreate.php')" class="button buttonAdd"><i class="bi bi-plus-circle"></i></button> -->
+            <button onclick="loadMainPage('rang/rangCreate.php', <?php echo $row["ID"]; ?>)" class="button buttonDelete"><i class="bi bi-pencil"></i></button>
+            <?php if(!$row["Isdefault"]){ ?> <button onclick="delRank(<?php echo $row["ID"];?>)" class="button buttonEdit"><i class="bi bi-x-circle"></i></button> <?php } ?>
             </div>
         <?php
     }

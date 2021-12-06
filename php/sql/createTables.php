@@ -33,7 +33,7 @@ Rang INT(10),
 FOREIGN KEY (Rang) REFERENCES rang(ID)
 )");
 
-echo "<p>User Tabelle erstellt.</p>";
+echo "<p>user Tabelle erstellt.</p>";
 
 
 

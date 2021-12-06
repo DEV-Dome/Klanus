@@ -4,8 +4,12 @@ class Rang
 {
     public $permission;
     public $rangid;
+
     public $name;
     public $desc;
+
+    public $color;
+    public $bgColor;
 
     private $noperm = true;
 
@@ -33,14 +37,14 @@ class Rang
         if($this->rangid == -1) return;
 
         if (!empty($pdo)) {
-            $sth = $pdo->prepare("SELECT * FROM rang_permission_syc WHERE Rang like ? AND Haspermission like true");
+            $sth = $pdo->prepare("SELECT * FROM rang_permission_syc WHERE Rang = ? AND Haspermission = true");
             $sth->bindParam(1, $this->rangid);
             $sth->execute();
 
             foreach($sth->fetchAll() as $row) {
                 $id = $row['Permission'];
 
-                $sth1 = $pdo->prepare("SELECT * FROM rang_permission WHERE ID like ? LIMIT 1 ");
+                $sth1 = $pdo->prepare("SELECT * FROM rang_permission WHERE ID = ? LIMIT 1 ");
                 $sth1->bindParam(1, $id);
                 $sth1->execute();
 
@@ -76,6 +80,9 @@ class Rang
         foreach($sth->fetchAll() as $row) {
             $this->name = $row["Name"];
             $this->desc = $row["Dscribe"];
+
+            $this->color = $row["Color"];
+            $this->bgColor = $row["BackgroundColor"];
         }
     }
 
