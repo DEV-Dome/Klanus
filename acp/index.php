@@ -42,6 +42,9 @@ $rang = new Rang($_SESSION['Rang'], $pdo);
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
 <body>
 <nav id="LeisteOben" onmouseover="ShowDropDown()" onmouseleave="DiesableDropDown()">
@@ -58,7 +61,7 @@ $rang = new Rang($_SESSION['Rang'], $pdo);
 </nav>
 
 <div id="displayBereich">
-    <nav id="LeisteLinks">
+    <nav id="LeisteLinks" class="LeisteLinkSehenNein">
         <li onclick='' class="LeisteLinksPunkt"><i class="bi bi-columns-gap LeisteLinksPunktAktiv"></i> Dashboard</li>
         <li onclick="loadMainPage('user/user.php');" class="LeisteLinksPunkt"><i class="bi bi-person"></i> User Verwaltung</li>
         <li onclick="loadMainPage('rang/rang.php');" class="LeisteLinksPunkt"><i class="bi bi-shield"></i> Rang Verwaltung</li>
@@ -68,7 +71,7 @@ $rang = new Rang($_SESSION['Rang'], $pdo);
     </nav>
 
     <div id="MainSek_container" >
-        <div onclick="openbar()" id="MainSekMobileController" > <i  class="bi bi-justify mobileSwitchLlogo"></i> </div>
+        <div id="MainSekMobileController" > <i onclick="openbar()" class="bi bi-justify mobileSwitchLlogo"></i> </div>
         <div id="MainSek"></div>
     </div>
 

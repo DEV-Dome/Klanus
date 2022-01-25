@@ -9,13 +9,16 @@ function openbar(safemode = false){
     let element = document.getElementById("LeisteLinks");
     let main = document.getElementById("MainSek_container");
 
-    alert(element.style.fff);
 
-    if(element.style.display == "none"){
-        element.style.display = "block";
-        main.style.display = "none";
-    }else {
-        element.style.display = "none";
+    if(element.classList.contains("LeisteLinkSehenJa")){
+        element.classList.add("LeisteLinkSehenNein");
+        element.classList.remove("LeisteLinkSehenJa");
+
         main.style.display = "block";
+    }else {
+        element.classList.add("LeisteLinkSehenJa");
+        element.classList.remove("LeisteLinkSehenNein");
+
+        main.style.display = "none";
     }
 }

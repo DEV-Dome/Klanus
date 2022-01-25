@@ -50,7 +50,7 @@ $rang = new Rang($_SESSION['Rang'], $pdo);
     </nav>
 
     <div id="displayBereich">
-        <nav id="LeisteLinks">
+        <nav id="LeisteLinks" class="LeisteLinkSehenNein">
             <li onclick='loadMainPage("userDashboard.php");' class="LeisteLinksPunkt"><i class="bi bi-house-door LeisteLinksPunktAktiv"></i> Home</li>
             <li class="LeisteLinksPunkt"><i class="bi bi-bookmark"></i> Datenbibliothek</li>
             <li class="LeisteLinksPunkt"><i class="bi bi-gear"></i> Administration</li>
