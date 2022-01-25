@@ -1,3 +1,9 @@
+/*Anpassung kleines Display */
+@media only screen and  (max-width: 1600px) {
+    .rangUbersichtDscribe {
+        display: none;
+    }
+}
 
 .rangUbersichtConatiner{
     width: 100%;

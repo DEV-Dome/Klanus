@@ -1,0 +1,55 @@
+/*Allgemeins Tablet Desing*/
+@media only screen and (min-width: 426px) and (max-width: 1270px) {
+    .page_main{
+        height: 74%;
+    }
+    .rangUbersichtDscribe {
+        display: none;
+    }
+    .rangUbersichtName {
+        width: 30%;
+    }
+    .button {
+        width: 10% !important;
+        height: 85%;
+    }
+    .buttonSave{
+        width: 22% !important;
+        height: 7%;
+    }
+}
+/*Anpassung Kleine Tablet Desing*/
+@media only screen and (min-width: 426px) and (max-width: 715px) {
+    .rangUbersichtMoveItem {
+        display: none;
+    }
+    .button {
+        width: 15% !important;
+        height: 81% !important;
+    }
+    .rangUbersichtName {
+        width: 50% !important;
+        margin: 1%;
+    }
+    .rangUbersichtUserZahl {
+        display: none;
+    }
+    .buttonSave {
+        height: 8% !important;
+        width: 33% !important;
+    }
+}
+/*Anpassung Großes Tablet Desing*/
+@media only screen and (min-width: 426px) and (max-width: 1270px) {
+    .rangUbersichtName{
+        width: 26%;
+    }
+    .button{
+        width: 7.5%;
+        height: 90%;
+
+    }
+    .buttonSave{
+        height: 8%;
+    }
+}
