@@ -96,4 +96,42 @@
         margin-left: 20%;
         margin-right: 20%;
     }
+
+    .input_fild_normal {
+        margin-top: 5%;
+        margin-left: 5%;
+        padding-top: 1%;
+        padding-left: 5%;
+        padding-right: 1%;
+        width: 90%;
+        height: 5%;
+        border: none;
+        outline: none;
+        font-weight: 500;
+        font-size: 17px;
+        line-height: 21px;
+        color: white;
+        background-color: #17213D;
+        border-radius: 10px;
+    }
+    .input_fild_normal_textarea {
+        width: 90% !important;
+        height: 35% !important;
+        padding-top: 2%;
+    }
+
+    element.style {
+    }
+    .permissionFlexConatiner {
+        width: 90%;
+        margin-left: 5%;
+        display: flex;
+        flex-direction: column;
+    }
+    .permissionBlock {
+        width: 100%;
+        margin-top: 15%;
+        margin-left: 2%;
+        margin-right: 5%;
+    }
 }
