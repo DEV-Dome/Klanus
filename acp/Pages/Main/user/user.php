@@ -39,12 +39,15 @@ $rang = new Rang($_SESSION['Rang'], $pdo);
                 include "../../../../php/user/get/UserImage.php";
                 ?>
 
-            <iii class="userListName" ><?php echo $row["Name"]?></iii>
+            <iii class="userListName" ><?php echo substr($row["Name"], 0, 18);  if(strlen($row["Name"]) >= 19) echo " [...]"; ?></iii>
 
-            <button  class="button userEditButton"><i class="bi bi-pencil"></i></button>
-            <button  class="button userBlockButton"><i class="bi bi-slash-circle"></i></button>
-            <button  class="button userBlockButton"><i class="bi bi-x-circle"></i></button>
-            <button  class="button userMessageButton"><i class="bi bi-chat-dots"></i></button>
+            <div class="conatiner_button" style="">
+                <button  class="button userEditButton"><i class="bi bi-pencil"></i></button>
+                <button  class="button userBlockButton"><i class="bi bi-slash-circle"></i></button>
+                <button  class="button userBlockButton"><i class="bi bi-x-circle"></i></button>
+                <button  class="button userMessageButton"><i class="bi bi-chat-dots"></i></button>
+            </div>
+
 
             <button class="userUbersichtRang" style="background-color: <?php echo $userRang->bgColor?>;color: <?php echo $userRang->color?>;"><?php echo $userRang->name . "<br/>"; ?></button>
         </div>

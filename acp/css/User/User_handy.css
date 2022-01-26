@@ -7,28 +7,50 @@
 
     }
     .userListName {
-        font-size: 30px;
-        margin-left: 15%;
+        font-size: 21.5px;
+
+
+        text-align: center;
+        width: 100%;
+        display: block;
+    }
+
+    .userUbersichtRang {
+        display: none;
+        width: 53%;
+        margin-right: 2%;
     }
 
     .userEditButton{
-        display: none;
-        width: 73% !important;
-        height: 58% !important;
+        width: 12.5% !important;
+        height: 5% !important;
+
+        margin-top: 2%;
+
+        justify-content: space-around;
+        font-size: 120%;
     }
     .userBlockButton{
-        display: none;
-        width: 73% !important;
-        height: 58% !important;
+        width: 12.5% !important;
+        height: 5% !important;
+
+        margin-top: 2%;
+        font-size: 120%;
+
+        justify-content: space-around;
     }
-    .userBlockButton{
-        display: none;
-        width: 73% !important;
-        height: 58% !important;
-    }
+
     .userMessageButton{
-        display: none;
-        width: 73% !important;
-        height: 58% !important;
+        width: 12.5% !important;
+        height: 5% !important;
+
+        margin-top: 2%;
+        font-size: 120%;
+
+        justify-content: space-around;
+    }
+    .conatiner_button {
+        display: flex !important;
+        align-items:center;
     }
 }

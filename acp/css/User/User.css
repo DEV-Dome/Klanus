@@ -34,6 +34,8 @@
 .userListName {
     font-size: 28px;
     margin-left: 2%;
+    text-transform: capitalize;
+    overflow: hidden;
 }
 .userListName:first-letter {
     text-transform: uppercase;
@@ -74,4 +76,7 @@
 .conatiner_user {
     width: 100%;
     margin-top: 3%;
+}
+.conatiner_button{
+    display: inline;
 }
