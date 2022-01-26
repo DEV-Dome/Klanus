@@ -40,6 +40,9 @@ if(isset($_POST["id"])){
     }
 }
 ?>
+<link href="css/rang/rang.css" rel="stylesheet">
+<link href="css/rang/rang_handy.css" rel="stylesheet">
+<link href="css/rang/rang_tablet.css" rel="stylesheet">
 
 <div class="headline_conatiner" >
     Rollen bearbeiten

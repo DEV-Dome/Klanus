@@ -8,8 +8,8 @@
     margin: 0px;
 }
 .userUbersichtRang{
-    width: 43%;
-    height: 100%;
+    width: 14%;
+    height: 6%;
 
     font-weight: 500;
     font-size: 150%;
@@ -18,46 +18,60 @@
     border: none;
     outline:none;
 
+    float: right;
     border-radius: 10px;
-}
-.columMainbereich {
-    margin-top: 2vh;
-    margin-bottom: 2vh;
-
-    height: 8%;
-    width: 100%;
+    margin-right: 17%;
 }
 .userListeBild {
-    width: 10%;
+    width: 5%;
     height: auto;
 
-    margin-right: 5%;
+    margin-right: 1%;
+    margin-left: 2%;
+
     border-radius: 25%;
 }
 .userListName {
-    font-size: 22px;
+    font-size: 28px;
+    margin-left: 2%;
 }
 .userListName:first-letter {
     text-transform: uppercase;
 }
 .userEditButton {
-    width: 15% !important;
-    height: 115% !important;
+    width: 5% !important;
+    height: 11% !important;
 
     background-color: rgba(69, 255, 88, 0.25);
     color: #45FF58;
+
+    margin-right: 2%;
+    float: right;
+    border: none;
 }
 .userBlockButton {
-    width: 15% !important;
-    height: 115% !important;
+    width: 5% !important;
+    height: 11% !important;
 
     background-color: rgba(229, 51, 51, 0.25);
     color: #E53333;
+
+    margin-right: 2%;
+    float: right;
+    border: none;
 }
 .userMessageButton{
-    width: 15% !important;
-    height: 115% !important;
+    width: 5% !important;
+    height: 11% !important;
 
     background-color: rgba(51, 143, 229, 0.25);
     color: #338FE5;
+
+    margin-right: 2%;
+    float: right;
+    border: none;
+}
+.conatiner_user {
+    width: 100%;
+    margin-top: 3%;
 }

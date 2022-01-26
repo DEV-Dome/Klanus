@@ -58,3 +58,16 @@
 .color-green {
     color: #45FF58 !important;
 }
+.button {
+    float: right;
+
+    width: 5%;
+    height: 100%;
+
+    font-size: 230%;
+    border: none;
+    outline:none;
+
+    border-radius: 25%;
+    margin-right: 3%;
+}

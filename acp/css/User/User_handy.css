@@ -1,0 +1,34 @@
+/*Allgemeins Handy Desing*/
+@media only screen and (max-width: 425px) {
+    #pb_settings{
+        display: none;
+    }
+    .userUbersichtRang{
+
+    }
+    .userListName {
+        font-size: 30px;
+        margin-left: 15%;
+    }
+
+    .userEditButton{
+        display: none;
+        width: 73% !important;
+        height: 58% !important;
+    }
+    .userBlockButton{
+        display: none;
+        width: 73% !important;
+        height: 58% !important;
+    }
+    .userBlockButton{
+        display: none;
+        width: 73% !important;
+        height: 58% !important;
+    }
+    .userMessageButton{
+        display: none;
+        width: 73% !important;
+        height: 58% !important;
+    }
+}

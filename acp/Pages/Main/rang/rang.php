@@ -19,6 +19,9 @@ $rang = new Rang($_SESSION['Rang'], $pdo);
 //Permission abfrage!
 
 ?>
+<link href="css/rang/rang.css" rel="stylesheet">
+<link href="css/rang/rang_handy.css" rel="stylesheet">
+<link href="css/rang/rang_tablet.css" rel="stylesheet">
 
 <div class="headline_conatiner" >
     Rollen
