@@ -9,10 +9,11 @@
     .userListName {
         font-size: 21.5px;
 
-
         text-align: center;
         width: 100%;
         display: block;
+
+        margin-top: 15%;
     }
 
     .userUbersichtRang {
@@ -22,17 +23,16 @@
     }
 
     .userEditButton{
-        width: 12.5% !important;
-        height: 5% !important;
-
+        width: 21% !important;
+        height: 100% !important;
         margin-top: 2%;
 
         justify-content: space-around;
         font-size: 120%;
     }
     .userBlockButton{
-        width: 12.5% !important;
-        height: 5% !important;
+        width: 21% !important;
+        height: 100% !important;
 
         margin-top: 2%;
         font-size: 120%;
@@ -41,8 +41,8 @@
     }
 
     .userMessageButton{
-        width: 12.5% !important;
-        height: 5% !important;
+        width: 21% !important;
+        height: 100% !important;
 
         margin-top: 2%;
         font-size: 120%;
@@ -50,7 +50,19 @@
         justify-content: space-around;
     }
     .conatiner_button {
+        margin-left: 10%;
+        height: 6%;
         display: flex !important;
         align-items:center;
+    }
+}
+/*Button anpassungen Größere Handy*/
+@media only screen and (min-width: 346px) and (max-width: 425px) {
+    .conatiner_button {
+        margin-left: 10%;
+        height: 8%;
+        display: flex !important;
+        align-items:center;
+        font-size: 150%;
     }
 }

@@ -20,6 +20,8 @@ $rang = new Rang($_SESSION['Rang'], $pdo);
 ?>
 <link href="css/User/User.css" rel="stylesheet">
 <link href="css/User/User_handy.css" rel="stylesheet">
+<link href="css/User/user_tablet.css" rel="stylesheet">
+
     <div class="headline_conatiner">
         User
     </div>

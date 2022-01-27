@@ -1,0 +1,49 @@
+/*Allgemeins Tablet Desing*/
+@media only screen and (min-width: 426px) and (max-width: 1270px) {
+    .conatiner_button{
+       display: flex;
+       float: right;
+    }
+
+    .userUbersichtRang {
+        width: 27%;
+        margin-right: 7%;
+        display: none;
+    }
+
+    .userEditButton{
+        width: 28% !important;
+        font-size: 250%;
+    }
+    .userBlockButton{
+        width: 28% !important;
+        font-size: 250%;
+    }
+
+    .userMessageButton{
+        width: 28% !important;
+        font-size: 250%;
+    }
+    .conatiner_user{
+        height: 10%;
+    }
+    .conatiner_button{
+        margin-right: 4%;
+    }
+}
+
+/*Kleine Tablets*/
+@media only screen and (min-width: 426px) and (max-width: 760px) {
+    .userListName {
+        font-size: 15px;
+    }
+    .conatiner_user {
+        height: 8%;
+    }
+    .userUbersichtRang {
+        width: 33%;
+        margin-right: 4%;
+        height: 50%;
+        font-size: 100%;
+    }
+}
