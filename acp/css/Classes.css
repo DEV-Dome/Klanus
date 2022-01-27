@@ -29,7 +29,7 @@
     padding-left: 1%;
     padding-right: 1%;
 
-    width: 50%;
+    width: 92%;
     height: 5%;
 
     border: none;
@@ -43,6 +43,28 @@
     background-color: #17213D;
     border-radius: 10px;
 }
+.input_fild_half{
+    margin-top: 2%;
+    margin-left: 2%;
+
+    padding-left: 1%;
+    padding-right: 1%;
+
+    width: 45%;
+    height: 5%;
+
+    border: none;
+    outline:none;
+
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 21px;
+
+    color: white;
+    background-color: #17213D;
+    border-radius: 10px;
+}
+
 .input_fild_normal_textarea {
     width: 96% !important;
     height: 15% !important;
@@ -52,6 +74,8 @@
 .input_fild_normal::placeholder{
     color: #7B8B9E;
 }
+
+
 .bg-red {
     background-color: #E53333;
 }

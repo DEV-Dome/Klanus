@@ -44,7 +44,7 @@ $rang = new Rang($_SESSION['Rang'], $pdo);
             <iii class="userListName" ><?php echo substr($row["Name"], 0, 18);  if(strlen($row["Name"]) >= 19) echo " [...]"; ?></iii>
 
             <div class="conatiner_button" style="">
-                <button  class="button userEditButton"><i class="bi bi-pencil"></i></button>
+                <button onclick="loadMainPage('user/userEdit.php', '<?php echo $row["ID"]; ?>')" class="button userEditButton"><i class="bi bi-pencil"></i></button>
                 <button  class="button userBlockButton"><i class="bi bi-slash-circle"></i></button>
                 <button  class="button userBlockButton"><i class="bi bi-x-circle"></i></button>
                 <button  class="button userMessageButton"><i class="bi bi-chat-dots"></i></button>

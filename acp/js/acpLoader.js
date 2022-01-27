@@ -12,6 +12,9 @@ function loadMainPage(seite, id = ""){
         processData: false,
         data: form_data,
         success: function (response) {
+            if(response == "not permission"){
+                return;
+            }
             document.getElementById("MainSek").innerHTML = response;
         }
     });
