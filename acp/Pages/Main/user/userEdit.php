@@ -21,7 +21,7 @@ if(!$rang->hasPermission("rang.edit")){
 
 $id =  $_POST["id"];
 
-$sth = $pdo->prepare("SELECT * FROM user WHERE ID = ?");
+$sth = $pdo->prepare("SELECT user.name as 'u-name',Email  FROM user,rang WHERE user.Rang = rang.ID AND user.ID = ?");
 $sth->bindParam(1, $id);
 $sth->execute();
 
@@ -29,7 +29,7 @@ $name = "";
 $email = "";
 
 foreach($sth->fetchAll() as $row) {
-    $name = $row["Name"];
+    $name = $row["u-name"];
     $email = $row["Email"];
 }
 
@@ -39,7 +39,7 @@ foreach($sth->fetchAll() as $row) {
 <link href="css/User/user_tablet.css" rel="stylesheet">
 
 <div class="headline_conatiner" >
-    User: <?php echo $name ?>
+    User Bearbeiten
 </div>
 
 <div class="page_main" >
@@ -55,6 +55,8 @@ foreach($sth->fetchAll() as $row) {
         <option>Rang 2</option>
         <option>Rang 3</option>
     </select>
+
+    <div class="input_fild_checkbox_holder">AGB <input class="input_fild_checkbox" type="checkbox"></div>
 
 
 </div>

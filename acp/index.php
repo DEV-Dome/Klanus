@@ -34,6 +34,7 @@ $rang = new Rang($_SESSION['Rang'], $pdo);
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
 
     <link href="css/Classes.css" rel="stylesheet">
+    <link href="css/Classes_handy.css" rel="stylesheet">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
