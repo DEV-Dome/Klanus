@@ -15,22 +15,26 @@ if(!isset($_SESSION["Login"])){
 include_once "../../../../php/sql/connection.php";
 include_once "../../../../php/rang/rang.php";
 $rang = new Rang($_SESSION['Rang'], $pdo);
-if(!$rang->hasPermission("rang.edit")){
+if(!$rang->hasPermission("user.edit")){
     exit("not permission");
 }
 
 $id =  $_POST["id"];
 
-$sth = $pdo->prepare("SELECT user.name as 'u-name',Email  FROM user,rang WHERE user.Rang = rang.ID AND user.ID = ?");
+$sth = $pdo->prepare("SELECT user.name as 'u-name',Email,Agb,rang.id as 'ruid'  FROM user,rang WHERE user.Rang = rang.ID AND user.ID = ?");
 $sth->bindParam(1, $id);
 $sth->execute();
 
 $name = "";
+$urid = "";
 $email = "";
+$agb = false;
 
 foreach($sth->fetchAll() as $row) {
     $name = $row["u-name"];
     $email = $row["Email"];
+    $agb = $row["Agb"];
+    $urid = $row["ruid"];
 }
 
 ?>
@@ -51,12 +55,20 @@ foreach($sth->fetchAll() as $row) {
     <input  type="password" placeholder="password wiederholen" id="pww" class="input_fild_half">
 
     <select class="input_fild_half">
-        <option>Rang 1</option>
-        <option>Rang 2</option>
-        <option>Rang 3</option>
+        <?php
+        $sth = $pdo->prepare("SELECT * FROM rang");
+        $sth->execute();
+
+        foreach($sth->fetchAll() as $row) {
+            ?>
+            <option <?php if($row["ID"] == $urid) echo "selected" ?>><?php echo $row["Name"]?></option>
+            <?php
+        }
+        ?>
     </select>
 
-    <div class="input_fild_checkbox_holder">AGB <input class="input_fild_checkbox" type="checkbox"></div>
+    <div class="input_fild_checkbox_holder">AGB <input <?php if($agb == 1) echo "checked"?> class="input_fild_checkbox" type="checkbox"></div>
 
+    <div class="feedback_hub">Feedback</div>
 
 </div>
