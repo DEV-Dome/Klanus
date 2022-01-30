@@ -25,16 +25,17 @@ $rang = new Rang($_SESSION['Rang'], $pdo);
     <script src="../js/Main.js"></script>
     <script src="js/acpLoader.js"></script>
     <script src="js/rang.js"></script>
+    <script src="js/user.js"></script>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <link href="../css/Main.css" rel="stylesheet">
-    <link href="../css/MainHandy.css" rel="stylesheet">
+    <link href="../css/main.css" rel="stylesheet">
+    <link href="../css/mainHandy.css" rel="stylesheet">
     <link href="../css/MainPages/userDasboard.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
 
-    <link href="css/Classes.css" rel="stylesheet">
-    <link href="css/Classes_handy.css" rel="stylesheet">
+    <link href="css/classes.css" rel="stylesheet">
+    <link href="css/classes_handy.css" rel="stylesheet">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

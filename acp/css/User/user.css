@@ -93,4 +93,6 @@
     background-color: rgba(69, 255, 88, 0.25);
 
     border-radius: 10px;
+
+   display: none;
 }

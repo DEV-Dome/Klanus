@@ -29,12 +29,21 @@ $Boolfalse = false;
 $null = null;
 $rang = 2;
 
-foreach ($pdo->query("SELECT * FROM user WHERE Email = '" . $mail . "' LIMIT 1") as $row) {
+
+$sth = $pdo->prepare("SELECT * FROM user WHERE Email = ? LIMIT 1");
+$sth->bindParam(1, $mail);
+$sth->execute();
+
+foreach ($sth->fetchAll() as $row) {
     echo "Diese E-Mail ist bereits registriert!";
     exit();
 }
 
-foreach ($pdo->query("SELECT * FROM user WHERE Name = '" . $name . "' LIMIT 1") as $row) {
+$sth = $pdo->prepare("SELECT * FROM user WHERE Name = ? LIMIT 1");
+$sth->bindParam(1, $name);
+$sth->execute();
+
+foreach ($sth->fetchAll() as $row) {
     echo "Dieser Username ist bereits registriert!";
     exit();
 }

@@ -14,7 +14,7 @@
         border-radius: 10px;
     }
     .input_fild_checkbox{
-        margin-top: 3%;
+        margin-top: 1.5%;
         margin-left: 4%;
 
         float: right;
@@ -38,9 +38,9 @@
 
         padding-left: 4%;
         padding-right: 8%;
-        padding-top: 6px;
+        padding-top: 5px;
 
-        width: 30%;
+        width: 92%;
         height: 5%;
 
         border: none;

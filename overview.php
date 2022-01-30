@@ -26,8 +26,8 @@ $rang = new Rang($_SESSION['Rang'], $pdo);
     <script src="js/Main.js"></script>
     <script src="js/userSettings.js"></script>
 
-    <link href="css/Main.css" rel="stylesheet">
-    <link href="css/MainHandy.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/mainHandy.css" rel="stylesheet">
     <link href="css/MainPages/userDasboard.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
 

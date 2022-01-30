@@ -47,9 +47,9 @@ foreach($sth->fetchAll() as $row) {
 </div>
 
 <div class="page_main" >
-    <input value="<?php echo $name ?>" type="text" placeholder="Name" id="name" class="input_fild_normal">
+    <input <?php if(!$rang->hasPermission("user.edit.name")) echo "disabled"; ?> oninput="setNewUserName(this.value, <?php echo $id;?>);" value="<?php echo $name ?>" type="text" placeholder="Name" id="name" class="input_fild_normal">
 
-    <input value="<?php echo $email ?>" type="text" placeholder="Email" id="email" class="input_fild_normal">
+    <input  <?php if(!$rang->hasPermission("user.edit.mail")) echo "disabled"; ?> oninput="setNewEmail(this.value, <?php echo $id;?>)" value="<?php echo $email ?>" type="text" placeholder="Email" id="email" class="input_fild_normal">
 
     <input  type="password" placeholder="password" id="pw" class="input_fild_half">
     <input  type="password" placeholder="password wiederholen" id="pww" class="input_fild_half">
@@ -69,6 +69,6 @@ foreach($sth->fetchAll() as $row) {
 
     <div class="input_fild_checkbox_holder">AGB <input <?php if($agb == 1) echo "checked"?> class="input_fild_checkbox" type="checkbox"></div>
 
-    <div class="feedback_hub">Feedback</div>
+    <div id="feedback_hub" class="feedback_hub">Feedback</div>
 
 </div>
