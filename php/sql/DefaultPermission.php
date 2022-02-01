@@ -21,12 +21,13 @@ echo "<p>Rang Rechte eingerichtet.</p>";
 
 /*user*/
 addPermission("user.add", "user: Erstellen", "user", $pdo);
+addPermission("user.edit", "user: Bearbeiten (Übersicht)", "user",$pdo);
 addPermission("user.edit.name", "user: Namen Bearbeiten ", "user",$pdo);
 addPermission("user.edit.mail", "user: Email Bearbeiten", "user",$pdo);
 addPermission("user.edit.password", "user: Password Bearbeiten", "user",$pdo);
 addPermission("user.edit.agb", "user: AGB Bearbeiten", "user",$pdo);
 addPermission("user.delete", "user: Löschen", "user",$pdo);
-addPermission("user.assign", "user: Rang zuweisen", "user",$pdo);
+addPermission("user.edit.assign", "user: Rang zuweisen", "user",$pdo);
 echo "<p>user Rechte eingerichtet.</p>";
 
 /*Global*/

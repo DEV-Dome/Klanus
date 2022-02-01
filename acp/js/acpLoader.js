@@ -13,6 +13,7 @@ function loadMainPage(seite, id = ""){
         data: form_data,
         success: function (response) {
             if(response == "not permission"){
+                alert("nop");
                 return;
             }
             document.getElementById("MainSek").innerHTML = response;

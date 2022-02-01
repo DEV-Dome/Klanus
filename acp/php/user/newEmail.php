@@ -18,6 +18,11 @@ $sth = $pdo->prepare("SELECT * FROM user WHERE Email = ? LIMIT 1");
 $sth->bindParam(1, $mail);
 $sth->execute();
 
+if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
+    echo "<erro>Du hast keine gültige E-Mail angegeben!";
+    exit();
+}
+
 foreach ($sth->fetchAll() as $row) {
     echo "<erro>Diese Email Adresse ist bereits registriert!";
     exit();

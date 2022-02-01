@@ -15,6 +15,7 @@ if(!isset($_SESSION["Login"])){
 include_once "../../../../php/sql/connection.php";
 include_once "../../../../php/rang/rang.php";
 $rang = new Rang($_SESSION['Rang'], $pdo);
+
 if(!$rang->hasPermission("user.edit")){
     exit("not permission");
 }
@@ -47,27 +48,27 @@ foreach($sth->fetchAll() as $row) {
 </div>
 
 <div class="page_main" >
-    <input <?php if(!$rang->hasPermission("user.edit.name")) echo "disabled"; ?> oninput="setNewUserName(this.value, <?php echo $id;?>);" value="<?php echo $name ?>" type="text" placeholder="Name" id="name" class="input_fild_normal">
+    <input <?php if(!$rang->hasPermission("user.edit.name")) echo "disabled"; ?> onchange="setNewUserName(this.value, <?php echo $id;?>);" value="<?php echo $name ?>" type="text" placeholder="Name" id="name" class="input_fild_normal">
 
-    <input  <?php if(!$rang->hasPermission("user.edit.mail")) echo "disabled"; ?> oninput="setNewEmail(this.value, <?php echo $id;?>)" value="<?php echo $email ?>" type="text" placeholder="Email" id="email" class="input_fild_normal">
+    <input  <?php if(!$rang->hasPermission("user.edit.mail")) echo "disabled"; ?> onchange="setNewEmail(this.value, <?php echo $id;?>)" value="<?php echo $email ?>" type="text" placeholder="Email" id="email" class="input_fild_normal">
 
-    <input  type="password" placeholder="password" id="pw" class="input_fild_half">
-    <input  type="password" placeholder="password wiederholen" id="pww" class="input_fild_half">
+    <input  <?php if(!$rang->hasPermission("user.edit.password")) echo "disabled"; ?> onchange="setNewPassword(document.getElementById('pw').value,document.getElementById('pww').value, <?php echo $id;?>)" type="password" placeholder="password" id="pw" class="input_fild_half">
+    <input   <?php if(!$rang->hasPermission("user.edit.password")) echo "disabled"; ?> onchange="setNewPassword(document.getElementById('pw').value,document.getElementById('pww').value, <?php echo $id;?>)" type="password" placeholder="password wiederholen" id="pww" class="input_fild_half">
 
-    <select class="input_fild_half">
+    <select <?php if(!$rang->hasPermission("user.edit.assign")) echo "disabled"; ?> onchange="setNewRang(document.getElementById('rangsel').value, <?php echo $id;?>)" id="rangsel" class="input_fild_half">
         <?php
-        $sth = $pdo->prepare("SELECT * FROM rang");
+        $sth = $pdo->prepare("SELECT * FROM rang ORDER BY Prioritat DESC");
         $sth->execute();
 
         foreach($sth->fetchAll() as $row) {
             ?>
-            <option <?php if($row["ID"] == $urid) echo "selected" ?>><?php echo $row["Name"]?></option>
+            <option value="<?php echo $row["ID"];?>" <?php if($row["ID"] == $urid) echo "selected" ?>><?php echo $row["Name"]?></option>
             <?php
         }
         ?>
     </select>
 
-    <div class="input_fild_checkbox_holder">AGB <input <?php if($agb == 1) echo "checked"?> class="input_fild_checkbox" type="checkbox"></div>
+    <div  id="agbbox" class="input_fild_checkbox_holder">AGB <input <?php if(!$rang->hasPermission("user.edit.agb")) echo "disabled"; ?> onclick="setNewAGB(this.checked, <?php echo $id;?>)" <?php if($agb == 1) echo "checked"?> class="input_fild_checkbox" type="checkbox"></div>
 
     <div id="feedback_hub" class="feedback_hub">Feedback</div>
 
