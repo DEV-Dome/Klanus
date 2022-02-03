@@ -9,7 +9,7 @@ $rangChang = intval(trim(xss_clean($_POST["rang"])));
 $id =  intval(trim(xss_clean($_POST["id"])));
 
 $rang = new Rang($_SESSION['Rang'], $pdo);
-if(!$rang->hasPermission("user.edit.agb")){
+if(!$rang->hasPermission("user.edit.assign")){
     echo "<erro>Dafür hast du nicht die nötigen Permission.";
     exit();
 }

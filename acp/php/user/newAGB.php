@@ -6,13 +6,13 @@ include "../../../php/rang/Rang.php";
 include "../../../php/sql/connection.php";
 $AGB  = 0;
 
-if(intval(trim(xss_clean($_POST["agb"]))) == "true"){
+if(trim(xss_clean($_POST["agb"])) == "true"){
     $AGB = 1;
 }
 $id =  intval(trim(xss_clean($_POST["id"])));
 
 $rang = new Rang($_SESSION['Rang'], $pdo);
-if(!$rang->hasPermission("user.edit.assign")){
+if(!$rang->hasPermission("user.edit.agb")){
     echo "<erro>Dafür hast du nicht die nötigen Permission.";
     exit();
 }
