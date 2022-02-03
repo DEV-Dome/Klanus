@@ -17,9 +17,15 @@ include_once "../../../../php/sql/connection.php";
 include_once "../../../../php/rang/rang.php";
 $rang = new Rang($_SESSION['Rang'], $pdo);
 //
-//Permission abfrage!
+
+
+
 $default = false;
 if(isset($_POST["id"])){
+    if(!$rang->hasPermission("rang.edit")){
+        exit("not permission");
+    }
+
     //update
     $id =  $_POST["id"];
 
@@ -37,6 +43,10 @@ if(isset($_POST["id"])){
         $color = $row["Color"];
         $desc = $row["Dscribe"];
         $default = $row["Isdefault"];
+    }
+}else {
+    if(!$rang->hasPermission("rang.add")){
+        exit("not permission");
     }
 }
 ?>

@@ -56,6 +56,19 @@ FOREIGN KEY (Permission) REFERENCES rang_permission(ID),
 FOREIGN KEY (Rang) REFERENCES rang(ID)
 )");
 
+$pdo->query("CREATE TABLE IF NOT EXISTS projekt(
+ID INT(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+Namen VARCHAR(64) NOT NULL,
+Kurzel CHAR(3) NOT NULL,   
+Beschreibung LONGTEXT NOT NULL,    
+Besitzer INT(10) NOT NULL,
+    
+FOREIGN KEY (Besitzer) REFERENCES user(ID)    
+)");
+
+echo "<p>Projekt Tabelle erstellt.</p>";
+
+
 include "DefaultPermission.php";
 
 echo "<br/>";

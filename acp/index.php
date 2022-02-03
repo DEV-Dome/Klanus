@@ -63,8 +63,10 @@ $rang = new Rang($_SESSION['Rang'], $pdo);
         <li onclick='' class="LeisteLinksPunkt"><i class="bi bi-columns-gap LeisteLinksPunktAktiv"></i> Dashboard</li>
         <li onclick="loadMainPage('user/user.php');" class="LeisteLinksPunkt"><i class="bi bi-person"></i> User Verwaltung</li>
         <li onclick="loadMainPage('rang/rang.php');" class="LeisteLinksPunkt"><i class="bi bi-shield"></i> Rang Verwaltung</li>
-        <li class="LeisteLinksPunkt"><i class="bi bi-terminal"></i> Module</li>
         <li class="LeisteLinksPunkt"><i class="bi bi-pin-angle"></i> Ankündigungen</li>
+        <li class="LeisteLinksPunkt"><i class="bi bi-terminal"></i> Module</li>
+        <li onclick="loadMainPage('projekt/projekt.php');" class="LeisteLinksPunkt"><i class="bi bi-kanban"></i> Projekt</li>
+
         <li onclick="openbar()" class="LeisteLinksPunkt onlyMobile"><i class="bi bi-x-lg"></i> schlissen</li>
     </nav>
 

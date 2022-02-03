@@ -15,8 +15,9 @@ if(!isset($_SESSION["Login"])){
 include_once "../../../../php/sql/connection.php";
 include_once "../../../../php/rang/rang.php";
 $rang = new Rang($_SESSION['Rang'], $pdo);
-//
-//Permission abfrage!
+if(!$rang->hasPermission("rang.overview")){
+    exit("not permission");
+}
 
 ?>
 <link href="css/rang/rang.css" rel="stylesheet">

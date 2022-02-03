@@ -12,14 +12,16 @@ if (!$user) $pdo->query("INSERT INTO rang (Name, Isdefault, color, BackgroundCol
 
 
 /*Rang*/
+addPermission("rang.overview", "Rang: einsehen", "Rang", $pdo);
 addPermission("rang.add", "Rang: Erstellen", "Rang", $pdo);
-addPermission("rang.edit", "Rang: Bearbeiten", "Rang", $pdo);
+addPermission("rang.edit", "Rang: Bearbeiten (Übersicht)", "Rang", $pdo);
 addPermission("rang.userlist", "Rang: Alle user auflisten", "Rang", $pdo);
 addPermission("rang.ranglist", "Rang: Rangliste anzeigen", "Rang", $pdo);
 addPermission("rang.setList", "Rang: auf der Rang Seite anzeigen.", "Rang", $pdo);
 echo "<p>Rang Rechte eingerichtet.</p>";
 
 /*user*/
+addPermission("user.overview", "user: einsehen", "user", $pdo);
 addPermission("user.add", "user: Erstellen", "user", $pdo);
 addPermission("user.edit", "user: Bearbeiten (Übersicht)", "user",$pdo);
 addPermission("user.edit.name", "user: Namen Bearbeiten ", "user",$pdo);
@@ -30,6 +32,11 @@ addPermission("user.delete", "user: Löschen", "user",$pdo);
 addPermission("user.edit.assign", "user: Rang zuweisen", "user",$pdo);
 echo "<p>user Rechte eingerichtet.</p>";
 
+addPermission("projekt.overview", "projekt: einsehen", "projekt", $pdo);
+addPermission("projekt.add", "projekt: Erstellen", "projekt", $pdo);
+addPermission("projekt.edit", "projekt: Bearbeiten (Übersicht)", "projekt", $pdo);
+
+echo "<p>Projekt Rechte eingerichtet.</p>";
 /*Global*/
 addPermission("acp.use", "Admininterface: Ansehen & Bedienen", "ACP", $pdo);
 addPermission("acp.support", "Admininterface: Support sehen", "ACP", $pdo);
