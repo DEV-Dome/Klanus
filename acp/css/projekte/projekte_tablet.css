@@ -1,0 +1,114 @@
+/*Allgemeins Tablet Desing*/
+@media only screen and (min-width: 750px) and (max-width: 1270px) {
+    .page_main{
+        height: 74%;
+    }
+    .rangUbersichtDscribe {
+        display: none;
+    }
+    .rangUbersichtName {
+        width: 30%;
+    }
+    .button {
+        width: 10% !important;
+        height: 85%;
+    }
+    .buttonSave{
+        width: 22% !important;
+        height: 7%;
+    }
+
+    .input_fild_normal {
+        margin-top: 5%;
+        margin-left: 5%;
+        padding-top: 1%;
+        padding-left: 5%;
+        padding-right: 1%;
+        width: 90%;
+        height: 5%;
+        border: none;
+        outline: none;
+        font-weight: 500;
+        font-size: 17px;
+        line-height: 21px;
+        color: white;
+        background-color: #17213D;
+        border-radius: 10px;
+    }
+    .input_fild_normal_textarea {
+        width: 90% !important;
+        height: 35% !important;
+        padding-top: 2%;
+    }
+
+    element.style {
+    }
+    .permissionFlexConatiner {
+        width: 90%;
+        margin-left: 5%;
+        display: flex;
+        flex-direction: column;
+    }
+    .permissionBlock {
+        width: 100%;
+        margin-top: 15%;
+        margin-left: 2%;
+        margin-right: 5%;
+    }
+}
+/*Anpassung Kleine Tablet Desing
+@media only screen and (min-width: 426px) and (max-width: 715px) {
+    .rangUbersichtMoveItem {
+        display: none;
+    }
+    .button {
+        width: 15% !important;
+        height: 81% !important;
+    }
+    .rangUbersichtName {
+        width: 50% !important;
+        margin: 1%;
+    }
+    .rangUbersichtUserZahl {
+        display: none;
+    }
+    .buttonSave {
+        height: 8% !important;
+        width: 33% !important;
+    }
+
+    .input_fild_normal {
+        margin-top: 5%;
+        margin-left: 5%;
+        padding-top: 1%;
+        padding-left: 5%;
+        padding-right: 1%;
+        width: 90%;
+        height: 5%;
+        border: none;
+        outline: none;
+        font-weight: 500;
+        font-size: 17px;
+        line-height: 21px;
+        color: white;
+        background-color: #17213D;
+        border-radius: 10px;
+    }
+
+}
+/*Anpassung Großes Tablet Desing*/
+@media only screen and (min-width: 750px) and (max-width: 1270px) {
+    .rangUbersichtName{
+        width: 26%;
+    }
+    .button{
+        width: 7.5%;
+        height: 90%;
+
+    }
+    .buttonSave{
+        height: 8%;
+    }
+
+
+}

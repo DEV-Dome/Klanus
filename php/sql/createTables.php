@@ -56,20 +56,35 @@ FOREIGN KEY (Permission) REFERENCES rang_permission(ID),
 FOREIGN KEY (Rang) REFERENCES rang(ID)
 )");
 
+$pdo->query("CREATE TABLE IF NOT EXISTS projekt_status(
+ID INT(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+Name VARCHAR(250) NOT NULL,
+Beschreibung LONGTEXT NOT NULL,
+IsDisabled BOOL NOT NULL
+)");
+
+echo "<p>Projekt Status erstellt.</p>";
+
 $pdo->query("CREATE TABLE IF NOT EXISTS projekt(
 ID INT(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-Namen VARCHAR(64) NOT NULL,
+Name VARCHAR(64) NOT NULL,
 Kurzel CHAR(3) NOT NULL,   
-Beschreibung LONGTEXT NOT NULL,    
+Beschreibung LONGTEXT NOT NULL, 
+Status int(10) NOT NULL DEFAULT 0,
+Verifiziert BOOL NOT NULL DEFAULT 0,
 Besitzer INT(10) NOT NULL,
+BackgroundColor VARCHAR(64) NOT NULL DEFAULT 'rgba(199, 205, 216, 0.25)', 
+Color VARCHAR(64) NOT NULL DEFAULT 'C7CDD8',    
     
-FOREIGN KEY (Besitzer) REFERENCES user(ID)    
+FOREIGN KEY (Status) REFERENCES projekt_status(ID),
+FOREIGN KEY (Besitzer) REFERENCES user(ID)
 )");
 
 echo "<p>Projekt Tabelle erstellt.</p>";
 
 
 include "DefaultPermission.php";
+include "DefaultProjektStatus.php";
 
 echo "<br/>";
 echo "<p>Vorgang abgeschlossen!</p>";
