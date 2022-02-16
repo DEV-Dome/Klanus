@@ -41,7 +41,10 @@ if(!$rang->hasPermission("user.overview")){
         <div id="<?php echo $row["ID"];?>" class="rangUbersichtConatiner">
             <button class="rangUbersichtName " style="background-color: <?php echo $row["BackgroundColor"]?>;color: <?php echo $row["Color"]?>;"><?php echo $row["Name"] . "<br/>"; ?></button>
 
-            <i class="rangUbersichtDscribe"><?php echo substr($row["Beschreibung"], 0, 50);  if(strlen($row["Beschreibung"]) >= 51) echo " [...]"; ?></i>
+            <span class="rangUbersichtUserZahl" style="<?php if($row["Verifiziert"]){ echo "color: #14FF00 !important;"; }?>" ><i class="bi bi-check2-circle"></i></span>
+
+
+            <i class="rangUbersichtDscribe"><?php echo substr($row["Beschreibung"], 0, 30);  if(strlen($row["Beschreibung"]) >= 31) echo " [...]"; ?></i>
 
             <button onclick="" class="button buttonDelete"><i class="bi bi-pencil"></i></button>
             <button onclick="" class="button buttonDelete"><i class="bi bi-patch-check"></i></button>
