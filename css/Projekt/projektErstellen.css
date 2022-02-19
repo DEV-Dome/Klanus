@@ -1,0 +1,17 @@
+
+.buttonCrate {
+    float: right;
+    width: 15%;
+    height: 8%;
+    font-size: 150%;
+    border: none;
+    outline: none;
+
+    margin-right: 3%;
+    margin-top: 3%;
+
+    background-color: rgba(69, 255, 88, 0.25);
+    color: #45FF58;
+
+    border-radius: 3%;
+}

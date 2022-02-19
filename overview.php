@@ -24,11 +24,18 @@ $rang = new Rang($_SESSION['Rang'], $pdo);
     <script src="https://code.jquery.com/jquery-latest.js"></script>
     <script src="js/loader.js"></script>
     <script src="js/Main.js"></script>
+    <script src="js/projekt.js"></script>
     <script src="js/userSettings.js"></script>
 
     <link href="css/main.css" rel="stylesheet">
     <link href="css/mainHandy.css" rel="stylesheet">
     <link href="css/MainPages/userDasboard.css" rel="stylesheet">
+
+    <!-- Allgemeine CSS Classen-->
+    <link href="acp/css/classes.css" rel="stylesheet">
+    <link href="acp/css/classes_handy.css" rel="stylesheet">
+
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -51,6 +58,27 @@ $rang = new Rang($_SESSION['Rang'], $pdo);
 
     <div id="displayBereich">
         <nav id="LeisteLinks" class="LeisteLinkSehenNein">
+            <li style="padding-left: 3%; !important;" class="LeisteLinksPunkt">
+                <select style="text-align: center" class="input_fild_normal input_dark_background" onchange="if(this.value == -100) loadMainPage('newProjekt.php')">
+                    <?php
+                    //TODO: Auch Projeckt wo man Mitgild ist anzeigen!
+                    $sth = $pdo->prepare("SELECT * FROM projekt WHERE Besitzer = ?");
+                    $sth->bindParam(1, $_SESSION["ID"]);
+                    $sth->execute();
+
+                    if($sth->rowCount() == 0){
+                        echo "<option>Kein Projekt gefunden</option>";
+                    }else {
+                        foreach ($sth->fetchAll() as $row) {
+                            ?>
+                            <option><?php echo $row["Name"] ?></option>
+                            <?php
+                        }
+                    }
+                    ?>
+                    <option value="-100">Projekt Erstellen</option>
+                </select>
+            </li>
             <li onclick='loadMainPage("userDashboard.php");' class="LeisteLinksPunkt"><i class="bi bi-house-door LeisteLinksPunktAktiv"></i> Home</li>
             <li class="LeisteLinksPunkt"><i class="bi bi-bookmark"></i> Datenbibliothek</li>
             <li class="LeisteLinksPunkt"><i class="bi bi-gear"></i> Administration</li>

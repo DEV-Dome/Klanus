@@ -98,6 +98,9 @@
     background-color: #17213D;
     border-radius: 10px;
 }
+.input_dark_background{
+    background-color: #0D172E !important;
+}
 .input_fild_half{
     margin-top: 2%;
     margin-left: 2%;
@@ -153,6 +156,22 @@
 }
 .display_name:first-letter {
     text-transform: uppercase;
+}
+.feedback_hub {
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 6%;
+
+    height: 6%;
+
+    padding-top: 7px;
+    padding-left: 11px;
+
+    background-color: rgba(69, 255, 88, 0.25);
+
+    border-radius: 10px;
+
+    display: none;
 }
 
 /* Große Displays*/
