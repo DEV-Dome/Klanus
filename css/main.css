@@ -22,8 +22,11 @@ body {
 
     background-color: #17213D;
 }
+.forntEndLeisteObenPB{
+    margin-left: 66% !important;
+}
 #LeisteObenTitle {
-    width: 15% !important;
+    width: 15%;
 
     padding-top: 1.5%;
     padding-bottom: 1%;
@@ -125,13 +128,15 @@ body {
 }
 .DropdownUserMenuListeElement{
     list-style: none;
-    font-size: 170%;
+    font-size: 125%;
     cursor: pointer;
 
     padding-top: 2.6%;
     padding-bottom: 2.6%;
     padding-left: 12%;
     padding-right: 12%;
+
+    text-align: center;
 }
 .DropdownUserMenuListeElement:hover {
     background-color: #0D172E;

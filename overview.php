@@ -48,9 +48,8 @@ $rang = new Rang($_SESSION['Rang'], $pdo);
 
         <li class="LeisteObenLink" >Team</li>
         <li class="LeisteObenLink" >Partner</li>
-
             <?php
-                $loadPgClasses = "LeisteObenPB";
+                $loadPgClasses = "LeisteObenPB forntEndLeisteObenPB";
                 $loadPgOnClick = "";
                 include "php/user/get/UserImage.php";
             ?>
@@ -94,7 +93,7 @@ $rang = new Rang($_SESSION['Rang'], $pdo);
 
         <div id="DropdownUserMenu" onmouseover="ShowDropDown()" onmouseleave="DiesableDropDown()">
             <ul id="DropdownUserMenuListe">
-                <li onclick="location.href = 'acp/' " class="DropdownUserMenuListeElement DropdownUserMenuListeElementFrist">Administration</li>
+               <?php if($rang->hasPermission("acp.use")) {?> <li onclick="location.href = 'acp/' " class="DropdownUserMenuListeElement DropdownUserMenuListeElementFrist">Administration</li><?php } ?>
                 <li onclick="loadMainPage('settings.php')" class="DropdownUserMenuListeElement">Einstellungen</li>
                 <li class="DropdownUserMenuListeElement">Support</li>
                 <li onclick="loadMainPage('logout.php')" class="DropdownUserMenuListeElement DropdownUserMenuListeElementred">Abmelden</li>

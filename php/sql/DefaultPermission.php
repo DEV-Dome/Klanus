@@ -30,16 +30,23 @@ addPermission("user.edit.password", "user: Password Bearbeiten", "user",$pdo);
 addPermission("user.edit.agb", "user: AGB Bearbeiten", "user",$pdo);
 addPermission("user.delete", "user: Löschen", "user",$pdo);
 addPermission("user.edit.assign", "user: Rang zuweisen", "user",$pdo);
-echo "<p>user Rechte eingerichtet.</p>";
+echo "<p>User Rechte eingerichtet.</p>";
 
+/*projekt*/
 addPermission("projekt.overview", "projekt: einsehen", "projekt", $pdo);
-addPermission("projekt.add", "projekt: Erstellen", "projekt", $pdo);
+//addPermission("projekt.add", "projekt: Erstellen", "projekt", $pdo);
 addPermission("projekt.edit", "projekt: Bearbeiten (Übersicht)", "projekt", $pdo);
+addPermission("projekt.add.premium", "projekt: Erstellen [Premium]", "projekt", $pdo);
+addPermission("projekt.add.partner", "projekt: Erstellen [Partner]", "projekt", $pdo);
 
 echo "<p>Projekt Rechte eingerichtet.</p>";
+
 /*Global*/
 addPermission("acp.use", "Admininterface: Ansehen & Bedienen", "ACP", $pdo);
 addPermission("acp.support", "Admininterface: Support sehen", "ACP", $pdo);
+
+echo "<p>Allgemine Rechte eingerichtet.</p>";
+
 
 foreach ($pdo->query("SELECT * FROM rang_permission") as $row) {
     foreach ($pdo->query("SELECT * FROM rang") as $row1) {

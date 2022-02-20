@@ -16,7 +16,11 @@ include_once "../php/sql/connection.php";
 include_once "../php/rang/Rang.php";
 $rang = new Rang($_SESSION['Rang'], $pdo);
 //
-//Permission abfrage!
+if(!$rang->hasPermission("acp.use")){
+    echo "<erro>Dafür hast du nicht die nötigen Permission.";
+    exit();
+}
+
 ?>
 <html>
 <head>

@@ -33,7 +33,14 @@ if(!isset($outputpfad)){
 
 $verzeichnis = $overPath."php/upload/user/profielimg/";
 $verzeichnisout = $outputpfad."php/upload/user/profielimg/";
-$out = '<img onclick="'.$loadPgOnClick.'" id="pb_settings" width="200px" src="'.$outputpfad.'/assets/Default_profiel.png" class="'.$loadPgClasses.'" alt="Dein Profiel Bild konnte nicht geladen werden">';
+
+// wenn das Oberste verzeichnis gewählt ist, nur den unterordner wählen!
+if($outputpfad == ""){
+    $out = '<img onclick="'.$loadPgOnClick.'" id="pb_settings" width="200px" src="assets/Default_profiel.png" class="'.$loadPgClasses.'" alt="Dein Profiel Bild konnte nicht geladen werden">';
+}else {
+    $out = '<img onclick="'.$loadPgOnClick.'" id="pb_settings" width="200px" src="'.$outputpfad.'/assets/Default_profiel.png" class="'.$loadPgClasses.'" alt="Dein Profiel Bild konnte nicht geladen werden">';
+}
+
 
 if ( is_dir ( $verzeichnis )){
     if ( $handle = opendir($verzeichnis) ) {
