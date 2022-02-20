@@ -1,8 +1,8 @@
 <?php
 
-addProjektStatus("Userprojekt", "Das ist ein Projekt, welches von einem User erstellt wurde.", 0, $pdo);
-addProjektStatus("Privatprojekt", "Das ist ein Projekt, welches von einem User erstellt wurde. Und dem man nur über eine Einladung beitreten kann.", 0, $pdo);
-addProjektStatus("Premium", "Das ist ein Projekt, welches von einem Premium User erstellt wurde.", 0, $pdo);
+addProjektStatus("Userprojekt", "Das ist ein Projekt, welches von einem user erstellt wurde.", 0, $pdo);
+addProjektStatus("Privatprojekt", "Das ist ein Projekt, welches von einem user erstellt wurde. Und dem man nur über eine Einladung beitreten kann.", 0, $pdo);
+addProjektStatus("Premium", "Das ist ein Projekt, welches von einem Premium user erstellt wurde.", 0, $pdo);
 addProjektStatus("Partner", "Das ist ein Projekt, welches von einem Partner erstellt wurde.", 0, $pdo);
 addProjektStatus("Offiziell", "Das ist ein Projekt, welches von von der Plattform erstellt wurde.", 0, $pdo);
 addProjektStatus("Gesperrt", "Dieses Projekt wurde gesperrt.", 1, $pdo);

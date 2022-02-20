@@ -25,10 +25,29 @@ if(strlen($name) <= 5){
     exit();
 }
 
+$sth = $pdo->prepare("SELECT * FROM projekt WHERE Name = ? LIMIT 1");
+$sth->bindParam(1, $name);
+$sth->execute();
+
+foreach ($sth->fetchAll() as $row) {
+    echo "<erro>Ein Projekt mit diesem Namen gibt es schon</erro>";
+    exit();
+}
+
 if(strlen($kurzel) != 3){
     echo "<erro>Das Projektkürzel muss genau 3 Zeichen lang sein</erro>";
     exit();
 }
+
+$sth = $pdo->prepare("SELECT * FROM projekt WHERE Kurzel = ? LIMIT 1");
+$sth->bindParam(1, $kurzel);
+$sth->execute();
+
+foreach ($sth->fetchAll() as $row) {
+    echo "<erro>Ein Projekt mit diesem Kürzel gibt es schon</erro>";
+    exit();
+}
+
 if($type == 3 || $type == 4){
     if($type == 3){
         if(!$rang->hasPermission("projekt.add.premium")){

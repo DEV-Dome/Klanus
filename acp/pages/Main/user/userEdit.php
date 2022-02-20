@@ -47,7 +47,7 @@ foreach($sth->fetchAll() as $row) {
     User Bearbeiten
 </div>
 
-<div class="page_main" >
+<div class="page_main page_main_scroll_hidden" >
     <input <?php if(!$rang->hasPermission("user.edit.name")) echo "disabled"; ?> onchange="setNewUserName(this.value, <?php echo $id;?>);" value="<?php echo $name ?>" type="text" placeholder="Name" id="name" class="input_fild_normal">
 
     <input  <?php if(!$rang->hasPermission("user.edit.mail")) echo "disabled"; ?> onchange="setNewEmail(this.value, <?php echo $id;?>)" value="<?php echo $email ?>" type="text" placeholder="Email" id="email" class="input_fild_normal">

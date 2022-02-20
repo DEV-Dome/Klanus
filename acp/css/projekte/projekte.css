@@ -1,0 +1,3 @@
+.rangUbersichtName::first-letter {
+    text-transform: uppercase;
+}

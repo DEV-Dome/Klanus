@@ -21,7 +21,7 @@ $rang = new Rang($_SESSION['Rang'], $pdo);
     Neues Projekt
 </div>
 
-<div class="page_main" >
+<div class="page_main page_main_scroll_hidden" >
     <input type="text" placeholder="Name" id="name" class="input_fild_normal">
     <input type="text" placeholder="Kürzel" id="kurzel" class="input_fild_normal">
 

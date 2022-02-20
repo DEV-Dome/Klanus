@@ -30,6 +30,7 @@ if(!$rang->hasPermission("acp.use")){
     <script src="js/acpLoader.js"></script>
     <script src="js/rang.js"></script>
     <script src="js/user.js"></script>
+    <script src="js/projekte.js"></script>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
@@ -64,13 +65,14 @@ if(!$rang->hasPermission("acp.use")){
 
 <div id="displayBereich">
     <nav id="LeisteLinks" class="LeisteLinkSehenNein">
+       <!-- <li class="LeisteLinksPunkt LeisteLinksPunktOver">Seiten verwaltung:</li> -->
         <li onclick='' class="LeisteLinksPunkt"><i class="bi bi-columns-gap LeisteLinksPunktAktiv"></i> Dashboard</li>
         <li onclick="loadMainPage('user/user.php');" class="LeisteLinksPunkt"><i class="bi bi-person"></i> User Verwaltung</li>
         <li onclick="loadMainPage('rang/rang.php');" class="LeisteLinksPunkt"><i class="bi bi-shield"></i> Rang Verwaltung</li>
-        <li class="LeisteLinksPunkt"><i class="bi bi-pin-angle"></i> Ankündigungen</li>
-        <li class="LeisteLinksPunkt"><i class="bi bi-terminal"></i> Module</li>
         <li onclick="loadMainPage('projekt/projekt.php');" class="LeisteLinksPunkt"><i class="bi bi-kanban"></i> Projekt</li>
-
+        <hr>
+      <!--  <li class="LeisteLinksPunkt LeisteLinksPunktOver">User intaktionen:</li> -->
+        <li class="LeisteLinksPunkt"><i class="bi bi-pin-angle"></i> Ankündigungen</li>
         <li onclick="openbar()" class="LeisteLinksPunkt onlyMobile"><i class="bi bi-x-lg"></i> schlissen</li>
     </nav>
 

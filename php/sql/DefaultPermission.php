@@ -30,7 +30,7 @@ addPermission("user.edit.password", "user: Password Bearbeiten", "user",$pdo);
 addPermission("user.edit.agb", "user: AGB Bearbeiten", "user",$pdo);
 addPermission("user.delete", "user: Löschen", "user",$pdo);
 addPermission("user.edit.assign", "user: Rang zuweisen", "user",$pdo);
-echo "<p>User Rechte eingerichtet.</p>";
+echo "<p>user Rechte eingerichtet.</p>";
 
 /*projekt*/
 addPermission("projekt.overview", "projekt: einsehen", "projekt", $pdo);
@@ -38,6 +38,7 @@ addPermission("projekt.overview", "projekt: einsehen", "projekt", $pdo);
 addPermission("projekt.edit", "projekt: Bearbeiten (Übersicht)", "projekt", $pdo);
 addPermission("projekt.add.premium", "projekt: Erstellen [Premium]", "projekt", $pdo);
 addPermission("projekt.add.partner", "projekt: Erstellen [Partner]", "projekt", $pdo);
+addPermission("projekt.edit.verifiziert", "projekt: Verifiziert Bearbeiten", "projekt", $pdo);
 
 echo "<p>Projekt Rechte eingerichtet.</p>";
 

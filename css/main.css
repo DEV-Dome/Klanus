@@ -10,6 +10,7 @@ body {
     font-family: Poppins;
 
     overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 /*Navbar [Oben]*/
@@ -77,7 +78,13 @@ body {
     display: flex;
     flex-direction: row;
 }
+.LeisteLinksPunktOver{
+    text-decoration: underline;
+    cursor: default !important;
 
+    font-size: 116% !important;
+    padding-top: 4% !important;
+}
 .LeisteLinksPunkt {
     list-style: none;
     padding-left: 15%;

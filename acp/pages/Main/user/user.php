@@ -29,7 +29,7 @@ if(!$rang->hasPermission("user.overview")){
 
     <div class="page_main" >
         <?php
-        $sth = $pdo->prepare("SELECT * FROM User ORDER BY ID");
+        $sth = $pdo->prepare("SELECT * FROM user ORDER BY ID");
         $sth->execute();
 
         foreach($sth->fetchAll() as $row) {
