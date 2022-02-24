@@ -15,6 +15,40 @@ function chanceVerfiziert(pid){
         }
     });
 }
+function chanceLock(pid){
+    var form_data = new FormData();
+
+    form_data.append("id", pid);
+
+    $.ajax({
+        type: 'POST',
+        url: 'php/projekt/lockProjekt.php',
+        contentType: false,
+        processData: false,
+        data: form_data,
+        success: function (response) {
+            console.log(response)
+            loadMainPage("projekt/projekt.php");
+        }
+    });
+}
+function deleteProjekt(pid){
+    var form_data = new FormData();
+
+    form_data.append("id", pid);
+
+    $.ajax({
+        type: 'POST',
+        url: 'php/projekt/deleteProjekt.php',
+        contentType: false,
+        processData: false,
+        data: form_data,
+        success: function (response) {
+            console.log(response)
+            loadMainPage("projekt/projekt.php");
+        }
+    });
+}
 function setNewProjektName(name, id){
     var form_data = new FormData();
 

@@ -43,6 +43,8 @@ addPermission("projekt.edit.status", "projekt: Status Bearbeiten", "projekt", $p
 addPermission("projekt.add.premium", "projekt: Erstellen [Premium]", "projekt", $pdo);
 addPermission("projekt.add.partner", "projekt: Erstellen [Partner]", "projekt", $pdo);
 addPermission("projekt.edit.verifiziert", "projekt: Verifiziert Bearbeiten", "projekt", $pdo);
+addPermission("projekt.edit.lock", "projekt: Spree ein Projekt ", "projekt", $pdo);
+addPermission("projekt.delete", "projekt: Löschen ", "projekt", $pdo);
 
 echo "<p>Projekt Rechte eingerichtet.</p>";
 

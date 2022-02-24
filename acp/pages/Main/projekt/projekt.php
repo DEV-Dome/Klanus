@@ -43,14 +43,15 @@ if(!$rang->hasPermission("user.overview")){
             <button class="rangUbersichtName " style="background-color: <?php echo $row["BackgroundColor"]?>;color: <?php echo $row["Color"]?>;"><?php echo $row["Name"] . "<br/>"; ?></button>
 
             <span class="rangUbersichtUserZahl" style="<?php if($row["Verifiziert"]){ echo "color: #14FF00 !important;"; }?>" ><i class="bi bi-check2-circle"></i></span>
+            <span class="rangUbersichtUserZahl" style="<?php if($row["Status"] == 6){ echo "color: red !important;"; }?>" ><i class="bi bi-lock-fill"></i></span>
 
 
             <i class="rangUbersichtDscribe"><?php echo substr($row["Beschreibung"], 0, 30);  if(strlen($row["Beschreibung"]) >= 31) echo " [...]"; ?></i>
 
             <button onclick="loadMainPage('projekt/editProjekt.php?id=<?php echo $row["ID"]?>')" class="button buttonDelete"><i class="bi bi-pencil"></i></button>
-            <button onclick="chanceVerfiziert(<?php echo $row["ID"]?>)" class="button buttonDelete"><i class="bi bi-patch-check"></i></button>
-             <button onclick="" class="button buttonEdit under-button"><i class="bi bi-x-circle"></i></button>
-             <button onclick="" class="button buttonEdit under-button"><i class="bi bi-lock-fill"></i></button>
+            <button onclick="chanceVerfiziert(<?php echo $row["ID"]?>)" class="button buttonDelete"><i class="bi bi-check2-circle"></i></button>
+             <button onclick="deleteProjekt(<?php echo $row["ID"]?>)" class="button buttonEdit under-button"><i class="bi bi-x-circle"></i></button>
+             <button onclick="chanceLock(<?php echo $row["ID"]?>)" class="button buttonEdit under-button"><i class="bi bi-lock-fill"></i></button>
         </div>
         <?php
     }

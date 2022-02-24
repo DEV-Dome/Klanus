@@ -53,14 +53,18 @@ foreach($sth->fetchAll() as $row) {
 
     <select onchange="setNewProjektStatus(this.value, <?php echo $id?>);" id="projektType" class="input_fild_half">
         <?php
-        $sth = $pdo->prepare("SELECT * FROM projekt_status WHERE IsDisabled != 1");
+        $sth = $pdo->prepare("SELECT * FROM projekt_status");
         $sth->execute();
 
         foreach($sth->fetchAll() as $row) {
             if($row["ID"] == $status){
-                echo "<option selected value='".$row["ID"]."'>".$row["Name"]."</option>";
+                ?>
+                    <option <?php if($row["ID"] == 6) echo "disabled" ?> selected value='<?php echo $row["ID"] ?>'><?php echo $row["Name"]?></option>
+               <?php
             }else {
-                echo "<option value='".$row["ID"]."'>".$row["Name"]."</option>";
+                ?>
+                    <option <?php if($row["ID"] == 6) echo "disabled" ?> value='<?php echo $row["ID"] ?>'><?php echo $row["Name"]?></option>
+                <?php
             }
         }
         ?>
