@@ -47,10 +47,10 @@ if(!$rang->hasPermission("user.overview")){
 
             <i class="rangUbersichtDscribe"><?php echo substr($row["Beschreibung"], 0, 30);  if(strlen($row["Beschreibung"]) >= 31) echo " [...]"; ?></i>
 
-            <button onclick="" class="button buttonDelete"><i class="bi bi-pencil"></i></button>
+            <button onclick="loadMainPage('projekt/editProjekt.php?id=<?php echo $row["ID"]?>')" class="button buttonDelete"><i class="bi bi-pencil"></i></button>
             <button onclick="chanceVerfiziert(<?php echo $row["ID"]?>)" class="button buttonDelete"><i class="bi bi-patch-check"></i></button>
              <button onclick="" class="button buttonEdit under-button"><i class="bi bi-x-circle"></i></button>
-             <button onclick="" class="button buttonEdit under-button"><i class="bi bi-person-x"></i></button>
+             <button onclick="" class="button buttonEdit under-button"><i class="bi bi-lock-fill"></i></button>
         </div>
         <?php
     }

@@ -25,6 +25,11 @@ if(strlen($name) <= 5){
     exit();
 }
 
+if(strlen($name) >= 13){
+    echo "<erro>Der Projektname draf maximal 12 Zeichen lang sein.</erro>";
+    exit();
+}
+
 $sth = $pdo->prepare("SELECT * FROM projekt WHERE Name = ? LIMIT 1");
 $sth->bindParam(1, $name);
 $sth->execute();
