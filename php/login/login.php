@@ -13,8 +13,8 @@ function mySha512($str, $salt,$pepper, $iterations)
 include "../sicherheit/XSS.php";
 include "../sql/connection.php";
 
-$name = strtolower(trim(xss_clean($_GET["name"])));
-$passwort = trim(xss_clean($_GET["passwort"]));
+$name = strtolower(trim(xss_clean($_POST["name"])));
+$passwort = trim(xss_clean($_POST["passwort"]));
 
 
 $sth = $pdo->prepare("SELECT * FROM user WHERE Email = ? LIMIT 1");
@@ -33,7 +33,7 @@ foreach ($sth->fetchAll() as $row) {
         echo "Du bist eingeloggt.";
         exit();
     }else {
-        echo "Das eigebende passwort ist falsch.";
+        echo "<erro>Es konnte keine E-mail Adresse oder Username: '$name', gefunden werden.</erro>";
         exit();
     }
 }
@@ -54,10 +54,10 @@ foreach ($sth->fetchAll() as $row) {
         echo "Du bist eingeloggt.";
         exit();
     }else {
-        echo "Das eigebende passwort ist falsch.";
+        echo "<erro>Es konnte keine E-mail Adresse oder Username: '$name', gefunden werden.</erro>";
         exit();
     }
 }
 
-echo "Es konnte keine E-mail Adresse oder Username: '$name', gefunden werden.";
+echo "<erro>Es konnte keine E-mail Adresse oder Username: '$name', gefunden werden.</erro>";
 ?>

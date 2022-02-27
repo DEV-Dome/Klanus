@@ -15,7 +15,7 @@ include_once "../../php/rang/Rang.php";
 $rang = new Rang($_SESSION['Rang'], $pdo);
 ?>
 
-<link href="css/Projekt/projektErstellen.css" rel="stylesheet">
+<link href="css/MainPages/Projekt/projektErstellen.css" rel="stylesheet">
 
 <div class="headline_conatiner" >
     Neues Projekt

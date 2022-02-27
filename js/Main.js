@@ -1,15 +1,21 @@
 
 function ShowDropDown(){
+    if(!(!!document.getElementById("DropdownUserMenu"))) return;
+
     document.getElementById("DropdownUserMenu").style.display = "Block";
 }
 function DiesableDropDown(){//DropdownUserMenu, LeisteOben
+    if(!(!!document.getElementById("DropdownUserMenu"))) return;
+
     document.getElementById("DropdownUserMenu").style.display = "none";
 }
 function openbar(safemode = false){
     let element = document.getElementById("LeisteLinks");
     let main = document.getElementById("MainSek_container");
 
-
+    if(!(!!element) || !(!!main)){
+        return;
+    }
     if(element.classList.contains("LeisteLinkSehenJa")){
         element.classList.add("LeisteLinkSehenNein");
         element.classList.remove("LeisteLinkSehenJa");

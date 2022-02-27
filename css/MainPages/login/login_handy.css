@@ -1,0 +1,16 @@
+@media only screen and (max-width: 1000px) and (min-width: 10px) {
+    .linkText {
+        width: 98%;
+        text-align: center;
+    }
+
+    .buttonAnmeldung {
+        width: 35%;
+    }
+
+}
+@media only screen and (max-width: 600px) and (min-width: 10px) {
+    .buttonAnmeldung {
+        width: 55% !important;
+    }
+}

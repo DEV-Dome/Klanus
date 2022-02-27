@@ -19,10 +19,10 @@ function zufallsstring ($stinglaenge) {
 include "../sicherheit/XSS.php";
 include "../sql/connection.php";
 
-$name = strtolower(trim(xss_clean($_GET["name"])));
-$passwort = trim(xss_clean($_GET["passwort"]));
-$passwortw = trim(xss_clean($_GET["passwortw"]));
-$mail = strtolower(trim(xss_clean($_GET["email"])));
+$name = strtolower(trim(xss_clean($_POST["name"])));
+$passwort = trim(xss_clean($_POST["passwort"]));
+$passwortw = trim(xss_clean($_POST["passwortw"]));
+$mail = strtolower(trim(xss_clean($_POST["email"])));
 $pepper = zufallsstring(12);
 
 $Boolfalse = false;
@@ -35,7 +35,7 @@ $sth->bindParam(1, $mail);
 $sth->execute();
 
 foreach ($sth->fetchAll() as $row) {
-    echo "Diese E-Mail ist bereits registriert!";
+    echo "<erro>Diese E-Mail ist bereits registriert!</erro>";
     exit();
 }
 
@@ -44,27 +44,27 @@ $sth->bindParam(1, $name);
 $sth->execute();
 
 foreach ($sth->fetchAll() as $row) {
-    echo "Dieser Username ist bereits registriert!";
+    echo "<erro>Dieser Username ist bereits registriert!</erro>";
     exit();
 }
 
 if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
-    echo "Du hast keine gültige E-Mail angegeben!";
+    echo "<erro>Du hast keine gültige E-Mail angegeben!</erro>";
     exit();
 }
 
 if ($passwort !== $passwortw) {
-    echo "Die Passwörter stimmen nicht überein!";
+    echo "<erro>Die Passwörter stimmen nicht überein!</erro>";
     exit();
 }
 
 if (strlen($passwort) <= 7 || strlen($passwort) >= 512) {
-    echo "Dein Passwort muss mindestens 8 Zeichen haben!";
+    echo "<erro>Dein Passwort muss mindestens 8 Zeichen haben!</erro>";
     exit();
 }
 
 if (strlen($name) <= 2 || strlen($name) >= 128) {
-    echo "Dein Username muss mindestens 3 Zeichen haben!";
+    echo "<erro>Dein Username muss mindestens 3 Zeichen haben!</erro>";
     exit();
 }
 

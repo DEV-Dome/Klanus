@@ -1,83 +1,132 @@
 <?php
 session_start();
 
-if(isset($_SESSION["Login"])){
-    ?>
-    <script>
-        location.href = "overview.php";
-    </script>
-    <?php
-exit();
+$overPath = "";
+$login = true;
+
+// rang
+include_once "php/sql/connection.php";
+include_once "php/rang/Rang.php";
+
+$rang = "";
+if(!isset($_SESSION["Login"])){
+    $login = false;
+    $rang = new Rang(2, $pdo);
+}else {
+    $rang = new Rang($_SESSION['Rang'], $pdo);
 }
-
-
 
 ?>
 <html>
 <head>
-    <title>Klanus Login</title>
+    <title>Klanus - Overview</title>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script src="js/loader.js"></script>
+    <script src="js/Main.js"></script>
+    <script src="js/projekt.js"></script>
+    <script src="js/userSettings.js"></script>
 
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/mainHandy.css" rel="stylesheet">
+    <link href="css/MainPages/userDasboard.css" rel="stylesheet">
+
+    <!-- Allgemeine CSS Classen-->
+    <link href="acp/css/classes.css" rel="stylesheet">
+    <link href="acp/css/classes_handy.css" rel="stylesheet">
+
+    <!-- Login Javascript-->
     <script src="js/login.js" ></script>
 
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #17a2b8;
-            height: 100vh;
-        }
-        #login .container #login-row #login-column #login-box {
-            margin-top: 120px;
-            max-width: 600px;
-            height: 400px;
-            border: 1px solid #9C9C9C;
-            background-color: #EAEAEA;
-        }
-        #login .container #login-row #login-column #login-box #login-form {
-            padding: 20px;
-        }
-        #login .container #login-row #login-column #login-box #login-form #register-link {
-            margin-top: -85px;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8"/>
 </head>
-
 <body>
-<div id="login">
-    <div class="container">
-        <div id="login-row" class="row justify-content-center align-items-center">
-            <div id="login-column" class="col-md-6">
-                <div id="login-box" class="col-md-12">
-                    <div id="login-form" class="form" action="" method="post">
-                        <h3 class="text-center text-info">Login</h3>
-                        <div class="form-group">
-                            <label for="username" class="text-info">Name oder E-mail:</label><br>
-                            <input type="text" name="username" id="username" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="password" class="text-info">Password:</label><br>
-                            <input type="password" name="password" id="password" class="form-control">
-                        </div>
-                        <div class="form-group">
+    <nav id="LeisteOben" onmouseover="ShowDropDown()" onmouseleave="DiesableDropDown()">
+        <span id="LeisteObenTitle">Custy</span>
 
-                            <br/>
-                            <input onclick="login(document.getElementById('username').value, document.getElementById('password').value)" type="submit" name="submit" class="btn btn-info btn-md" value="senden">
-                        </div>
-                        <div id="register-link" class="text-right">
-                            <a href="register.php" class="text-info">Hier Registern</a>
-                        </div>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <span id="res" ></span>
-                    </div>
-                </div>
-            </div>
+        <li class="LeisteObenLink" >Team</li>
+        <li class="LeisteObenLink" >Partner</li>
+            <?php
+                if($login){
+                    //wenn eingeloggt
+                    $loadPgClasses = "LeisteObenPB forntEndLeisteObenPB";
+                    $loadPgOnClick = "";
+                    include "php/user/get/UserImage.php";
+                }else {
+                    //wenn nicht eingeloggt
+                    ?>
+                    <li onclick="loadMainPage('login/login.php')" class='LeisteObenLink LeisteObenLink-LastElement'>Anmelden / Registrien</li>
+                    <?php
+                }
+
+            ?>
+    </nav>
+
+    <div id="displayBereich">
+        <nav id="LeisteLinks" class="LeisteLinkSehenNein">
+            <li style="padding-left: 3%; !important;" class="LeisteLinksPunkt">
+                <?php if($login) {
+                        // Nur Anzeigen wenn man eingeloggt ist!
+                    ?>
+                    <select style="text-align: center" class="input_fild_normal input_dark_background" onchange="if(this.value == -100) loadMainPage('newProjekt.php')">
+                        <?php
+                        //TODO: Auch Projeckt wo man Mitgild ist anzeigen!
+                        $sth = $pdo->prepare("SELECT * FROM projekt WHERE Besitzer = ?");
+                        $sth->bindParam(1, $_SESSION["ID"]);
+                        $sth->execute();
+
+                        if($sth->rowCount() == 0){
+                            echo "<option>Kein Projekt gefunden</option>";
+                        }else {
+                            foreach ($sth->fetchAll() as $row) {
+                                ?>
+                                <option><?php echo $row["Name"] ?></option>
+                                <?php
+                            }
+                        }
+                    ?>
+                    <option value="-100">Projekt Erstellen</option>
+                </select>
+                <?php }?>
+            </li>
+            <li onclick='loadMainPage("userDashboard.php");' class="LeisteLinksPunkt"><i class="bi bi-house-door LeisteLinksPunktAktiv"></i> Home</li>
+            <li class="LeisteLinksPunkt"><i class="bi bi-bookmark"></i> Datenbibliothek</li>
+            <li class="LeisteLinksPunkt"><i class="bi bi-gear"></i> Administration</li>
+            <li class="LeisteLinksPunkt"><i class="bi bi-person"></i> Team</li>
+            <li onclick="openbar()" class="LeisteLinksPunkt onlyMobile"><i class="bi bi-x-lg"></i> schlissen</li>
+
+        </nav>
+
+        <div id="MainSek_container" >
+            <div onclick="openbar()" id="MainSekMobileController" > <i  class="bi bi-justify mobileSwitchLlogo"></i> </div>
+            <div id="MainSek"></div>
         </div>
+
+        <?php if($login) {
+        // Nur Anzeigen wenn man eingeloggt ist!
+        ?>
+        <div id="DropdownUserMenu" onmouseover="ShowDropDown()" onmouseleave="DiesableDropDown()">
+            <ul id="DropdownUserMenuListe">
+               <?php if($rang->hasPermission("acp.use")) {?> <li onclick="location.href = 'acp/' " class="DropdownUserMenuListeElement DropdownUserMenuListeElementFrist">Administration</li><?php } ?>
+                <li onclick="loadMainPage('settings.php')" class="DropdownUserMenuListeElement">Einstellungen</li>
+                <li class="DropdownUserMenuListeElement">Support</li>
+                <li onclick="loadMainPage('logout.php'); location.reload();" class="DropdownUserMenuListeElement DropdownUserMenuListeElementred">Abmelden</li>
+            </ul>
+        </div>
+        <?php }?>
     </div>
-</div>
+    <footer id="footer">
+        <span class="footerItem">Datenschutz</span>
+        <span class="footerItem">Impressum</span>
+    </footer>
+<script>
+    loadMainPage("userDashboard.php");
+</script>
 </body>
 </html>
