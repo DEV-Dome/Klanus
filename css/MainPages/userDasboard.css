@@ -1,3 +1,60 @@
 #willkommenName:first-letter{
     text-transform: uppercase;
 }
+#MainSek {
+    padding-left: 3%;
+    padding-top: 2%;
+}
+.dashbordUberschrift{
+    font-size: 115%;
+    margin-top: 2%;
+}
+
+.dashbordProjektKasten{
+    background-color: #0D172E;
+    height: 28%;
+    width: 15%;
+    border-radius: 25px;
+}
+.dashbordProjektImg{
+    display: inherit;
+    width: 32%;
+    margin-left: 34%;
+    margin-top: 4%;
+    border-radius: 100%;
+
+    border-style: solid;
+    border-color: #7B8B9E;
+}
+.dashbordProjektName {
+    width: 100%;
+    text-align: center;
+}
+.dashbordProjektButton {
+    height: 15%;
+    width: 55%;
+
+    font-weight: 500;
+    font-size: 16px;
+    text-align: center;
+
+    margin-left: 22.5%;
+    margin-right: 22.5%;
+
+    border: none;
+    outline:none;
+
+    color: #45FF58;
+    background-color: rgba(69, 255, 88, 0.25);
+
+    border-radius: 25px;
+}
+.Projekttool {
+    display: inline-block;
+    margin-top: 6%;
+    margin-left: 6%;
+}
+.Projekttoolright {
+    float: right;
+    margin-right: 6%;
+}
