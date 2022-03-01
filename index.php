@@ -28,7 +28,6 @@ if(!isset($_SESSION["Login"])){
 
     <link href="css/main.css" rel="stylesheet">
     <link href="css/mainHandy.css" rel="stylesheet">
-    <link href="css/MainPages/userDasboard.css" rel="stylesheet">
 
     <!-- Allgemeine CSS Classen-->
     <link href="acp/css/classes.css" rel="stylesheet">

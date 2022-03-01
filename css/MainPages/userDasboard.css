@@ -12,9 +12,11 @@
 
 .dashbordProjektKasten{
     background-color: #0D172E;
-    height: 28%;
+    height: 100%;
     width: 15%;
     border-radius: 25px;
+    margin-right: 5%;
+    margin-right: 5%;
 }
 .dashbordProjektImg{
     display: inherit;
@@ -38,8 +40,7 @@
     font-size: 16px;
     text-align: center;
 
-    margin-left: 22.5%;
-    margin-right: 22.5%;
+    margin-left: 24.5%;
 
     border: none;
     outline:none;
@@ -57,4 +58,10 @@
 .Projekttoolright {
     float: right;
     margin-right: 6%;
+}
+.flexbox{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 28%;
 }
