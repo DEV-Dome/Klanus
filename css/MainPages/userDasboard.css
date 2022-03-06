@@ -65,3 +65,11 @@
     justify-content: center;
     height: 28%;
 }
+.buttonMoreProjekts {
+    display: inline-block;
+    font-size: 42px;
+    margin-top: 2%;
+}
+.buttonMoreProjektsContainer {
+    text-align: center;
+}
