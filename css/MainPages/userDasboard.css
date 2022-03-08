@@ -12,8 +12,8 @@
 
 .dashbordProjektKasten{
     background-color: #0D172E;
-    height: 100%;
-    width: 15%;
+    height: 24vh;
+    width: 12vw;
     border-radius: 25px;
     margin-right: 5%;
     margin-right: 5%;
@@ -63,7 +63,15 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    height: 28%;
+    height: 24vh;
+    width: 78vw;
+    margin-top: 2vh;
+}
+.flexbox_container {
+    height: 32vh;
+    width: 78vw;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 .buttonMoreProjekts {
     display: inline-block;
@@ -72,4 +80,25 @@
 }
 .buttonMoreProjektsContainer {
     text-align: center;
+}
+.flexbox_container_news {
+    height: 23vh;
+    width: 78vw;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+.dashbordNewsKasten {
+    background-color: #0D172E;
+    height: 19vh;
+    width: 25vw;
+    border-radius: 25px;
+    margin-right: 5%;
+    margin-right: 5%;
+}
+.newsTitle {
+    text-align: center;
+}
+.newsIhnhalt {
+    margin-left: 2vw;
+    margin-right: 2vw;
 }
