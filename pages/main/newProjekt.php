@@ -18,7 +18,7 @@ $rang = new Rang($_SESSION['Rang'], $pdo);
 <link href="css/MainPages/Projekt/projektErstellen.css" rel="stylesheet">
 
 <div class="headline_conatiner" >
-    Neues Projekt
+    <!-- Neues Projekt -->
 </div>
 
 <div class="page_main page_main_scroll_hidden" >
