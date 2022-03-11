@@ -5,6 +5,14 @@
  * $loadPgOnClick - Auszuführende Sachen im onclick auf das Bild
  * */
 
+
+if(!function_exists("startsWith")){
+    function startsWith ($string, $startString){
+        $len = strlen($startString);
+        return (substr($string, 0, $len) === $startString);
+    }
+}
+
 if(!isset($_SESSION)){
     session_start();
 }
@@ -58,9 +66,4 @@ if ( is_dir ( $verzeichnis )){
 
 echo $out;
 
-function startsWith ($string, $startString)
-{
-    $len = strlen($startString);
-    return (substr($string, 0, $len) === $startString);
-}
 ?>

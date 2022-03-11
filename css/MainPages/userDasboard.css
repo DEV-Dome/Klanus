@@ -101,3 +101,74 @@
     margin-left: 2vw;
     margin-right: 2vw;
 }
+@media only screen and (min-width: 769px) and (max-width: 1919px) {
+    .dashbordProjektKasten{
+        width: 35%;
+        margin-bottom: 10%;
+    }
+    .dashbordProjektImg {
+        margin-left: 25%;
+    }
+    .bi-x-diamond-fill {
+        display: none;
+    }
+    .buttonMoreProjekts {
+        display: none;
+    }
+}
+@media only screen and (min-width: 1140px) and (max-width: 1919px) {
+    .dashbordProjektKasten{
+        width: 20%;
+    }
+    .dashbordProjektImg {
+        margin-left: 25%;
+        margin-top: 15%;
+    }
+    .bi-x-diamond-fill {
+        display: none;
+    }
+    .buttonMoreProjekts {
+        display: block;
+    }
+    .bi-check2-circle {
+        display: none;
+    }
+    .dashbordProjektButton {
+        width: 70%;
+        margin-left: 16.5%;
+    }
+}
+
+@media only screen and (min-width: 1601px) and (max-width: 1919px) {
+    .dashbordProjektKasten{
+        width: 20%;
+    }
+    .dashbordProjektImg {
+        margin-left: 25%;
+        margin-top: 5%;
+    }
+    .bi-x-diamond-fill {
+        display: none;
+    }
+    .buttonMoreProjekts {
+        display: block;
+    }
+    .bi-check2-circle {
+        display: none;
+    }
+    .dashbordProjektButton {
+        width: 70%;
+        margin-left: 16.5%;
+    }
+}
+
+/* Über FULL HD*/
+@media only screen and (min-width: 1921px) {
+    .bi-x-diamond-fill {
+        display: none;
+    }
+    .dashbordProjektImg {
+        margin-left: 27%;
+        margin-top: 15%;
+    }
+}
