@@ -1,5 +1,7 @@
 <?php
 session_start();
+error_reporting(E_ALL);
+
 
 $overPath = "../../../../";
 if(!isset($_SESSION["Login"])){
@@ -12,16 +14,18 @@ if(!isset($_SESSION["Login"])){
 }
 
 // rang
-include_once "../../../../php/sql/connection.php";
-include_once "../../../../php/rang/rang.php";
+include "../../../../php/sql/connection.php";
+include "../../../../php/rang/Rang.php";
+
 $rang = new Rang($_SESSION['Rang'], $pdo);
 if(!$rang->hasPermission("user.overview")){
     exit("not permission");
 }
+
 ?>
-<link href="css/User/User.css" rel="stylesheet">
-<link href="css/User/User_handy.css" rel="stylesheet">
-<link href="css/User/user_tablet.css" rel="stylesheet">
+<link href="css/user/user.css" rel="stylesheet">
+<link href="css/user/user_handy.css" rel="stylesheet">
+<link href="css/user/user_tablet.css" rel="stylesheet">
 
     <div class="headline_conatiner">
         User
@@ -35,6 +39,7 @@ if(!$rang->hasPermission("user.overview")){
         foreach($sth->fetchAll() as $row) {
             $userRang = new Rang($row["Rang"], $pdo);
             echo "<div class='conatiner_user'>";
+
                 $loadPgClasses = "userListeBild";
                 $loadPgOnClick = "";
                 $outputpfad = "../";

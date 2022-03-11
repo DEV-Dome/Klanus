@@ -47,7 +47,7 @@ if ( is_dir ( $verzeichnis )){
         // einlesen der Verzeichnisses
         while (($file = readdir($handle)) !== false) {
             if($file == "." || $file == "..") continue;
-            if(str_starts_with($file, $bid)){
+            if(startsWith($file, $bid)){
                 $pgPath = $verzeichnisout . $file;
                 $out = '<img onclick="'.$loadPgOnClick.'" id="pb_settings" width="200px" src="'.$pgPath.'" class="'.$loadPgClasses.'" alt="Dein Profiel Bild konnte nicht geladen werden">';
             }
@@ -57,4 +57,10 @@ if ( is_dir ( $verzeichnis )){
 }
 
 echo $out;
+
+function startsWith ($string, $startString)
+{
+    $len = strlen($startString);
+    return (substr($string, 0, $len) === $startString);
+}
 ?>

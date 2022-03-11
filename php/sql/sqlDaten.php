@@ -1,6 +1,6 @@
 <?php
 $port = "3306";
 $host = "localhost";
-$username = "root";
-$password = "";
-$datenbank = "Klanus";
+$username = "dominic";
+$password = "Dominic0#";
+$datenbank = "klanus";

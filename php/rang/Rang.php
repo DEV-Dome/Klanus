@@ -24,6 +24,7 @@ class Rang
            return;
        }
 
+
         $this->permission = array();
         $this->rangid = $rangid;
 

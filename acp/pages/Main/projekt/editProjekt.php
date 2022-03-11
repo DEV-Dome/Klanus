@@ -12,7 +12,7 @@ if(!isset($_SESSION["Login"]) || !isset($_GET["id"])){
     exit();
 }
 include_once "../../../../php/sql/connection.php";
-include_once "../../../../php/rang/rang.php";
+include_once "../../../../php/rang/Rang.php";
 $rang = new Rang($_SESSION['Rang'], $pdo);
 if(!$rang->hasPermission("projekt.edit")){
     exit("not permission");
@@ -39,7 +39,7 @@ foreach($sth->fetchAll() as $row) {
 
 ?>
 
-<link href="css/Projekt/projektErstellen.css" rel="stylesheet">
+<link href="css/projekt/projektErstellen.css" rel="stylesheet">
 
 <div class="headline_conatiner" >
     Projekt bearbeiten

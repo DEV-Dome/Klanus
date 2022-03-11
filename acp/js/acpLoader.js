@@ -7,7 +7,7 @@ function loadMainPage(seite, id = ""){
 
     $.ajax({
         type: 'POST',
-        url: 'pages/main/' + seite,
+        url: 'pages/Main/' + seite,
         contentType: false,
         processData: false,
         data: form_data,

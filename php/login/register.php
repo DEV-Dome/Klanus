@@ -68,15 +68,14 @@ if (strlen($name) <= 2 || strlen($name) >= 128) {
     exit();
 }
 
-
 $safepw = mySha512($passwort, $salt, $pepper, 10000);
-$sth = $pdo->prepare("INSERT INTO user (Email, Password, AGB, Activ, ProfielIMG, Rang, Name, Pepper) VALUE (?, ?, ?, ?, ?, ?, ?, ?)");
+$sth = $pdo->prepare("INSERT INTO user (Email, Password, Agb, Activ, ProfielIMG, Rang, Name, Pepper) VALUE (?, ?, ?, ?, ?, ?, ?, ?)");
 
 $sth->bindParam(1, $mail);
 $sth->bindParam(2, $safepw);
-$sth->bindParam(3, $Boolfalse);
-$sth->bindParam(4, $Boolfalse);
-$sth->bindParam(5, $null);
+$sth->bindParam(3, 0);
+$sth->bindParam(4, 0);
+$sth->bindParam(5, 0);
 $sth->bindParam(6, $rang);
 $sth->bindParam(7, $name);
 $sth->bindParam(8, $pepper);

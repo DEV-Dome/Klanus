@@ -13,7 +13,7 @@ if(!isset($_SESSION["Login"])){
 
 // rang
 include_once "../../../../php/sql/connection.php";
-include_once "../../../../php/rang/rang.php";
+include_once "../../../../php/rang/Rang.php";
 $rang = new Rang($_SESSION['Rang'], $pdo);
 
 if(!$rang->hasPermission("user.edit")){
@@ -39,9 +39,9 @@ foreach($sth->fetchAll() as $row) {
 }
 
 ?>
-<link href="css/User/User.css" rel="stylesheet">
-<link href="css/User/User_handy.css" rel="stylesheet">
-<link href="css/User/user_tablet.css" rel="stylesheet">
+<link href="css/user/user.css" rel="stylesheet">
+<link href="css/user/user_handy.css" rel="stylesheet">
+<link href="css/user/user_tablet.css" rel="stylesheet">
 
 <div class="headline_conatiner" >
     User Bearbeiten

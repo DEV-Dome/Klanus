@@ -12,11 +12,11 @@
 
 .dashbordProjektKasten{
     background-color: #0D172E;
-    height: 24vh;
-    width: 12vw;
+    height: 100%;
+    width: 15%;
     border-radius: 25px;
-    margin-right: 5%;
-    margin-right: 5%;
+    margin-right: 4.5%;
+    display: inline-block;
 }
 .dashbordProjektImg{
     display: inherit;
@@ -25,8 +25,6 @@
     margin-top: 4%;
     border-radius: 100%;
 
-    border-style: solid;
-    border-color: #7B8B9E;
 }
 .dashbordProjektName {
     width: 100%;
@@ -60,7 +58,7 @@
     margin-right: 6%;
 }
 .flexbox{
-    display: flex;
+    display: inline-block;
     flex-direction: row;
     justify-content: center;
     height: 24vh;
@@ -97,6 +95,7 @@
 }
 .newsTitle {
     text-align: center;
+    padding-top: 1vh;
 }
 .newsIhnhalt {
     margin-left: 2vw;

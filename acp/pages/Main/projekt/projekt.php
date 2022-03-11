@@ -14,7 +14,7 @@ if(!isset($_SESSION["Login"])){
 
 // rang
 include_once "../../../../php/sql/connection.php";
-include_once "../../../../php/rang/rang.php";
+include_once "../../../../php/rang/Rang.php";
 $rang = new Rang($_SESSION['Rang'], $pdo);
 
 if(!$rang->hasPermission("user.overview")){

@@ -17,6 +17,7 @@ $rang = new Rang($_SESSION['Rang'], $pdo);
 ?>
 
 <link href="css/MainPages/userDasboard.css" rel="stylesheet">
+<link href="css/MainPages/userDasbord_handy.css" rel="stylesheet">
 
 <h1>Willkommen <span id="willkommenName"><?php echo $_SESSION['Name'] ?></span></h1>
 

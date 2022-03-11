@@ -1,0 +1,35 @@
+@media only screen and (max-width: 1024px) {
+    #MainSek {
+        overflow-y: scroll !important;
+    }
+    .flexbox_container {
+        height: 30vh !important;
+    }
+    .dashbordProjektKasten {
+        width: 90%;
+        margin-left: 5%;
+        margin-bottom: 5%;
+        overflow-y: scroll !important;
+    }
+    .dashbordUberschrift {
+        margin-top: 5% !important;
+    }
+    .dashbordNewsKasten {
+        width: 90%;
+        margin-left: 5%;
+        margin-bottom: 5%;
+        overflow-y: scroll;
+    }
+    .flexbox_container {
+        overflow-y: unset !important;
+    }
+    .buttonMoreProjekts {
+        visibility: hidden;
+    }
+    .flexbox_container_news {
+       overflow-y: scroll;
+    }
+}
+@media only screen and (max-width: 1024px) {
+
+}
