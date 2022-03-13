@@ -60,7 +60,7 @@ $rang = new Rang($_SESSION['Rang'], $pdo);
             <img class="dashbordProjektImg" src="assets/default_projeckt.png">
 
             <p class="dashbordProjektName"><?php echo $row["Name"]; if($row["Verifiziert"]) { ?> <i style="color: #45FF58;" class="bi bi-check2-circle"></i> <?php }?></p>
-            <button class="dashbordProjektButton">Zum Projekt</button>
+            <button onclick="joinProjekt(<?php echo $row["ID"] ?>)" class="dashbordProjektButton">Zum Projekt</button>
         </div>
         <?php
         $i++;
