@@ -63,7 +63,7 @@ Beschreibung LONGTEXT NOT NULL,
 IsDisabled BOOL NOT NULL
 )");
 
-echo "<p>Projekt Status erstellt.</p>";
+echo "<p>projekt Status erstellt.</p>";
 
 $pdo->query("CREATE TABLE IF NOT EXISTS projekt(
 ID INT(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -80,7 +80,7 @@ FOREIGN KEY (Status) REFERENCES projekt_status(ID),
 FOREIGN KEY (Besitzer) REFERENCES user(ID)
 )");
 
-echo "<p>Projekt Tabelle erstellt.</p>";
+echo "<p>projekt Tabelle erstellt.</p>";
 
 
 include "DefaultPermission.php";

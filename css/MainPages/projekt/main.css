@@ -1,0 +1,80 @@
+.headline {
+    vertical-align: top;
+    display: inline-block;
+
+    margin-top: 3.5%;
+    margin-left: 2%;
+
+    font-size: 26px;
+}
+.headline_small {
+    vertical-align: top;
+    display: inline-block;
+
+    margin-top: 1%;
+    margin-left: 2%;
+
+    font-size: 16px;
+}
+.headline_small_sigel {
+    margin-top: 1%;
+    margin-left: 2%;
+
+    font-size: 16px;
+}
+.projekt_desc {
+    margin-left: 2%;
+
+    font-size: 12px;
+
+    height: 22%;
+}
+.ankundigungen {
+    display: flex;
+    margin-left: 2%;
+    margin-right: 2%;
+
+    height: 45%;
+}
+.ankundigung_item {
+    height: 100%;
+    width: 22%;
+
+    display: inline-block;
+    background-color: #0D172E;
+
+    margin-right: 3%;
+
+    border-radius: 10px;
+}
+.ankundigung_headline {
+    font-size: 14px;
+    width: 100%;
+    text-align: center;
+}
+.ankundigung_img{
+    width: 90%;
+    height: 40%;
+    margin-left: 3%;
+}
+.ankundigung_zusammenfassung {
+    font-size: 12px;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+.abzeichen {
+    vertical-align: top;
+    display: inline-block;
+
+    width: 8%;
+    text-align: center;
+
+    margin-top: 4%;
+    margin-left: 1%;
+
+    font-size: 14px;
+
+    color: #45FF58;
+    background: rgba(69, 255, 88, 0.25);
+    border-radius: 10px;
+}

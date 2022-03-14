@@ -81,7 +81,7 @@ if(!isset($_SESSION["Login"])){
                         $sth->execute();
 
                         if($sth->rowCount() == 0){
-                            echo "<option>Kein Projekt gefunden</option>";
+                            echo "<option>Kein projekt gefunden</option>";
                         }else {
                             foreach ($sth->fetchAll() as $row) {
                                 ?>

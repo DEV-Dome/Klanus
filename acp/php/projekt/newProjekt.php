@@ -16,7 +16,7 @@ $name = strtolower(trim(xss_clean($_POST["name"])));
 $kurzel = strtolower(trim(xss_clean($_POST["kurzel"])));
 $beschreibung = trim(xss_clean($_POST["beschreibung"]));
 $type = intval(trim(xss_clean($_POST["type"])));
-$verifiziert = 0; // ein Projekt ist am anfang immer nicht Verifiziert
+$verifiziert = 0; // ein projekt ist am anfang immer nicht Verifiziert
 
 $rang = new Rang($_SESSION['Rang'], $pdo);
 
@@ -35,7 +35,7 @@ $sth->bindParam(1, $name);
 $sth->execute();
 
 foreach ($sth->fetchAll() as $row) {
-    echo "<erro>Ein Projekt mit diesem Namen gibt es schon</erro>";
+    echo "<erro>Ein projekt mit diesem Namen gibt es schon</erro>";
     exit();
 }
 
@@ -49,7 +49,7 @@ $sth->bindParam(1, $kurzel);
 $sth->execute();
 
 foreach ($sth->fetchAll() as $row) {
-    echo "<erro>Ein Projekt mit diesem Kürzel gibt es schon</erro>";
+    echo "<erro>Ein projekt mit diesem Kürzel gibt es schon</erro>";
     exit();
 }
 
@@ -79,5 +79,5 @@ $sth->bindParam(6, $_SESSION["ID"]);
 $sth->execute();
 
 //TODO: Automische weiterleitung zum Projeckt
-echo "Projekt erstellt: $name";
+echo "projekt erstellt: $name";
 ?>

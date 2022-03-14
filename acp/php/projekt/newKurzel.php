@@ -19,7 +19,7 @@ $sth->bindParam(1, $kurzel);
 $sth->execute();
 
 foreach ($sth->fetchAll() as $row) {
-    echo "<erro>Dieses Projekt ist bereits vorhanden!";
+    echo "<erro>Dieses projekt ist bereits vorhanden!";
     exit();
 }
 
