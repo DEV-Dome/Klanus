@@ -37,6 +37,7 @@ foreach ($sth->fetchAll() as $row) {
 ?>
 
 <link href="css/MainPages/projekt/main.css" rel="stylesheet">
+<link href="css/MainPages/projekt/main_handy.css" rel="stylesheet">
 <p class="headline"><?php echo $pname; ?></p>
 <span class="abzeichen"><?php echo $sname; ?></span>
 
