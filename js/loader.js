@@ -38,6 +38,7 @@ function loadProjektPage(seite){
         data: form_data,
         success: function (response) {
             document.getElementById("MainSek").innerHTML = response;
+            setUploadAktiv();
         }
     });
 }

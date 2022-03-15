@@ -25,6 +25,7 @@ if(!isset($_SESSION["Login"])){
     <script src="js/Main.js"></script>
     <script src="js/projekt.js"></script>
     <script src="js/userSettings.js"></script>
+    <script src="js/projektEinstellungen.js"></script>
 
     <link href="css/main.css" rel="stylesheet">
     <link href="css/mainHandy.css" rel="stylesheet">
