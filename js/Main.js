@@ -1,3 +1,20 @@
+function loadbar(idProjekt){
+    var form_data = new FormData();
+
+    form_data.append("projekt", idProjekt);
+
+    $.ajax({
+        type: 'POST',
+        url: 'php/user/Elements/MenuBar.php',
+        contentType: false,
+        processData: false,
+        data: form_data,
+        success: function (response) {
+            document.getElementById("LeisteLinks").innerHTML = response;
+        }
+    });
+}
+
 
 function ShowDropDown(){
     if(!(!!document.getElementById("DropdownUserMenu"))) return;

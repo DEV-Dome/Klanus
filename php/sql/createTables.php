@@ -82,9 +82,25 @@ FOREIGN KEY (Besitzer) REFERENCES user(ID)
 
 echo "<p>projekt Tabelle erstellt.</p>";
 
+$pdo->query("CREATE TABLE IF NOT EXISTS modul(
+ID INT(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+Name VARCHAR(64) NOT NULL,
+Beschreibung LONGTEXT NOT NULL, 
+IsProjekt BOOL NOT NULL DEFAULT 0,
+ProjektState INT(10) NOT NULL,
+Icon VARCHAR(128) NOT NULL,
+Ordner VARCHAR(128) NOT NULL,
+    
+    
+FOREIGN KEY (ProjektState) REFERENCES projekt_status(ID)
+)");
+
+echo "<p>Modul Tabelle erstellt.</p>";
+
 
 include "DefaultPermission.php";
 include "DefaultProjektStatus.php";
+include "DefaultModul.php";
 
 echo "<br/>";
 echo "<p>Vorgang abgeschlossen!</p>";

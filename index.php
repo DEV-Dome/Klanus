@@ -69,37 +69,9 @@ if(!isset($_SESSION["Login"])){
 
     <div id="displayBereich">
         <nav id="LeisteLinks" class="LeisteLinkSehenNein">
-            <li style="padding-left: 3%; !important;" class="LeisteLinksPunkt">
-                <?php if($login) {
-                        // Nur Anzeigen wenn man eingeloggt ist!
-                    ?>
-                    <select style="text-align: center" class="input_fild_normal input_dark_background" onchange="if(this.value == -100) loadMainPage('newProjekt.php')">
-                        <?php
-                        //TODO: Auch Projeckt wo man Mitgild ist anzeigen!
-                        $sth = $pdo->prepare("SELECT * FROM projekt WHERE Besitzer = ?");
-                        $sth->bindParam(1, $_SESSION["ID"]);
-                        $sth->execute();
-
-                        if($sth->rowCount() == 0){
-                            echo "<option>Kein projekt gefunden</option>";
-                        }else {
-                            foreach ($sth->fetchAll() as $row) {
-                                ?>
-                                <option><?php echo $row["Name"] ?></option>
-                                <?php
-                            }
-                        }
-                    ?>
-                    <option value="-100">Projekt Erstellen</option>
-                </select>
-                <?php }?>
-            </li>
-            <li onclick='loadMainPage("userDashboard.php");' class="LeisteLinksPunkt"><i class="bi bi-house-door LeisteLinksPunktAktiv"></i> Home</li>
-            <li class="LeisteLinksPunkt"><i class="bi bi-bookmark"></i> Datenbibliothek</li>
-            <li class="LeisteLinksPunkt"><i class="bi bi-gear"></i> Administration</li>
-            <li class="LeisteLinksPunkt"><i class="bi bi-person"></i> Team</li>
-            <li onclick="openbar()" class="LeisteLinksPunkt onlyMobile"><i class="bi bi-x-lg"></i> schlissen</li>
-
+            <script>
+                loadbar(false);
+            </script>
         </nav>
 
         <div id="MainSek_container" >

@@ -61,6 +61,7 @@ body {
 }
 /*Navbar [Links]*/
 #LeisteLinks {
+    padding-top: 2%;
     width: 13%;
     min-height: 100%;
 
