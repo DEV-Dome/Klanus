@@ -1,5 +1,8 @@
 <?php
 session_start();
+if(isset($_SESSION["projekt.aktiv"])){
+    unset($_SESSION["projekt.aktiv"]);
+}
 
 $overPath = "";
 $login = true;
@@ -26,6 +29,7 @@ if(!isset($_SESSION["Login"])){
     <script src="js/projekt.js"></script>
     <script src="js/userSettings.js"></script>
     <script src="js/projektEinstellungen.js"></script>
+    <script src="pages/projekt/modules/einstellungen/js/Main.js"></script>
 
     <link href="css/main.css" rel="stylesheet">
     <link href="css/mainHandy.css" rel="stylesheet">
@@ -86,6 +90,7 @@ if(!isset($_SESSION["Login"])){
         <div id="DropdownUserMenu" onmouseover="ShowDropDown()" onmouseleave="DiesableDropDown()">
             <ul id="DropdownUserMenuListe">
                <?php if($rang->hasPermission("acp.use")) {?> <li onclick="location.href = 'acp/' " class="DropdownUserMenuListeElement DropdownUserMenuListeElementFrist">Administration</li><?php } ?>
+                <li onclick="loadMainPage('newProjekt.php')" class="DropdownUserMenuListeElement">Neues Projekt</li>
                 <li onclick="loadMainPage('settings.php')" class="DropdownUserMenuListeElement">Einstellungen</li>
                 <li class="DropdownUserMenuListeElement">Support</li>
                 <li onclick="loadMainPage('logout.php'); location.reload();" class="DropdownUserMenuListeElement DropdownUserMenuListeElementred">Abmelden</li>

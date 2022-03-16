@@ -15,15 +15,18 @@ function newProjeckt(name, kurzel, beschreibung, type){
         data: form_data,
         success: function (response) {
             //TODO: Automische weiterleitung zum Projeckt
+            let str = response.split(";;;");
+
             if(response.startsWith("<erro>")){
                 document.getElementById("feedback_hub").style.backgroundColor = "rgba(229, 51, 51, 0.25)";
             }else if(response == ""){
                 return;
             }else {
                 document.getElementById("feedback_hub").style.backgroundColor = "rgba(69, 255, 88, 0.25)";
+                joinProjekt(str[1]);
             }
 
-            document.getElementById("feedback_hub").innerHTML = response;
+            document.getElementById("feedback_hub").innerHTML = str[0];
             document.getElementById("feedback_hub").style.display = "block";
         }
     });

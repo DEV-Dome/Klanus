@@ -14,6 +14,9 @@ if(!isset($_SESSION["Login"])){
 if(!isset($_GET["pid"])){
     exit("projekt nicht vorhanden!");
 }
+//setzten des Projeckts
+$_SESSION["projekt.aktiv"] = $_GET["pid"];
+
 $id = $_GET["pid"];
 $pname = ""; //projekt name
 $sname = ""; //status name
@@ -41,8 +44,16 @@ foreach ($sth->fetchAll() as $row) {
 <p class="headline"><?php echo $pname; ?></p>
 <span class="abzeichen"><?php echo $sname; ?></span>
 
+<?php
+$loadPgClasses = "projekt_img";
+$outputpfad = "";
+include "../../php/projekt/get/Image.php";
+?>
+
 <p class="headline_small_sigel">Das Projekte</p>
 <p class="projekt_desc"><?php echo $beschreibung; ?></p>
+
+
 
 <p class="headline_small_sigel">Ankündigungen</p>
 <div class="ankundigungen">

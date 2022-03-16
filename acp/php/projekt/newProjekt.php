@@ -78,6 +78,14 @@ $sth->bindParam(5, $verifiziert);
 $sth->bindParam(6, $_SESSION["ID"]);
 $sth->execute();
 
+$sth = $pdo->prepare("SELECT max(ID) AS 'ID' FROM projekt");
+$sth->execute();
+
+$nid = 0;
+foreach ($sth->fetchAll() as $row) {
+    $nid = $row["ID"];
+}
+
 //TODO: Automische weiterleitung zum Projeckt
-echo "projekt erstellt: $name";
+echo "projekt erstellt: $name;;;$nid";
 ?>

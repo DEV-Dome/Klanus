@@ -79,3 +79,11 @@
     background: rgba(69, 255, 88, 0.25);
     border-radius: 10px;
 }
+.projekt_img {
+    float: right;
+    width: 5%;
+    margin-top: 2%;
+    margin-right: 2%;
+
+    border-radius: 100%;
+}

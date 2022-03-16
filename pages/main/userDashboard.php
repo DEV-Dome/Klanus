@@ -57,7 +57,13 @@ $rang = new Rang($_SESSION['Rang'], $pdo);
             <span class="Projekttool"><i  style="color: #fff408;" class="bi bi-x-diamond-fill"></i></span>
             <span class="Projekttool Projekttoolright"><i class="bi bi-heart"></i></span>
 
-            <img class="dashbordProjektImg" src="assets/default_projeckt.png">
+            <!--<img class="dashbordProjektImg" src="assets/default_projeckt.png"> -->
+            <?php
+            $loadPgClasses = "dashbordProjektImg";
+            $pid = $row["ID"];
+            $outputpfad = "";
+            include "../../php/projekt/get/Image.php";
+            ?>
 
             <p class="dashbordProjektName"><?php echo $row["Name"]; if($row["Verifiziert"]) { ?> <i style="color: #45FF58;" class="bi bi-check2-circle"></i> <?php }?></p>
             <button onclick="joinProjekt(<?php echo $row["ID"] ?>)" class="dashbordProjektButton">Zum Projekt</button>

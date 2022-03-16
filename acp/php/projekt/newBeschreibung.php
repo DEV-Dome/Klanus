@@ -5,7 +5,7 @@ include "../../../php/sicherheit/XSS.php";
 include "../../../php/rang/Rang.php";
 include "../../../php/sql/connection.php";
 
-$beschreibung = strtolower(trim(xss_clean($_POST["name"])));
+$beschreibung = (trim(xss_clean($_POST["name"])));
 $id = trim(xss_clean($_POST["id"]));
 
 $rang = new Rang($_SESSION['Rang'], $pdo);
@@ -19,4 +19,4 @@ $sth->bindParam(1, $beschreibung);
 $sth->bindParam(2, $id);
 $sth->execute();
 
-echo "Das Neue Projektbeschreibung ist: $beschreibung";
+echo "Die Neue Projektbeschreibung ist: $beschreibung";

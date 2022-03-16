@@ -44,3 +44,13 @@
     font-size: 14px;
     text-align: center;
 }
+.buttonDeleteProjekt {
+    margin-top: 2%;
+    width: 15% !important;
+    height: unset !important;
+
+    border-radius: 2%;
+
+    background-color: rgba(229, 51, 51, 0.25);
+    color: #E53333;
+}

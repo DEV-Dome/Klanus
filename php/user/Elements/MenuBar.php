@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "../../sql/connection.php";
 $isProjekt =  $_POST["projekt"];
 $sth = "";
@@ -12,7 +13,7 @@ if($isProjekt == 1){
 $sth->execute();
 foreach ($sth->fetchAll() as $row) {
     ?>
-    <li <?php if($row["Ordner"] == "-") {?> onclick='loadMainPage("userDashboard.php");' <?php } else if($isProjekt == 1) {?> onclick='loadProjektPage("<?php echo $row["Ordner"]?>");' <?php } ?>
+    <li <?php if($row["Ordner"] == "-" && $row["IsProjekt"] == false) {?> onclick='loadMainPage("userDashboard.php");' <?php } else if($row["Ordner"] == "-" && $row["IsProjekt"] == true){ ?>onclick='joinProjekt(<?php echo $_SESSION["projekt.aktiv"]?>);'<?php } else if($isProjekt == 1) {?> onclick='loadProjektPage("<?php echo $row["Ordner"]?>");' <?php } ?>
         class="LeisteLinksPunkt"><i class="bi <?php echo $row["Icon"]?>"></i> <?php echo $row["Name"]?></li>
     <?php
 }

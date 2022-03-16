@@ -1,0 +1,10 @@
+@media only screen and (max-width: 768px) {
+    .drop-zone {
+        width: 70% !important;
+        margin-top: 7% !important;
+        margin-left: 8% !important;
+    }
+    .buttonDeleteProjekt {
+        display: none;
+    }
+}
