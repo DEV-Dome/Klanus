@@ -85,6 +85,13 @@ $nid = 0;
 foreach ($sth->fetchAll() as $row) {
     $nid = $row["ID"];
 }
+$sth = $pdo->prepare("INSERT INTO projekt_rang (Name, Dscribe, BackgroundColor, Color , Prioritat, Projekt, Isdefault ) VALUE('Administrator', 'Dieser Rang hat alle Berechtigungen; es ist mit Vorsicht umzugehen!', 'rgba(229, 51, 51, 0.25)', '#E53333', 100, $nid, 1)");
+$sth->execute();
+
+$sth = $pdo->prepare("INSERT INTO projekt_rang (Name, Dscribe, BackgroundColor, Color , Prioritat, Projekt, Isdefault ) VALUE('User', 'Dieser Rang ist der Standert Rang. Jeder bekommt ihn.', 'rgba(199, 205, 216, 0.25)', '#C7CDD8', 100, $nid, 1)");
+$sth->execute();
+
+include "../../../pages/projekt/modules/rang/assets/DefaultPermission.php";
 
 //TODO: Automische weiterleitung zum Projeckt
 echo "projekt erstellt: $name;;;$nid";

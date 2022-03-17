@@ -97,6 +97,38 @@ FOREIGN KEY (ProjektState) REFERENCES projekt_status(ID)
 
 echo "<p>Modul Tabelle erstellt.</p>";
 
+$pdo->query("CREATE TABLE IF NOT EXISTS projekt_rang(
+ID int(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+Name VARCHAR(100) NOT NULL,
+Dscribe TEXT(500),
+BackgroundColor VARCHAR(64), 
+Color VARCHAR(64), 
+Prioritat int,
+Projekt int,  
+    
+Isdefault bool NOT NULL,
+FOREIGN KEY (Projekt) REFERENCES projekt(ID)
+)");
+
+$pdo->query("CREATE TABLE IF NOT EXISTS projekt_rang_permission(
+ID int(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+Permission VARCHAR(100) NOT NULL,
+Kategorie VARCHAR(100) NOT NULL,
+Dscribe TEXT(500)
+)");
+
+
+$pdo->query("CREATE TABLE IF NOT EXISTS projekt_rang_permission_syc(
+ID INT(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+Permission INT(10) NOT NULL,
+Rang  INT(10) NOT NULL,
+Haspermission BOOL NOT NULL,
+
+FOREIGN KEY (Permission) REFERENCES projekt_rang_permission(ID),
+FOREIGN KEY (Rang) REFERENCES projekt_rang(ID)
+)");
+
+echo "<p>Projekt Rechte Tabelle erstellt.</p>";
 
 include "DefaultPermission.php";
 include "DefaultProjektStatus.php";

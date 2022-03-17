@@ -32,12 +32,42 @@ foreach ($sth->fetchAll() as $row) {
 }
 
 ?>
-<link href="css/page_settings.css" rel="stylesheet">
+<div class="headline_conatiner" >
+    User Einstellungen
+</div>
+
+
+<div class="page_main" >
+    <div class="mb-2 fild">
+        <input disabled type="number" class="input_fild_normal" id="0" value="<?php echo $id; ?>">
+    </div>
+
+    <div class="mb-2 fild">
+        <input disabled type="text" class="input_fild_normal" id="1" value="<?php echo $email; ?>">
+    </div>
+
+    <div  class="mb-2 fild">
+        <input  type="text" class="input_fild_normal" id="exampleFormControlInput1" value="<?php echo $name; ?>">
+    </div>
+
+    <div  class="mb-2 fild">
+        <input  type="password" class="input_fild_normal" id="2" placeholder="passwort">
+    </div>
+
+    <div  class="mb-2 fild">
+        <input  type="password" class="input_fild_normal" id="3" placeholder="passwort wiederholen">
+    </div>
+
+    <div class="feedback_hub" id="feedback_hub">Feedback</div>
+</div>
+
+
+<!--<link href="css/page_settings.css" rel="stylesheet">
 <div id="settings_warpper">
     <h1 class="Headline">User - Einstellungen</h1>
     <h6 class="Headline_subtest" >An dieser Stelle kannst du deinen Account verwalten.</h6>
 
-    <!-- Einstellungs Kästen-->
+    --><!-- Einstellungs Kästen--> <!--
     <div class="Container_Setting">
         <p class="Container_Headline">Account-Daten</p>
         <p class="Container_Headline_subtext">Hier kannst du alle deine daten abändern</p>
@@ -109,12 +139,12 @@ foreach ($sth->fetchAll() as $row) {
         <br/>
     </div>
 
-    <!-- Enterferm wemm Footer das ist.-->
+    --><!-- Enterferm wemm Footer das ist.--> <!--
     <br/>
     <br/>
     <br/>
 
-</div>
+</div>-->
 
 
 

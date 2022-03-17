@@ -1,0 +1,18 @@
+.newRangButton{
+    float: right;
+    display: inline-block;
+    margin-right: 15%;
+    margin-top: 1%;
+
+    height: 120%;
+
+    background-color: rgba(69, 255, 88, 0.25);
+    color: #45FF58;
+
+    font-size: 20px;
+}
+@media only screen and (max-width: 715px) {
+    .newRangButton {
+        display: none;
+    }
+}
