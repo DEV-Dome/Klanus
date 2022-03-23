@@ -42,6 +42,21 @@ function loadProjektPage(seite){
         }
     });
 }
+function loadProjektUnderPage(modul,seite){
+    var form_data = new FormData();
+
+    $.ajax({
+        type: 'POST',
+        url: 'pages/projekt/modules/' + modul + "/page/" +seite,
+        contentType: false,
+        processData: false,
+        data: form_data,
+        success: function (response) {
+            document.getElementById("MainSek").innerHTML = response;
+            setUploadAktiv();
+        }
+    });
+}
 
 function loadProfielImage(out){
     $.ajax({

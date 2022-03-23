@@ -133,6 +133,7 @@ echo "<p>Projekt Rechte Tabelle erstellt.</p>";
 include "DefaultPermission.php";
 include "DefaultProjektStatus.php";
 include "DefaultModul.php";
+include "../../pages/projekt/modules/rang/assets/DefaultPermission.php";
 
 echo "<br/>";
 echo "<p>Vorgang abgeschlossen!</p>";

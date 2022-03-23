@@ -1,11 +1,17 @@
 <?php
 //include "../../../../../php/sql/connection.php";
 
+/*Einstellungen*/
+addPermissionFrontEnd("setting.name", "Einstellung: Name ändern", "Einstellungen", $pdo);
+addPermissionFrontEnd("setting.kurzel", "Einstellung: Kurzel ändern", "Einstellungen", $pdo);
+addPermissionFrontEnd("setting.beschreibung", "Einstellung: Beschreibung ändern", "Einstellungen", $pdo);
+addPermissionFrontEnd("setting.bild", "Einstellung: Bild ändern", "Einstellungen", $pdo);
+
 /*Rang*/
-addPermission("setting.name", "Einstellung: Name ändern", "Rang", $pdo);
-addPermission("setting.kurzel", "Einstellung: Kurzel ändern", "Rang", $pdo);
-addPermission("setting.beschreibung", "Einstellung: Beschreibung ändern", "Rang", $pdo);
-addPermission("setting.bild", "Einstellung: Bild ändern", "Rang", $pdo);
+addPermissionFrontEnd("rang.name", "Rang: Name ändern", "Rang", $pdo);
+addPermissionFrontEnd("rang.farbe", "Rang: Farbe ändern", "Rang", $pdo);
+addPermissionFrontEnd("rang.beschreibung", "beschreibung: Beschreibung ändern", "Rang", $pdo);
+addPermissionFrontEnd("rang.permission", "Permission: Bild ändern", "Rang", $pdo);
 
 foreach ($pdo->query("SELECT * FROM projekt_rang_permission") as $row) {
     foreach ($pdo->query("SELECT * FROM projekt_rang") as $row1) {
@@ -22,7 +28,7 @@ foreach ($pdo->query("SELECT * FROM projekt_rang_permission") as $row) {
 }
 
 
-function addPermission($permission, $dscribe, $kategorie, $pdo){
+function addPermissionFrontEnd($permission, $dscribe, $kategorie, $pdo){
     foreach ($pdo->query("SELECT * FROM projekt_rang_permission WHERE Permission like '" . $permission . "' LIMIT 1 ") as $row) {
         if ($row["Permission"] == $permission) {
             return;

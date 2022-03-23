@@ -11,6 +11,11 @@
 
     font-size: 20px;
 }
+
+.buttonDeleteFrontEnd{
+   height: 75% !important;
+   font-size: 180% !important;
+}
 @media only screen and (max-width: 715px) {
     .newRangButton {
         display: none;

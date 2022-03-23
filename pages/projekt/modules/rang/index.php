@@ -16,7 +16,7 @@ include "../../../../php/sql/connection.php";
 
 <link href="/" rel="stylesheet">
 <div class="headline_conatiner" >
-    Rang verwaltung <button class="rangUbersichtName newRangButton" style="">Neuen Rang</button>
+    Rang verwaltung <button onclick="loadProjektUnderPage('rang', 'createRang.php')" class="rangUbersichtName newRangButton" style="">Neuen Rang</button>
 </div>
 
 <div class="page_main" >
@@ -30,13 +30,13 @@ include "../../../../php/sql/connection.php";
         ?>
         <div id="<?php echo $row["ID"];?>" ondragstart="dragstart(event)" ondrop="drop(event)" ondragover="allowDrop(event)" draggable="true" class="rangUbersichtConatiner">
             <i  id="<?php echo $row["ID"];?>" class="bi bi-grid-3x3-gap-fill rangUbersichtMoveItem dragtaget"></i>
-            <button class="rangUbersichtName " style="background-color: <?php echo $row["BackgroundColor"]?>;color: <?php echo $row["Color"]?>;"><?php echo $row["Name"] . "<br/>"; ?></button>
+            <button class="rangUbersichtName " style="background-color: <?php echo $row["BackgroundColor"]?>;color: <?php echo $row["Color"]?>;"><?php echo substr($row["Name"], 0,15) . "<br/>"; ?></button>
 
             <span class="rangUbersichtUserZahl"> 0 <i class="bi bi-person"></i></span>
             <i class="rangUbersichtDscribe"><?php echo substr($row["Dscribe"], 0, 50);  if(strlen($row["Dscribe"]) >= 51) echo " [...]"; ?></i>
 
-            <button onclick="loadMainPage('rang/rangCreate.php', <?php echo $row["ID"]; ?>)" class="button buttonDelete"><i class="bi bi-pencil"></i></button>
-            <?php if(!$row["Isdefault"]){ ?> <button onclick="delRank(<?php echo $row["ID"];?>)" class="button buttonEdit"><i class="bi bi-x-circle"></i></button> <?php } ?>
+            <button onclick="loadProjektUnderPage('rang', 'createRang.php?id=<?php echo $row["ID"]?>')" class="button buttonDelete buttonDeleteFrontEnd"><i class="bi bi-pencil"></i></button>
+            <?php if(!$row["Isdefault"]){ ?> <button onclick="delRank(<?php echo $row["ID"];?>)" class="button buttonEdit buttonDeleteFrontEnd"><i class="bi bi-x-circle"></i></button> <?php } ?>
         </div>
         <?php
     }
