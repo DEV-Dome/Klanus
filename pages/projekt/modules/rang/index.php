@@ -22,7 +22,7 @@ include "../../../../php/sql/connection.php";
 <div class="page_main" >
     <?php
 
-    $sth = $pdo->prepare("SELECT * FROM projekt_rang ORDER BY Prioritat DESC");
+    $sth = $pdo->prepare("SELECT * FROM projekt_rang WHERE Projekt =" .$_SESSION["projekt.aktiv"]. " ORDER BY Prioritat DESC");
     $sth->execute();
 
     foreach($sth->fetchAll() as $row) {
