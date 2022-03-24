@@ -14,7 +14,6 @@ include "../../../../php/sql/connection.php";
 <link href="acp/css/rang/rang_handy.css" rel="stylesheet">
 <link href="pages/projekt/modules/rang/css/main.css" rel="stylesheet">
 
-<link href="/" rel="stylesheet">
 <div class="headline_conatiner" >
     Rang verwaltung <button onclick="loadProjektUnderPage('rang', 'createRang.php')" class="rangUbersichtName newRangButton" style="">Neuen Rang</button>
 </div>
