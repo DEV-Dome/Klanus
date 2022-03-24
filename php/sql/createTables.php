@@ -130,6 +130,31 @@ FOREIGN KEY (Rang) REFERENCES projekt_rang(ID)
 
 echo "<p>Projekt Rechte Tabelle erstellt.</p>";
 
+$pdo->query("CREATE TABLE IF NOT EXISTS projekt_user(
+ID INT(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+User INT(10) NOT NULL,
+Projekt INT(10) NOT NULL,
+Rang INT(10) NOT NULL,
+Datum DATETIME NOT NULL,
+    
+
+FOREIGN KEY (User) REFERENCES user(ID),
+FOREIGN KEY (Projekt) REFERENCES projekt(ID),
+FOREIGN KEY (Rang) REFERENCES projekt_rang(ID)
+)");
+
+echo "<p>Projekt-User  Tabelle erstellt.</p>";
+
+$pdo->query("CREATE TABLE IF NOT EXISTS projekt_einladungen(
+ID INT(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+Projekt INT(10) NOT NULL,
+Einladung CHAR(12),
+
+FOREIGN KEY (Projekt) REFERENCES projekt(ID)
+)");
+
+echo "<p>Projekt Einladungen Tabelle erstellt.</p>";
+
 include "DefaultPermission.php";
 include "DefaultProjektStatus.php";
 include "DefaultModul.php";
