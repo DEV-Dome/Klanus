@@ -88,7 +88,29 @@ foreach ($sth->fetchAll() as $row) {
 $sth = $pdo->prepare("INSERT INTO projekt_rang (Name, Dscribe, BackgroundColor, Color , Prioritat, Projekt, Isdefault ) VALUE('Administrator', 'Dieser Rang hat alle Berechtigungen; es ist mit Vorsicht umzugehen!', 'rgba(229, 51, 51, 0.25)', '#E53333', 1000000, $nid, 1)");
 $sth->execute();
 
+$sth = $pdo->prepare("SELECT max(ID) AS 'ID' FROM projekt_rang");
+$sth->execute();
+
+$urid = 0;
+foreach ($sth->fetchAll() as $row) {
+    $urid = $row["ID"];
+}
+
+
 $sth = $pdo->prepare("INSERT INTO projekt_rang (Name, Dscribe, BackgroundColor, Color , Prioritat, Projekt, Isdefault ) VALUE('User', 'Dieser Rang ist der Standert Rang. Jeder bekommt ihn.', 'rgba(199, 205, 216, 0.25)', '#C7CDD8', 1, $nid, 1)");
+$sth->execute();
+
+$true = true;
+$dt = new DateTime();
+$datum = $dt->format("Y-m-d H:i:s");
+
+$sth = $pdo->prepare("INSERT INTO projekt_user (User, Projekt , Rang , IsOwner , Datum) VALUE(?, ?, ?, ?, ?)");
+$sth->bindParam(1, $_SESSION["ID"]);
+$sth->bindParam(2, $nid);
+$sth->bindParam(3, $urid);
+$sth->bindParam(4, $true);
+$sth->bindParam(5, $datum);
+
 $sth->execute();
 
 echo "projekt erstellt: $name;;;$nid";

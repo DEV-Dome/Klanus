@@ -14,7 +14,6 @@ function newProjeckt(name, kurzel, beschreibung, type){
         processData: false,
         data: form_data,
         success: function (response) {
-            //TODO: Automische weiterleitung zum Projeckt
             let str = response.split(";;;");
 
             if(response.startsWith("<erro>")){
@@ -22,6 +21,7 @@ function newProjeckt(name, kurzel, beschreibung, type){
             }else if(response == ""){
                 return;
             }else {
+
                 document.getElementById("feedback_hub").style.backgroundColor = "rgba(69, 255, 88, 0.25)";
                 joinProjekt(str[1]);
             }

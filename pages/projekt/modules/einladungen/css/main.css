@@ -1,0 +1,30 @@
+.item_container {
+    margin-top: 2%;
+    margin-left: 2%;
+
+    width: 100%;
+    height: 10%;
+
+    font-size: 24px;
+    color: #7B8B9E;
+}
+.deleteButton {
+    background-color: rgba(229, 51, 51, 0.25);
+    color: #E53333;
+    font-size: 180% !important;
+}
+.addbutton {
+    margin-right: 15%;
+
+    width: 12%;
+    height: 120%;
+
+    font-size: 20px;
+
+    background-color: rgba(69, 255, 88, 0.25);
+    color: #45FF58;
+
+    text-align: center;
+
+    border-radius: 10px;
+}

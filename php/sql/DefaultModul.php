@@ -7,6 +7,8 @@ addModul("Datenbibliothek", "", 0,1, "-", "bi-bookmark", $pdo);
 //projeckz Module
 addModul("Projekt-Home", "", 1,1, "-", "bi-house-door", $pdo);
 addModul("Rang", "Hier können die Projekt Ränge geändert werden.", 1,1, "rang", "bi-person-lines-fill", $pdo);
+addModul("User", "Hier können die Projekt User Verwaltet werden.", 1,1, "user", "bi-people-fill", $pdo);
+addModul("Einladungen", "Hier können die Projekt einladungen Verwaltet werden.", 1,1, "einladungen", "bi-receipt", $pdo);
 addModul("Einstellungen", "Hier können die Projekt einstellungen geändert werden.", 1,1, "einstellungen", "bi-gear", $pdo);
 
 
