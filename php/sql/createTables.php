@@ -150,8 +150,10 @@ $pdo->query("CREATE TABLE IF NOT EXISTS projekt_einladungen(
 ID INT(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 Projekt INT(10) NOT NULL,
 Einladung CHAR(12),
+User INT(10) NOT NULL,    
 
-FOREIGN KEY (Projekt) REFERENCES projekt(ID)
+FOREIGN KEY (Projekt) REFERENCES projekt(ID),
+FOREIGN KEY (User) REFERENCES user(ID)
 )");
 
 echo "<p>Projekt Einladungen Tabelle erstellt.</p>";

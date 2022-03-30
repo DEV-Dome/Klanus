@@ -12,6 +12,8 @@
     background-color: rgba(229, 51, 51, 0.25);
     color: #E53333;
     font-size: 180% !important;
+
+    margin-right: 7%;
 }
 .addbutton {
     margin-right: 15%;
@@ -27,4 +29,31 @@
     text-align: center;
 
     border-radius: 10px;
+}
+.userListeBild {
+    width: 5%;
+    height: auto;
+
+    margin-right: 1%;
+    margin-left: 2%;
+
+    border-radius: 25%;
+}
+.einladungsText {
+    font-size: 28px;
+    margin-left: 6%;
+    text-transform: capitalize;
+    overflow: hidden;
+    display: inline-block;
+    height: 80%;
+}
+.UserText {
+    font-size: 28px;
+    margin-left: 2%;
+    text-transform: capitalize;
+    overflow: hidden;
+    display: inline-block;
+    height: 80%;
+    width: 15%;
+
 }

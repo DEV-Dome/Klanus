@@ -1,0 +1,24 @@
+/*Allgemeins Handy Desing*/
+@media only screen and (max-width: 425px) {
+    .UserText{
+        visibility: hidden;
+    }
+
+    .userListeBild {
+        visibility: hidden;
+    }
+    .einladungsText {
+        width: 90%;
+        margin-left: 5%;
+        height: 50%;
+    }
+    .deleteButton {
+        width: 35%;
+        margin-right: 33%;
+        margin-bottom: 10%;
+    }
+    .addbutton {
+        width: 80%;
+        margin-bottom: 3%;
+    }
+}
