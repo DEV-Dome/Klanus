@@ -27,7 +27,7 @@
         width: 30%;
      }
 }
-@media only screen and (min-width: 1271px) and (max-width: 1920px) {
+@media only screen and (min-width: 1271px) and (max-width: 1919px) {
     .deleteButton {
         width: 8%;
     }
