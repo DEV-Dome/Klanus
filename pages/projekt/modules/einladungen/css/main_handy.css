@@ -21,4 +21,24 @@
         width: 80%;
         margin-bottom: 3%;
     }
+    .headline_conatiner {
+        font-size: 20px !important;
+    }
+    .headline-text {
+        margin-bottom: 10%;
+        display: inline-block;
+    }
+    .item_container {
+        margin-top: -10% !important;
+    }
+}
+/* Große Handys*/
+@media only screen and (min-width: 376px) and (max-width: 425px) {
+    .headline_conatiner {
+        font-size: 25px !important;
+    }
+    .item_container{
+        text-align: center;
+    }
+
 }

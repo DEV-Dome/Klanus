@@ -13,9 +13,10 @@ include "../../../../php/sql/connection.php";
 
 <link href="pages/projekt/modules/einladungen/css/main.css" rel="stylesheet">
 <link href="pages/projekt/modules/einladungen/css/main_handy.css" rel="stylesheet">
+<link href="pages/projekt/modules/einladungen/css/main_tablet.css" rel="stylesheet">
 
 <div class="headline_conatiner" >
-    Einladungen verwaltung  <button class="button addbutton">Neue Einladung</button>
+    <span class="headline-text" >Einladungen verwaltung</span>  <button class="button addbutton">Neue Einladung</button>
 </div>
 
 <div class="page_main" >
