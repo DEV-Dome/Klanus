@@ -28,6 +28,9 @@ $sth = $pdo->prepare("DELETE FROM projekt_rang WHERE Projekt = ?");
 $sth->bindParam(1, $id);
 $sth->execute();
 
+$sth = $pdo->prepare("DELETE FROM projekt_einladungen WHERE Projekt = ?");
+$sth->bindParam(1, $id);
+$sth->execute();
 
 $sth = $pdo->prepare("DELETE FROM projekt WHERE ID = ?");
 $sth->bindParam(1, $id);

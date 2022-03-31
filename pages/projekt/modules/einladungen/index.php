@@ -1,5 +1,7 @@
 <?php
 session_start();
+
+$overPath = "../../../../";
 if(!isset($_SESSION["Login"])){
     ?>
     <script>
@@ -34,6 +36,7 @@ include "../../../../php/sql/connection.php";
                 $loadPgOnClick = "";
                 $outputpfad = "";
                 $bid =  intval($row["Uid"], 10);
+                echo $bid;
                 include "../../../../php/user/get/UserImage.php";
             ?>
             <i class="UserText"><?php echo $row["Name"] ?></i>
