@@ -57,6 +57,9 @@
     float: right;
     margin-right: 6%;
 }
+.ProjekttoolrightIsFavourite {
+    color: #ff00e3;
+}
 .flexbox{
     display: inline-block;
     flex-direction: row;

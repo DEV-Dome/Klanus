@@ -101,15 +101,17 @@ $sth = $pdo->prepare("INSERT INTO projekt_rang (Name, Dscribe, BackgroundColor, 
 $sth->execute();
 
 $true = true;
+$false = 0;
 $dt = new DateTime();
 $datum = $dt->format("Y-m-d H:i:s");
 
-$sth = $pdo->prepare("INSERT INTO projekt_user (User, Projekt , Rang , IsOwner , Datum) VALUE(?, ?, ?, ?, ?)");
+$sth = $pdo->prepare("INSERT INTO projekt_user (User, Projekt , Rang , IsOwner , Datum, IsFavourite) VALUE(?, ?, ?, ?, ?, ?)");
 $sth->bindParam(1, $_SESSION["ID"]);
 $sth->bindParam(2, $nid);
 $sth->bindParam(3, $urid);
 $sth->bindParam(4, $true);
 $sth->bindParam(5, $datum);
+$sth->bindParam(6, $false);
 
 $sth->execute();
 

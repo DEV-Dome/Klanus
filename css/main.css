@@ -26,6 +26,15 @@ body {
 .forntEndLeisteObenPB{
     margin-left: 66% !important;
 }
+#LeisteObenLogo{
+    width: 12%;
+    height: auto;
+
+    margin-right: 7%;
+}
+#LeisteObenTitleText {
+    vertical-align: super;
+}
 #LeisteObenTitle {
     width: 15%;
 

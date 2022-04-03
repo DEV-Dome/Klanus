@@ -31,3 +31,21 @@ function newProjeckt(name, kurzel, beschreibung, type){
         }
     });
 }
+
+function toogleProjektFavourite(pid){
+    var form_data = new FormData();
+
+    form_data.append("pid", pid);
+
+    $.ajax({
+        type: 'POST',
+        url: 'acp/php/projekt/toogleProjektFavourite.php',
+        contentType: false,
+        processData: false,
+        data: form_data,
+        success: function (response) {
+            loadMainPage("userDashboard.php");
+        }
+
+    });
+}

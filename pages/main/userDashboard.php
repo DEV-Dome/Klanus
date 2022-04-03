@@ -29,9 +29,7 @@ $rang = new Rang($_SESSION['Rang'], $pdo);
         <?php
         $fullansicht = true;
         $i = 0;
-        //TODO: Projeckt wo man mitgild ist hinzufügen
-
-        $sglstr = "SELECT * FROM projekt WHERE Besitzer = ? ";
+        $sglstr = "SELECT * FROM projekt_user,projekt WHERE projekt_user.Projekt = projekt.ID AND User = ? ORDER BY projekt_user.IsFavourite DESC, projekt_user.IsOwner DESC ";
 
         if(!isset($_GET["all"])){
             $sglstr .= "LIMIT 5";
@@ -54,19 +52,27 @@ $rang = new Rang($_SESSION['Rang'], $pdo);
         }
         ?>
         <div class="dashbordProjektKasten">
-            <span class="Projekttool"><i  style="color: #fff408;" class="bi bi-x-diamond-fill"></i></span>
-            <span class="Projekttool Projekttoolright"><i class="bi bi-heart"></i></span>
-
-            <!--<img class="dashbordProjektImg" src="assets/default_projeckt.png"> -->
+             <span class="Projekttool"  <?php if(!$row["IsOwner"]){?> style="visibility: hidden" <?php }?> ><i  style="color: #fff408;" class="bi bi-x-diamond-fill"></i></span>
             <?php
+                if($row["IsFavourite"]) {
+                    //wenn es ein favourite ist
+            ?>
+                    <span onclick="toogleProjektFavourite(<?php echo $row["Projekt"] ?>)" class="Projekttool Projekttoolright ProjekttoolrightIsFavourite"><i class="bi bi-suit-heart-fill"></i></span>
+            <?php
+                }else {
+                    //wenn es kein favourite ist
+            ?>
+                    <span onclick="toogleProjektFavourite(<?php echo $row["Projekt"] ?>)" class="Projekttool Projekttoolright"><i class="bi bi-heart"></i></span>
+            <?php
+            }
             $loadPgClasses = "dashbordProjektImg";
-            $pid = $row["ID"];
+            $pid = $row["Projekt"];
             $outputpfad = "";
             include "../../php/projekt/get/Image.php";
             ?>
 
             <p class="dashbordProjektName"><?php echo $row["Name"]; if($row["Verifiziert"]) { ?> <i style="color: #45FF58;" class="bi bi-check2-circle"></i> <?php }?></p>
-            <button onclick="joinProjekt(<?php echo $row["ID"] ?>)" class="dashbordProjektButton">Zum Projekt</button>
+            <button onclick="joinProjekt(<?php echo $row["Projekt"] ?>)" class="dashbordProjektButton">Zum Projekt</button>
         </div>
         <?php
         $i++;

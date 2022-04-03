@@ -29,6 +29,7 @@ if(!isset($_SESSION["Login"])){
     <script src="js/projekt.js"></script>
     <script src="js/userSettings.js"></script>
     <script src="js/projektEinstellungen.js"></script>
+    <script src="js/userJoinProjekt.js"></script>
 
     <!-- Modul Import für Jaavscript-->
     <script src="pages/projekt/modules/einstellungen/js/Main.js"></script>
@@ -56,7 +57,7 @@ if(!isset($_SESSION["Login"])){
 </head>
 <body>
     <nav id="LeisteOben" onmouseover="ShowDropDown()" onmouseleave="DiesableDropDown()">
-        <span id="LeisteObenTitle">Custy</span>
+       <span id="LeisteObenTitle"><img id="LeisteObenLogo" src="assets/Logo.png"><span id="LeisteObenTitleText">Klanus</span></span>
 
         <li class="LeisteObenLink" >Team</li>
         <li class="LeisteObenLink" >Partner</li>
@@ -100,14 +101,32 @@ if(!isset($_SESSION["Login"])){
                 <li onclick="loadMainPage('logout.php'); location.reload();" class="DropdownUserMenuListeElement DropdownUserMenuListeElementred">Abmelden</li>
             </ul>
         </div>
-        <?php }?>
+    <?php
+    }
+    ?>
     </div>
     <footer id="footer">
         <span class="footerItem">Datenschutz</span>
         <span class="footerItem">Impressum</span>
     </footer>
-<script>
-    loadMainPage("userDashboard.php");
-</script>
+
+
+    <?php
+    if(isset($_GET["join"])){
+        $gets = "?join=" . $_GET["join"];
+        ?>
+        <script>
+            loadMainPage("userJoinProjekt.php<?php echo $gets?>");
+        </script>
+    <?php
+    }else {
+    ?>
+        <script>
+            loadMainPage("userDashboard.php");
+        </script>
+        <?php
+    }
+    ?>
+
 </body>
 </html>
