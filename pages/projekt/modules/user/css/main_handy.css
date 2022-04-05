@@ -1,0 +1,50 @@
+/*Allgemeins Handy Desing*/
+@media only screen and (max-width: 425px) {
+    .UserText{
+        width: 90%;
+        margin-left: 5%;
+        height: 50%;
+        margin-top: 10%;
+        margin-bottom: 10%;
+        text-align: center;
+    }
+
+    .userListeBild {
+        visibility: hidden;
+    }
+    .userUbersichtRang {
+        display: none;
+    }
+    .deleteButton {
+        width: 35%;
+        margin-right: 15%;
+    }
+    .infoButton {
+        width: 35%;
+        margin-right: 6%;
+    }
+    .addbutton {
+        width: 80%;
+        margin-bottom: 3%;
+    }
+    .headline_conatiner {
+        font-size: 20px !important;
+    }
+    .headline-text {
+        margin-bottom: 10%;
+        display: inline-block;
+    }
+    .item_container {
+        margin-top: -10% !important;
+    }
+}
+/* Große Handys*/
+@media only screen and (min-width: 376px) and (max-width: 425px) {
+    .headline_conatiner {
+        font-size: 25px !important;
+    }
+    .item_container{
+        text-align: center;
+    }
+
+}

@@ -39,7 +39,7 @@ include "../../../../php/sql/connection.php";
                 include "../../../../php/user/get/UserImage.php";
             ?>
             <i class="UserText"><?php echo $row["Name"] ?></i>
-           <i class="einladungsText"><?php echo $row["Einladung"] ?></i>
+            <i onclick="navigator.clipboard.writeText('https://klanus.net/?join=<?php echo $row["Einladung"] ?>')" class="einladungsText"><?php echo $row["Einladung"] ?></i>
 
             <button onclick="deleteEinladung(<?php echo $row["Pid"]?>)" class="button deleteButton"><i class="bi bi-x-circle"></i></button>
         </div>

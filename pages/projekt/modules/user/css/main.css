@@ -1,0 +1,81 @@
+.item_container {
+    margin-top: 2%;
+    margin-left: 2%;
+
+    width: 100%;
+    height: 10%;
+
+    font-size: 24px;
+    color: #7B8B9E;
+}
+.deleteButton {
+    background-color: rgba(229, 51, 51, 0.25);
+    color: #E53333;
+    font-size: 180% !important;
+
+    margin-right: 7%;
+}
+.infoButton {
+    background-color: rgb(1,116,223, 0.25);
+    color: #0174DF;
+    font-size: 180% !important;
+
+    margin-right: 2%;
+}
+.addbutton {
+    margin-right: 15%;
+
+    width: 12%;
+    height: 120%;
+
+    font-size: 20px;
+
+    background-color: rgba(69, 255, 88, 0.25);
+    color: #45FF58;
+
+    text-align: center;
+
+    border-radius: 10px;
+}
+.userListeBild {
+    width: 5%;
+    height: auto;
+
+    margin-right: 1%;
+    margin-left: 2%;
+
+    border-radius: 25%;
+}
+.Rang {
+    font-size: 28px;
+    margin-left: 6%;
+    text-transform: capitalize;
+    overflow: hidden;
+    display: inline-block;
+    height: 80%;
+}
+.UserText {
+    font-size: 28px;
+    margin-left: 2%;
+    text-transform: capitalize;
+    overflow: hidden;
+    display: inline-block;
+    height: 80%;
+    width: 15%;
+}
+.userUbersichtRang{
+    width: 20%;
+    height: 66%;
+
+    font-weight: 500;
+    font-size: 120%;
+    line-height: 27px;
+
+    border: none;
+    outline:none;
+
+    border-radius: 25px;
+
+    vertical-align: top;
+    margin-top: 1.5%;
+}
