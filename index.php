@@ -35,6 +35,7 @@ if(!isset($_SESSION["Login"])){
     <script src="pages/projekt/modules/einstellungen/js/Main.js"></script>
     <script src="pages/projekt/modules/rang/js/main.js"></script>
     <script src="pages/projekt/modules/einladungen/js/main.js"></script>
+    <script src="pages/projekt/modules/user/js/main.js"></script>
 
     <link href="css/main.css" rel="stylesheet">
     <link href="css/mainHandy.css" rel="stylesheet">

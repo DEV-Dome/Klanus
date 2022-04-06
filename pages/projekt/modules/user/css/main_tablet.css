@@ -31,6 +31,15 @@
      .addbutton {
         width: 30%;
      }
+    .infotext {
+        display: none;
+    }
+    .userListeBildInfoSeite {
+        display: none;
+    }
+    .input_fild_half_neben_pb {
+        margin-left: 4%;
+    }
 }
 @media only screen and (min-width: 1271px) and (max-width: 1919px) {
     .deleteButton {

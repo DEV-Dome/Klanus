@@ -24,7 +24,7 @@ foreach ($sth->fetchAll() as $row) {
 <link href="pages/projekt/modules/einstellungen/css/Main.css" rel="stylesheet">
 <link href="pages/projekt/modules/einstellungen/css/Main_handy.css" rel="stylesheet">
 
-<div class="page_main" >
+<div class="page_main page_main_scroll_hidden" >
     <input onchange="setNewProjektName(this.value, <?php echo $_SESSION["projekt.aktiv"]; ?>)"  value="<?php echo $name; ?>" type="text" placeholder="Name" id="name" class="input_fild_normal">
     <input  onchange="setNewProjektKurzel(this.value, <?php echo $_SESSION["projekt.aktiv"]; ?>)" type="text" placeholder="Kürzel" id="kurzel" class="input_fild_normal"  value="<?php echo $kurzel; ?>">
 

@@ -37,6 +37,16 @@
     .item_container {
         margin-top: -10% !important;
     }
+    .infotext {
+        display: none;
+    }
+
+    .input_fild_half_neben_pb {
+        margin-left: 4%;
+    }
+    .userListeBildInfoSeite {
+        display: none;
+    }
 }
 /* Große Handys*/
 @media only screen and (min-width: 376px) and (max-width: 425px) {
