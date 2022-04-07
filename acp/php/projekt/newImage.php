@@ -12,7 +12,25 @@ if(!function_exists("startsWith")){
         return (substr($string, 0, $len) === $startString);
     }
 }
+include "../../../php/sql/connection.php";
+include "../../../pages/projekt/modules/rang/projektRang.php";
+include "../../../php/rang/Rang.php";
 
+$rang = new Rang($_SESSION['Rang'], $pdo);
+
+if(isset($_SESSION['PRang'])){
+    //wenn ein Projekt gesetzt ist
+    $prang = new projektRang($_SESSION['PRang'], $pdo);
+    if(!$prang->hasPermission("setting.bild") && !$rang->hasPermission("projekt.edit.bild")){
+        echo "<erro>Dafür hast du nicht die nötigen Permission.";
+        exit();
+    }
+}else {
+    if(!$rang->hasPermission("projekt.edit.bild")){
+        echo "<erro>Dafür hast du nicht die nötigen Permission.";
+        exit();
+    }
+}
 
 if(isset($_FILES['img'])) {
     $img = $_FILES['img'];

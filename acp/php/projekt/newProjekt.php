@@ -85,6 +85,7 @@ $nid = 0;
 foreach ($sth->fetchAll() as $row) {
     $nid = $row["ID"];
 }
+//admin rang
 $sth = $pdo->prepare("INSERT INTO projekt_rang (Name, Dscribe, BackgroundColor, Color , Prioritat, Projekt, Isdefault ) VALUE('Administrator', 'Dieser Rang hat alle Berechtigungen; es ist mit Vorsicht umzugehen!', 'rgba(229, 51, 51, 0.25)', '#E53333', 1000000, $nid, 1)");
 $sth->execute();
 
@@ -96,9 +97,42 @@ foreach ($sth->fetchAll() as $row) {
     $urid = $row["ID"];
 }
 
+foreach ($pdo->query("SELECT * FROM projekt_rang_permission") as $row) {
+    $id = $row["ID"];
+    $permission = true;
 
+    $sth = $pdo->prepare("INSERT INTO projekt_rang_permission_syc (Permission , Rang, Haspermission) VALUES (?, ?, ?)");
+    $sth->bindParam(1, $id);
+    $sth->bindParam(2, $urid);
+    $sth->bindParam(3, $permission);
+    $sth->execute();
+}
+
+
+
+//user rang
 $sth = $pdo->prepare("INSERT INTO projekt_rang (Name, Dscribe, BackgroundColor, Color , Prioritat, Projekt, Isdefault ) VALUE('User', 'Dieser Rang ist der Standert Rang. Jeder bekommt ihn.', 'rgba(199, 205, 216, 0.25)', '#C7CDD8', 1, $nid, 1)");
 $sth->execute();
+
+$sth = $pdo->prepare("SELECT max(ID) AS 'ID' FROM projekt_rang");
+$sth->execute();
+
+$tmpid = 0;
+foreach ($sth->fetchAll() as $row) {
+    $tmpid = $row["ID"];
+}
+
+foreach ($pdo->query("SELECT * FROM projekt_rang_permission") as $row) {
+    $id = $row["ID"];
+    $permission = false;
+
+    $sth = $pdo->prepare("INSERT INTO projekt_rang_permission_syc (Permission , Rang, Haspermission) VALUES (?, ?, ?)");
+    $sth->bindParam(1, $id);
+    $sth->bindParam(2, $tmpid);
+    $sth->bindParam(3, $permission);
+    $sth->execute();
+}
+
 
 $true = true;
 $false = 0;

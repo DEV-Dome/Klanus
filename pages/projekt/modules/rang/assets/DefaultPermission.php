@@ -6,12 +6,17 @@ addPermissionFrontEnd("setting.name", "Einstellung: Name ändern", "Einstellunge
 addPermissionFrontEnd("setting.kurzel", "Einstellung: Kurzel ändern", "Einstellungen", $pdo);
 addPermissionFrontEnd("setting.beschreibung", "Einstellung: Beschreibung ändern", "Einstellungen", $pdo);
 addPermissionFrontEnd("setting.bild", "Einstellung: Bild ändern", "Einstellungen", $pdo);
+addPermissionFrontEnd("setting.delete", "Einstellung: Projekt Löschen", "Einstellungen", $pdo);
+
+/*Einladnungen*/
+addPermissionFrontEnd("einladnung.new", "Einladnung: neu Erstellen", "Einladnung", $pdo);
+addPermissionFrontEnd("einladnung.delete", "Einladnung: Löschen", "Einladnung", $pdo);
 
 /*Rang*/
 addPermissionFrontEnd("rang.name", "Rang: Name ändern", "Rang", $pdo);
 addPermissionFrontEnd("rang.farbe", "Rang: Farbe ändern", "Rang", $pdo);
-addPermissionFrontEnd("rang.beschreibung", "beschreibung: Beschreibung ändern", "Rang", $pdo);
-addPermissionFrontEnd("rang.permission", "Permission: Bild ändern", "Rang", $pdo);
+addPermissionFrontEnd("rang.beschreibung", "Rang: Beschreibung ändern", "Rang", $pdo);
+addPermissionFrontEnd("rang.permission", "Rang: Rechte ändern", "Rang", $pdo);
 
 foreach ($pdo->query("SELECT * FROM projekt_rang_permission") as $row) {
     foreach ($pdo->query("SELECT * FROM projekt_rang") as $row1) {

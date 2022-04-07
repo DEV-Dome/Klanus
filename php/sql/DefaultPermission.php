@@ -39,6 +39,7 @@ addPermission("projekt.edit", "projekt: Bearbeiten (Übersicht)", "projekt", $pd
 addPermission("projekt.edit.name", "projekt: Namen Bearbeiten", "projekt", $pdo);
 addPermission("projekt.edit.kurzel", "projekt: Kurzel Bearbeiten", "projekt", $pdo);
 addPermission("projekt.edit.beschreibung", "projekt: Beschreibung Bearbeiten", "projekt", $pdo);
+addPermission("projekt.edit.bild", "projekt: Bild Bearbeiten", "projekt", $pdo);
 addPermission("projekt.edit.status", "projekt: Status Bearbeiten", "projekt", $pdo);
 addPermission("projekt.add.premium", "projekt: Erstellen [Premium]", "projekt", $pdo);
 addPermission("projekt.add.partner", "projekt: Erstellen [Partner]", "projekt", $pdo);
@@ -47,6 +48,14 @@ addPermission("projekt.edit.lock", "projekt: Spree ein projekt ", "projekt", $pd
 addPermission("projekt.delete", "projekt: Löschen ", "projekt", $pdo);
 
 echo "<p>projekt Rechte eingerichtet.</p>";
+
+/*Einladnunge (Fremder Projeckte)*/
+addPermission("all.einladnung.new", "Einladnung: neu Erstellen (Alle Projekte)", "einladnung", $pdo);
+addPermission("all.einladnung.delete", "Einladnung: Löschen (Alle Projekte)", "einladnung", $pdo);
+
+
+echo "<p>projekt Rechte eingerichtet.</p>";
+
 
 /*Global*/
 addPermission("acp.use", "Admininterface: Ansehen & Bedienen", "ACP", $pdo);

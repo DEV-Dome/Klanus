@@ -11,6 +11,11 @@ if(!isset($_SESSION["Login"])){
     exit();
 }
 include "../../../../php/sql/connection.php";
+include "../rang/projektRang.php";
+include_once "../../../../php/rang/Rang.php";
+
+$prang = new projektRang($_SESSION['PRang'], $pdo);
+$rang = new Rang($_SESSION['Rang'], $pdo);
 ?>
 
 <link href="pages/projekt/modules/einladungen/css/main.css" rel="stylesheet">
@@ -18,7 +23,7 @@ include "../../../../php/sql/connection.php";
 <link href="pages/projekt/modules/einladungen/css/main_tablet.css" rel="stylesheet">
 
 <div class="headline_conatiner" >
-    <span class="headline-text" >Einladungen verwaltung</span>  <button onclick="newEinladung()" class="button addbutton">Neue Einladung</button>
+    <span class="headline-text" >Einladungen verwaltung</span>  <?php if($prang->hasPermission("einladnung.new") || $rang->hasPermission("all.einladnung.new")) {?><button onclick="newEinladung()" class="button addbutton">Neue Einladung</button><?php }?>
 </div>
 
 <div class="page_main" >
@@ -41,7 +46,9 @@ include "../../../../php/sql/connection.php";
             <i class="UserText"><?php echo $row["Name"] ?></i>
             <i onclick="navigator.clipboard.writeText('https://klanus.net/?join=<?php echo $row["Einladung"] ?>')" class="einladungsText"><?php echo $row["Einladung"] ?></i>
 
+            <?php if($prang->hasPermission("einladnung.delete") || $rang->hasPermission("all.einladnung.delete")) {?>
             <button onclick="deleteEinladung(<?php echo $row["Pid"]?>)" class="button deleteButton"><i class="bi bi-x-circle"></i></button>
+            <?php }?>
         </div>
 
         <?php

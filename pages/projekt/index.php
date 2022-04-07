@@ -14,6 +14,10 @@ if(!isset($_SESSION["Login"])){
 if(!isset($_GET["pid"])){
     exit("projekt nicht vorhanden!");
 }
+include_once "../../php/sql/connection.php";
+include_once "../../php/rang/Rang.php";
+include_once "../../pages/projekt/modules/rang/projektRang.php";
+
 //setzten des Projeckts
 $_SESSION["projekt.aktiv"] = $_GET["pid"];
 
@@ -21,13 +25,10 @@ $id = $_GET["pid"];
 $pname = ""; //projekt name
 $sname = ""; //status name
 $beschreibung = ""; //beschreibung vom Projekt
+$rangID = -1; // id von Projeckt rang
 
-// rang
-include_once "../../php/sql/connection.php";
-include_once "../../php/rang/Rang.php";
-$rang = new Rang($_SESSION['Rang'], $pdo);
-
-$sth = $pdo->prepare("SELECT projekt.Name AS 'pname', projekt_status.Name AS 'sname',projekt.Beschreibung AS 'pBeschreibung' FROM projekt,projekt_status WHERE Status = projekt_status.ID AND projekt.ID = ? LIMIT 1");
+$sqlstr = "SELECT projekt.Name AS 'pname', projekt_status.Name AS 'sname',projekt.Beschreibung AS 'pBeschreibung' FROM projekt,projekt_status WHERE Status = projekt_status.ID AND projekt.ID = ? LIMIT 1";
+$sth = $pdo->prepare($sqlstr);
 $sth->bindParam(1, $id);
 $sth->execute();
 
@@ -37,6 +38,20 @@ foreach ($sth->fetchAll() as $row) {
     $beschreibung = $row["pBeschreibung"];
 }
 
+$sqlstr = "SELECT * FROM projekt_user WHERE User = ? AND Projekt  = ?";
+$sth = $pdo->prepare($sqlstr);
+$sth->bindParam(1, $_SESSION["ID"]);
+$sth->bindParam(2, $_SESSION["projekt.aktiv"]);
+$sth->execute();
+
+foreach ($sth->fetchAll() as $row) {
+    $rangID = $row["Rang"];
+}
+$_SESSION["PRang"] = $rangID;
+
+// rang
+$rang = new Rang($_SESSION['Rang'], $pdo);
+$prang = new projektRang($_SESSION['PRang'], $pdo);
 ?>
 
 <link href="css/MainPages/projekt/main.css" rel="stylesheet">

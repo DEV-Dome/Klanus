@@ -49,10 +49,11 @@ if(!$load) {
     exit();
 }
 //wenn User schon im Projeckt ist
-$sglstr = "SELECT * FROM projekt_user WHERE User = ? LIMIT 1";
+$sglstr = "SELECT * FROM projekt_user WHERE User = ? AND Projekt = ?  LIMIT 1";
 
 $sth = $pdo->prepare($sglstr);
 $sth->bindParam(1,$_SESSION["ID"]);
+$sth->bindParam(2,$pid);
 $sth->execute();
 
 foreach ($sth->fetchAll() as $row) {
