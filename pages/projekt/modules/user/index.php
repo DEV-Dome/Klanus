@@ -11,6 +11,11 @@ if(!isset($_SESSION["Login"])){
     exit();
 }
 include "../../../../php/sql/connection.php";
+include "../rang/projektRang.php";
+include_once "../../../../php/rang/Rang.php";
+
+$rang = new Rang($_SESSION['Rang'], $pdo);
+$prang = new projektRang($_SESSION['PRang'], $pdo)
 ?>
 
 <link href="pages/projekt/modules/user/css/main.css" rel="stylesheet">
@@ -44,8 +49,8 @@ include "../../../../php/sql/connection.php";
 
             <button class="userUbersichtRang" style="background-color: <?php echo $row["BackgroundColor"]?>;color: <?php echo $row["Color"]?>;"><?php echo $row["rname"] . "<br/>"; ?></button>
 
-            <button onclick="loadProjektUnderPage('user', 'InfoUser.php?uid=<?php echo $row["uid"] ?>')" class="button infoButton"><i class="bi bi-info-circle"></i></button>
-            <?php if(!$row["IsOwner"]){?><button onclick="kickUserFromProjeckt(<?php echo $row["uid"] ?>, <?php echo $row["pid"] ?>);" class="button deleteButton"><i class="bi bi-person-dash"></i></button><?php } ?>
+            <?php if($prang->hasPermission("user.info") || $rang->hasPermission("all.user.info")) { ?><button onclick="loadProjektUnderPage('user', 'InfoUser.php?uid=<?php echo $row["uid"] ?>')" class="button infoButton"><i class="bi bi-info-circle"></i></button><?php } ?>
+            <?php if($prang->hasPermission("user.kick") || $rang->hasPermission("all.user.kick")) { if(!$row["IsOwner"]){?><button onclick="kickUserFromProjeckt(<?php echo $row["uid"] ?>, <?php echo $row["pid"] ?>);" class="button deleteButton"><i class="bi bi-person-dash"></i></button><?php } } ?>
         </div>
 
         <?php

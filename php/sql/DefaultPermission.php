@@ -47,6 +47,7 @@ addPermission("projekt.edit.verifiziert", "projekt: Verifiziert Bearbeiten", "pr
 addPermission("projekt.edit.lock", "projekt: Spree ein projekt ", "projekt", $pdo);
 addPermission("projekt.delete", "projekt: Löschen ", "projekt", $pdo);
 
+
 echo "<p>projekt Rechte eingerichtet.</p>";
 
 /*Einladnunge (Fremder Projeckte)*/
@@ -56,6 +57,16 @@ addPermission("all.einladnung.delete", "Einladnung: Löschen (Alle Projekte)", "
 
 echo "<p>projekt Rechte eingerichtet.</p>";
 
+/*user (Fremder Projeckte)*/
+
+addPermission("all.user.kick", "User: Kicken", "User [Projekte]", $pdo);
+addPermission("all.user.info", "User: Info Betretten", "User [Projekte]", $pdo);
+addPermission("all.user.info.id", "User: Info - ID ", "User [Projekte]", $pdo);
+addPermission("all.user.info.discord", "User: Info - Discord", "User [Projekte]", $pdo);
+addPermission("all.user.info.rang", "Info - Rang", "User [Projekte]", $pdo);
+
+
+echo "<p>projekt Rechte eingerichtet.</p>";
 
 /*Global*/
 addPermission("acp.use", "Admininterface: Ansehen & Bedienen", "ACP", $pdo);

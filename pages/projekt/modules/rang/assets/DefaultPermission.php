@@ -12,6 +12,13 @@ addPermissionFrontEnd("setting.delete", "Einstellung: Projekt Löschen", "Einste
 addPermissionFrontEnd("einladnung.new", "Einladnung: neu Erstellen", "Einladnung", $pdo);
 addPermissionFrontEnd("einladnung.delete", "Einladnung: Löschen", "Einladnung", $pdo);
 
+/*User*/
+addPermissionFrontEnd("user.kick", "User: Kicken", "User", $pdo);
+addPermissionFrontEnd("user.info", "User: Info Betretten", "User", $pdo);
+addPermissionFrontEnd("user.info.id", "User: Info - ID ", "User", $pdo);
+addPermissionFrontEnd("user.info.discord", "User: Info - Discord", "User", $pdo);
+addPermissionFrontEnd("user.info.rang", "Info - Rang", "User", $pdo);
+
 /*Rang*/
 addPermissionFrontEnd("rang.name", "Rang: Name ändern", "Rang", $pdo);
 addPermissionFrontEnd("rang.farbe", "Rang: Farbe ändern", "Rang", $pdo);
