@@ -76,6 +76,7 @@ addPermission("all.rang.permission", "Rang: Permission ändern ", "Rang [Projekt
 addPermission("all.rang.new", "Rang: Neuen Rang ", "Rang [Projekte]", $pdo);
 addPermission("all.rang.delete", "Rang: Löschen ", "Rang [Projekte]", $pdo);
 addPermission("all.rang.posistion", "Rang: Reinfolge ändern ", "Rang [Projekte]", $pdo);
+addPermission("all.rang.menu", "Rang: Menu Punkt anzeigen ", "Rang [Projekte]", $pdo);
 
 
 echo "<p>projekt Rechte eingerichtet [Projeckte].</p>";

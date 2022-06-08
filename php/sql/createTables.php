@@ -90,7 +90,7 @@ IsProjekt BOOL NOT NULL DEFAULT 0,
 ProjektState INT(10) NOT NULL,
 Icon VARCHAR(128) NOT NULL,
 Ordner VARCHAR(128) NOT NULL,
-    
+permission VARCHAR(128),
     
 FOREIGN KEY (ProjektState) REFERENCES projekt_status(ID)
 )");
