@@ -124,7 +124,7 @@ foreach ($sth->fetchAll() as $row) {
 
 foreach ($pdo->query("SELECT * FROM projekt_rang_permission") as $row) {
     $id = $row["ID"];
-    $permission = false;
+    $permission = 0;
 
     $sth = $pdo->prepare("INSERT INTO projekt_rang_permission_syc (Permission , Rang, Haspermission) VALUES (?, ?, ?)");
     $sth->bindParam(1, $id);
