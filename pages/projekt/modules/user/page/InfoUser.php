@@ -40,7 +40,11 @@ foreach($sth->fetchAll() as $row) {
     $owner = $row["IsOwner"];
 }
 
+include "../../rang/projektRang.php";
+include_once "../../../../../php/rang/Rang.php";
 
+$rang = new Rang($_SESSION['Rang'], $pdo);
+$prang = new projektRang($_SESSION['PRang'], $pdo)
 ?>
 
 <link href="pages/projekt/modules/user/css/main.css" rel="stylesheet">
@@ -52,8 +56,8 @@ foreach($sth->fetchAll() as $row) {
 </div>
 
 <div class="page_main page_main_scroll_hidden" >
-    <input value="<?php echo $uid; ?>" disabled type="text" placeholder="ID" id="id" class="input_fild_half">
-    <input value="<?php echo $discordtag; ?>" disabled type="text" placeholder="Discord-Tag" id="dct" class="input_fild_half">
+    <?php if($prang->hasPermission("user.info.id") || $rang->hasPermission("all.user.info.id")) { ?> <input value="<?php echo $uid; ?>" disabled type="text" placeholder="ID" id="id" class="input_fild_half"><?php } ?>
+    <?php if($prang->hasPermission("user.info.discord") || $rang->hasPermission("all.user.info.discord")) { ?> <input value="<?php echo $discordtag; ?>" disabled type="text" placeholder="Discord-Tag" id="dct" class="input_fild_half"><?php } ?>
 
     <?php
         $loadPgClasses = "userListeBildInfoSeite";
@@ -65,6 +69,7 @@ foreach($sth->fetchAll() as $row) {
     <p class="infotext">Weiter Anzeigen werden hier noch ergänzt</p>
     <input value="<?php echo $name; ?>" disabled type="text" placeholder="Name" id="name" class="input_fild_half input_fild_half_neben_pb">
 
+    <?php if($prang->hasPermission("user.info.rang") || $rang->hasPermission("all.user.info.rang")) { ?>
     <select <?php if($owner)  echo "disabled"; ?>  onchange="CahngeUserRang(<?php echo $uid;?>, <?php echo $_SESSION["projekt.aktiv"];?>, this.value)"  class="input_fild_normal">
         <?php
         $sqlstr = "SELECT *,projekt_rang.ID AS 'rid' FROM projekt_rang WHERE Projekt  = ? ORDER BY Prioritat DESC";
@@ -83,6 +88,9 @@ foreach($sth->fetchAll() as $row) {
         }
         ?>
     </select>
+    <?php
+    }
+    ?>
 
     <div class="feedback_hub" id="feedback_hub">Feedback</div>
 </div>

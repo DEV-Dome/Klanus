@@ -78,6 +78,7 @@
     margin-top: 2%;
     margin-left: 2%;
     margin-right: 5%;
+    flex: 1 0 20%;
 }
 .permissionConatiner {
     font-weight: 500;
@@ -97,4 +98,5 @@
 .permissionFlexConatiner {
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
 }

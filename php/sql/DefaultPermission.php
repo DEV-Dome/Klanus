@@ -66,7 +66,17 @@ addPermission("all.user.info.discord", "User: Info - Discord", "User [Projekte]"
 addPermission("all.user.info.rang", "Info - Rang", "User [Projekte]", $pdo);
 
 
-echo "<p>projekt Rechte eingerichtet.</p>";
+echo "<p>projekt Rechte eingerichtet [User].</p>";
+
+
+addPermission("all.rang.name", "Rang: Name ändern", "Rang [Projekte]", $pdo);
+addPermission("all.rang.farbe", "Rang: Farbe ändern", "Rang [Projekte]", $pdo);
+addPermission("all.rang.beschreibung", "Rang: beschreibung ändern ", "Rang [Projekte]", $pdo);
+addPermission("all.rang.permission", "Rang: Permission ändern ", "Rang [Projekte]", $pdo);
+
+
+echo "<p>projekt Rechte eingerichtet [Projeckte].</p>";
+
 
 /*Global*/
 addPermission("acp.use", "Admininterface: Ansehen & Bedienen", "ACP", $pdo);
