@@ -11,6 +11,12 @@ if(!isset($_SESSION["Login"])){
 
 
 include "../../../../../php/sql/connection.php";
+include "../../rang/projektRang.php";
+include_once "../../../../../php/rang/Rang.php";
+
+$rang = new Rang($_SESSION['Rang'], $pdo);
+$prang = new projektRang($_SESSION['PRang'], $pdo);
+
 if(isset($_GET["id"])){
 
     $id = $_GET["id"];
@@ -45,11 +51,12 @@ if(isset($_GET["id"])){
 </div>
 
 <div class="page_main" >
-    <input <?php if($id != null) echo "value='$name'"?> type="text" placeholder="Name" id="name" class="input_fild_normal">
-    <input  <?php if($id != null) echo "value='".str_replace("#", "", $color)."'"; ?>id="color" type="text" placeholder="Farbe [in Hexadezimal]" class="input_fild_normal">
+    <input <?php if($id != null) echo "value='$name'"?> <?php if(!$prang->hasPermission("rang.name") && !$rang->hasPermission("all.rang.name")) echo "disabled"?>   type="text" placeholder="Name" id="name" class="input_fild_normal">
+    <input  <?php if($id != null) echo "value='".str_replace("#", "", $color)."'";?>  <?php if(!$prang->hasPermission("rang.farbe") && !$rang->hasPermission("all.rang.farbe")) echo "disabled"?> id="color" type="text" placeholder="Farbe [in Hexadezimal]" class="input_fild_normal">
 
-    <textarea id="beschreibung" class="input_fild_normal input_fild_normal_textarea" rows="4" placeholder="Beschreibung"><?php if($id != null) echo $desc; ?></textarea>
+    <textarea <?php if(!$prang->hasPermission("rang.beschreibung") && !$rang->hasPermission("all.rang.beschreibung")) echo "disabled"?> id="beschreibung" class="input_fild_normal input_fild_normal_textarea" rows="4" placeholder="Beschreibung"><?php if($id != null) echo $desc; ?></textarea>
 
+    <?php if($prang->hasPermission("rang.permission") || $rang->hasPermission("all.rang.permission")) { ?>
     <div class="permissionFlexConatiner">
         <?php
 
@@ -88,6 +95,7 @@ if(isset($_GET["id"])){
             ?>
         </div>
     </div>
+    <?php } ?>
 
     <div class="feedback_hub" id="feedback_hub">Feedback</div>
 

@@ -51,7 +51,9 @@ $id_update = 0;
 include "../../../../../php/sicherheit/XSS.php";
 include "../../../../../php/sql/connection.php";
 include "../../../../../php/rang/Rang.php";
+include "../../rang/projektRang.php";
 
+$prang = new projektRang($_SESSION['PRang'], $pdo);
 $rang = new Rang($_SESSION['Rang'], $pdo);
 
 
@@ -59,17 +61,24 @@ if(isset($_GET["update"])){
     $update = true;
     $id_update = $_GET["id"];
 
-    /*if ((!$rang->hasPermission("acp.use") || !$rang->hasPermission("rang.edit"))){
-        echo "Du hast nicht nötigen Permission für diese seite.";
-        exit();
-    }*/
+    if($prang->hasPermission("rang.name") || $prang->hasPermission("rang.farbe") ||
+        $prang->hasPermission("rang.beschreibung") || $prang->hasPermission("rang.permission") ||
+        $rang->hasPermission("all.rang.name") || $rang->hasPermission("all.rang.farbe") ||
+        $rang->hasPermission("all.rang.beschreibung") || $rang->hasPermission("all.rang.permission")
+    ) {
+
+    }else {
+        echo "Du hast nicht nötigen Permission.";
+    }
 }else {
     $update = false;
 
-    /*if ((!$rang->hasPermission("acp.use") || !$rang->hasPermission("rang.add"))){
-        echo "Du hast nicht nötigen Permission für diese seite.";
+    if($prang->hasPermission("rang.new") || $rang->hasPermission("all.rang.new")) {
+
+    }else {
+        echo "Du hast nicht nötigen Permission einen Rang zu erstellen";
         exit();
-    }*/
+    }
 }
 
 $beschreibung = trim(xss_clean( $_GET["beschreibung"]));
@@ -132,34 +141,37 @@ if($color == "#") {
 
 $bgcolor = hex2rgba($color);
 
+if(!isset($_GET["perm"])) $_GET["perm"] = "";
 $pem = $_GET["perm"];
 
 if($update){
     $pdo->query("UPDATE projekt_rang SET Name='$name',Dscribe='$beschreibung' WHERE ID like $id_update");
-    for($i = 0; $i < sizeof($pem); $i++){
-        $tmp = explode(":",$pem[$i]);
+   if($pem != ""){
+       for($i = 0; $i < sizeof($pem); $i++){
+           $tmp = explode(":",$pem[$i]);
 
-        $permission = 0;
-        if($tmp[1] == "yes"){
-            $permission = 1;
-        }
-        $sth = $pdo->prepare("SELECT * FROM projekt_rang_permission WHERE ID = ?");
-        $sth->bindParam(1, $tmp[0]);
-        $sth->execute();
+           $permission = 0;
+           if($tmp[1] == "yes"){
+               $permission = 1;
+           }
+           $sth = $pdo->prepare("SELECT * FROM projekt_rang_permission WHERE ID = ?");
+           $sth->bindParam(1, $tmp[0]);
+           $sth->execute();
 
-        foreach ($sth->fetchAll() as $row) {
-            $id = $row["ID"];
+           foreach ($sth->fetchAll() as $row) {
+               $id = $row["ID"];
 
 
-            $sth = $pdo->prepare("UPDATE projekt_rang_permission_syc SET Permission=?,Rang=?,Haspermission=? WHERE Permission = ? AND Rang = ?");
-            $sth->bindParam(1, $id);
-            $sth->bindParam(2, $id_update);
-            $sth->bindParam(3, $permission);
-            $sth->bindParam(4, $id);
-            $sth->bindParam(5, $id_update);
-            $sth->execute();
-        }
-    }
+               $sth = $pdo->prepare("UPDATE projekt_rang_permission_syc SET Permission=?,Rang=?,Haspermission=? WHERE Permission = ? AND Rang = ?");
+               $sth->bindParam(1, $id);
+               $sth->bindParam(2, $id_update);
+               $sth->bindParam(3, $permission);
+               $sth->bindParam(4, $id);
+               $sth->bindParam(5, $id_update);
+               $sth->execute();
+           }
+       }
+   }
     echo "Rang Daten geändert";
 }else {
     $sth = $pdo->prepare("INSERT INTO projekt_rang (Name, Dscribe, Isdefault, Color, BackgroundColor, Projekt) VALUES (?, ?, false, ?, ?, ?)");

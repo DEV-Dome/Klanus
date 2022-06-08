@@ -24,6 +24,9 @@ addPermissionFrontEnd("rang.name", "Rang: Name ändern", "Rang", $pdo);
 addPermissionFrontEnd("rang.farbe", "Rang: Farbe ändern", "Rang", $pdo);
 addPermissionFrontEnd("rang.beschreibung", "Rang: Beschreibung ändern", "Rang", $pdo);
 addPermissionFrontEnd("rang.permission", "Rang: Rechte ändern", "Rang", $pdo);
+addPermissionFrontEnd("rang.new", "Rang: Rechte Erstellen", "Rang", $pdo);
+addPermissionFrontEnd("rang.delete", "Rang: Rechte Löschen", "Rang", $pdo);
+addPermissionFrontEnd("rang.posistion", "Rang: Reinfolge ändern", "Rang", $pdo);
 
 foreach ($pdo->query("SELECT * FROM projekt_rang_permission") as $row) {
     foreach ($pdo->query("SELECT * FROM projekt_rang") as $row1) {
