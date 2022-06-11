@@ -10,7 +10,7 @@ body {
     font-family: Poppins;
 
     overflow-x: hidden;
-    overflow-y: hidden;
+    /* overflow-y: hidden; */
 }
 
 /*Navbar [Oben]*/
@@ -188,7 +188,7 @@ body {
 }
 #MainSek {
     width: 100%;
-    height: 100%;
+    height: 70%;
  }
 .mobileSwitchLlogo {
     font-size: 450%;

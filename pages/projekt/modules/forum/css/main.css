@@ -1,0 +1,29 @@
+#main_forum {
+    width: 80%;
+
+    margin-left: 10%;
+    margin-top: 2%;
+}
+.Forum_Kategorie {
+
+}
+.Forum_Kategorie_head {
+    text-align: center;
+}
+
+.Forum{
+    width: 100%;
+}
+.Forum_icon {
+    margin-top: 2%;
+    font-size: 24px;
+    display: inline-block;
+    margin-right: 2.5%;
+}
+.Forum_name {
+    display: inline-block;
+    font-size: 24px;
+}
+.Forum_beschreibung {
+    margin-left: 4.8%;
+}
