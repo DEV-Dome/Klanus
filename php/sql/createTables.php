@@ -159,14 +159,26 @@ FOREIGN KEY (User) REFERENCES user(ID)
 
 echo "<p>Projekt Einladungen Tabelle erstellt.</p>";
 
-$pdo->query("CREATE TABLE IF NOT EXISTS projekt_forum_forn(
+$pdo->query("CREATE TABLE IF NOT EXISTS projekt_forum_kategorien ( 
 ID INT(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 Projekt INT(10) NOT NULL,
 Name VARCHAR(150) NOT NULL,
-Beschreibung VARCHAR(1000) NOT NULL,
-UnterForum INT(10),    
+priorität int(10) NOT NULL,
     
 FOREIGN KEY (Projekt) REFERENCES projekt(ID)
+)");
+
+echo "<p>Projekt projekt_forum_kategorien Tabelle erstellt.</p>";
+
+$pdo->query("CREATE TABLE IF NOT EXISTS projekt_forum_forn(
+ID INT(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+Name VARCHAR(150) NOT NULL,
+Beschreibung VARCHAR(1000) NOT NULL,
+UnterForum INT(10) NOT NULL,
+kategorien INT(10) NOT NULL,
+priorität int(10) NOT NULL,
+    
+FOREIGN KEY (kategorien) REFERENCES projekt_forum_kategorien(ID)
 )");
 
 echo "<p>Projekt Forum_Forn Tabelle erstellt.</p>";
