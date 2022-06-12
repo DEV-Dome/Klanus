@@ -51,7 +51,7 @@ $prang = new projektRang($_SESSION['PRang'], $pdo)
             foreach($sth_fornen->fetchAll() as $row_foren) {
             ?>
 
-            <div class="Forum">
+            <div class="Forum" onclick="loadProjektUnderPage('forum', 'BeitragsUbersicht.php?fid=<?php echo $row_foren["ID"]?>');">
                 <div class="Forum_icon">
                     <i class="bi bi-folder-fill"></i>
                 </div>
