@@ -3,9 +3,7 @@
 
     margin-left: 10%;
     margin-top: 2%;
-}
-.Forum_Kategorie {
-
+    margin-bottom: 2%;
 }
 .Forum_Kategorie_head {
     text-align: center;
@@ -26,4 +24,5 @@
 }
 .Forum_beschreibung {
     margin-left: 4.8%;
+    font-size: 14px;
 }
