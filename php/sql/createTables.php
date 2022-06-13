@@ -163,8 +163,8 @@ $pdo->query("CREATE TABLE IF NOT EXISTS projekt_forum_kategorien (
 ID INT(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 Projekt INT(10) NOT NULL,
 Name VARCHAR(150) NOT NULL,
-priorität int(10) NOT NULL,
-    
+prioritat int(10) NOT NULL,
+
 FOREIGN KEY (Projekt) REFERENCES projekt(ID)
 )");
 
@@ -176,8 +176,8 @@ Name VARCHAR(150) NOT NULL,
 Beschreibung VARCHAR(1000) NOT NULL,
 UnterForum INT(10) NOT NULL,
 kategorien INT(10) NOT NULL,
-priorität int(10) NOT NULL,
-    
+prioritat int(10) NOT NULL,
+
 FOREIGN KEY (kategorien) REFERENCES projekt_forum_kategorien(ID)
 )");
 

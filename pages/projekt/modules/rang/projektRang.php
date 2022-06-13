@@ -28,7 +28,7 @@ class projektRang
         $this->permission = array();
         $this->rangid = $rangid;
 
-        $this->checkRang($pdo);
+       // $this->checkRang($pdo);
 
         $this->loadPermission($pdo);
     }
@@ -60,31 +60,6 @@ class projektRang
         }
 
         return $this->permission;
-    }
-    function checkRang($pdo){
-        $sth = $pdo->prepare("SELECT * FROM projekt_user WHERE User = ? LIMIT 1");
-        $sth->bindParam(1, $_SESSION["ID"]);
-        $sth->execute();
-
-        foreach($sth->fetchAll() as $row) {
-            if($_SESSION["Rang"] != $row["Rang"]){
-                $_SESSION["Rang"] = $row["Rang"];
-                $this->rangid = $row["Rang"];
-            }
-        }
-
-        //lade rang namen und Permission
-        $sth = $pdo->prepare("SELECT * FROM projekt_rang WHERE id = ? LIMIT 1");
-        $sth->bindParam(1, $this->rangid);
-        $sth->execute();
-
-        foreach($sth->fetchAll() as $row) {
-            $this->name = $row["Name"];
-            $this->desc = $row["Dscribe"];
-
-            $this->color = $row["Color"];
-            $this->bgColor = $row["BackgroundColor"];
-        }
     }
 
     function hasPermission($permissionString){

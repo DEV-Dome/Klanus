@@ -29,7 +29,7 @@ $prang = new projektRang($_SESSION['PRang'], $pdo)
 
     <?php
 
-    $sqlstr = "SELECT *  FROM projekt_forum_kategorien WHERE Projekt = ? ORDER BY priorität ASC ";
+    $sqlstr = "SELECT *  FROM projekt_forum_kategorien WHERE Projekt = ? ORDER BY prioritat ASC ";
     $sth = $pdo->prepare($sqlstr);
     $sth->bindParam(1, $_SESSION["projekt.aktiv"]);
     $sth->execute();
@@ -43,7 +43,7 @@ $prang = new projektRang($_SESSION['PRang'], $pdo)
             </div>
 
             <?php
-            $sqlstr1 = "SELECT *  FROM projekt_forum_forn WHERE kategorien = ? ORDER BY priorität ASC ";
+            $sqlstr1 = "SELECT *  FROM projekt_forum_forn WHERE kategorien = ? ORDER BY prioritat ASC ";
             $sth_fornen = $pdo->prepare($sqlstr1);
             $sth_fornen->bindParam(1, $row["ID"]);
             $sth_fornen->execute();

@@ -9,6 +9,7 @@ addModul("Projekt-Home", "", 1,1, "-", "bi-house-door","", $pdo);
 addModul("Forum", "Hier findet ihr ein Forum", 1,1, "forum", "bi bi-bookmark","", $pdo);
 addModul("User", "Hier können die Projekt User Verwaltet werden.", 1,1, "user", "bi-people-fill","", $pdo);
 addModul("Einladungen", "Hier können die Projekt einladungen Verwaltet werden.", 1,1, "einladungen", "bi-receipt","", $pdo);
+addModul("Ankündigungen", "Hier kannst du ankündigungen zu deinen Projekt Posten!.", 1,1, "ankundigungen", "bi-broadcast-pin","", $pdo);
 addModul("Rang", "Hier können die Projekt Ränge geändert werden.", 1,1, "rang", "bi-person-lines-fill","rang.menu", $pdo);
 addModul("Einstellungen", "Hier können die Projekt einstellungen geändert werden.", 1,1, "einstellungen", "bi-gear", "", $pdo);
 
