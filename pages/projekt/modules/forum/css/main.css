@@ -115,3 +115,8 @@
     margin-top: 0% !important;
     text-align: center;
 }
+.beitrag_headline_conatiner {
+    margin-top: 1.5%;
+}.beitrag_headline_conatiner_with_top {
+    margin-top: 3%;
+}

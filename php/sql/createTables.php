@@ -183,6 +183,23 @@ FOREIGN KEY (kategorien) REFERENCES projekt_forum_kategorien(ID)
 
 echo "<p>Projekt Forum_Forn Tabelle erstellt.</p>";
 
+$pdo->query("CREATE TABLE IF NOT EXISTS projekt_forum_beitrage(
+ID INT(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+Name VARCHAR(150) NOT NULL,
+Status INT(10) NOT NULL DEFAULT 1,    
+Forum INT(10) NOT NULL,
+Owner INT(10) NOT NULL,
+ErstelltAm DATETIME NOT NULL,    
+IsAngepinnt BOOL NOT NULL DEFAULT 0,
+Zugriffe INT(10) NOT NULL DEFAULT 0,     
+    
+    
+FOREIGN KEY (Forum) REFERENCES projekt_forum_forn(ID),
+FOREIGN KEY (Owner) REFERENCES user(ID)
+)");
+
+echo "<p>Projekt Forum_Beiträge Tabelle erstellt.</p>";
+
 include "DefaultPermission.php";
 include "DefaultProjektStatus.php";
 include "DefaultModul.php";

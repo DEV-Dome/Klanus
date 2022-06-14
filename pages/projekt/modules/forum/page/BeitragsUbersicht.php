@@ -48,6 +48,84 @@ foreach($sth->fetchAll() as $row) {
 </div>
 
 <div class="beitrag_container">
+    <?php
+        //angepinnte Beiträge
+        //Atrebute zuordenen
+        $sqlzuordnung = "projekt_forum_beitrage.Name AS 'bname', projekt_rang.Color AS 'usercolor', user.ID AS 'uid',";
+        $sqlzuordnung .= "user.Name AS 'uname', ";
+        $sqlzuordnung .= "Zugriffe, IsAngepinnt, ErstelltAm"; // alles andere
+
+
+        $sqlstr = "SELECT $sqlzuordnung FROM projekt_forum_beitrage,user,projekt_user,projekt_rang WHERE projekt_rang.ID = projekt_user.Rang AND projekt_user.Projekt = ? AND projekt_user.User = user.id AND user.id = Owner AND Forum = ? ORDER BY IsAngepinnt DESC";
+        $sth = $pdo->prepare($sqlstr);
+        $sth->bindParam(1, $_SESSION["projekt.aktiv"]);
+        $sth->bindParam(2, $fid);
+        $sth->execute();
+
+        $erster_lauf = true;
+        $save_IsAngepinnt = -1;
+
+        foreach($sth->fetchAll() as $row) {
+            if($save_IsAngepinnt != $row["IsAngepinnt"]){
+                    $erster_lauf = true;
+            }
+                $save_IsAngepinnt = $row["IsAngepinnt"];
+
+                if($erster_lauf && $save_IsAngepinnt == 1){
+                    //Übersicht angepinnt zeigen
+                    ?>
+                        <div class="beitrag_headline_conatiner">
+                            <span style="margin-left: 10% !important; font-size: 20px;">Angepinnt</span>
+
+                            <span class="beitrag_letzer_beitrag none_margin_top" style="margin-right: 3%!important;">Letzter Beitrag</span>
+                            <span class="beitrag_zugriffe none_margin_top" style="margin-right: 8% !important;">zugriffe</span>
+                            <span class="beitrag_antworten none_margin_top" style="margin-right: 3% !important;">Antworten</span>
+                            <hr>
+                        </div>
+                      <?php
+                    $erster_lauf = false;
+                }else if($erster_lauf) {
+                    //Übersicht alle beiträge zeigen
+                    ?>
+                        <div class="beitrag_headline_conatiner beitrag_headline_conatiner_with_top">
+                            <span style="margin-left: 10% !important; font-size: 20px;">Alle Beiträge</span>
+
+                            <span class="beitrag_letzer_beitrag none_margin_top" style="margin-right: 3%!important;">Letzter Beitrag</span>
+                            <span class="beitrag_zugriffe none_margin_top" style="margin-right: 8% !important;">zugriffe</span>
+                            <span class="beitrag_antworten none_margin_top" style="margin-right: 3% !important;">Antworten</span>
+                            <hr>
+                        </div>
+                    <?php
+                    $erster_lauf = false;
+                }
+                //beitrag ausgeben
+                $dt = new DateTime($row["ErstelltAm"]);
+
+                ?>
+            <div class="beitrage">
+               <!-- <img onclick="" id="pb_settings" width="200px" src="php/upload/user/profielimg/1.png" class="beitrag_bild" alt="Dein Profiel Bild konnte nicht geladen werden"> -->
+                <?php
+                $loadPgClasses = "beitrag_bild";
+                $loadPgOnClick = "";
+                $outputpfad = "";
+                $bid =  intval($row["uid"], 10);
+                include "../../../../../php/user/get/UserImage.php";
+                ?>
+                <div class="beitrag_name"><?php echo $row["bname"] ?> <br> <span class="beitrag_subtitle">erstellt von <span style="color: <?php echo $row["usercolor"]; ?>"><?php echo ucfirst($row["uname"]) ?></span></span></div>
+                <div class="beitrag_antworten">0</div>
+                <div class="beitrag_zugriffe"><?php echo $row["Zugriffe"] ?></div>
+                <div class="beitrag_letzer_beitrag">von <span style="color: <?php echo $row["usercolor"]; ?>"><?php echo ucfirst($row["uname"]) ?></span><br><span class="beitrag_subtitle" >am <b ><?php echo $dt->format("d.m.Y") ?></b></span></div>
+            </div>
+            <?php
+        }
+    ?>
+
+</div>
+
+
+
+
+<!--<div class="beitrag_container">
     <span style="margin-left: 10% !important; font-size: 20px;">Angepinnt</span>
 
     <span class="beitrag_letzer_beitrag none_margin_top" style="margin-right: 3%!important;">Letzter Beitrag</span>
@@ -121,4 +199,4 @@ foreach($sth->fetchAll() as $row) {
         <div class="beitrag_zugriffe">396</div>
         <div class="beitrag_letzer_beitrag">von Dome<br><span class="beitrag_subtitle" >am <b >17.04.2022</b></span></div>
     </div>
-</div>
+</div> -->
