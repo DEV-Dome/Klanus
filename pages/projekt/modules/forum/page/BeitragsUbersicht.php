@@ -78,8 +78,8 @@ foreach($sth->fetchAll() as $row) {
                             <span style="margin-left: 10% !important; font-size: 20px;">Angepinnt</span>
 
                             <span class="beitrag_letzer_beitrag none_margin_top" style="margin-right: 3%!important;">Letzter Beitrag</span>
-                            <span class="beitrag_zugriffe none_margin_top" style="margin-right: 8% !important;">zugriffe</span>
-                            <span class="beitrag_antworten none_margin_top" style="margin-right: 3% !important;">Antworten</span>
+                            <span class="beitrag_zugriffe none_margin_top" style="margin-right: 9% !important;"><i class="bi bi-eye"></i></span>
+                            <span class="beitrag_antworten none_margin_top" style="margin-right: 9% !important;"><i class="bi bi-reply"></i></span>
                             <hr>
                         </div>
                       <?php
@@ -91,8 +91,8 @@ foreach($sth->fetchAll() as $row) {
                             <span style="margin-left: 10% !important; font-size: 20px;">Alle Beiträge</span>
 
                             <span class="beitrag_letzer_beitrag none_margin_top" style="margin-right: 3%!important;">Letzter Beitrag</span>
-                            <span class="beitrag_zugriffe none_margin_top" style="margin-right: 8% !important;">zugriffe</span>
-                            <span class="beitrag_antworten none_margin_top" style="margin-right: 3% !important;">Antworten</span>
+                            <span class="beitrag_zugriffe none_margin_top" style="margin-right: 9% !important;"><i class="bi bi-eye"></i></span>
+                            <span class="beitrag_antworten none_margin_top" style="margin-right: 9% !important;"><i class="bi bi-reply"></i></span>
                             <hr>
                         </div>
                     <?php

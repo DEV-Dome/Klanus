@@ -29,4 +29,102 @@
         font-size: 12px;
         display: none;
     }
+
+    /* Beitrags ubersicht */
+
+    .Beitrag_ubersicht_beschreibung {
+        font-size: 14px !important;
+    }
+    .beitrage {
+        margin-top: 1%;
+    }
+    .beitrag_container {
+        margin-bottom: 2%;
+    }
+
+    .neuen_beitrag_button{
+        float: right;
+        display: inline-block;
+        margin-right: 15%;
+        margin-top: -2%;
+
+        height: 120%;
+
+        background-color: rgba(69, 255, 88, 0.25);
+        color: #45FF58;
+
+        font-size: 20px;
+    }
+    .beitrag_button{
+        width: 14%;
+
+        font-weight: 500;
+        font-size: 100%;
+        line-height: 27px;
+
+        border: none;
+        outline:none;
+
+        border-radius: 10px;
+    }
+    .beitrag_container{
+        display: inline-block;
+        width: 90%;
+        margin-top: 5%;
+        margin-left: 5%;
+    }
+    .beitrag_bild {
+        width: 70px;
+        border-radius: 100%;
+        margin-top: 0.5%;
+        display: none;
+    }
+    .beitrag_name {
+        margin-left: 10%;
+        margin-top: -4.3%;
+        font-size: 20px;
+    }
+    .beitrag_antworten {
+        float: right;
+
+        margin-top: -4%;
+        margin-right: 35%;
+
+        font-size: 20px;
+        display: none;
+    }
+    .beitrag_zugriffe {
+        float: right;
+
+        margin-top: -4%;
+        margin-right: 25%;
+
+        font-size: 20px;
+        display: none;
+    }
+    .beitrag_letzer_beitrag {
+        float: right;
+
+        margin-top: -4.3%;
+        margin-right: 1%;
+
+        width: 13%;
+
+        font-size: 20px;
+        display: none;
+    }
+    .beitrag_subtitle {
+        font-size: 14px;
+        display: none;
+    }
+    .none_margin_top {
+        margin-top: 0% !important;
+        text-align: center;
+    }
+    .beitrag_headline_conatiner {
+        margin-top: 1.5%;
+    }.
+         beitrag_headline_conatiner_with_top {
+         margin-top: 6%;
+     }
 }
