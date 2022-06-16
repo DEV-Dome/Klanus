@@ -45,8 +45,8 @@
     .neuen_beitrag_button{
         float: right;
         display: inline-block;
-        margin-right: 15%;
-        margin-top: -2%;
+        margin-right: 30%;
+        margin-top: 6%;
 
         height: 120%;
 
@@ -56,10 +56,10 @@
         font-size: 20px;
     }
     .beitrag_button{
-        width: 14%;
+        width: 50%;
 
         font-weight: 500;
-        font-size: 100%;
+        font-size: 70%;
         line-height: 27px;
 
         border: none;
@@ -74,16 +74,19 @@
         margin-left: 5%;
     }
     .beitrag_bild {
-        width: 70px;
+        width: 40px;
         border-radius: 100%;
         margin-top: 0.5%;
-        display: none;
+
     }
     .beitrag_name {
-        margin-left: 10%;
-        margin-top: -4.3%;
-        font-size: 20px;
+        margin-left: 25%;
+        margin-top: -12%;
+        font-size: 16px;
+        display: inline-block;
+        min-width: 80%;
     }
+    
     .beitrag_antworten {
         float: right;
 
@@ -123,8 +126,8 @@
     }
     .beitrag_headline_conatiner {
         margin-top: 1.5%;
-    }.
-         beitrag_headline_conatiner_with_top {
-         margin-top: 6%;
+    }
+    .beitrag_headline_conatiner_with_top {
+         margin-top: 20%;
      }
 }
