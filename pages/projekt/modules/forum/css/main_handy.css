@@ -36,7 +36,7 @@
         font-size: 14px !important;
     }
     .beitrage {
-        margin-top: 1%;
+        margin-top: 3%;
     }
     .beitrag_container {
         margin-bottom: 2%;
@@ -45,8 +45,9 @@
     .neuen_beitrag_button{
         float: right;
         display: inline-block;
-        margin-right: 30%;
+        margin-right: 25%;
         margin-top: 6%;
+        margin-bottom: 10%;
 
         height: 120%;
 
@@ -80,13 +81,13 @@
 
     }
     .beitrag_name {
-        margin-left: 25%;
+        margin-left: 17%;
         margin-top: -12%;
         font-size: 16px;
         display: inline-block;
         min-width: 80%;
     }
-    
+
     .beitrag_antworten {
         float: right;
 
@@ -117,12 +118,17 @@
         display: none;
     }
     .beitrag_subtitle {
-        font-size: 14px;
-        display: none;
+        font-size: 10px;
     }
     .none_margin_top {
         margin-top: 0% !important;
         text-align: center;
+    }
+    .headline_conatiner {
+        text-align: center;
+        padding-left: 0% !important;
+        margin-left: 0% !important;
+        margin-top: 7%;
     }
     .beitrag_headline_conatiner {
         margin-top: 1.5%;
@@ -130,4 +136,11 @@
     .beitrag_headline_conatiner_with_top {
          margin-top: 20%;
      }
+}
+/* für besonders kleien Handy*/
+@media only screen and (max-width: 374px) {
+    .beitrag_name {
+        margin-top: -16% !important;
+        margin-left: 25% !important;
+    }
 }
