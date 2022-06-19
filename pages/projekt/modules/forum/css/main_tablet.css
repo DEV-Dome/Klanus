@@ -1,0 +1,26 @@
+@media only screen and (min-width: 426px) and (max-width: 1270px) {
+    .beitrag_name {
+        margin-left: 3%;
+        margin-top: -10%;
+        font-size: 20px;
+    }
+    .beitrag_subtitle {
+        font-size: 14px;
+    }
+
+    .beitrag_headline_conatiner_with_top {
+        margin-top: 10%;
+    }
+
+    .beitrag_antworten {
+        margin-top: -4%;
+        margin-right: 10%;
+        display: unset !important;
+    }
+
+    .beitrag_zugriffe {
+        margin-top: -4%;
+        margin-right: 10%;
+        display: unset !important;
+    }
+}

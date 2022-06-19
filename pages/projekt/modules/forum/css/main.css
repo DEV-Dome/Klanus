@@ -120,3 +120,18 @@
 }.beitrag_headline_conatiner_with_top {
     margin-top: 6%;
 }
+
+@media only screen and (min-width: 2250px) {
+    .beitrag_antworten {
+        margin-top: -2%;
+    }
+    .beitrag_zugriffe{
+        margin-top: -2%;
+    }
+    .beitrag_letzer_beitrag {
+        margin-top: -2.5%;
+    }
+    .beitrag_name {
+        margin-top: -3.5%;
+    }
+}

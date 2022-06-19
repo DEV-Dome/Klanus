@@ -1,9 +1,9 @@
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1270px) {
     #main_forum {
         width: 80%;
 
         margin-left: 10%;
-        margin-top: 2%;
+        margin-top: 15%;
         margin-bottom: 10%;
     }
     .Forum_Kategorie_head {
@@ -136,6 +136,10 @@
     .beitrag_headline_conatiner_with_top {
          margin-top: 20%;
      }
+    /*Background einfabig*/
+    #MainSek_container{
+        background-color: unset !important;
+    }
 }
 /* für besonders kleien Handy*/
 @media only screen and (max-width: 374px) {
