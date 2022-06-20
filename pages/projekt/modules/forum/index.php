@@ -56,10 +56,10 @@ $prang = new projektRang($_SESSION['PRang'], $pdo)
                     <i class="bi bi-folder-fill"></i>
                 </div>
                 <div class="Forum_name">
-                   <?php echo $row_foren["Name"]; ?>
+                   <?php echo utf8_encode($row_foren["Name"]); ?>
                 </div>
                 <div class="Forum_beschreibung">
-                    <?php echo $row_foren["Beschreibung"]; ?>
+                    <?php echo utf8_encode($row_foren["Beschreibung"]); ?>
                 </div>
         </div>
     <?php

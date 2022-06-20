@@ -43,18 +43,40 @@ foreach($sth->fetchAll() as $row) {
 <div class="beitrag_main_container">
         <div class="beitrag_teiler beitrag_teile_headline">
             <div class="headline_conatiner" >
-                <span class="headline-text" ><?php echo $bname; ?></span><br>
-                <span class="headline-text Beitrag_ubersicht_beschreibung" ><?php echo $bbeschreibung; ?></span>
+                <span class="headline-text" ><?php echo utf8_encode($bname); ?></span><br>
+                <span class="headline-text Beitrag_ubersicht_beschreibung" ><?php echo utf8_encode($bbeschreibung); ?></span>
             </div>
         </div>
         <div class="beitrag_teiler beitrag_teile_input">
             <div class="beitrag_verwalter_conatiner">
-                    <div class="beitrag_verwlater helper">
-                        <div class="beitrag_abzeige_conatiner beitrag_abzeige_conatiner_userinfo"></div>
-                        <div class="beitrag_abzeige_conatiner beitrag_abzeige_conatiner_beitraginfo"></div>
-                    </div>
-                    <div class="beitrag_verwlater"></div>
-                    <div class="beitrag_verwlater"></div>
+                <?php
+                    $sqlstr = "SELECT *,user.name AS 'uname' FROM projekt_forum_beitrage_kommentare,user,projekt_user,projekt_rang WHERE projekt_rang.ID = projekt_user.Rang AND projekt_user.User = user.ID AND projekt_user.Projekt = ? AND Owner = user.ID AND Beitrag = ? ORDER BY projekt_forum_beitrage_kommentare.ID";
+                    $sth = $pdo->prepare($sqlstr);
+                    $sth->bindParam(2, $bid);
+                    $sth->bindParam(1, $_SESSION["projekt.aktiv"]);
+                    $sth->execute();
+
+                    foreach($sth->fetchAll() as $row) {
+                ?>
+                <div class="beitrag_verwlater helper">
+                <div class="beitrag_abzeige_conatiner beitrag_abzeige_conatiner_userinfo">
+                    <?php
+                    $loadPgClasses = "beitrag_kommentar_bild";
+                    $loadPgOnClick = "";
+                    $outputpfad = "";
+                    $bid =  intval($row["Owner"], 10);
+                    include "../../../../../php/user/get/UserImage.php";
+                    ?>
+                    <span class="beitrag_kommentar_user_name" style="color: <?php echo $row["Color"]; ?>"><?php echo utf8_encode(ucfirst($row["uname"])) ?></span>
+                </div>
+                <div class="beitrag_abzeige_conatiner beitrag_abzeige_conatiner_beitraginfo">
+
+                </div>
+            </div>
+                <?php
+                    }
+                ?>
+
             </div>
         </div>
 </div>
