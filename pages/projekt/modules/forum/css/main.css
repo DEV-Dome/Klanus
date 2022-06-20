@@ -36,6 +36,7 @@
 }
 .beitrage {
     margin-top: 1%;
+    cursor: pointer;
 }
 .beitrag_container {
     margin-bottom: 2%;
@@ -134,4 +135,59 @@
     .beitrag_name {
         margin-top: -3.5%;
     }
+}
+
+/*Beitrags seite*/
+.beitrag_main_container{
+    width: 100%;
+    height: 100%;
+
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.beitrag_teiler {
+    min-width: 25%;
+}
+.beitrag_teile_headline{
+    width: 100%;
+    height: 10%;
+
+    min-width: unset !important;
+    align-self: flex-start;
+
+    margin-left: 0%;
+    margin-bottom: 2%;
+}
+.beitrag_teile_input {
+    width: 100%;
+    height: 90%;
+    align-self: flex-end;
+
+
+}
+.beitrag_verwalter_conatiner{
+    display: flex;
+    flex-wrap: wrap;
+
+    width: 100%;
+    height: 100%;
+}
+.beitrag_verwlater {
+    width: 100%;
+    min-height: 10%;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+.beitrag_abzeige_conatiner {
+    
+}
+.beitrag_abzeige_conatiner_userinfo {
+    margin-right: 5%;
+    min-width: 25%;
+}
+.beitrag_abzeige_conatiner_beitraginfo{
+    min-width: 70%;
 }

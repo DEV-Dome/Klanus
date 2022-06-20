@@ -177,6 +177,7 @@ Beschreibung VARCHAR(1000) NOT NULL,
 UnterForum INT(10) NOT NULL,
 kategorien INT(10) NOT NULL,
 prioritat int(10) NOT NULL,
+BeitragKommentar VARCHAR(1000),
 
 FOREIGN KEY (kategorien) REFERENCES projekt_forum_kategorien(ID)
 )");

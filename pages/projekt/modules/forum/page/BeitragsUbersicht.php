@@ -52,9 +52,13 @@ foreach($sth->fetchAll() as $row) {
     <?php
         //angepinnte Beiträge
         //Atrebute zuordenen
-        $sqlzuordnung = "projekt_forum_beitrage.Name AS 'bname', projekt_rang.Color AS 'usercolor', user.ID AS 'uid',";
+        $sqlzuordnung = "projekt_forum_beitrage.Name AS 'bname', ";
+        $sqlzuordnung .= "projekt_rang.Color AS 'usercolor', ";
+        $sqlzuordnung .= "user.ID AS 'uid', ";
         $sqlzuordnung .= "user.Name AS 'uname', ";
+        $sqlzuordnung .= "projekt_forum_beitrage.ID AS 'bid', ";
         $sqlzuordnung .= "Zugriffe, IsAngepinnt, ErstelltAm"; // alles andere
+
 
 
         $sqlstr = "SELECT $sqlzuordnung FROM projekt_forum_beitrage,user,projekt_user,projekt_rang WHERE projekt_rang.ID = projekt_user.Rang AND projekt_user.Projekt = ? AND projekt_user.User = user.id AND user.id = Owner AND Forum = ? ORDER BY IsAngepinnt DESC";
@@ -103,8 +107,7 @@ foreach($sth->fetchAll() as $row) {
                 $dt = new DateTime($row["ErstelltAm"]);
 
                 ?>
-            <div class="beitrage">
-               <!-- <img onclick="" id="pb_settings" width="200px" src="php/upload/user/profielimg/1.png" class="beitrag_bild" alt="Dein Profiel Bild konnte nicht geladen werden"> -->
+            <div class="beitrage" onclick="loadProjektUnderPage('forum', 'Beitrag.php?bid=<?php echo $row["bid"]?>');">
                 <?php
                 $loadPgClasses = "beitrag_bild";
                 $loadPgOnClick = "";
