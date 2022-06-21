@@ -140,7 +140,7 @@
 /*Beitrags seite*/
 .beitrag_main_container{
     width: 100%;
-    height: 100%;
+    min-height: 100%;
 
 
     display: flex;
@@ -174,12 +174,20 @@
     width: 100%;
     height: 100%;
 }
-.beitrag_verwlater {
-    width: 100%;
+.beitrag_verwalter {
+    width: 90%;
     min-height: 25%;
 
     display: flex;
     flex-wrap: wrap;
+
+    margin-left: 5%;
+    margin-right: 5%;
+
+    border-radius: 25px;
+
+    margin-bottom: 2%;
+    background-color: #0D172E;
 }
 .beitrag_abzeige_conatiner {
 
@@ -193,18 +201,66 @@
     flex-wrap: wrap;
 }
 .beitrag_abzeige_conatiner_beitraginfo{
-    min-width: 70%;
-    border: solid green 2px;
-    flex-wrap: wrap;
+    width: 70%;
+
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
 }
 .beitrag_kommentar_bild{
     width: 128px;
     height: 128px;
     border-radius: 100%;
     margin-top: 5%;
+    margin-bottom: 5%;
 }
 .beitrag_kommentar_user_name {
     font-size: 24px;
     width: 100%;
     text-align: center;
+
+    margin-bottom: 5%;
+}
+.beitrag_kommentar_user_headline{
+    font-size: 20px;
+    margin-left: 2%;
+    margin-top: 2%;
+    width: 100%;
+}
+.beitrag_kommentar_user_headline_subtext{
+    font-size: 12px;
+    margin-left: 2%;
+    width: 100%;
+}
+.beitrag_kommentar_user_beitrag {
+    display: inline-block;
+    margin-left: 2%;
+    margin-top: 2%;
+
+    flex-wrap: wrap;
+}
+.beitrag_kommentar_user_danks {
+    width: 70%;
+    margin-top: 0%;
+    margin-left: 2%;
+}
+.beitrag_kommentar_user_button {
+    float: right;
+    margin-right: 5%;
+    width: 30%;
+}
+.likebutton {
+    background-color: rgb(1,116,223, 0.25);
+    color: #0174DF;
+
+    width: 40px;
+    height: 40px;
+    font-size: 140%;
+}
+.meldebutton {
+    background-color: rgba(229, 51, 51, 0.25);
+    color: #E53333;
+
+    width: 40px;
+    height: 40px;
+    font-size: 140%;
 }

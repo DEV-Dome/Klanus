@@ -50,7 +50,7 @@ foreach($sth->fetchAll() as $row) {
         <div class="beitrag_teiler beitrag_teile_input">
             <div class="beitrag_verwalter_conatiner">
                 <?php
-                    $sqlstr = "SELECT *,user.name AS 'uname' FROM projekt_forum_beitrage_kommentare,user,projekt_user,projekt_rang WHERE projekt_rang.ID = projekt_user.Rang AND projekt_user.User = user.ID AND projekt_user.Projekt = ? AND Owner = user.ID AND Beitrag = ? ORDER BY projekt_forum_beitrage_kommentare.ID";
+                    $sqlstr = "SELECT *,user.name AS 'uname',projekt_forum_beitrage_kommentare.Name AS 'kname' FROM projekt_forum_beitrage_kommentare,user,projekt_user,projekt_rang WHERE projekt_rang.ID = projekt_user.Rang AND projekt_user.User = user.ID AND projekt_user.Projekt = ? AND Owner = user.ID AND Beitrag = ? ORDER BY projekt_forum_beitrage_kommentare.ID";
                     $sth = $pdo->prepare($sqlstr);
                     $sth->bindParam(2, $bid);
                     $sth->bindParam(1, $_SESSION["projekt.aktiv"]);
@@ -58,7 +58,7 @@ foreach($sth->fetchAll() as $row) {
 
                     foreach($sth->fetchAll() as $row) {
                 ?>
-                <div class="beitrag_verwlater helper">
+                <div class="beitrag_verwalter">
                 <div class="beitrag_abzeige_conatiner beitrag_abzeige_conatiner_userinfo">
                     <?php
                     $loadPgClasses = "beitrag_kommentar_bild";
@@ -66,11 +66,23 @@ foreach($sth->fetchAll() as $row) {
                     $outputpfad = "";
                     $bid =  intval($row["Owner"], 10);
                     include "../../../../../php/user/get/UserImage.php";
+                    $dt_erstellt_am = new DateTime($row["ErstelltAm"]);
                     ?>
                     <span class="beitrag_kommentar_user_name" style="color: <?php echo $row["Color"]; ?>"><?php echo utf8_encode(ucfirst($row["uname"])) ?></span>
                 </div>
                 <div class="beitrag_abzeige_conatiner beitrag_abzeige_conatiner_beitraginfo">
+                    <span class="beitrag_kommentar_user_headline">
+                        <?php echo utf8_encode(ucfirst($row["kname"])) ?><br>
+                        <span class="beitrag_kommentar_user_headline_subtext">erstellt von <span style="color: <?php echo $row["Color"]; ?>"><?php echo utf8_encode(ucfirst($row["uname"])) ?></span> am <b><?php echo $dt_erstellt_am->format("d.m.Y") ?></b></span>
+                    </span><br>
+                    <span class="beitrag_kommentar_user_beitrag"><?php echo utf8_encode(ucfirst($row["Text"])) ?></span><br><br>
 
+                    <span class="beitrag_kommentar_user_beitrag">Folgende Benutzer sich für den Beitrag dedankt:</span><br>
+                    <span class="beitrag_kommentar_user_danks" style="margin-top: 0% !important;">Dome, Marvin, Nico, Steven, jahn</span>
+                    <span class="beitrag_kommentar_user_button" >
+                        <button class="button meldebutton"><i class="bi bi-exclamation-octagon"></i></button>
+                        <button class="button likebutton"><i class="bi bi-hand-thumbs-up"></i></button>
+                    </span>
                 </div>
             </div>
                 <?php
