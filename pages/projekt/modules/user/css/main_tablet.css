@@ -15,14 +15,14 @@
     }
     .deleteButton {
         width: 13%;
-        height: 90%;
+        height: 75px;
         margin-right: 5%;
 
         font-size: 140%;
     }
     .infoButton {
         width: 13%;
-        height: 90%;
+        height: 75px;
         margin-right: 5%;
 
         font-size: 140%;
@@ -44,9 +44,11 @@
 @media only screen and (min-width: 1271px) and (max-width: 1919px) {
     .deleteButton {
         width: 8%;
+        height: 75px;
     }
     .infoButton {
         width: 8%;
+        height: 75px;
     }
     .addbutton {
         width: 18%;

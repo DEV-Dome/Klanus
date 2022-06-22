@@ -14,8 +14,10 @@
     }
     .deleteButton {
         width: 35%;
+        height: 75px;
         margin-right: 33%;
         margin-bottom: 10%;
+        margin-top: 2%;
     }
     .addbutton {
         width: 80%;
@@ -40,5 +42,8 @@
     .item_container{
         text-align: center;
     }
-
+    .deleteButton {
+        width: 30%;
+        height: 80px;
+    }
 }
