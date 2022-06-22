@@ -26,28 +26,37 @@ $prang = new projektRang($_SESSION['PRang'], $pdo)
 </div>
 
 <link href="pages/projekt/modules/einstellungen/css/Main.css" rel="stylesheet">
-<link href="pages/projekt/modules/einstellungen/css/Main_handy.css" rel="stylesheet">
+<!--<link href="pages/projekt/modules/einstellungen/css/Main_handy.css" rel="stylesheet">-->
 
-<div class="page_main page_main_scroll_hidden" >
-    <input <?php if(!$prang->hasPermission("setting.name") && !$rang->hasPermission("projekt.edit.name")) echo "disabled"?> oninput="setNewProjektName(this.value, <?php echo $_SESSION["projekt.aktiv"]; ?>)"  value="<?php echo $name; ?>" type="text" placeholder="Name" id="name" class="input_fild_normal">
-    <input <?php if(!$prang->hasPermission("setting.kurzel") && !$rang->hasPermission("projekt.edit.kurzel")) echo "disabled"?> oninput="setNewProjektKurzel(this.value, <?php echo $_SESSION["projekt.aktiv"]; ?>)" type="text" placeholder="Kürzel" id="kurzel" class="input_fild_normal"  value="<?php echo $kurzel; ?>">
-
-    <textarea <?php if(!$prang->hasPermission("setting.beschreibung") && !$rang->hasPermission("projekt.edit.beschreibung")) echo "disabled"?> id="beschreibung" class="input_fild_normal input_fild_normal_textarea" rows="4" placeholder="Beschreibung" oninput="setNewProjektBeschreibung(this.value, <?php echo $_SESSION["projekt.aktiv"]; ?>)"><?php echo $beschreibung; ?></textarea>
-
-
-    <?php if($prang->hasPermission("setting.bild") || $rang->hasPermission("projekt.edit.bild")){ ?>
-    <div class="drop-zone">
-        <span class="drop-zone_prompt">Bild ablegen</span>
-        <input onchange="setNewProjektImg(this, <?php echo $_SESSION["projekt.aktiv"]; ?>);" type="file" class="drop-zone__input">
+<div class="page_main" >
+    <div class="overview_container">
+        <div class="overview_item">
+            <div class="overview_icon overview_item_detail">
+                <div class="overview_conatiner_box" onclick="loadProjektUnderPage('einstellungen', 'allegemeine_einstellungen.php')">
+                    <i class="bi bi-gear overview_text_icon"></i><br>
+                    <span class="overview_text_title">Allgemeine Einstellungen</span>
+                </div>
+                <div class="overview_conatiner_box">
+                    <i class="bi bi-exclamation-circle overview_text_icon"></i><br>
+                    <span class="overview_text_title">Gefährlich Einstellungen</span>
+                </div>
+                <div class="overview_conatiner_box">
+                    <i class="bi bi-discord overview_text_icon"></i><br>
+                    <span class="overview_text_title">Discord Einstellungen</span>
+                </div>
+                <div class="overview_conatiner_box">
+                    <i class="bi bi-controller overview_text_icon"></i><br>
+                    <span class="overview_text_title">Minecraft Einstellungen</span>
+                </div>
+                <div class="overview_conatiner_box">
+                    <i class="bi bi-body-text overview_text_icon"></i><br>
+                    <span class="overview_text_title">Forum Einstellungen</span>
+                </div>
+                <div class="overview_conatiner_box">
+                    <i class="bi bi-bar-chart overview_text_icon"></i><br>
+                    <span class="overview_text_title">Menü Einstellungen</span>
+                </div>
+            </div>
+        </div>
     </div>
-    <?php
-    }
-
-    if ($prang->hasPermission("setting.delete") || $rang->hasPermission("projekt.delete")){ ?>
-    <button onclick="deleteProjekt(<?php echo $_SESSION["projekt.aktiv"]; ?>)" class="button buttonDeleteProjekt">Löschen</button>
-    <?php
-    }
-    ?>
-
-    <div class="feedback_hub" id="feedback_hub">Feedback</div>
 </div>

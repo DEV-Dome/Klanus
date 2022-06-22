@@ -166,10 +166,11 @@
     margin-left: 2%;
     margin-right: 2%;
     margin-top: 10%;
+    margin-bottom: 2%;
 
-    height: 6%;
+    height: 40px;
 
-    padding-top: 7px;
+    padding-top: 10px;
     padding-left: 11px;
 
     background-color: rgba(69, 255, 88, 0.25);

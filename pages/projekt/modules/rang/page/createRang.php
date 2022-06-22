@@ -104,5 +104,5 @@ if(isset($_GET["id"])){
 
     <?php if($id == null) {?><button onclick="addRang(document.getElementById('name').value, document.getElementById('beschreibung').value, document.getElementById('color').value)" class="button buttonSave">Speichern</button><?php }?>
     <?php if($id != null) {?><button onclick="updateRang(document.getElementById('name').value, document.getElementById('beschreibung').value, <?php echo $id?> , document.getElementById('color').value)" class="button buttonSave">Ändern</button><?php }?>
-    <button class="button buttonSave buttonBack">Zurück</button>
+    <button onclick="loadProjektPage('rang')" class="button buttonSave buttonBack">Zurück</button>
 </div>
