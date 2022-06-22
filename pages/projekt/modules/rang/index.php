@@ -29,17 +29,16 @@ $prang = new projektRang($_SESSION['PRang'], $pdo)
     $sth = $pdo->prepare("SELECT * FROM projekt_rang WHERE Projekt =" .$_SESSION["projekt.aktiv"]. " ORDER BY Prioritat DESC");
     $sth->execute();
     foreach($sth->fetchAll() as $row) {
-        //$sth = $pdo->query("SELECT * FROM user WHERE Rang = ". $row["ID"]);
+        $sthRangZahl = $pdo->prepare("SELECT * FROM projekt_user WHERE Projekt = ? AND Rang = ?");
+        $sthRangZahl->bindParam(1, $_SESSION["projekt.aktiv"]);
+        $sthRangZahl->bindParam(2, $row["ID"]);
+        $sthRangZahl->execute();
         ?>
-        <div id="<?php echo $row["ID"];?>" ondragstart="dragstart(event)" ondrop="drop(event)" ondragover="allowDrop(event)" draggable="true" class="rangUbersichtConatiner">
+        <div id="<?php echo $row["ID"];?>" ondragstart="dragstart(event)" ondrop="drop(event)" ondragover="allowDrop(event)" draggable="true" class="rangUbersichtConatiner dragtaget">
+            <button id="<?php echo $row["ID"];?>" class="rangUbersichtName dragtaget" style="background-color: <?php echo $row["BackgroundColor"]?>;color: <?php echo $row["Color"]?>;"><?php echo substr($row["Name"], 0,15) . "<br/>"; ?></button>
 
-            <?php if($prang->hasPermission("rang.posistion") || $rang->hasPermission("all.rang.posistion")) { ?>
-            <i  id="<?php echo $row["ID"];?>" class="bi bi-grid-3x3-gap-fill rangUbersichtMoveItem dragtaget"></i>
-            <?php  }?>
-            <button class="rangUbersichtName " style="background-color: <?php echo $row["BackgroundColor"]?>;color: <?php echo $row["Color"]?>;"><?php echo substr($row["Name"], 0,15) . "<br/>"; ?></button>
-
-            <span class="rangUbersichtUserZahl"> 0 <i class="bi bi-person"></i></span>
-            <i class="rangUbersichtDscribe"><?php echo substr($row["Dscribe"], 0, 50);  if(strlen($row["Dscribe"]) >= 51) echo " [...]"; ?></i>
+            <span id="<?php echo $row["ID"];?>" class="rangUbersichtUserZahl dragtaget"><i class="bi bi-person"></i> <?php echo $sthRangZahl->rowCount()?> </span>
+            <i id="<?php echo $row["ID"];?>" class="rangUbersichtDscribe dragtaget"><?php echo substr($row["Dscribe"], 0, 50);  if(strlen($row["Dscribe"]) >= 51) echo " [...]"; ?></i>
 
             <?php if($prang->hasPermission("rang.name") || $prang->hasPermission("rang.farbe") ||
             $prang->hasPermission("rang.beschreibung") || $prang->hasPermission("rang.permission") ||

@@ -33,7 +33,10 @@ if(!isset($_SESSION["Login"])){
 
     <!-- Modul Import für Jaavscript-->
     <script src="pages/projekt/modules/einstellungen/js/main.js"></script>
+
     <script src="pages/projekt/modules/rang/js/main.js"></script>
+    <script src="pages/projekt/modules/rang/js/rang_drag_and_drop.js"></script>
+
     <script src="pages/projekt/modules/einladungen/js/main.js"></script>
     <script src="pages/projekt/modules/user/js/main.js"></script>
 

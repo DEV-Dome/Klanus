@@ -11,6 +11,9 @@
 
     font-size: 20px;
 }
+.dragtaget{
+    cursor: pointer;
+}
 
 .buttonDeleteFrontEnd{
    height: 75% !important;
