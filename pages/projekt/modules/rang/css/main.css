@@ -19,8 +19,17 @@
    height: 75% !important;
    font-size: 180% !important;
 }
+.buttonBack {
+    background-color: rgba(199, 205, 216, 0.25) !important;
+    color: #C7CDD8 !important;
+}
+.button {
+    margin-bottom: 2%;
+}
+
+
 @media only screen and (max-width: 715px) {
     .newRangButton {
-        display: none;
+        /*display: none;*/
     }
 }

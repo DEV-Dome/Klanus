@@ -9,9 +9,10 @@
 }
 .page_main {
     width: 92%;
-    height: 70vh;
+    min-height: 70vh;
 
     margin-top: 3%;
+    margin-bottom: 3%;
     margin-left: 4%;
     margin-right: 4%;
 
@@ -19,7 +20,6 @@
 
     background-color: #0D172E;
 
-    overflow: scroll;
     overflow-x: hidden;
 }
 .page_main_scroll_hidden {
@@ -90,7 +90,7 @@
     padding-right: 1%;
 
     width: 92%;
-    height: 5%;
+    height: 40px;
 
     border: none;
     outline:none;
@@ -114,7 +114,7 @@
     padding-right: 1%;
 
     width: 45%;
-    height: 5%;
+    height: 40px;
 
     border: none;
     outline:none;
@@ -131,7 +131,7 @@
 
 .input_fild_normal_textarea {
     width: 92% !important;
-    height: 15% !important;
+    height: 140px !important;
 
     padding-top: 1%;
 }
