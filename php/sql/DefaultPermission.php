@@ -34,12 +34,6 @@ echo "<p>user Rechte eingerichtet.</p>";
 
 /*projekt*/
 addPermission("projekt.overview", "projekt: einsehen", "projekt", $pdo);
-//addPermission("projekt.add", "projekt: Erstellen", "projekt", $pdo);
-addPermission("projekt.edit", "projekt: Bearbeiten (Übersicht)", "projekt", $pdo);
-addPermission("projekt.edit.name", "projekt: Namen Bearbeiten", "projekt", $pdo);
-addPermission("projekt.edit.kurzel", "projekt: Kurzel Bearbeiten", "projekt", $pdo);
-addPermission("projekt.edit.beschreibung", "projekt: Beschreibung Bearbeiten", "projekt", $pdo);
-addPermission("projekt.edit.bild", "projekt: Bild Bearbeiten", "projekt", $pdo);
 addPermission("projekt.edit.status", "projekt: Status Bearbeiten", "projekt", $pdo);
 addPermission("projekt.add.premium", "projekt: Erstellen [Premium]", "projekt", $pdo);
 addPermission("projekt.add.partner", "projekt: Erstellen [Partner]", "projekt", $pdo);
@@ -79,8 +73,24 @@ addPermission("all.rang.posistion", "Rang: Reinfolge ändern ", "Rang [Projekte]
 addPermission("all.rang.menu", "Rang: Menu Punkt anzeigen ", "Rang [Projekte]", $pdo);
 
 
-echo "<p>projekt Rechte eingerichtet [Projeckte].</p>";
+echo "<p>projekt Rechte eingerichtet [Rang].</p>";
 
+/*Einstellungen*/
+addPermission("all.setting.see.allgemein", "Einstellung: Kann Allgemien einstellungen sehen", "Einstellungen [Projekte]", $pdo);
+addPermission("all.setting.see.gefahr", "Einstellung: Kann Gefahrn-bereich einstellungen sehen", "Einstellungen [Projekte]", $pdo);
+addPermission("all.setting.see.discord", "Einstellung: Kann Discord einstellungen sehen", "Einstellungen [Projekte]", $pdo);
+addPermission("all.setting.see.minecraft", "Einstellung: Kann Minecraft einstellungen sehen", "Einstellungen [Projekte]", $pdo);
+addPermission("all.setting.see.forum", "Einstellung: Kann Forum einstellungen sehen", "Einstellungen [Projekte]", $pdo);
+addPermission("all.setting.see.menu", "Einstellung: Kann Menü einstellungen sehen", "Einstellungen [Projekte]", $pdo);
+
+addPermission("all.setting.see", "Einstellung: Kann Menü Punkt sehen", "Einstellungen [Projekte]", $pdo);
+addPermission("all.setting.name", "Einstellung: Name ändern", "Einstellungen [Projekte]", $pdo);
+addPermission("all.setting.kurzel", "Einstellung: Kurzel ändern", "Einstellungen [Projekte]", $pdo);
+addPermission("all.setting.beschreibung", "Einstellung: Beschreibung ändern", "Einstellungen [Projekte]", $pdo);
+addPermission("all.setting.bild", "Einstellung: Bild ändern", "Einstellungen [Projekte]", $pdo);
+addPermission("all.setting.delete", "Einstellung: Projekt Löschen", "Einstellungen [Projekte]", $pdo);
+
+echo "<p>projekt Rechte eingerichtet [Einstellungen].</p>";
 
 /*Global*/
 addPermission("acp.use", "Admininterface: Ansehen & Bedienen", "ACP", $pdo);

@@ -32,30 +32,42 @@ $prang = new projektRang($_SESSION['PRang'], $pdo)
     <div class="overview_container">
         <div class="overview_item">
             <div class="overview_icon overview_item_detail">
-                <div class="overview_conatiner_box" onclick="loadProjektUnderPage('einstellungen', 'allegemeine_einstellungen.php')">
-                    <i class="bi bi-gear overview_text_icon"></i><br>
-                    <span class="overview_text_title">Allgemeine Einstellungen</span>
-                </div>
-                <div class="overview_conatiner_box">
-                    <i class="bi bi-exclamation-circle overview_text_icon"></i><br>
-                    <span class="overview_text_title">Gefährlich Einstellungen</span>
-                </div>
-                <div class="overview_conatiner_box">
-                    <i class="bi bi-discord overview_text_icon"></i><br>
-                    <span class="overview_text_title">Discord Einstellungen</span>
-                </div>
-                <div class="overview_conatiner_box">
-                    <i class="bi bi-controller overview_text_icon"></i><br>
-                    <span class="overview_text_title">Minecraft Einstellungen</span>
-                </div>
-                <div class="overview_conatiner_box">
-                    <i class="bi bi-body-text overview_text_icon"></i><br>
-                    <span class="overview_text_title">Forum Einstellungen</span>
-                </div>
-                <div class="overview_conatiner_box">
-                    <i class="bi bi-bar-chart overview_text_icon"></i><br>
-                    <span class="overview_text_title">Menü Einstellungen</span>
-                </div>
+                <?php if($prang->hasPermission("setting.see.allgemein") || $rang->hasPermission("all.setting.see.allgemein")) {?>
+                    <div class="overview_conatiner_box" onclick="loadProjektUnderPage('einstellungen', 'allegemeine_einstellungen.php')">
+                        <i class="bi bi-gear overview_text_icon"></i><br>
+                        <span class="overview_text_title">Allgemeine Einstellungen</span>
+                    </div>
+                <?php }
+                if($prang->hasPermission("setting.see.gefahr") || $rang->hasPermission("all.setting.see.gefahr")) {?>
+                    <div class="overview_conatiner_box">
+                        <i class="bi bi-exclamation-circle overview_text_icon"></i><br>
+                        <span class="overview_text_title">Gefährlich Einstellungen</span>
+                    </div>
+                <?php }
+                if($prang->hasPermission("setting.see.discord") || $rang->hasPermission("all.setting.see.discord")) {?>
+                    <div class="overview_conatiner_box">
+                        <i class="bi bi-discord overview_text_icon"></i><br>
+                        <span class="overview_text_title">Discord Einstellungen</span>
+                    </div>
+                <?php }
+                if($prang->hasPermission("setting.see.minecraft") || $rang->hasPermission("all.setting.see.minecraft")) {?>
+                    <div class="overview_conatiner_box">
+                        <i class="bi bi-controller overview_text_icon"></i><br>
+                        <span class="overview_text_title">Minecraft Einstellungen</span>
+                    </div>
+                <?php }
+                if($prang->hasPermission("setting.see.forum") || $rang->hasPermission("all.setting.see.forum")) {?>
+                    <div class="overview_conatiner_box">
+                        <i class="bi bi-body-text overview_text_icon"></i><br>
+                        <span class="overview_text_title">Forum Einstellungen</span>
+                    </div>
+                <?php }
+                if($prang->hasPermission("setting.see.menu") || $rang->hasPermission("all.setting.see.menu")) {?>
+                    <div class="overview_conatiner_box" onclick="loadProjektUnderPage('einstellungen', 'menu_einstellungen.php')">
+                        <i class="bi bi-bar-chart overview_text_icon"></i><br>
+                        <span class="overview_text_title">Menü Einstellungen</span>
+                    </div>
+                <?php } ?>
             </div>
         </div>
     </div>

@@ -2,6 +2,13 @@
 //include "../../../../../php/sql/connection.php";
 
 /*Einstellungen*/
+addPermissionFrontEnd("setting.see.allgemein", "Einstellung: Kann Allgemien einstellungen sehen", "Einstellungen", $pdo);
+addPermissionFrontEnd("setting.see.gefahr", "Einstellung: Kann Gefahrn-bereich einstellungen sehen", "Einstellungen", $pdo);
+addPermissionFrontEnd("setting.see.discord", "Einstellung: Kann Discord einstellungen sehen", "Einstellungen", $pdo);
+addPermissionFrontEnd("setting.see.minecraft", "Einstellung: Kann Minecraft einstellungen sehen", "Einstellungen", $pdo);
+addPermissionFrontEnd("setting.see.forum", "Einstellung: Kann Forum einstellungen sehen", "Einstellungen", $pdo);
+addPermissionFrontEnd("setting.see.menu", "Einstellung: Kann Menu einstellungen sehen", "Einstellungen", $pdo);
+
 addPermissionFrontEnd("setting.see", "Einstellung: Kann Menü Punkt sehen", "Einstellungen", $pdo);
 addPermissionFrontEnd("setting.name", "Einstellung: Name ändern", "Einstellungen", $pdo);
 addPermissionFrontEnd("setting.kurzel", "Einstellung: Kurzel ändern", "Einstellungen", $pdo);

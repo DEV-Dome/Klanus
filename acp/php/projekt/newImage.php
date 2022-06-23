@@ -21,12 +21,12 @@ $rang = new Rang($_SESSION['Rang'], $pdo);
 if(isset($_SESSION['PRang'])){
     //wenn ein Projekt gesetzt ist
     $prang = new projektRang($_SESSION['PRang'], $pdo);
-    if(!$prang->hasPermission("setting.bild") && !$rang->hasPermission("projekt.edit.bild")){
+    if(!$prang->hasPermission("setting.bild") && !$rang->hasPermission("all.setting.bild")){
         echo "<erro>Dafür hast du nicht die nötigen Permission.";
         exit();
     }
 }else {
-    if(!$rang->hasPermission("projekt.edit.bild")){
+    if(!$rang->hasPermission("all.setting.bild")){
         echo "<erro>Dafür hast du nicht die nötigen Permission.";
         exit();
     }
