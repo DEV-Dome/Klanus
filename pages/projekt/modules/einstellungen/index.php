@@ -26,7 +26,7 @@ $prang = new projektRang($_SESSION['PRang'], $pdo)
 </div>
 
 <link href="pages/projekt/modules/einstellungen/css/Main.css" rel="stylesheet">
-<!--<link href="pages/projekt/modules/einstellungen/css/Main_handy.css" rel="stylesheet">-->
+<link href="pages/projekt/modules/einstellungen/css/Main_handy.css" rel="stylesheet">
 
 <div class="page_main" >
     <div class="overview_container">

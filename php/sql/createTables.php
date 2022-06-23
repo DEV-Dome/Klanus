@@ -91,8 +91,25 @@ ProjektState INT(10) NOT NULL,
 Icon VARCHAR(128) NOT NULL,
 Ordner VARCHAR(128) NOT NULL,
 permission VARCHAR(128),
+Standart INT,
     
 FOREIGN KEY (ProjektState) REFERENCES projekt_status(ID)
+)");
+
+echo "<p>Modul Tabelle erstellt.</p>";
+
+
+
+$pdo->query("CREATE TABLE IF NOT EXISTS projekt_setting_menubar(
+ID int(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+DisplayName VARCHAR(64) NOT NULL,
+Prioritat INT NOT NULL,  
+IsDisabled BOOL NOT NULL DEFAULT 0,
+Projekt INT NOT NULL,
+Modul INT NOT NULL, 
+    
+FOREIGN KEY (Modul) REFERENCES modul(ID),
+FOREIGN KEY (Projekt) REFERENCES projekt(ID)
 )");
 
 echo "<p>Modul Tabelle erstellt.</p>";
@@ -103,8 +120,8 @@ Name VARCHAR(100) NOT NULL,
 Dscribe TEXT(500),
 BackgroundColor VARCHAR(64), 
 Color VARCHAR(64), 
-Prioritat int,
-Projekt int,  
+Prioritat INT,
+Projekt INT,  
     
 Isdefault bool NOT NULL,
 FOREIGN KEY (Projekt) REFERENCES projekt(ID)
@@ -215,6 +232,8 @@ FOREIGN KEY (Owner) REFERENCES user(ID)
 )");
 
 echo "<p>Projekt Forum_Beiträge Tabelle erstellt.</p>";
+
+
 
 include "DefaultPermission.php";
 include "DefaultProjektStatus.php";

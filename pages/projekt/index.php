@@ -21,6 +21,9 @@ include_once "../../pages/projekt/modules/rang/projektRang.php";
 //setzten des Projeckts
 $_SESSION["projekt.aktiv"] = $_GET["pid"];
 
+//projekt ernerun
+include_once "update/loader.php";
+
 $id = $_GET["pid"];
 $pname = ""; //projekt name
 $sname = ""; //status name

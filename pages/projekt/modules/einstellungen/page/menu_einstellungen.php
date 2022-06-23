@@ -17,84 +17,48 @@ if(!$prang->hasPermission("setting.see.menu") && !$rang->hasPermission("all.sett
 </div>
 
 <link href="pages/projekt/modules/einstellungen/css/unterseiten/menu/Main.css" rel="stylesheet">
-<!--<link href="pages/projekt/modules/einstellungen/css/unterseiten/menu/Main_handy.css" rel="stylesheet"> -->
+<link href="pages/projekt/modules/einstellungen/css/unterseiten/menu/Main_handy.css" rel="stylesheet">
 
 <div class="page_main " >
     <div class="menu_container">
+
+        <?php
+        $sth = $pdo->prepare("SELECT * FROM projekt_setting_menubar,modul WHERE modul.ID = Modul AND Projekt  = ? ORDER BY Prioritat");
+        $sth->bindParam(1, $_SESSION["projekt.aktiv"]);
+        $sth->execute();
+
+        foreach ($sth->fetchAll() as $row) {
+            $name = $row["DisplayName"];
+            $icon = $row["Icon"];
+        ?>
+
         <div class="menu_item">
             <div class="menu_icon">
-                <i class="bi bi-person"></i>
+                <i class="bi <?php echo $icon ?>"></i>
             </div>
             <div class="menu_text">
-               User
-            </div>
-            <div class="menu_button_stop">
-                <button class="button stopButtonMenu">
-                    <i class="bi bi-slash-circle"></i>
-                </button>
+               <?php echo $name; ?>
             </div>
             <div class="menu_button_edit">
                 <button class="button editButtonMenu">
                     <i class="bi bi-pencil"></i>
                 </button>
             </div>
-        </div>
-
-        <div class="menu_item">
-            <div class="menu_icon">
-                <i class="bi bi-person"></i>
-            </div>
-            <div class="menu_text">
-                Einladungen
-            </div>
+            <?php
+                if($row["Standart"] == 1)  {
+            ?>
             <div class="menu_button_stop">
-                <button  class="button stopButtonMenu">
-                    <i class="bi bi-receipt"></i>
-                </button>
-            </div>
-            <div class="menu_button_edit">
-                <button  class="button editButtonMenu">
-                    <i class="bi bi-pencil"></i>
-                </button>
-            </div>
-        </div>
-
-        <div class="menu_item">
-            <div class="menu_icon">
-                <i class="bi bi-person-lines-fill"></i>
-            </div>
-            <div class="menu_text">
-                Rang
-            </div>
-            <div class="menu_button_stop">
-                <button onclick="newEinladung()" class="button stopButtonMenu">
+                <button class="button stopButtonMenu">
                     <i class="bi bi-slash-circle"></i>
                 </button>
             </div>
-            <div class="menu_button_edit">
-                <button onclick="newEinladung()" class="button editButtonMenu">
-                    <i class="bi bi-pencil"></i>
-                </button>
-            </div>
+            <?php
+                }
+            ?>
         </div>
+        <?php
+        }
+        ?>
 
-        <div class="menu_item">
-            <div class="menu_icon">
-                <i class="bi bi-gear"></i>
-            </div>
-            <div class="menu_text">
-                Einstellungen
-            </div>
-            <div class="menu_button_stop">
-                <button onclick="newEinladung()" class="button stopButtonMenu">
-                    <i class="bi bi-slash-circle"></i>
-                </button>
-            </div>
-            <div class="menu_button_edit">
-                <button onclick="newEinladung()" class="button editButtonMenu">
-                    <i class="bi bi-pencil"></i>
-                </button>
-            </div>
-        </div>
     </div>
 </div>
