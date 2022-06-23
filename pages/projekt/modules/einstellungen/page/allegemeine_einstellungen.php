@@ -19,16 +19,18 @@ foreach ($sth->fetchAll() as $row) {
     $beschreibung = $row["Beschreibung"];
 }
 $rang = new Rang($_SESSION['Rang'], $pdo);
-$prang = new projektRang($_SESSION['PRang'], $pdo)
+$prang = new projektRang($_SESSION['PRang'], $pdo);
 
-//TDDO: Permission überarbeiten!
+if(!$prang->hasPermission("setting.see.allgemein") && !$rang->hasPermission("all.setting.see.allgemein")) {
+    return;
+}
 ?>
 <div class="headline_conatiner" >
     Allgemeine Einstellungen
 </div>
 
-<link href="pages/projekt/modules/einstellungen/css/unterseiten/Main.css" rel="stylesheet">
-<link href="pages/projekt/modules/einstellungen/css/unterseiten/Main_handy.css" rel="stylesheet">
+<link href="pages/projekt/modules/einstellungen/css/unterseiten/allgemein/Main.css" rel="stylesheet">
+<link href="pages/projekt/modules/einstellungen/css/unterseiten/allgemein/Main_handy.css" rel="stylesheet">
 
 <div class="page_main page_main_scroll_hidden" >
     <input <?php if(!$prang->hasPermission("setting.name") && !$rang->hasPermission("all.setting.name")) echo "disabled"?> oninput="setNewProjektName(this.value, <?php echo $_SESSION["projekt.aktiv"]; ?>)"  value="<?php echo $name; ?>" type="text" placeholder="Name" id="name" class="input_fild_normal">
