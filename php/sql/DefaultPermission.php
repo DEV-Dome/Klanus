@@ -90,6 +90,8 @@ addPermission("all.setting.beschreibung", "Einstellung: Beschreibung ändern", "
 addPermission("all.setting.bild", "Einstellung: Bild ändern", "Einstellungen [Projekte]", $pdo);
 addPermission("all.setting.delete", "Einstellung: Projekt Löschen", "Einstellungen [Projekte]", $pdo);
 
+addPermission("all.setting.menu.posistion", "Einstellung: Menu punkt position ändern", "Einstellungen [Projekte]", $pdo);
+
 echo "<p>projekt Rechte eingerichtet [Einstellungen].</p>";
 
 /*Global*/

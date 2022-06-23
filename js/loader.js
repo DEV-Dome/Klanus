@@ -54,6 +54,11 @@ function loadProjektUnderPage(modul,seite){
         success: function (response) {
             document.getElementById("MainSek").innerHTML = response;
             setUploadAktiv();
+
+            //js laden für unterseiten
+            if(seite == "menu_einstellungen.php" && modul == "einstellungen"){
+                addScript("pages/projekt/modules/einstellungen/js/menu_drag_and_drop.js");
+            }
         }
     });
 }

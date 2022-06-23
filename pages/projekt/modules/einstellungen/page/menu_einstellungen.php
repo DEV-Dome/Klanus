@@ -30,16 +30,17 @@ if(!$prang->hasPermission("setting.see.menu") && !$rang->hasPermission("all.sett
         foreach ($sth->fetchAll() as $row) {
             $name = $row["DisplayName"];
             $icon = $row["Icon"];
+            $prioritat = $row["Prioritat"];
         ?>
 
-        <div class="menu_item">
-            <div class="menu_icon">
+        <div class="menu_item" data-fromid="<?php echo $prioritat ?>" draggable="true" ondragover="dragover(event)" ondrop="drop(event)" ondragstart="dragstart(event)">
+            <div class="menu_icon" data-fromid="<?php echo $prioritat ?>">
                 <i class="bi <?php echo $icon ?>"></i>
             </div>
-            <div class="menu_text">
+            <div class="menu_text" data-fromid="<?php echo $prioritat ?>">
                <?php echo $name; ?>
             </div>
-            <div class="menu_button_edit">
+            <div class="menu_button_edit" data-fromid="<?php echo $prioritat ?>">
                 <button class="button editButtonMenu">
                     <i class="bi bi-pencil"></i>
                 </button>
@@ -47,7 +48,7 @@ if(!$prang->hasPermission("setting.see.menu") && !$rang->hasPermission("all.sett
             <?php
                 if($row["Standart"] == 1)  {
             ?>
-            <div class="menu_button_stop">
+            <div class="menu_button_stop" data-fromid="<?php echo $prioritat ?>">
                 <button class="button stopButtonMenu">
                     <i class="bi bi-slash-circle"></i>
                 </button>
@@ -62,3 +63,11 @@ if(!$prang->hasPermission("setting.see.menu") && !$rang->hasPermission("all.sett
 
     </div>
 </div>
+<!-- include JS-->
+<?php
+
+?>
+<script>
+
+    test();
+</script>

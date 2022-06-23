@@ -18,7 +18,6 @@ $targetPrioritat = -1;
 if($prang->hasPermission("rang.posistion") || $rang->hasPermission("all.rang.posistion")) {
 
     if (!is_numeric($baseID) && !is_numeric($targetID)) {
-        echo "Es können nur zahlen verarbeitet werden!";
         exit();
     }
 //abfrage der Prioritat 1

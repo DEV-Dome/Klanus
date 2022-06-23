@@ -45,3 +45,10 @@ function openbar(safemode = false){
         main.style.display = "none";
     }
 }
+function addScript(src) {
+    var s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.src = src;
+    document.getElementsByTagName('head')[0].appendChild(s);
+    return s;  // to remove it later
+}
