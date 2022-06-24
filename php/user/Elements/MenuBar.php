@@ -15,7 +15,7 @@ $isProjekt =  $_POST["projekt"];
 $sth = "";
 
 if($isProjekt == 1){
-    $sth = $pdo->prepare("SELECT * FROM projekt_setting_menubar,modul WHERE modul.ID = Modul  AND Projekt  = ? ORDER BY Prioritat");
+    $sth = $pdo->prepare("SELECT * FROM projekt_setting_menubar,modul WHERE modul.ID = Modul  AND Projekt  = ? AND IsDisabled = 0 ORDER BY Prioritat");
     $sth->bindParam(1, $_SESSION["projekt.aktiv"]);
     $sth->execute();
     foreach ($sth->fetchAll() as $row) {
