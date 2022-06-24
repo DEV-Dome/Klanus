@@ -36,3 +36,20 @@ function set_menu_eintrag_no_disabled(mid, pid){
         }
     });
 }
+function show_edit_bereich(id, button){
+    if(document.getElementById(id).style.display == "flex"){
+        //beriech verstecken
+        document.getElementById(id).style.display = "none";
+
+        if( document.getElementById(button).classList.contains("editButtonMenuRed")) document.getElementById(button).classList.remove("editButtonMenuRed");
+        document.getElementById(button).classList.add("editButtonMenu");
+
+    }else {
+        //bereich zeigen
+        document.getElementById(id).style.display = "flex";
+
+        if( document.getElementById(button).classList.contains("editButtonMenu")) document.getElementById(button).classList.remove("editButtonMenu");
+        document.getElementById(button).classList.add("editButtonMenuRed");
+    }
+
+}

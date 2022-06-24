@@ -34,6 +34,7 @@ if(!$prang->hasPermission("setting.see.menu") && !$rang->hasPermission("all.sett
             $disabled = $row["IsDisabled"];
 
             $id = $row["mid"];
+            //TODO nur drag and DROP wenn man auch die rechte hat
         ?>
 
         <div class="menu_item" data-fromid="<?php echo $prioritat ?>" draggable="true" ondragleave="menu_ondragleave(event)" ondragover="menu_dragover(event);" ondrop="drop(event)" ondragstart="dragstart(event)" >
@@ -43,8 +44,8 @@ if(!$prang->hasPermission("setting.see.menu") && !$rang->hasPermission("all.sett
             <div class="menu_text" data-fromid="<?php echo $prioritat ?>">
                <?php echo $name; ?>
             </div>
-            <div class="menu_button_edit" data-fromid="<?php echo $prioritat ?>">
-                <button class="button editButtonMenu">
+            <div onclick="show_edit_bereich('editbereich_<?php echo $id?>', 'editButtonMenu_<?php echo $id?>')" class="menu_button_edit" data-fromid="<?php echo $prioritat ?>">
+                <button class="button editButtonMenu" id="editButtonMenu_<?php echo $id?>">
                     <i class="bi bi-pencil"></i>
                 </button>
             </div>
@@ -71,6 +72,10 @@ if(!$prang->hasPermission("setting.see.menu") && !$rang->hasPermission("all.sett
                     }
                 }
             ?>
+            <div class="editbereich" id="editbereich_<?php echo $id?>">
+                 <span class="editbereich_text">Menu-Name:</span>
+                <input value="<?php echo $name; ?>" type="text" placeholder="Name" id="name" class="input_fild_normal">
+            </div>
         </div>
         <?php
         }
