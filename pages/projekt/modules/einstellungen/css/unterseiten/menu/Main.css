@@ -10,6 +10,10 @@
 
     margin-top: 20px;
     margin-bottom: 20px;
+    margin-left: 2%;
+    margin-right: 2%;
+
+    border-radius: 10px;
 
     display: flex;
     flex-wrap: wrap;
@@ -59,4 +63,11 @@
 
     background-color: rgba(69, 255, 88, 0.25);
     color: #45FF58;
+}
+.drag_and_drop_target {
+    border: 2px dashed white;
+}
+.drag_and_drop_target_current{
+    border-color: #E53333;
+    border-width: 4px;
 }
