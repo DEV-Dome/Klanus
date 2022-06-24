@@ -11,7 +11,6 @@ function set_menu_eintrag_disabled(mid, pid){
         processData: false,
         data: form_data,
         success: function (response) {
-            console.log(response);
             loadbar(1);
             loadProjektUnderPage('einstellungen', 'menu_einstellungen.php')
         }
@@ -30,9 +29,34 @@ function set_menu_eintrag_no_disabled(mid, pid){
         processData: false,
         data: form_data,
         success: function (response) {
-            console.log(response);
             loadbar(1);
             loadProjektUnderPage('einstellungen', 'menu_einstellungen.php')
+        }
+    });
+}
+function ChanceMenuName(id, name){
+    var form_data = new FormData();
+
+    form_data.append("id", id);
+    form_data.append("name", name);
+
+    $.ajax({
+        type: 'POST',
+        url: 'pages/projekt/modules/einstellungen/assets/menu/ChanceMenuName.php',
+        contentType: false,
+        processData: false,
+        data: form_data,
+        success: function (response) {
+            if(response.startsWith("<erro>")){
+                document.getElementById("feedback_hub_" + id).style.backgroundColor = "rgba(229, 51, 51, 0.25)";
+            }else {
+                document.getElementById("feedback_hub_" + id).style.backgroundColor = "rgba(69, 255, 88, 0.25)";
+            }
+
+            document.getElementById("feedback_hub_" + id).innerHTML = response;
+            document.getElementById("feedback_hub_" + id).style.display = "block";
+
+            loadbar(1);
         }
     });
 }

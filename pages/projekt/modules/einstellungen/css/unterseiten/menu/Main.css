@@ -96,3 +96,20 @@
 .editbereich_text {
     margin-left: 2%;
 }
+.local_feedback {
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 1%;
+    margin-bottom: 2%;
+    height: 20px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    padding-left: 11px;
+    background-color: rgba(69, 255, 88, 0.25);
+    border-radius: 10px;
+    width: 90.5%;
+   display: none;
+}
+.local_feedback_add_red {
+    background-color: rgba(229, 51, 51, 0.25);
+}

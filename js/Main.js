@@ -48,7 +48,7 @@ function openbar(safemode = false){
 function addScript(src) {
     var s = document.createElement('script');
     s.type = 'text/javascript';
-    s.src = src;
+    s.src = src + "?v=" + new Date().getTime();
     document.getElementsByTagName('head')[0].appendChild(s);
     return s;  // to remove it later
 }

@@ -21,16 +21,18 @@ if($prang->hasPermission("setting.menu.posistion") || $rang->hasPermission("all.
     $fromPrioritat = -1;
     $toPrioritat = -1;
 
-    $sth = $pdo->prepare("SELECT ID FROM projekt_setting_menubar WHERE Prioritat = ?");
+    $sth = $pdo->prepare("SELECT ID FROM projekt_setting_menubar WHERE Prioritat = ? AND Projekt  = ?");
     $sth->bindParam(1, $fromid);
+    $sth->bindParam(2, $_SESSION["projekt.aktiv"]);
     $sth->execute();
 
     foreach ($sth->fetchAll() as $row) {
         $fromPrioritat = $row["ID"];
     }
 
-    $sth = $pdo->prepare("SELECT ID FROM projekt_setting_menubar WHERE Prioritat = ?");
+    $sth = $pdo->prepare("SELECT ID FROM projekt_setting_menubar WHERE Prioritat = ? AND Projekt  = ?");
     $sth->bindParam(1, $toid);
+    $sth->bindParam(2, $_SESSION["projekt.aktiv"]);
     $sth->execute();
 
     foreach ($sth->fetchAll() as $row) {

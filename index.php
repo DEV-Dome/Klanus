@@ -23,34 +23,34 @@ if(!isset($_SESSION["Login"])){
 <html>
 <head>
     <title>Klanus - Overview</title>
-    <script src="https://code.jquery.com/jquery-latest.js"></script>
-    <script src="js/loader.js"></script>
-    <script src="js/Main.js"></script>
-    <script src="js/projekt.js"></script>
-    <script src="js/userSettings.js"></script>
-    <script src="js/projektEinstellungen.js"></script>
-    <script src="js/userJoinProjekt.js"></script>
+    <script src="https://code.jquery.com/jquery-latest.js?v=<?php echo time(); ?>"></script>
+    <script src="js/loader.js?v=<?php echo time(); ?>"></script>
+    <script src="js/Main.js?v=<?php echo time(); ?>"></script>
+    <script src="js/projekt.js?v=<?php echo time(); ?>"></script>
+    <script src="js/userSettings.js?v=<?php echo time(); ?>"></script>
+    <script src="js/projektEinstellungen.js?v=<?php echo time(); ?>"></script>
+    <script src="js/userJoinProjekt.js?v=<?php echo time(); ?>"></script>
 
     <!-- Modul Import für Jaavscript-->
-    <script src="pages/projekt/modules/einstellungen/js/main.js"></script>
+    <script src="pages/projekt/modules/einstellungen/js/main.js?v=<?php echo time(); ?>"></script>
 
-    <script src="pages/projekt/modules/rang/js/main.js"></script>
-    <script src="pages/projekt/modules/rang/js/rang_drag_and_drop.js"></script>
+    <script src="pages/projekt/modules/rang/js/main.js?v=<?php echo time(); ?>"></script>
+    <script src="pages/projekt/modules/rang/js/rang_drag_and_drop.js?v=<?php echo time(); ?>"></script>
 
-    <script src="pages/projekt/modules/einladungen/js/main.js"></script>
-    <script src="pages/projekt/modules/user/js/main.js"></script>
+    <script src="pages/projekt/modules/einladungen/js/main.js?v=<?php echo time(); ?>"></script>
+    <script src="pages/projekt/modules/user/js/main.js?v=<?php echo time(); ?>"></script>
 
-    <link href="css/main.css" rel="stylesheet">
-    <link href="css/mainHandy.css" rel="stylesheet">
+    <link href="css/main.css?v=<?php echo time(); ?>" rel="stylesheet">
+    <link href="css/mainHandy.css?v=<?php echo time(); ?>" rel="stylesheet">
 
     <!-- Allgemeine CSS Classen-->
-    <link href="acp/css/classes.css" rel="stylesheet">
-    <link href="acp/css/classes_handy.css" rel="stylesheet">
+    <link href="acp/css/classes.css?v=<?php echo time(); ?>" rel="stylesheet">
+    <link href="acp/css/classes_handy.css?v=<?php echo time(); ?>" rel="stylesheet">
 
     <!-- Login Javascript-->
-    <script src="js/login.js" ></script>
+    <script src="js/login.js?v=<?php echo time(); ?>" ></script>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css?v=<?php echo time(); ?>">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

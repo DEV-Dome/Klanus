@@ -18,6 +18,7 @@ addPermissionFrontEnd("setting.delete", "Einstellung: Projekt Löschen", "Einste
 
 addPermissionFrontEnd("setting.menu.posistion", "Einstellung: Menu punkt position ändern", "Einstellungen", $pdo);
 addPermissionFrontEnd("setting.menu.disabled", "Einstellung: Menu punkt aktivirn/deaktivirn", "Einstellungen", $pdo);
+addPermissionFrontEnd("setting.menu.name", "Einstellung: Menüpunkt namen ändern", "Einstellungen", $pdo);
 
 /*Einladnungen*/
 addPermissionFrontEnd("einladnung.see", "Einladnung: Kann Menü Punkt sehen", "Einladnung", $pdo);

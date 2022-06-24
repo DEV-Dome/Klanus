@@ -92,6 +92,8 @@ addPermission("all.setting.delete", "Einstellung: Projekt Löschen", "Einstellun
 
 addPermission("all.setting.menu.posistion", "Einstellung: Menu punkt position ändern", "Einstellungen [Projekte]", $pdo);
 addPermission("all.setting.menu.disabled", "Einstellung: Menu punkt aktivirn/deaktivirn", "Einstellungen [Projekte]", $pdo);
+addPermission("all.setting.menu.name", "Einstellung: Menüpunkt namen ändern", "Einstellungen [Projekte]", $pdo);
+
 
 echo "<p>projekt Rechte eingerichtet [Einstellungen].</p>";
 

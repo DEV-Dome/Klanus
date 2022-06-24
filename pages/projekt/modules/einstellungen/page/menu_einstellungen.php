@@ -34,10 +34,13 @@ if(!$prang->hasPermission("setting.see.menu") && !$rang->hasPermission("all.sett
             $disabled = $row["IsDisabled"];
 
             $id = $row["mid"];
-            //TODO nur drag and DROP wenn man auch die rechte hat
+            $dragable = "";
+            if($prang->hasPermission("setting.menu.posistion") || $rang->hasPermission("all.setting.menu.posistion")) {
+                $dragable = 'draggable="true"';
+            }
         ?>
 
-        <div class="menu_item" data-fromid="<?php echo $prioritat ?>" draggable="true" ondragleave="menu_ondragleave(event)" ondragover="menu_dragover(event);" ondrop="drop(event)" ondragstart="dragstart(event)" >
+        <div class="menu_item" data-fromid="<?php echo $prioritat ?>" <?php echo $dragable ?> ondragleave="menu_ondragleave(event)" ondragover="menu_dragover(event);" ondrop="drop(event)" ondragstart="dragstart(event)" >
             <div class="menu_icon" data-fromid="<?php echo $prioritat ?>">
                 <i <?php if($disabled) echo "style='color: red;'" ?> data-fromid="<?php echo $prioritat ?>" class="bi <?php echo $icon ?>"></i>
             </div>
@@ -51,6 +54,7 @@ if(!$prang->hasPermission("setting.see.menu") && !$rang->hasPermission("all.sett
             </div>
             <?php
                 if($row["Standart"] == 0)  {
+                    if($prang->hasPermission("setting.menu.disabled") || $rang->hasPermission("all.setting.menu.disabled")){
                     if($disabled == 0){
                         //button zum ausbleden
                         ?>
@@ -70,11 +74,13 @@ if(!$prang->hasPermission("setting.see.menu") && !$rang->hasPermission("all.sett
                         </div>
                         <?php
                     }
+                    }
                 }
             ?>
-            <div class="editbereich" id="editbereich_<?php echo $id?>">
-                 <span class="editbereich_text">Menu-Name:</span>
-                <input value="<?php echo $name; ?>" type="text" placeholder="Name" id="name" class="input_fild_normal">
+            <div class="editbereich" id="editbereich_<?php echo $id ?>">
+                 <span class="editbereich_text">Menü-Name:</span>
+                <input onchange="ChanceMenuName(<?php echo $id ?>, this.value)" value="<?php echo $name; ?>" type="text" placeholder="Name" id="name" class="input_fild_normal">
+                <div class="local_feedback" id="feedback_hub_<?php echo $id ?>">Feedback</div>
             </div>
         </div>
         <?php
