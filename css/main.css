@@ -132,7 +132,7 @@ body {
 #DropdownUserMenu{
     position: absolute;
     width: 10vw;
-    min-height: 18vh;
+    /*min-height: 18vh;*/
 
     left: 87.1%;
     border-radius: 12%;
