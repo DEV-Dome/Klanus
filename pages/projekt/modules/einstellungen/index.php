@@ -39,25 +39,25 @@ $prang = new projektRang($_SESSION['PRang'], $pdo)
                     </div>
                 <?php }
                 if($prang->hasPermission("setting.see.gefahr") || $rang->hasPermission("all.setting.see.gefahr")) {?>
-                    <div class="overview_conatiner_box">
+                    <div class="overview_conatiner_box" onclick="loadProjektUnderPage('einstellungen', 'nicht_verfügbar.php')">
                         <i class="bi bi-exclamation-circle overview_text_icon"></i><br>
                         <span class="overview_text_title">Gefährlich Einstellungen</span>
                     </div>
                 <?php }
                 if($prang->hasPermission("setting.see.discord") || $rang->hasPermission("all.setting.see.discord")) {?>
-                    <div class="overview_conatiner_box">
+                    <div class="overview_conatiner_box" onclick="loadProjektUnderPage('einstellungen', 'nicht_verfügbar.php')">
                         <i class="bi bi-discord overview_text_icon"></i><br>
                         <span class="overview_text_title">Discord Einstellungen</span>
                     </div>
                 <?php }
                 if($prang->hasPermission("setting.see.minecraft") || $rang->hasPermission("all.setting.see.minecraft")) {?>
-                    <div class="overview_conatiner_box">
+                    <div class="overview_conatiner_box" onclick="loadProjektUnderPage('einstellungen', 'nicht_verfügbar.php')">
                         <i class="bi bi-controller overview_text_icon"></i><br>
                         <span class="overview_text_title">Minecraft Einstellungen</span>
                     </div>
                 <?php }
                 if($prang->hasPermission("setting.see.forum") || $rang->hasPermission("all.setting.see.forum")) {?>
-                    <div class="overview_conatiner_box">
+                    <div class="overview_conatiner_box" onclick="loadProjektUnderPage('einstellungen', 'nicht_verfügbar.php')">
                         <i class="bi bi-body-text overview_text_icon"></i><br>
                         <span class="overview_text_title">Forum Einstellungen</span>
                     </div>

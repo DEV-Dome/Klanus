@@ -1,0 +1,21 @@
+@media screen and (max-width: 1600px) and (min-width: 1101px){
+    #LeisteLinks {
+        width: 21%;
+    }
+    #MainSek_container {
+        width: 73%;
+        min-height: 86vh;
+    }
+    .forntEndLeisteObenPB {
+        margin-left: 63%;
+    }
+    .LeisteObenPB {
+        width: 48px;
+        height: 48px;
+    }
+    #DropdownUserMenu {
+        width: 20vw;
+        min-height: 18vh;
+        left: 80%;
+    }
+}

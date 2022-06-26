@@ -42,6 +42,7 @@ if(!isset($_SESSION["Login"])){
 
     <link href="css/main.css?v=<?php echo time(); ?>" rel="stylesheet">
     <link href="css/mainHandy.css?v=<?php echo time(); ?>" rel="stylesheet">
+    <link href="css/main_leptop.css?v=<?php echo time(); ?>" rel="stylesheet">
 
     <!-- Allgemeine CSS Classen-->
     <link href="acp/css/classes.css?v=<?php echo time(); ?>" rel="stylesheet">

@@ -1,0 +1,28 @@
+.text-box {
+    width: 86%;
+    height: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: center;
+    align-items: center;
+
+    font-size: 24px;
+
+    padding-left: 7%;
+    padding-right: 7%;
+}
+.button_back{
+    background-color: rgba(199, 205, 216, 0.25) !important;
+    color: #C7CDD8 !important;
+
+    width: 12% !important;
+    border-radius: 10px !important;
+    height: 50px;
+
+    font-size: 150%;
+
+    margin-top: 2%;
+    float: left !important;
+}

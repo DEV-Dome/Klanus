@@ -1,7 +1,6 @@
 function menu_dragover(e){
     e.preventDefault();
 
-
     if(e.target.classList.contains("drag_and_drop_target")){
         e.target.classList.add("drag_and_drop_target_current");
     }

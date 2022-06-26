@@ -24,7 +24,7 @@ body {
     background-color: #17213D;
 }
 .forntEndLeisteObenPB{
-    margin-left: 66% !important;
+    margin-left: 66%;
 }
 #LeisteObenLogo{
     width: 12%;
@@ -50,7 +50,8 @@ body {
     padding-top: 0.8%;
     padding-bottom: 0.8%;
     height: auto;
-    width: 50px;
+    width: 64px;
+    height: 64px;
 
     margin-left: 68%;
     border-radius: 100%;
