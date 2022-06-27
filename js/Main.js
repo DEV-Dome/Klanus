@@ -45,6 +45,17 @@ function openbar(safemode = false){
         main.style.display = "none";
     }
 }
+function closebar(){
+    let element = document.getElementById("LeisteLinks");
+    let main = document.getElementById("MainSek_container");
+
+    if(element.classList.contains("LeisteLinkSehenJa")){
+        element.classList.add("LeisteLinkSehenNein");
+        element.classList.remove("LeisteLinkSehenJa");
+
+        main.style.display = "block";
+    }
+}
 function addScript(src) {
     var s = document.createElement('script');
     s.type = 'text/javascript';

@@ -47,7 +47,20 @@ if($isProjekt == 1){
         <li <?php if($row["Ordner"] == "-" ) {?> onclick='loadMainPage("user_dashboard.php");' <?php } ?>class="LeisteLinksPunkt"><i class="bi <?php echo $row["Icon"]?>"></i> <?php echo $row["Name"]?></li>
         <?php
     }
+    if(isset($_SESSION["Login"])){
+        ?>
+
+        <li onclick="loadMainPage('settings.php')" class="LeisteLinksPunkt onlyMobile"><i class="bi bi-gear"></i> Einstellungen</li>
+        <li onclick="openbar()" class="LeisteLinksPunkt onlyMobile"><i class="bi bi-person-lines-fill"></i> Support</li>
+        <li onclick="loadMainPage('logout.php'); location.reload();" class="LeisteLinksPunkt onlyMobile"><i class="bi bi-x-square"></i> Abmelden</li>
+        <?php
+    }else {
+        ?>
+        <li onclick="loadMainPage('login/login.php')"  class="LeisteLinksPunkt onlyMobile"><i class="bi bi-box-arrow-in-right"></i> Anmelden</li>
+        <?php
+    }
     ?>
+
     <li onclick="openbar()" class="LeisteLinksPunkt onlyMobile"><i class="bi bi-x-lg"></i> schlissen</li>
     <?php
 }

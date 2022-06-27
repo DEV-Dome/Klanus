@@ -9,6 +9,8 @@ function loadMainPage(seite){
         data: form_data,
         success: function (response) {
             document.getElementById("MainSek").innerHTML = response;
+            closebar();
+
             if(seite.startsWith("user_dashboard.php")){
                 //user Dashboard
                 addScript("js/user_dashboard/drag_and_drop.js?v=" + new Date().getTime());
@@ -43,6 +45,7 @@ function loadProjektPage(seite){
         success: function (response) {
             document.getElementById("MainSek").innerHTML = response;
             setUploadAktiv();
+            closebar();
         }
     });
 }
