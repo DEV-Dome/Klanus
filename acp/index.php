@@ -36,7 +36,7 @@ if(!$rang->hasPermission("acp.use")){
 
     <link href="../css/main.css" rel="stylesheet">
     <link href="../css/mainHandy.css" rel="stylesheet">
-    <link href="../css/MainPages/userDasboard.css" rel="stylesheet">
+    <link href="../css/MainPages/userDasboard_alt.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
 
     <link href="css/classes.css" rel="stylesheet">

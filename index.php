@@ -1,5 +1,6 @@
 <?php
 session_start();
+error_reporting(0);
 if(isset($_SESSION["projekt.aktiv"])){
     unset($_SESSION["projekt.aktiv"]);
 }
@@ -127,7 +128,7 @@ if(!isset($_SESSION["Login"])){
     }else {
     ?>
         <script>
-            loadMainPage("userDashboard.php");
+            loadMainPage("user_dashboard.php?v=" + <?php echo time()?>);
         </script>
         <?php
     }

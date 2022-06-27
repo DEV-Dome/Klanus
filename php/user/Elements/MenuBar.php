@@ -32,7 +32,7 @@ if($isProjekt == 1){
         <?php
     }
 ?>
-    <li onclick='loadMainPage("userDashboard.php"); loadbar(0)' class="LeisteLinksPunkt"><i class="bi bi-arrow-bar-left"></i> zurück</li>
+    <li onclick='loadMainPage("user_dashboard.php"); loadbar(0)' class="LeisteLinksPunkt"><i class="bi bi-arrow-bar-left"></i> zurück</li>
     <li onclick="openbar()" class="LeisteLinksPunkt onlyMobile"><i class="bi bi-x-lg"></i> schlissen</li>
     <?php
 }else {
@@ -44,7 +44,7 @@ if($isProjekt == 1){
         }
 
         ?>
-        <li <?php if($row["Ordner"] == "-" ) {?> onclick='loadMainPage("userDashboard.php");' <?php } ?>class="LeisteLinksPunkt"><i class="bi <?php echo $row["Icon"]?>"></i> <?php echo $row["Name"]?></li>
+        <li <?php if($row["Ordner"] == "-" ) {?> onclick='loadMainPage("user_dashboard.php");' <?php } ?>class="LeisteLinksPunkt"><i class="bi <?php echo $row["Icon"]?>"></i> <?php echo $row["Name"]?></li>
         <?php
     }
     ?>

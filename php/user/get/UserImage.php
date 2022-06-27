@@ -1,10 +1,11 @@
 <?php
+error_reporting(0);
+header("");
 /*
  * Legende:
  * $loadPgClasses - Classen für das Profiel Bild
  * $loadPgOnClick - Auszuführende Sachen im onclick auf das Bild
  * */
-
 
 if(!function_exists("startsWith")){
     function startsWith ($string, $startString){

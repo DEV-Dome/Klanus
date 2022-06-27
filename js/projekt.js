@@ -44,7 +44,7 @@ function toogleProjektFavourite(pid){
         processData: false,
         data: form_data,
         success: function (response) {
-            loadMainPage("userDashboard.php");
+            loadMainPage("user_dashboard.php");
         }
 
     });

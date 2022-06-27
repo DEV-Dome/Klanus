@@ -110,7 +110,7 @@ function deleteProjekt(pid){
         processData: false,
         data: form_data,
         success: function (response) {
-            loadMainPage("userDashboard.php")
+            loadMainPage("userDashboard_old.php")
             loadbar(0);
         }
     });

@@ -9,11 +9,7 @@ if(!function_exists("startsWith")){
 if(!isset($_SESSION)){
     session_start();
 }
-//datei nicht chachen
-header("Expires: Mon, 10 Jan 1970 01:01:01 GMT");
-header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
-header("Cache-Control: no-store, no-cache, must-revalidate");
-header("Pragma: no-cache");
+
 //
 $verzeichnis = "";
 if(!isset($overPath)) {
