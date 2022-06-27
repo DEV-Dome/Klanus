@@ -10,7 +10,6 @@ function chanceVerfiziert(pid){
         processData: false,
         data: form_data,
         success: function (response) {
-            console.log(response)
             loadMainPage("projekt/projekt.php");
         }
     });
@@ -27,7 +26,6 @@ function chanceLock(pid){
         processData: false,
         data: form_data,
         success: function (response) {
-            console.log(response)
             loadMainPage("projekt/projekt.php");
         }
     });
@@ -44,8 +42,7 @@ function deleteProjekt(pid){
         processData: false,
         data: form_data,
         success: function (response) {
-            console.log(response)
-            loadMainPage("projekt/projekt.php");
+            loadMainPage("user_dashboard.php");
         }
     });
 }

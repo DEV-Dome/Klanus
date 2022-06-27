@@ -25,25 +25,21 @@ $rang = new Rang($_SESSION['Rang'], $pdo);
 
     <div class="projekt_conatiner">
         <?php
-         $sglstr = "SELECT * FROM projekt_user,projekt WHERE projekt_user.Projekt = projekt.ID AND User = ? ORDER BY projekt_user.IsFavourite DESC, projekt_user.IsOwner DESC ";
+         $sglstr = "SELECT *,projekt_user.id AS 'pid' FROM projekt_user,projekt WHERE projekt_user.Projekt = projekt.ID AND User = ? ORDER BY projekt_user.Prioritat DESC, projekt_user.IsOwner DESC ";
 
         $sth = $pdo->prepare($sglstr);
         $sth->bindParam(1, $_SESSION['ID']);
         $sth->execute();
         foreach ($sth->fetchAll() as $row) {
-            $fabicon = '<span onclick="toogleProjektFavourite('.$row["Projekt"].')" class="projekt_tool projekt_tool_fav"><i class="bi bi-heart"></i></span>';
-            if($row["IsFavourite"]) {
-                $fabicon = '<span onclick="toogleProjektFavourite('.$row["Projekt"].')" class="projekt_tool projekt_tool_fav ProjekttoolrightIsFavourite"><i class="bi bi-suit-heart-fill"></i></span>';
-            }
+
 
             ?>
-            <div class="projekt_box">
-                <div class="Projekt_tool_bar">
-                    <span class="projekt_tool"  <?php if(!$row["IsOwner"]){?> style="visibility: hidden" <?php }?> ><i  style="color: #fff408;" class="bi bi-x-diamond-fill"></i></span>
-                    <?php echo $fabicon ?>
+            <div class="projekt_box" data-fromid="<?php echo $row["pid"] ?>" draggable="true" ondragleave="menu_ondragleave(event)" ondragover="menu_dragover(event);" ondrop="drop(event)" ondragstart="dragstart(event)">
+                <div data-fromid="<?php echo $row["pid"] ?>" class="Projekt_tool_bar">
+                    <span data-fromid="<?php echo $row["pid"] ?> " class="projekt_tool"  <?php if(!$row["IsOwner"]){?> style="visibility: hidden" <?php }?> ><i  style="color: #fff408;" class="bi bi-x-diamond-fill"></i></span>
                 </div>
 
-                <div class="projekt_teiler">
+                <div data-fromid="<?php echo $row["pid"] ?>" class="projekt_teiler">
                     <?php
                     $loadPgClasses = "dashbordProjektImg";
                     $pid = $row["Projekt"];
@@ -53,11 +49,11 @@ $rang = new Rang($_SESSION['Rang'], $pdo);
                 </div>
 
 
-                <div class="projekt_teiler">
-                    <p class="dashbordProjektName"><?php echo $row["Name"]; if($row["Verifiziert"]) { ?> <i style="color: #45FF58;" class="bi bi-check2-circle"></i> <?php }?></p>
+                <div data-fromid="<?php echo $row["pid"] ?>" class="projekt_teiler">
+                    <p  data-fromid="<?php echo $row["pid"] ?>" class="dashbordProjektName"><?php echo $row["Name"]; if($row["Verifiziert"]) { ?> <i style="color: #45FF58;" class="bi bi-check2-circle"></i> <?php }?></p>
                 </div>
-                <div class="projekt_teiler">
-                    <button onclick="joinProjekt(<?php echo $row["Projekt"] ?>)" class="dashbordProjektButton">Zum Projekt</button>
+                <div data-fromid="<?php echo $row["pid"] ?>" class="projekt_teiler">
+                    <button data-fromid="<?php echo $row["pid"] ?>" onclick="joinProjekt(<?php echo $row["Projekt"] ?>)" class="dashbordProjektButton">Zum Projekt</button>
                 </div>
 
             </div>

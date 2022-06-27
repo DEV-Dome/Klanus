@@ -9,6 +9,10 @@ function loadMainPage(seite){
         data: form_data,
         success: function (response) {
             document.getElementById("MainSek").innerHTML = response;
+            if(seite.startsWith("user_dashboard.php")){
+                //user Dashboard
+                addScript("js/user_dashboard/drag_and_drop.js?v=" + new Date().getTime());
+            }
         }
     });
 }
@@ -58,8 +62,8 @@ function loadProjektUnderPage(modul,seite){
 
             //js laden für unterseiten
             if(seite == "menu_einstellungen.php" && modul == "einstellungen"){
-                addScript("pages/projekt/modules/einstellungen/js/menu_drag_and_drop.js");
-                addScript("pages/projekt/modules/einstellungen/js/menu.js");
+                addScript("pages/projekt/modules/einstellungen/js/menu_drag_and_drop.js?v=" + new Date().getTime());
+                addScript("pages/projekt/modules/einstellungen/js/menu.js?v=" + new Date().getTime());
             }
         }
     });

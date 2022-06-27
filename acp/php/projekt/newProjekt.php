@@ -139,15 +139,24 @@ $false = 0;
 $dt = new DateTime();
 $datum = $dt->format("Y-m-d H:i:s");
 
-$sth = $pdo->prepare("INSERT INTO projekt_user (User, Projekt , Rang , IsOwner , Datum, IsFavourite) VALUE(?, ?, ?, ?, ?, ?)");
+$sth = $pdo->prepare("INSERT INTO projekt_user (User, Projekt , Rang , IsOwner , Datum, Prioritat) VALUE(?, ?, ?, ?, ?, 0)");
 $sth->bindParam(1, $_SESSION["ID"]);
 $sth->bindParam(2, $nid);
 $sth->bindParam(3, $urid);
 $sth->bindParam(4, $true);
 $sth->bindParam(5, $datum);
-$sth->bindParam(6, $false);
-
 $sth->execute();
+
+$pc_id = -1;
+foreach ($pdo->query("SELECT * FROM projekt_user ORDER BY ID DESC LIMIT 1") as $row) {
+    $pc_id = $row["ID"];
+}
+
+$sth = $pdo->prepare("UPDATE projekt_user SET Prioritat = ? WHERE ID = ?");
+$sth->bindParam(1, $pc_id);
+$sth->bindParam(2, $pc_id);
+$sth->execute();
+
 
 echo "projekt erstellt: $name;;;$nid";
 ?>
