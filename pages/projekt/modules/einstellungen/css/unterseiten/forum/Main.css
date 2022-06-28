@@ -1,0 +1,77 @@
+.Forum_Kategorie {
+    width: 80%;
+    margin-left: 10%;
+}
+.Forum_Kategorie_head {
+    text-align: center;
+}
+.button_forum {
+    border: none;
+    outline:none;
+
+
+    margin-top: 0.5%;
+
+    border-radius: 10px;
+
+    font-size: 20px;
+    width: 200px;
+    height: 35px;
+}
+.neue_kategorie{
+    background-color: rgba(69, 255, 88, 0.25);
+    color: #45FF58;
+
+    margin-right: 13%;
+    float: right;
+}
+.Forum_icon {
+    margin-top: 2%;
+    font-size: 24px;
+    display: inline-block;
+    margin-right: 2.5%;
+}
+.Forum_name {
+    display: inline-block;
+    font-size: 24px;
+}
+.Forum_beschreibung {
+    margin-left: 4.8%;
+    font-size: 14px;
+}
+.Forum_Kategorie_buttons {
+    text-align: center;
+}
+.edit_kategorie{
+    background-color: rgba(69, 255, 88, 0.25);
+    color: #45FF58;
+
+}
+.delete_kategorie{
+    background-color: rgba(229, 51, 51, 0.25);
+    color: #E53333;
+}
+.back_kategorie{
+    background-color: rgba(199, 205, 216, 0.25);
+    color: #C7CDD8;
+}
+.hinweis {
+    margin-top: 2%;
+    margin-bottom: 1%;
+    margin-left: 2%;
+
+    width: 91%;
+
+
+    border-radius: 10px;
+    padding: 1%;
+
+    background-color: rgba(255, 231, 15, 0.25);
+}
+.create_button_conatiner {
+    margin-left: 2%;
+    margin-top: 2%;
+
+    width: 92%;
+    text-align: center;
+}

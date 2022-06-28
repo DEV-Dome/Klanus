@@ -17,12 +17,12 @@
     background-color: rgba(199, 205, 216, 0.25) !important;
     color: #C7CDD8 !important;
 
-    width: 12% !important;
+    width: 180px !important;
     border-radius: 10px !important;
     height: 50px;
 
     font-size: 150%;
 
-    margin-top: 2%;
+    margin-top: 5%;
     float: left !important;
 }

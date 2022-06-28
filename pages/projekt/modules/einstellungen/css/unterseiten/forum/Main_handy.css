@@ -1,0 +1,52 @@
+@media only screen and (max-width: 1100px) {
+    .Forum_Kategorie_head {
+        text-align: center;
+    }
+    .Forum_icon {
+        margin-top: 2%;
+        font-size: 24px;
+        display: inline-block;
+        margin-right: 2.5%;
+    }
+    .Forum_name {
+        display: inline-block;
+        font-size: 16px;
+        margin-top: 10%;
+    }
+    .Forum_beschreibung {
+        margin-left: 4.8%;
+        font-size: 12px;
+        display: none;
+    }
+
+    .neue_kategorie {
+        margin-top: 2%;
+        margin-bottom: 2%;
+    }
+    .headline_conatiner {
+        text-align: center;
+        height: 10vh;
+    }
+    .headline_text {
+        float: left;
+    }
+    .neue_kategorie {
+        float: unset;
+    }
+    .delete_kategorie {
+        margin-top: 2%;
+    }
+    .hinweis {
+        margin-top: 6%;
+        margin-bottom: 4%;
+        margin-left: 4%;
+
+        border-radius: 10px;
+        padding: 1%;
+
+        background-color: rgba(255, 231, 15, 0.25);
+    }
+    .edit_kategorie {
+        margin-top: 1%;
+    }
+}

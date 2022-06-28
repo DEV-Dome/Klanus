@@ -16,8 +16,8 @@ if(!$prang->hasPermission("setting.see.menu") && !$rang->hasPermission("all.sett
     Menü Einstellungen
 </div>
 
-<link href="pages/projekt/modules/einstellungen/css/unterseiten/menu/Main.css" rel="stylesheet">
-<link href="pages/projekt/modules/einstellungen/css/unterseiten/menu/Main_handy.css" rel="stylesheet">
+<link href="pages/projekt/modules/einstellungen/css/unterseiten/menu/Main.css?v=<?php echo time() ?>" rel="stylesheet">
+<link href="pages/projekt/modules/einstellungen/css/unterseiten/menu/Main_handy.css?v=<?php echo time() ?>" rel="stylesheet">
 
 <div class="page_main " >
     <div class="menu_container">

@@ -20,6 +20,7 @@ addPermissionFrontEnd("setting.menu.posistion", "Einstellung: Menu punkt positio
 addPermissionFrontEnd("setting.menu.disabled", "Einstellung: Menu punkt aktivirn/deaktivirn", "Einstellungen", $pdo);
 addPermissionFrontEnd("setting.menu.name", "Einstellung: Menüpunkt namen ändern", "Einstellungen", $pdo);
 
+
 /*Einladnungen*/
 addPermissionFrontEnd("einladnung.see", "Einladnung: Kann Menü Punkt sehen", "Einladnung", $pdo);
 addPermissionFrontEnd("einladnung.new", "Einladnung: neu Erstellen", "Einladnung", $pdo);
@@ -43,6 +44,12 @@ addPermissionFrontEnd("rang.new", "Rang: Rechte Erstellen", "Rang", $pdo);
 addPermissionFrontEnd("rang.delete", "Rang: Rechte Löschen", "Rang", $pdo);
 addPermissionFrontEnd("rang.posistion", "Rang: Reinfolge ändern", "Rang", $pdo);
 addPermissionFrontEnd("rang.menu", "Rang: Menu Punkt anzeigen", "Rang", $pdo);
+
+/*Forum*/
+addPermissionFrontEnd("forum.setting.kategorie.add", "Forum: Kann Kategorie erstellen", "Forum", $pdo);
+addPermissionFrontEnd("forum.setting.kategorie.delete", "Forum: Kann Kategorie Löschen", "Forum", $pdo);
+addPermissionFrontEnd("forum.setting.kategorie.edit", "Forum: Kann Kategorie Bearbeiten", "Forum", $pdo);
+
 
 /*Ankündigungen*/
 addPermissionFrontEnd("ankundgungen.see", "Ankündigungen: Kann Menü Punkt sehen", "Ankündigungen", $pdo);

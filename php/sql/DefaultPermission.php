@@ -97,6 +97,12 @@ addPermission("all.setting.menu.name", "Einstellung: Menüpunkt namen ändern", 
 
 echo "<p>projekt Rechte eingerichtet [Einstellungen].</p>";
 
+addPermission("all.forum.setting.kategorie.add", "Forum: Kann Kategorie erstellen", "Forum", $pdo);
+addPermission("all.forum.setting.kategorie.delete", "Forum: Kann Kategorie Löschen", "Forum", $pdo);
+addPermission("all.forum.setting.kategorie.edit", "Forum: Kann Kategorie Bearbeiten", "Forum", $pdo);
+
+echo "<p>projekt Rechte eingerichtet [Forum].</p>";
+
 /*Global*/
 addPermission("acp.use", "Admininterface: Ansehen & Bedienen", "ACP", $pdo);
 addPermission("acp.support", "Admininterface: Support sehen", "ACP", $pdo);

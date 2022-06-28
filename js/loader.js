@@ -68,6 +68,9 @@ function loadProjektUnderPage(modul,seite){
                 addScript("pages/projekt/modules/einstellungen/js/menu_drag_and_drop.js?v=" + new Date().getTime());
                 addScript("pages/projekt/modules/einstellungen/js/menu.js?v=" + new Date().getTime());
             }
+            if((seite.startsWith("forum/kategorie_erstellen.php") || seite.startsWith("forum/forum_einstellungen.php")) && modul == "einstellungen"){
+                addScript("pages/projekt/modules/einstellungen/js/forum.js?v=" + new Date().getTime());
+            }
         }
     });
 }

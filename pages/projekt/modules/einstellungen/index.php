@@ -57,7 +57,7 @@ $prang = new projektRang($_SESSION['PRang'], $pdo)
                     </div>
                 <?php }
                 if($prang->hasPermission("setting.see.forum") || $rang->hasPermission("all.setting.see.forum")) {?>
-                    <div class="overview_conatiner_box" onclick="loadProjektUnderPage('einstellungen', 'nicht_verfügbar.php')">
+                    <div class="overview_conatiner_box" onclick="loadProjektUnderPage('einstellungen', 'forum/forum_einstellungen.php')">
                         <i class="bi bi-body-text overview_text_icon"></i><br>
                         <span class="overview_text_title">Forum Einstellungen</span>
                     </div>

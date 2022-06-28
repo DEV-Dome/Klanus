@@ -181,7 +181,9 @@ ID INT(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 Projekt INT(10) NOT NULL,
 Name VARCHAR(150) NOT NULL,
 prioritat int(10) NOT NULL,
+Rang int(10) NOT NULL,
 
+FOREIGN KEY (Rang) REFERENCES projekt_rang(ID),
 FOREIGN KEY (Projekt) REFERENCES projekt(ID)
 )");
 
