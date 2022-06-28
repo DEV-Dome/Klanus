@@ -50,6 +50,16 @@ if(!isset($_POST["id"])){
     $sth->bindParam(8, $KannschreibenBeitrage);
     $sth->execute();
 
+    $kid = -1;
+    foreach ($pdo->query("SELECT * FROM projekt_forum_forn ORDER BY ID DESC LIMIT 1") as $row) {
+        $kid = $row["ID"];
+    }
+
+    $sth = $pdo->prepare("UPDATE projekt_forum_forn SET Prioritat = ? WHERE ID = ?");
+    $sth->bindParam(1, $kid);
+    $sth->bindParam(2, $kid);
+    $sth->execute();
+
     echo "Kategorien angelegt.";
 }else {
     $fid = $_POST["id"];

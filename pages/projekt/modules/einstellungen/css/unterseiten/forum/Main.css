@@ -1,3 +1,7 @@
+.page_main {
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
 .Forum_Kategorie {
     width: 80%;
     margin-left: 10%;
@@ -102,4 +106,11 @@
 }
 .Forum_name {
     width: 80%;
+}
+.drag_and_drop_target {
+    border: 2px dashed white;
+}
+.drag_and_drop_target_current{
+    border-color: #E53333;
+    border-width: 4px;
 }

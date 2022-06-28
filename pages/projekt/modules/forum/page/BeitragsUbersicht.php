@@ -50,6 +50,8 @@ foreach($sth->fetchAll() as $row) {
 
 <div class="beitrag_container">
     <?php
+        //TODO: Forum Berechtigunugen Einbauen
+
         //angepinnte Beiträge
         //Atrebute zuordenen
         $sqlzuordnung = "projekt_forum_beitrage.Name AS 'bname', ";

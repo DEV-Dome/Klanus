@@ -100,9 +100,12 @@ echo "<p>projekt Rechte eingerichtet [Einstellungen].</p>";
 addPermission("all.forum.setting.kategorie.add", "Forum: Kann Kategorie erstellen", "Forum", $pdo);
 addPermission("all.forum.setting.kategorie.delete", "Forum: Kann Kategorie Löschen", "Forum", $pdo);
 addPermission("all.forum.setting.kategorie.edit", "Forum: Kann Kategorie Bearbeiten", "Forum", $pdo);
+addPermission("all.forum.setting.kategorie.prioritat", "Forum: Kann Kategorie Reinfolge ändern", "Forum", $pdo);
 addPermission("all.forum.setting.forum.add", "Forum: Kann Forum erstellen", "Forum", $pdo);
 addPermission("all.forum.setting.forum.delete", "Forum: Kann Forum Löschen", "Forum", $pdo);
 addPermission("all.forum.setting.forum.edit", "Forum: Kann Forum Bearbeiten", "Forum", $pdo);
+addPermission("all.forum.setting.forum.prioritat", "Forum: Kann Forum Reinfolge ändern", "Forum", $pdo);
+
 
 echo "<p>projekt Rechte eingerichtet [Forum].</p>";
 
