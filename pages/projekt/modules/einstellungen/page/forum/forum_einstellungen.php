@@ -36,8 +36,9 @@ if(!$prang->hasPermission("setting.see.forum") && !$rang->hasPermission("all.set
             <hr>
         </div>
         <div class="Forum_Kategorie_buttons">
+            <?php if($prang->hasPermission("forum.setting.forum.add") || $rang->hasPermission("all.forum.setting.forum.add")) { ?><button onclick="loadProjektUnderPage('einstellungen', 'forum/forum_erstellen.php?kid=<?php echo $row["ID"] ?>')" class="button_forum create_forum" style="">Forum Erstellen</button><?php } ?>
             <?php if($prang->hasPermission("forum.setting.kategorie.edit") || $rang->hasPermission("all.forum.setting.kategorie.edit")) { ?><button onclick="loadProjektUnderPage('einstellungen', 'forum/kategorie_erstellen.php?id=<?php echo $row["ID"] ?>')" class="button_forum edit_kategorie" style="">Bearbeiten</button><?php } ?>
-            <?php if($prang->hasPermission("forum.setting.kategorie.delete") || $rang->hasPermission("forum.setting.kategorie.delete")) { ?><button onclick="delete_kategorie(<?php echo $row["ID"] ?>)" class="button_forum delete_kategorie" style="">Löschen</button><?php } ?>
+            <?php if($prang->hasPermission("forum.setting.kategorie.delete") || $rang->hasPermission("all.forum.setting.kategorie.delete")) { ?><button onclick="delete_kategorie(<?php echo $row["ID"] ?>)" class="button_forum delete_kategorie" style="">Löschen</button><?php } ?>
         </div>
 
         <?php
@@ -54,10 +55,14 @@ if(!$prang->hasPermission("setting.see.forum") && !$rang->hasPermission("all.set
                     <i class="bi bi-folder-fill"></i>
                 </div>
                 <div class="Forum_name">
-                    <?php echo utf8_encode($row_foren["Name"]); ?>
+                    <span class="Forum_name_text"><?php echo ($row_foren["Name"]); ?></span>
+                    <div class="forn_button_container">
+                         <?php if($prang->hasPermission("forum.setting.forum.delete") || $rang->hasPermission("all.forum.setting.forum.edit")) { ?><button onclick="loadProjektUnderPage('einstellungen', 'forum/forum_erstellen.php?kid=<?php echo $row["ID"] ?>&id=<?php echo $row_foren["ID"] ?>')" class="button_forum_small edit_kategorie"><i class="bi bi-pencil"></i></button><?php } ?>
+                         <?php if($prang->hasPermission("forum.setting.forum.delete") || $rang->hasPermission("all.forum.setting.forum.edit")) { ?><button onclick="delete_forum(<?php echo $row_foren["ID"] ?>)" class="button_forum_small delete_kategorie"><i class="bi bi-trash"></i></button><?php } ?>
+                    </div>
                 </div>
                 <div class="Forum_beschreibung">
-                    <?php echo utf8_encode($row_foren["Beschreibung"]); ?>
+                    <?php echo ($row_foren["Beschreibung"]); ?>
                 </div>
             </div>
 

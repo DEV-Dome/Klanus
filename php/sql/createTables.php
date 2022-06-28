@@ -197,7 +197,16 @@ UnterForum INT(10) NOT NULL,
 kategorien INT(10) NOT NULL,
 prioritat int(10) NOT NULL,
 BeitragKommentar VARCHAR(1000),
-
+    
+KannSehen int(10) NOT NULL,
+KannSehenBeitrage int(10) NOT NULL,
+KannSehenBeitrageOnly int(10) NOT NULL,
+KannschreibenBeitrage int(10) NOT NULL,
+    
+FOREIGN KEY (KannSehen) REFERENCES projekt_rang(ID),
+FOREIGN KEY (KannSehenBeitrage) REFERENCES projekt_rang(ID),
+FOREIGN KEY (KannSehenBeitrageOnly) REFERENCES projekt_rang(ID),
+FOREIGN KEY (KannschreibenBeitrage) REFERENCES projekt_rang(ID),
 FOREIGN KEY (kategorien) REFERENCES projekt_forum_kategorien(ID)
 )");
 

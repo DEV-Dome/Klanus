@@ -7,11 +7,10 @@ include_once "../../../../../../php/rang/Rang.php";
 
 $rang = new Rang($_SESSION['Rang'], $pdo);
 $prang = new projektRang($_SESSION['PRang'], $pdo);
-$pid = $_SESSION["projekt.aktiv"];
 
 $update = false;
 if(isset($_GET["id"])){
-    if(!$prang->hasPermission("forum.setting.kategorie.edit") && !$rang->hasPermission("forum.setting.kategorie.edit")) {
+    if(!$prang->hasPermission("forum.setting.kategorie.edit") && !$rang->hasPermission("all.forum.setting.kategorie.edit")) {
         return;
     }
 
@@ -31,7 +30,7 @@ if(isset($_GET["id"])){
     }
 
 }else {
-    if(!$prang->hasPermission("forum.setting.kategorie.add") && !$rang->hasPermission("forum.setting.kategorie.add")) {
+    if(!$prang->hasPermission("forum.setting.kategorie.add") && !$rang->hasPermission("all.forum.setting.kategorie.add")) {
         return;
     }
 }

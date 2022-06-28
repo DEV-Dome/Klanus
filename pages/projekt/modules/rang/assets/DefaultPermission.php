@@ -49,7 +49,9 @@ addPermissionFrontEnd("rang.menu", "Rang: Menu Punkt anzeigen", "Rang", $pdo);
 addPermissionFrontEnd("forum.setting.kategorie.add", "Forum: Kann Kategorie erstellen", "Forum", $pdo);
 addPermissionFrontEnd("forum.setting.kategorie.delete", "Forum: Kann Kategorie Löschen", "Forum", $pdo);
 addPermissionFrontEnd("forum.setting.kategorie.edit", "Forum: Kann Kategorie Bearbeiten", "Forum", $pdo);
-
+addPermissionFrontEnd("forum.setting.forum.add", "Forum: Kann Forum erstellen", "Forum", $pdo);
+addPermissionFrontEnd("forum.setting.forum.delete", "Forum: Kann Forum Löschen", "Forum", $pdo);
+addPermissionFrontEnd("forum.setting.forum.edit", "Forum: Kann Forum Bearbeiten", "Forum", $pdo);
 
 /*Ankündigungen*/
 addPermissionFrontEnd("ankundgungen.see", "Ankündigungen: Kann Menü Punkt sehen", "Ankündigungen", $pdo);

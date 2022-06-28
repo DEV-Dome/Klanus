@@ -15,21 +15,29 @@ include "../rang/projektRang.php";
 include_once "../../../../php/rang/Rang.php";
 
 $rang = new Rang($_SESSION['Rang'], $pdo);
-$prang = new projektRang($_SESSION['PRang'], $pdo)
+$prang = new projektRang($_SESSION['PRang'], $pdo);
+$prang_prioritat = 0;
 
-/*
- * Name: 50 Zeichen
- * Beschreibung: 50 Zeichen
- */
+    $sqlstr = "SELECT *  FROM projekt_rang WHERE ID = ? ";
+    $sth = $pdo->prepare($sqlstr);
+    $sth->bindParam(1, $_SESSION['PRang']);
+    $sth->execute();
+
+    foreach($sth->fetchAll() as $row) {
+        $prang_prioritat = $row["Prioritat"];
+    }
+
 ?>
-<link href="pages/projekt/modules/forum/css/main.css" rel="stylesheet">
-<link href="pages/projekt/modules/forum/css/main_handy.css" rel="stylesheet">
+<link href="pages/projekt/modules/forum/css/main.css?v=<?php echo time() ?>" rel="stylesheet">
+<link href="pages/projekt/modules/forum/css/main_handy.css?v=<?php echo time() ?>" rel="stylesheet">
 
 <div id="main_forum">
 
     <?php
 
-    $sqlstr = "SELECT *  FROM projekt_forum_kategorien WHERE Projekt = ? ORDER BY prioritat ASC ";
+    $sqlstr = "SELECT *,projekt_forum_kategorien.Name AS 'kname',projekt_forum_kategorien.ID 'kID'  FROM projekt_forum_kategorien,projekt_rang WHERE  ";
+    $sqlstr .= "projekt_forum_kategorien.Rang = projekt_rang.ID AND projekt_forum_kategorien.Projekt = ? AND projekt_rang.Prioritat <= $prang_prioritat ";
+    $sqlstr .= "ORDER BY projekt_forum_kategorien.prioritat ASC";
     $sth = $pdo->prepare($sqlstr);
     $sth->bindParam(1, $_SESSION["projekt.aktiv"]);
     $sth->execute();
@@ -38,14 +46,14 @@ $prang = new projektRang($_SESSION['PRang'], $pdo)
     ?>
         <div class="Forum_Kategorie">
             <div class="Forum_Kategorie_head">
-                <p><?php echo $row["Name"]?></p>
+                <p><?php echo $row["kname"]?></p>
                 <hr>
             </div>
 
             <?php
             $sqlstr1 = "SELECT *  FROM projekt_forum_forn WHERE kategorien = ? ORDER BY prioritat ASC ";
             $sth_fornen = $pdo->prepare($sqlstr1);
-            $sth_fornen->bindParam(1, $row["ID"]);
+            $sth_fornen->bindParam(1, $row["kID"]);
             $sth_fornen->execute();
 
             foreach($sth_fornen->fetchAll() as $row_foren) {
@@ -56,10 +64,10 @@ $prang = new projektRang($_SESSION['PRang'], $pdo)
                     <i class="bi bi-folder-fill"></i>
                 </div>
                 <div class="Forum_name">
-                   <?php echo utf8_encode($row_foren["Name"]); ?>
+                   <?php echo ($row_foren["Name"]); ?>
                 </div>
                 <div class="Forum_beschreibung">
-                    <?php echo utf8_encode($row_foren["Beschreibung"]); ?>
+                    <?php echo ($row_foren["Beschreibung"]); ?>
                 </div>
         </div>
     <?php
