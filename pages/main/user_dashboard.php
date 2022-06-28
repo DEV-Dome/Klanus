@@ -34,7 +34,7 @@ $rang = new Rang($_SESSION['Rang'], $pdo);
 
 
             ?>
-            <div class="projekt_box" data-fromid="<?php echo $row["pid"] ?>" draggable="true" ondragleave="menu_ondragleave(event)" ondragover="menu_dragover(event);" ondrop="drop(event)" ondragstart="dragstart(event)">
+            <div class="projekt_box" data-fromid="<?php echo $row["pid"] ?>" draggable="true" ondragend="dragend()" ondragleave="menu_ondragleave(event)" ondragover="menu_dragover(event);" ondrop="drop(event)" ondragstart="dragstart(event)">
                 <div data-fromid="<?php echo $row["pid"] ?>" class="Projekt_tool_bar">
                     <span data-fromid="<?php echo $row["pid"] ?> " class="projekt_tool"  <?php if(!$row["IsOwner"]){?> style="visibility: hidden" <?php }?> ><i  style="color: #fff408;" class="bi bi-x-diamond-fill"></i></span>
                 </div>

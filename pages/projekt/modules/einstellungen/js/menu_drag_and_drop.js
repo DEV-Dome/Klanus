@@ -11,6 +11,13 @@ function menu_ondragleave(e){
         e.target.classList.remove("drag_and_drop_target_current");
     }
 }
+function dragend(){
+    var meineElemente = document.getElementsByClassName('menu_item');
+
+    for(var i = 0; i < meineElemente.length; i++) {
+        if(meineElemente[i].classList.contains("drag_and_drop_target")) meineElemente[i].classList.remove("drag_and_drop_target");
+    }
+}
 function dragstart(e){
     e.dataTransfer.setData("fromID", e.target.dataset.fromid);
 
@@ -25,10 +32,10 @@ function drop(e){
     let formID = e.dataTransfer.getData("fromID");
     let toID = e.target.dataset.fromid;
 
-    var meineElemente = document.getElementsByClassName('drag_and_drop_target');
+    var meineElemente = document.getElementsByClassName('menu_item');
 
     for(var i = 0; i < meineElemente.length; i++) {
-        meineElemente[i].classList.remove("drag_and_drop_target");
+        if(meineElemente[i].classList.contains("drag_and_drop_target")) meineElemente[i].classList.remove("drag_and_drop_target");
     }
 
     var form_data = new FormData();

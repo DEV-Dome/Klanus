@@ -12,6 +12,13 @@ function menu_ondragleave(e){
     }
 
 }
+function dragend(){
+    var meineElemente = document.getElementsByClassName('projekt_box');
+
+    for(var i = 0; i < meineElemente.length; i++) {
+        if(meineElemente[i].classList.contains("drag_and_drop_target")) meineElemente[i].classList.remove("drag_and_drop_target");
+    }
+}
 function dragstart(e){
     e.dataTransfer.setData("fromID", e.target.dataset.fromid);
 
@@ -29,7 +36,7 @@ function drop(e){
     var meineElemente = document.getElementsByClassName('drag_and_drop_target');
 
     for(var i = 0; i < meineElemente.length; i++) {
-        meineElemente[i].classList.remove("drag_and_drop_target");
+        if(meineElemente[i].classList.contains("drag_and_drop_target")) meineElemente[i].classList.remove("drag_and_drop_target");
     }
 
     var form_data = new FormData();

@@ -40,7 +40,7 @@ if(!$prang->hasPermission("setting.see.menu") && !$rang->hasPermission("all.sett
             }
         ?>
 
-        <div class="menu_item" data-fromid="<?php echo $prioritat ?>" <?php echo $dragable ?> ondragleave="menu_ondragleave(event)" ondragover="menu_dragover(event);" ondrop="drop(event)" ondragstart="dragstart(event)" >
+        <div class="menu_item" data-fromid="<?php echo $prioritat ?>" <?php echo $dragable ?> ondragend="dragend()" ondragleave="menu_ondragleave(event)" ondragover="menu_dragover(event);" ondrop="drop(event)" ondragstart="dragstart(event)" >
             <div class="menu_icon" data-fromid="<?php echo $prioritat ?>">
                 <i <?php if($disabled) echo "style='color: red;'" ?> data-fromid="<?php echo $prioritat ?>" class="bi <?php echo $icon ?>"></i>
             </div>
