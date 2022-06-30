@@ -31,6 +31,7 @@ foreach($sth->fetchAll() as $row) {
 ?>
 
 <link href="pages/projekt/modules/forum/css/main_beitrag.css?v=<?php echo time()?>" rel="stylesheet">
+<link href="pages/projekt/modules/forum/css/main_beitrag_handy.css?v=<?php echo time()?>" rel="stylesheet">
 
 <div class="headline_conatiner" >
     <span class="headline-text" >Neuen Beitrag</span><br>
@@ -46,9 +47,11 @@ foreach($sth->fetchAll() as $row) {
         </div>
     </div>
 
+    <div class="feedback_hub" style="margin-top: 1%!important; margin-bottom: 1%; width: 92% !important;" id="feedback_hub">Feedback</div>
+
     <div class="button_container">
-        <button class="button_new button_color_gray back_button">Zurück</button>
-        <button class="button_new button_color_green senden_button">Neuen Beitrag</button>
+        <button onclick="loadProjektUnderPage('forum', 'BeitragsUbersicht.php?fid=<?php echo $fid?>');" class="button_new button_color_gray back_button">Zurück</button>
+        <button onclick="start_neuen_beitrag(document.getElementById('name').value, <?php echo $fid;?>)" class="button_new button_color_green senden_button">Neuen Beitrag</button>
     </div>
 
 

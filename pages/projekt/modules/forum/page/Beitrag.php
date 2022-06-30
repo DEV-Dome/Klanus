@@ -36,9 +36,9 @@ foreach($sth->fetchAll() as $row) {
 }
 ?>
 
-<link href="pages/projekt/modules/forum/css/main.css" rel="stylesheet">
-<link href="pages/projekt/modules/forum/css/main_handy.css" rel="stylesheet">
-<link href="pages/projekt/modules/forum/css/main_tablet.css" rel="stylesheet">
+<link href="pages/projekt/modules/forum/css/main.css?v=<?php echo time()?>" rel="stylesheet">
+<link href="pages/projekt/modules/forum/css/main_handy.css?v=<?php echo time()?>" rel="stylesheet">
+<link href="pages/projekt/modules/forum/css/main_tablet.css?v=<?php echo time()?>" rel="stylesheet">
 
 <div class="beitrag_main_container">
         <div class="beitrag_teiler beitrag_teile_headline">
@@ -88,6 +88,38 @@ foreach($sth->fetchAll() as $row) {
                 <?php
                     }
                 ?>
+
+                <!-- editor-->
+                <div class="beitrag_verwalter">
+                    <div class="beitrag_abzeige_conatiner beitrag_abzeige_conatiner_userinfo">
+                        <?php
+                        $loadPgClasses = "beitrag_kommentar_bild";
+                        $loadPgOnClick = "";
+                        $outputpfad = "";
+                        $bid =  intval($_SESSION["ID"], 10);
+                        include "../../../../../php/user/get/UserImage.php";
+                        ?>
+                        <span class="beitrag_kommentar_user_name" style="color: <?php echo $row["Color"]; ?>"><?php echo utf8_encode(ucfirst($_SESSION["Name"])); ?></span>
+                    </div>
+                    <div class="beitrag_abzeige_conatiner beitrag_abzeige_conatiner_beitraginfo">
+                    <span class="beitrag_kommentar_user_headline">
+                       Neuer Kommentar:
+                    </span><br>
+                        <input type="text" placeholder="Beitrag Name" id="name" class="input_fild_normal">
+                        <span class="beitrag_kommentar_user_beitrag ck-box">
+                            <div id="editor"></div>
+                        </span>
+
+
+                        <span class="beitrag_kommentar_user_button" ></span>
+
+                        <div class="feedback_hub" style="margin-top: 1%!important; margin-bottom: 1%; width: 92% !important;" id="feedback_hub">Feedback</div>
+
+                        <div class="button_container">
+                            <button onclick="start_neuen_kommentar(document.getElementById('name').value, <?php echo $bid;?>)" class="button_new button_color_green senden_button">Neuen Kommentar</button>
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </div>

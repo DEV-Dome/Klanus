@@ -7,17 +7,6 @@
 .Beitrag_ubersicht_beschreibung {
     font-size: 14px !important;
 }
-.ck-box {
-    margin-left: 2%;
-    margin-right: 2%;
-    margin-top: 2%;
-
-    max-width: 92%;
-}
-.ck-content {
-    background-color: #17213D!important;
-    border: unset!important;
-}
 .senden_button{
     width: 160px;
     height: 40px;
@@ -34,6 +23,20 @@
 
 
 /*Drak Themen editor*/
+.ck-box {
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 2%;
+
+    max-width: 92%;
+}
+.ck-content {
+    background-color: #17213D !important;
+    border: unset !important;
+
+    min-height: 150px !important;
+}
+
 :root {
     /* Overrides the border radius setting in the theme. */
     --ck-border-radius: 4px;
