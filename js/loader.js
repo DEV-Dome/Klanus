@@ -59,6 +59,8 @@ function loadProjektUnderPage(modul,seite){
         processData: false,
         data: form_data,
         success: function (response) {
+
+
             document.getElementById("MainSek").innerHTML = response;
             setUploadAktiv();
             loadbar(1);
@@ -72,6 +74,12 @@ function loadProjektUnderPage(modul,seite){
                 addScript("pages/projekt/modules/einstellungen/js/forum/forum.js?v=" + new Date().getTime());
                 addScript("pages/projekt/modules/einstellungen/js/forum/kategorie_drag_and_drop.js?v=" + new Date().getTime());
                 addScript("pages/projekt/modules/einstellungen/js/forum/forum_drag_and_drop.js?v=" + new Date().getTime());
+            }
+            if(seite.startsWith("Neuer_Beitrag.php") && modul == "forum"){
+                //addScript("https://cdn.ckeditor.com/ckeditor5/34.2.0/classic/ckeditor.js?v=" + new Date().getTime());
+                //addScript("js/editor/ckeditor.js?v=" + new Date().getTime());
+                addScript("pages/projekt/modules/forum/js/neuer_beitrag.js?v=" + new Date().getTime());
+
             }
         }
     });

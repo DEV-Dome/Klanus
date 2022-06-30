@@ -159,6 +159,21 @@
     border-radius: 25%;
     margin-right: 3%;
 }
+.button_new {
+    border: none;
+    outline:none;
+
+    font-size: 20px;
+    border-radius: 25px;
+}
+.button_color_green {
+    background-color: rgba(69, 255, 88, 0.25);
+    color: #45FF58;
+}
+.button_color_gray {
+    background-color: rgba(199, 205, 216, 0.25);
+    color: #C7CDD8;
+}
 .display_name:first-letter {
     text-transform: uppercase;
 }

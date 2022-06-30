@@ -33,6 +33,7 @@ if(!isset($_SESSION["Login"])){
     <script src="js/userJoinProjekt.js?v=<?php echo time(); ?>"></script>
 
     <!-- Modul Import für Jaavscript-->
+    <script src="js/editor/ckeditor.js?v=<?php echo time(); ?>"></script>
     <script src="pages/projekt/modules/einstellungen/js/main.js?v=<?php echo time(); ?>"></script>
 
     <script src="pages/projekt/modules/rang/js/main.js?v=<?php echo time(); ?>"></script>
