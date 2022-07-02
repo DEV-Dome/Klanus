@@ -72,7 +72,7 @@ foreach($sth->fetchAll() as $row) {
                 </div>
                 <div class="beitrag_abzeige_conatiner beitrag_abzeige_conatiner_beitraginfo">
                     <span class="beitrag_kommentar_user_headline">
-                        <?php echo utf8_encode(ucfirst($row["kname"])) ?><br>
+                        <span class="beitrag_kommentar_user_headline_name"><?php echo utf8_encode(ucfirst($row["kname"])) ?><br></span>
                         <span class="beitrag_kommentar_user_headline_subtext">erstellt von <span style="color: <?php echo $row["Color"]; ?>"><?php echo utf8_encode(ucfirst($row["uname"])) ?></span> am <b><?php echo $dt_erstellt_am->format("d.m.Y") ?></b></span>
                     </span><br>
                     <span class="beitrag_kommentar_user_beitrag"><?php echo (ucfirst($row["Text"])) ?></span><br><br>

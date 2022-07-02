@@ -1,4 +1,4 @@
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 1200px) {
     #main_forum {
         width: 80%;
 
@@ -144,6 +144,8 @@
     /*Beitrag*/
     .beitrag_verwalter {
         background-color: #17213D;
+        padding-left: 5%;
+        padding-right: 5%;
     }
     .beitrag_kommentar_bild {
         width: 32px;
@@ -157,6 +159,25 @@
         margin-bottom: 5%;
         margin-left: 20px;
         margin-top: 16%;
+    }
+    .beitrag_kommentar_user_button {
+        margin-top: 5%;
+        width: 100%;
+        float: unset!important;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .beitrag_kommentar_user_beitrag{
+        font-size: 10px;
+        width: 100%;
+    }
+    .beitrag_kommentar_user_danks{
+        font-size: 10px;
+        width: 100%;
+    }
+    .beitrag_abzeige_conatiner_beitraginfo {
+        width: 100%;
     }
 }
 /* für besonders kleien Handy*/
