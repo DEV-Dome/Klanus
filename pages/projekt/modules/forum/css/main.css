@@ -192,6 +192,7 @@
 
     display: flex;
     justify-content: center;
+    align-content: flex-start;
     flex-wrap: wrap;
 }
 .beitrag_abzeige_conatiner_beitraginfo{
@@ -204,7 +205,7 @@
     width: 128px;
     height: 128px;
     border-radius: 100%;
-    margin-top: 5%;
+    margin-top: 15%;
     margin-bottom: 5%;
 }
 .beitrag_kommentar_user_name {

@@ -10,7 +10,7 @@ $prang = new projektRang($_SESSION['PRang'], $pdo);
 $rang = new Rang($_SESSION['Rang'], $pdo);
 
 $name = trim(xss_clean($_POST["name"]));
-$inhalt = trim(xss_clean($_POST["inhalt"]));
+$inhalt = (trim(xss_clean($_POST["inhalt"])));
 $forum = trim(xss_clean($_POST["forum"]));
 
 $dt = new DateTime();

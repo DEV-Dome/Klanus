@@ -1,7 +1,11 @@
 var editor = "";
 ClassicEditor.create( document.querySelector( '#editor' ) ).then( editortmp => {
     editor = editortmp;
-    } )
+},{
+    ckfinder: {
+        uploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json'
+    }
+} )
 
 function start_neuen_beitrag(name, forum){
     let inhalt = editor.getData();

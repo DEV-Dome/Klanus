@@ -75,7 +75,7 @@ foreach($sth->fetchAll() as $row) {
                         <?php echo utf8_encode(ucfirst($row["kname"])) ?><br>
                         <span class="beitrag_kommentar_user_headline_subtext">erstellt von <span style="color: <?php echo $row["Color"]; ?>"><?php echo utf8_encode(ucfirst($row["uname"])) ?></span> am <b><?php echo $dt_erstellt_am->format("d.m.Y") ?></b></span>
                     </span><br>
-                    <span class="beitrag_kommentar_user_beitrag"><?php echo utf8_encode(ucfirst($row["Text"])) ?></span><br><br>
+                    <span class="beitrag_kommentar_user_beitrag"><?php echo (ucfirst($row["Text"])) ?></span><br><br>
 
                     <span class="beitrag_kommentar_user_beitrag">Folgende Benutzer sich für den Beitrag dedankt:</span><br>
                     <span class="beitrag_kommentar_user_danks" style="margin-top: 0% !important;">Dome, Marvin, Nico, Steven, jahn</span>

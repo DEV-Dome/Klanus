@@ -108,7 +108,7 @@ if(isset($_GET["id"])){
 
         }
         ?>
-        <option <?php if(!$nosel) echo "selected" ?> disabled value="-1">Wer kann das Forum sehen ?</option>
+        <option <?php if(!$nosel) echo "selected" ?> disabled value="-1">Wer kann Beiträge sehen ?</option>
     </select>
 
     <select  id="rang_3" class="input_fild_normal">
@@ -130,7 +130,7 @@ if(isset($_GET["id"])){
 
         }
         ?>
-        <option <?php if(!$nosel) echo "selected" ?> disabled value="-1">Wer kann das Forum sehen ?</option>
+        <option <?php if(!$nosel) echo "selected" ?> disabled value="-1">Wer kann seine Beiträge sehen ?</option>
     </select>
 
     <select id="rang_4" class="input_fild_normal">
@@ -152,7 +152,7 @@ if(isset($_GET["id"])){
 
         }
         ?>
-        <option <?php if(!$nosel) echo "selected" ?> disabled value="-1">Wer kann das Forum sehen ?</option>
+        <option <?php if(!$nosel) echo "selected" ?> disabled value="-1">Wer kann beiträge schreiben ?</option>
     </select>
 
     <div class="feedback_hub" style="margin-top: 1%!important; margin-bottom: 1%; width: 92% !important;" id="feedback_hub">Feedback</div>
