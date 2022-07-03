@@ -16,6 +16,9 @@ $fid = $_GET["fid"]; // Forum ID
 $fname = ""; // Forum Namen
 $fbeschreibung = "";  // Forum Beschreibung
 
+$kann_alle_beiträge_sehen = false;
+$kann_seine_beiträge_sehen = false;
+
 include "../../rang/projektRang.php";
 include_once "../../../../../php/rang/Rang.php";
 
@@ -33,6 +36,9 @@ $sth->execute();
 foreach($sth->fetchAll() as $row) {
     $fname = ($row["Name"]);
     $fbeschreibung = ($row["Beschreibung"]);
+
+    $kann_alle_beiträge_sehen = ($row["KannSehenBeitrage"]);
+    $kann_seine_beiträge_sehen = ($row["KannSehenBeitrageOnly"]);
 }
 ?>
 
@@ -50,6 +56,12 @@ foreach($sth->fetchAll() as $row) {
 
 <div class="beitrag_container">
     <?php
+        if(!$kann_alle_beiträge_sehen && !$kann_seine_beiträge_sehen){
+            ?>
+
+             <?php
+            exit();
+        }
         //TODO: Forum Berechtigunugen Einbauen
 
         //angepinnte Beiträge
@@ -63,7 +75,11 @@ foreach($sth->fetchAll() as $row) {
 
 
 
-        $sqlstr = "SELECT $sqlzuordnung FROM projekt_forum_beitrage,user,projekt_user,projekt_rang WHERE projekt_rang.ID = projekt_user.Rang AND projekt_user.Projekt = ? AND projekt_user.User = user.id AND user.id = Owner AND Forum = ? ORDER BY IsAngepinnt DESC";
+        $sqlstr  = "SELECT $sqlzuordnung FROM projekt_forum_beitrage,user,projekt_user,projekt_rang ";
+        $sqlstr .= "WHERE projekt_rang.ID = projekt_user.Rang AND projekt_user.Projekt = ? AND projekt_user.User = user.id AND user.id = Owner AND Forum = ? ";
+        $sqlstr .= "";
+        $sqlstr .= "ORDER BY IsAngepinnt DESC";
+
         $sth = $pdo->prepare($sqlstr);
         $sth->bindParam(1, $_SESSION["projekt.aktiv"]);
         $sth->bindParam(2, $fid);
