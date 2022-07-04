@@ -18,6 +18,7 @@ $fbeschreibung = "";  // Forum Beschreibung
 
 $kann_alle_beiträge_sehen = false;
 $kann_seine_beiträge_sehen = false;
+$kann_beiträge_schreiben = false;
 
 include "../../rang/projektRang.php";
 include_once "../../../../../php/rang/Rang.php";
@@ -28,7 +29,7 @@ $prang = new projektRang($_SESSION['PRang'], $pdo);
 //information getten
 
 
-$sqlstr = "SELECT * FROM projekt_forum_forn WHERE ID = ?";
+$sqlstr = "SELECT * FROM projekt_forum_forn WHERE  ID = ?";
 $sth = $pdo->prepare($sqlstr);
 $sth->bindParam(1, $fid);
 $sth->execute();
@@ -37,8 +38,36 @@ foreach($sth->fetchAll() as $row) {
     $fname = ($row["Name"]);
     $fbeschreibung = ($row["Beschreibung"]);
 
-    $kann_alle_beiträge_sehen = ($row["KannSehenBeitrage"]);
-    $kann_seine_beiträge_sehen = ($row["KannSehenBeitrageOnly"]);
+    //permission abfragen
+    $sqlstr1 = "SELECT * FROM projekt_rang WHERE  ID = ?";
+    $sth1 = $pdo->prepare($sqlstr1);
+    $sth1->bindParam(1, $row["KannSehenBeitrage"]);
+    $sth1->execute();
+    foreach($sth1->fetchAll() as $row1) {
+        if($prang->prioritat >= $row1["Prioritat"]){
+            $kann_alle_beiträge_sehen = true;
+        }
+    }
+
+    $sqlstr1 = "SELECT * FROM projekt_rang WHERE  ID = ?";
+    $sth1 = $pdo->prepare($sqlstr1);
+    $sth1->bindParam(1, $row["KannSehenBeitrageOnly"]);
+    $sth1->execute();
+    foreach($sth1->fetchAll() as $row1) {
+        if($prang->prioritat >= $row1["Prioritat"]){
+            $kann_seine_beiträge_sehen = true;
+        }
+    }
+
+    $sqlstr1 = "SELECT * FROM projekt_rang WHERE  ID = ?";
+    $sth1 = $pdo->prepare($sqlstr1);
+    $sth1->bindParam(1, $row["KannschreibenBeitrage"]);
+    $sth1->execute();
+    foreach($sth1->fetchAll() as $row1) {
+        if($prang->prioritat >= $row1["Prioritat"]){
+            $kann_beiträge_schreiben = true;
+        }
+    }
 }
 ?>
 
@@ -51,14 +80,20 @@ foreach($sth->fetchAll() as $row) {
     <span class="headline-text Beitrag_ubersicht_beschreibung" ><?php echo $fbeschreibung; ?></span>
 
     <!-- Buttons -->
-    <button onclick="loadProjektUnderPage('forum', 'Neuer_Beitrag.php?fid=<?php echo $fid; ?>')" class="beitrag_button neuen_beitrag_button" style="">Neuen Beitrag</button>
+    <?php
+        if($kann_beiträge_schreiben) {
+    ?>
+            <button onclick="loadProjektUnderPage('forum', 'Neuer_Beitrag.php?fid=<?php echo $fid; ?>')" class="beitrag_button neuen_beitrag_button" style="">Neuen Beitrag</button>
+    <?php
+        }
+    ?>
 </div>
 
 <div class="beitrag_container">
     <?php
         if(!$kann_alle_beiträge_sehen && !$kann_seine_beiträge_sehen){
             ?>
-
+                <p>Leider sind in diesem Forum noch keine Beiträge vorhanden.</p>
              <?php
             exit();
         }
@@ -73,12 +108,23 @@ foreach($sth->fetchAll() as $row) {
         $sqlzuordnung .= "projekt_forum_beitrage.ID AS 'bid', ";
         $sqlzuordnung .= "Zugriffe, IsAngepinnt, ErstelltAm"; // alles andere
 
+        $permiss_where = "";
+        if(!$kann_alle_beiträge_sehen){
+            if($kann_seine_beiträge_sehen){
+                $permiss_where = "AND projekt_forum_beitrage.Owner = " . $_SESSION["ID"] . " ";
+            }else {
+                ?>
+                <p>Leider sind in diesem Forum noch keine Beiträge vorhanden.</p>
+                <?php
+                exit();
+            }
+        }
 
 
         $sqlstr  = "SELECT $sqlzuordnung FROM projekt_forum_beitrage,user,projekt_user,projekt_rang ";
         $sqlstr .= "WHERE projekt_rang.ID = projekt_user.Rang AND projekt_user.Projekt = ? AND projekt_user.User = user.id AND user.id = Owner AND Forum = ? ";
-        $sqlstr .= "";
-        $sqlstr .= "ORDER BY IsAngepinnt DESC";
+        $sqlstr .= "$permiss_where";
+        $sqlstr .= "ORDER BY IsAngepinnt DESC, ErstelltAm DESC";
 
         $sth = $pdo->prepare($sqlstr);
         $sth->bindParam(1, $_SESSION["projekt.aktiv"]);

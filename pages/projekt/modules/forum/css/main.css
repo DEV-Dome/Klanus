@@ -282,6 +282,9 @@
 
     min-height: 150px !important;
 }
+.beitrag_headline_conatiner_with_top {
+    margin-top: 5%;
+}
 
 :root {
     /* Overrides the border radius setting in the theme. */

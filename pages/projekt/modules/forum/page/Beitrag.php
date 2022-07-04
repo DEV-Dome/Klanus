@@ -99,7 +99,7 @@ foreach($sth->fetchAll() as $row) {
                         $bid =  intval($_SESSION["ID"], 10);
                         include "../../../../../php/user/get/UserImage.php";
                         ?>
-                        <span class="beitrag_kommentar_user_name" style="color: <?php echo $row["Color"]; ?>"><?php echo utf8_encode(ucfirst($_SESSION["Name"])); ?></span>
+                        <span class="beitrag_kommentar_user_name" style="color: <?php echo $prang->color; ?>"><?php echo utf8_encode(ucfirst($_SESSION["Name"])); ?></span>
                     </div>
                     <div class="beitrag_abzeige_conatiner beitrag_abzeige_conatiner_beitraginfo">
                     <span class="beitrag_kommentar_user_headline">

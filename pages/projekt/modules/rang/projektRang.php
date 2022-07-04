@@ -11,6 +11,8 @@ class projektRang
     public $color;
     public $bgColor;
 
+    public $prioritat;
+
     private $noperm = true;
 
     function __construct1() {
@@ -21,6 +23,7 @@ class projektRang
            $this->permission = array();
            $this->rangid = -1;
            $this->noperm = true;
+           $this->prioritat = -1;
            return;
        }
 
@@ -31,6 +34,18 @@ class projektRang
        // $this->checkRang($pdo);
 
         $this->loadPermission($pdo);
+        $sth = $pdo->prepare("SELECT * FROM projekt_rang WHERE ID = ?");
+        $sth->bindParam(1, $this->rangid);
+        $sth->execute();
+
+        foreach($sth->fetchAll() as $row) {
+            $this->prioritat = $row['Prioritat'];
+            $this->name = $row['Name'];
+            $this->desc = $row['Dscribe'];
+            $this->color = $row['Color'];
+            $this->bgColor = $row['BackgroundColor'];
+        }
+
     }
 
 

@@ -18,9 +18,10 @@ $rang = new Rang($_SESSION['Rang'], $pdo);
 $prang = new projektRang($_SESSION['PRang'], $pdo);
 $prang_prioritat = 0;
 
-    $sqlstr = "SELECT * FROM projekt_rang WHERE ID = ? ";
+    $sqlstr = "SELECT * FROM projekt_rang WHERE ID = ? AND Projekt = ?";
     $sth = $pdo->prepare($sqlstr);
     $sth->bindParam(1, $_SESSION['PRang']);
+    $sth->bindParam(2, $_SESSION["projekt.aktiv"]);
     $sth->execute();
 
     foreach($sth->fetchAll() as $row) {
@@ -43,7 +44,6 @@ $prang_prioritat = 0;
     $sth->execute();
 
     foreach($sth->fetchAll() as $row) {
-        $frang
     ?>
         <div class="Forum_Kategorie">
             <div class="Forum_Kategorie_head">
@@ -53,11 +53,12 @@ $prang_prioritat = 0;
 
             <?php
             $sqlstr1 = "SELECT *,projekt_forum_forn.Name AS 'fName',projekt_forum_forn.ID AS 'fID'  FROM projekt_forum_forn,projekt_rang ";
-            $sqlstr1 .= "WHERE KannSehen = projekt_rang.ID AND kategorien = ? AND projekt_rang.Prioritat <= ?";
+            $sqlstr1 .= "WHERE KannSehen = projekt_rang.ID AND kategorien = ? AND projekt_rang.Prioritat <= ? AND projekt_rang.Projekt = ?";
             $sqlstr1 .= "ORDER BY projekt_forum_forn.prioritat ASC";
             $sth_fornen = $pdo->prepare($sqlstr1);
             $sth_fornen->bindParam(1, $row["kID"]);
             $sth_fornen->bindParam(2, $prang_prioritat);
+            $sth_fornen->bindParam(3, $_SESSION["projekt.aktiv"]);
             $sth_fornen->execute();
 
             foreach($sth_fornen->fetchAll() as $row_foren) {
