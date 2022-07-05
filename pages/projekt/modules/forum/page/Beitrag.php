@@ -15,6 +15,7 @@ include "../../../../../php/sql/connection.php";
 $bid = $_GET["bid"]; // Forum ID
 $bname = ""; // Beitrag Namen
 $bbeschreibung = "";  // Beitrag Beschreibung
+$zugriffe = 0;
 
 include "../../rang/projektRang.php";
 include_once "../../../../../php/rang/Rang.php";
@@ -22,18 +23,25 @@ include_once "../../../../../php/rang/Rang.php";
 $rang = new Rang($_SESSION['Rang'], $pdo);
 $prang = new projektRang($_SESSION['PRang'], $pdo);
 
+
+
 //information getten
-
-
-$sqlstr = "SELECT BeitragKommentar,projekt_forum_beitrage.Name AS 'Name' FROM projekt_forum_beitrage,projekt_forum_forn WHERE Forum = projekt_forum_forn.ID  AND projekt_forum_beitrage.ID = ?";
+$sqlstr = "SELECT BeitragKommentar,projekt_forum_beitrage.Name AS 'Name', projekt_forum_beitrage.Zugriffe FROM projekt_forum_beitrage,projekt_forum_forn WHERE Forum = projekt_forum_forn.ID  AND projekt_forum_beitrage.ID = ?";
 $sth = $pdo->prepare($sqlstr);
 $sth->bindParam(1, $bid);
 $sth->execute();
-
 foreach($sth->fetchAll() as $row) {
     $bname = $row["Name"];
     $bbeschreibung = $row["BeitragKommentar"];
+    $zugriffe = $row["Zugriffe"];
 }
+//zugriff rauf zählen
+$zugriffe++;
+$sqlstr = "UPDATE projekt_forum_beitrage SET Zugriffe = ? WHERE ID = ?";
+$sth = $pdo->prepare($sqlstr);
+$sth->bindParam(1, $zugriffe);
+$sth->bindParam(2, $bid);
+$sth->execute();
 ?>
 
 <link href="pages/projekt/modules/forum/css/main.css?v=<?php echo time()?>" rel="stylesheet">
@@ -50,13 +58,26 @@ foreach($sth->fetchAll() as $row) {
         <div class="beitrag_teiler beitrag_teile_input">
             <div class="beitrag_verwalter_conatiner">
                 <?php
-                    $sqlstr = "SELECT *,user.name AS 'uname',projekt_forum_beitrage_kommentare.Name AS 'kname' FROM projekt_forum_beitrage_kommentare,user,projekt_user,projekt_rang WHERE projekt_rang.ID = projekt_user.Rang AND projekt_user.User = user.ID AND projekt_user.Projekt = ? AND Owner = user.ID AND Beitrag = ? ORDER BY projekt_forum_beitrage_kommentare.ID";
+                    $sqlstr = "SELECT *,user.name AS 'uname',projekt_forum_beitrage_kommentare.Name AS 'kname',projekt_forum_beitrage_kommentare.ID AS 'kid' FROM projekt_forum_beitrage_kommentare,user,projekt_user,projekt_rang WHERE projekt_rang.ID = projekt_user.Rang AND projekt_user.User = user.ID AND projekt_user.Projekt = ? AND Owner = user.ID AND Beitrag = ? ORDER BY projekt_forum_beitrage_kommentare.ID";
                     $sth = $pdo->prepare($sqlstr);
                     $sth->bindParam(2, $bid);
                     $sth->bindParam(1, $_SESSION["projekt.aktiv"]);
                     $sth->execute();
 
+
                     foreach($sth->fetchAll() as $row) {
+
+                    // liks abrufen
+                    $sqlstr1 = "SELECT * FROM projekt_forum_beitrage_kommentare_like,user WHERE user.ID = User AND  User = ? AND Kommentar = ? ";
+                    $sth1 = $pdo->prepare($sqlstr1);
+                    $sth1->bindParam(1, $_SESSION["ID"]);
+                    $sth1->bindParam(2, $row["kid"]);
+                    $sth1->execute();
+
+                    $liks_str = "";
+                    foreach($sth1->fetchAll() as $row1) {
+                        $liks_str .= $row1["Name"] . ", ";
+                    }
                 ?>
                 <div class="beitrag_verwalter">
                 <div class="beitrag_abzeige_conatiner beitrag_abzeige_conatiner_userinfo">
@@ -77,11 +98,14 @@ foreach($sth->fetchAll() as $row) {
                     </span><br>
                     <span class="beitrag_kommentar_user_beitrag"><?php echo (ucfirst($row["Text"])) ?></span><br><br>
 
+                    <?php
+
+                    ?>
                     <span class="beitrag_kommentar_user_beitrag">Folgende Benutzer sich für den Beitrag dedankt:</span><br>
-                    <span class="beitrag_kommentar_user_danks" style="margin-top: 0% !important;">Dome, Marvin, Nico, Steven, jahn</span>
+                    <span class="beitrag_kommentar_user_danks" style="margin-top: 0% !important;"><?php echo $liks_str?></span>
                     <span class="beitrag_kommentar_user_button" >
                         <button class="button meldebutton"><i class="bi bi-exclamation-octagon"></i></button>
-                        <button class="button likebutton"><i class="bi bi-hand-thumbs-up"></i></button>
+                        <button onclick="Update_like(<?php echo $row["kid"];?>, <?php echo $_GET["bid"];?>)"class="button likebutton"><i class="bi bi-hand-thumbs-up"></i></button>
                     </span>
                 </div>
             </div>
@@ -116,7 +140,7 @@ foreach($sth->fetchAll() as $row) {
                         <div class="feedback_hub" style="margin-top: 1%!important; margin-bottom: 1%; width: 92% !important;" id="feedback_hub">Feedback</div>
 
                         <div class="button_container">
-                            <button onclick="start_neuen_kommentar(document.getElementById('name').value, <?php echo $bid;?>)" class="button_new button_color_green senden_button">Neuen Kommentar</button>
+                            <button onclick="start_neuen_kommentar(document.getElementById('name').value, <?php echo $_GET["bid"];?>)" class="button_new button_color_green senden_button">Neuen Kommentar</button>
                         </div>
                     </div>
                 </div>

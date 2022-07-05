@@ -220,7 +220,6 @@ Forum INT(10) NOT NULL,
 Owner INT(10) NOT NULL,
 ErstelltAm DATETIME NOT NULL,    
 IsAngepinnt BOOL NOT NULL DEFAULT 0,
-Zugriffe INT(10) NOT NULL DEFAULT 0,     
     
     
 FOREIGN KEY (Forum) REFERENCES projekt_forum_forn(ID),
@@ -236,10 +235,23 @@ Text TEXT NOT NULL,
 Status INT(10) NOT NULL DEFAULT 1,    
 Beitrag INT(10) NOT NULL,
 Owner INT(10) NOT NULL,
-ErstelltAm DATETIME NOT NULL,    
+ErstelltAm DATETIME NOT NULL,
+Zugriffe INT(10) NOT NULL DEFAULT 0,   
 
 FOREIGN KEY (Beitrag) REFERENCES projekt_forum_beitrage(ID),
 FOREIGN KEY (Owner) REFERENCES user(ID)
+)");
+
+echo "<p>Projekt Forum_Beiträge Tabelle erstellt.</p>";
+
+$pdo->query("CREATE TABLE IF NOT EXISTS projekt_forum_beitrage_kommentare_like(
+ID INT(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+User INT(10) NOT NULL,
+Kommentar INT(10)NOT NULL,
+Time DATETIME NOT NULL,    
+
+FOREIGN KEY (Kommentar) REFERENCES projekt_forum_beitrage_kommentare(ID),
+FOREIGN KEY (User) REFERENCES user(ID)
 )");
 
 echo "<p>Projekt Forum_Beiträge Tabelle erstellt.</p>";

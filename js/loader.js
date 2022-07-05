@@ -75,9 +75,11 @@ function loadProjektUnderPage(modul,seite){
                 addScript("pages/projekt/modules/einstellungen/js/forum/kategorie_drag_and_drop.js?v=" + new Date().getTime());
                 addScript("pages/projekt/modules/einstellungen/js/forum/forum_drag_and_drop.js?v=" + new Date().getTime());
             }
-            if((seite.startsWith("Neuer_Beitrag.php") || seite.startsWith("Beitrag.php"))&& modul == "forum"){
+            if((seite.startsWith("Neuer_Beitrag.php"))){
                 addScript("pages/projekt/modules/forum/js/neuer_beitrag.js?v=" + new Date().getTime());
-
+            }
+            if(seite.startsWith("Beitrag.php")){
+                addScript("pages/projekt/modules/forum/js/beitrag.js?v=" + new Date().getTime());
             }
         }
     });

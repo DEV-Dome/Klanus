@@ -178,9 +178,13 @@ foreach($sth->fetchAll() as $row) {
                 $outputpfad = "";
                 $bid =  intval($row["uid"], 10);
                 include "../../../../../php/user/get/UserImage.php";
+
+                $sth_beitrag_zahl = $pdo->prepare("SELECT * FROM projekt_forum_beitrage_kommentare WHERE Beitrag = ?");
+                $sth_beitrag_zahl->bindParam(1, $row["bid"]);
+                $sth_beitrag_zahl->execute();
                 ?>
                 <div class="beitrag_name"><?php echo ($row["bname"]) ?> <br> <span class="beitrag_subtitle">erstellt von <span style="color: <?php echo $row["usercolor"]; ?>"><?php echo ucfirst($row["uname"]) ?></span></span></div>
-                <div class="beitrag_antworten">0</div>
+                <div class="beitrag_antworten"><?php echo $sth_beitrag_zahl->rowCount() ?></div>
                 <div class="beitrag_zugriffe"><?php echo $row["Zugriffe"] ?></div>
                 <div class="beitrag_letzer_beitrag">von <span style="color: <?php echo $row["usercolor"]; ?>"><?php echo ucfirst($row["uname"]) ?></span><br><span class="beitrag_subtitle" >am <b ><?php echo $dt->format("d.m.Y") ?></b></span></div>
             </div>
