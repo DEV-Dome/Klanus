@@ -158,8 +158,7 @@
     width: 100%;
     height: 88%;
     align-self: flex-start;
-
-
+    margin-top: 2%;
 }
 .beitrag_verwalter_conatiner{
     display: flex;
@@ -285,7 +284,45 @@
 .beitrag_headline_conatiner_with_top {
     margin-top: 5%;
 }
+.headline_conatiner_beitrag{
+    display: flex;
+    flex-wrap: wrap;
+}
+.headline_conatiner_head {
+    width: 100%;
+}
+.headline_button{
+    width: 50px;
+    height: 50px;
 
+    font-size: 120%;
+    float: unset!important;
+
+    margin-right: 1%!important;
+}
+.button_rot {
+    background-color: rgba(229, 51, 51, 0.25);
+    color: #E53333;
+
+}
+.button_grun {
+    background-color: rgba(69, 255, 88, 0.25);
+    color: #45FF58;
+}
+.buuton_blau {
+    background-color: rgb(1,116,223, 0.25);
+    color: #0174DF;
+}
+.headline_button_coantiner {
+
+}
+.headline-text {
+    width: 50%;
+    display: inline-block;
+}
+.headline-text-sub {
+    margin-right: 50%;
+}
 :root {
     /* Overrides the border radius setting in the theme. */
     --ck-border-radius: 4px;

@@ -179,6 +179,20 @@
     .beitrag_abzeige_conatiner_beitraginfo {
         width: 100%;
     }
+    .beitrag_teile_headline{
+        margin-bottom: 25%;
+    }
+    .headline-text {
+        width: 100%;
+        display: inline-block;
+        margin-bottom: 4%;
+    }
+    .headline-text-sub {
+        display: none;
+    }
+    .headline_button_coantiner {
+        margin-top: 1%;
+    }
 }
 /* für besonders kleien Handy*/
 @media only screen and (max-width: 374px) {

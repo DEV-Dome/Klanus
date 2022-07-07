@@ -39,7 +39,6 @@ function start_neuen_kommentar(name, beitrag) {
     });
 }
 function Update_like(kommentar, beitrag) {
-
     var form_data = new FormData();
 
     form_data.append("kid", kommentar);
@@ -51,7 +50,22 @@ function Update_like(kommentar, beitrag) {
         processData: false,
         data: form_data,
         success: function (response) {
-            console.log(response)
+            loadProjektUnderPage('forum', 'Beitrag.php?bid=' + beitrag);
+        }
+    });
+}
+function toggle_close_beitrag( beitrag) {
+    var form_data = new FormData();
+
+    form_data.append("bid", beitrag);
+
+    $.ajax({
+        type: 'POST',
+        url: 'pages/projekt/modules/forum/assets/toggle_close_beitrag.php',
+        contentType: false,
+        processData: false,
+        data: form_data,
+        success: function (response) {
             loadProjektUnderPage('forum', 'Beitrag.php?bid=' + beitrag);
         }
     });

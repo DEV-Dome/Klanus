@@ -109,13 +109,13 @@ foreach($sth->fetchAll() as $row) {
         $sqlzuordnung .= "Zugriffe, IsAngepinnt, ErstelltAm"; // alles andere
 
         $permiss_where = "";
+
+        //Prüfe ob Permission vorhanden sind
         if(!$kann_alle_beiträge_sehen){
             if($kann_seine_beiträge_sehen){
                 $permiss_where = "AND projekt_forum_beitrage.Owner = " . $_SESSION["ID"] . " ";
             }else {
-                ?>
-                <p>Leider sind in diesem Forum noch keine Beiträge vorhanden.</p>
-                <?php
+                echo '<p style="text-align: center">Leider sind in diesem Forum noch keine Beiträge vorhanden.</p>';
                 exit();
             }
         }
@@ -133,7 +133,10 @@ foreach($sth->fetchAll() as $row) {
 
         $erster_lauf = true;
         $save_IsAngepinnt = -1;
-
+        if($sth->rowCount() == 0){
+            echo '<p style="text-align: center">Leider sind in diesem Forum noch keine Beiträge vorhanden.</p>';
+            exit();
+        }
         foreach($sth->fetchAll() as $row) {
             if($save_IsAngepinnt != $row["IsAngepinnt"]){
                     $erster_lauf = true;

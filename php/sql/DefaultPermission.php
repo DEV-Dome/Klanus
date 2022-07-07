@@ -106,6 +106,9 @@ addPermission("all.forum.setting.forum.delete", "Forum: Kann Forum Löschen", "F
 addPermission("all.forum.setting.forum.edit", "Forum: Kann Forum Bearbeiten", "Forum", $pdo);
 addPermission("all.forum.setting.forum.prioritat", "Forum: Kann Forum Reinfolge ändern", "Forum", $pdo);
 
+addPermission("all.forum.beitrag.close", "Forum: Kann Beiträge schlissen/öffnen", "Forum", $pdo);
+addPermission("all.forum.beitrag.delete", "Forum: Kann Beiträge löschen", "Forum", $pdo);
+addPermission("all.forum.beitrag.edit", "Forum: Kann Beiträge bearbeiten", "Forum", $pdo);
 
 echo "<p>projekt Rechte eingerichtet [Forum].</p>";
 

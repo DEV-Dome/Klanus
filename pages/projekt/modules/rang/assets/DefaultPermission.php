@@ -55,6 +55,10 @@ addPermissionFrontEnd("forum.setting.forum.delete", "Forum: Kann Forum Löschen"
 addPermissionFrontEnd("forum.setting.forum.edit", "Forum: Kann Forum Bearbeiten", "Forum", $pdo);
 addPermissionFrontEnd("forum.setting.forum.prioritat", "Forum: Kann Forum Reinfolge ändern", "Forum", $pdo);
 
+addPermissionFrontEnd("forum.beitrag.close", "Forum: Kann Beiträge schlissen/öffnen", "Forum", $pdo);
+addPermissionFrontEnd("forum.beitrag.delete", "Forum: Kann Beiträge löschen", "Forum", $pdo);
+addPermissionFrontEnd("forum.beitrag.edit", "Forum: Kann Beiträge bearbeiten", "Forum", $pdo);
+
 /*Ankündigungen*/
 addPermissionFrontEnd("ankundgungen.see", "Ankündigungen: Kann Menü Punkt sehen", "Ankündigungen", $pdo);
 foreach ($pdo->query("SELECT * FROM projekt_rang_permission") as $row) {

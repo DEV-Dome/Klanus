@@ -43,6 +43,11 @@ $prang_prioritat = 0;
     $sth->bindParam(2, $prang_prioritat);
     $sth->execute();
 
+    if($sth->rowCount() == 0){
+        echo '<p style="text-align: center">Es wurden noch keine Fornen erstellt.</p>';
+        exit();
+    }
+
     foreach($sth->fetchAll() as $row) {
     ?>
         <div class="Forum_Kategorie">
@@ -60,6 +65,7 @@ $prang_prioritat = 0;
             $sth_fornen->bindParam(2, $prang_prioritat);
             $sth_fornen->bindParam(3, $_SESSION["projekt.aktiv"]);
             $sth_fornen->execute();
+
 
             foreach($sth_fornen->fetchAll() as $row_foren) {
             ?>

@@ -16,6 +16,8 @@ $bid = $_GET["bid"]; // Forum ID
 $bname = ""; // Beitrag Namen
 $bbeschreibung = "";  // Beitrag Beschreibung
 $zugriffe = 0;
+$owner = -1;
+$bstatus = -1;
 
 include "../../rang/projektRang.php";
 include_once "../../../../../php/rang/Rang.php";
@@ -26,7 +28,7 @@ $prang = new projektRang($_SESSION['PRang'], $pdo);
 
 
 //information getten
-$sqlstr = "SELECT BeitragKommentar,projekt_forum_beitrage.Name AS 'Name', projekt_forum_beitrage.Zugriffe FROM projekt_forum_beitrage,projekt_forum_forn WHERE Forum = projekt_forum_forn.ID  AND projekt_forum_beitrage.ID = ?";
+$sqlstr = "SELECT BeitragKommentar,projekt_forum_beitrage.Name AS 'Name', Zugriffe,Owner,Status FROM projekt_forum_beitrage,projekt_forum_forn WHERE Forum = projekt_forum_forn.ID  AND projekt_forum_beitrage.ID = ?";
 $sth = $pdo->prepare($sqlstr);
 $sth->bindParam(1, $bid);
 $sth->execute();
@@ -34,6 +36,8 @@ foreach($sth->fetchAll() as $row) {
     $bname = $row["Name"];
     $bbeschreibung = $row["BeitragKommentar"];
     $zugriffe = $row["Zugriffe"];
+    $owner = $row["Owner"];
+    $bstatus = $row["Status"];
 }
 //zugriff rauf zählen
 $zugriffe++;
@@ -50,9 +54,24 @@ $sth->execute();
 
 <div class="beitrag_main_container">
         <div class="beitrag_teiler beitrag_teile_headline">
-            <div class="headline_conatiner" >
-                <span class="headline-text" ><?php echo utf8_encode($bname); ?></span><br>
-                <span class="headline-text Beitrag_ubersicht_beschreibung" ><?php echo utf8_encode($bbeschreibung); ?></span>
+            <div class="headline_conatiner headline_conatiner_beitrag" >
+                <div class="headline_conatiner_head">
+                    <span class="headline-text" ><?php echo ($bname); ?></span>
+
+                    <span class="headline_button_coantiner">
+                        <?php if($_SESSION["ID"] == $owner ||$prang->hasPermission("forum.beitrag.edit") || $rang->hasPermission("all.forum.beitrag.edit")) { ?><button class="button headline_button button_grun"><i class="bi bi-pencil"></i></button>   <?php }?>
+                        <?php if($prang->hasPermission("forum.beitrag.close") || $rang->hasPermission("all.forum.beitrag.close")) { ?>
+                            <button onclick="toggle_close_beitrag(<?php echo $bid; ?>)" class="button headline_button buuton_blau">
+                                <?php if($bstatus != 2) {?><i class="bi bi-lock"></i><?php  } ?>
+                                <?php if($bstatus == 2) {?><i class="bi bi-unlock"></i><?php } ?>
+                            </button>
+                        <?php }?>
+                        <?php if($prang->hasPermission("forum.beitrag.delete") || $rang->hasPermission("all.forum.beitrag.delete")) { ?><button class="button headline_button button_rot"><i class="bi bi-trash"></i></button>     <?php }?>
+                        <button class="button headline_button button_rot"><i class="bi bi-exclamation-octagon"></i></button>
+                    </span>
+                </div>
+
+                <span class="headline-text-sub Beitrag_ubersicht_beschreibung" ><?php echo ($bbeschreibung); ?></span>
             </div>
         </div>
         <div class="beitrag_teiler beitrag_teile_input">
@@ -78,6 +97,12 @@ $sth->execute();
                     foreach($sth1->fetchAll() as $row1) {
                         $liks_str .= $row1["Name"] . ", ";
                     }
+                    //sonder beiträge
+                    if($row["Status"] == 2){
+                        include "beitrag_sonderanzeigen/ticket_geschlossen.php";
+                    }else if($row["Status"] == 3){
+                        include "beitrag_sonderanzeigen/ticket_gesoffnet.php";
+                    } else {
                 ?>
                 <div class="beitrag_verwalter">
                 <div class="beitrag_abzeige_conatiner beitrag_abzeige_conatiner_userinfo">
@@ -110,7 +135,9 @@ $sth->execute();
                 </div>
             </div>
                 <?php
+                      }
                     }
+                    if($bstatus == 1){
                 ?>
 
                 <!-- editor-->
@@ -145,6 +172,7 @@ $sth->execute();
                     </div>
                 </div>
 
+                <?php } ?>
             </div>
         </div>
 </div>
