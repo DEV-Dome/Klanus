@@ -61,12 +61,28 @@ function toggle_close_beitrag( beitrag) {
 
     $.ajax({
         type: 'POST',
-        url: 'pages/projekt/modules/forum/assets/toggle_close_beitrag.php',
+        url: 'pages/projekt/modules/forum/assets/Toggle_close_beitrag.php',
         contentType: false,
         processData: false,
         data: form_data,
         success: function (response) {
             loadProjektUnderPage('forum', 'Beitrag.php?bid=' + beitrag);
+        }
+    });
+}
+function Delete_beitrag(beitrag, forum) {
+    var form_data = new FormData();
+
+    form_data.append("bid", beitrag);
+
+    $.ajax({
+        type: 'POST',
+        url: 'pages/projekt/modules/forum/assets/Delete_beitrag.php',
+        contentType: false,
+        processData: false,
+        data: form_data,
+        success: function (response) {
+            loadProjektUnderPage('forum', 'BeitragsUbersicht.php?fid=' + forum);
         }
     });
 }

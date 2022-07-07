@@ -122,7 +122,7 @@ foreach($sth->fetchAll() as $row) {
 
 
         $sqlstr  = "SELECT $sqlzuordnung FROM projekt_forum_beitrage,user,projekt_user,projekt_rang ";
-        $sqlstr .= "WHERE projekt_rang.ID = projekt_user.Rang AND projekt_user.Projekt = ? AND projekt_user.User = user.id AND user.id = Owner AND Forum = ? ";
+        $sqlstr .= "WHERE projekt_rang.ID = projekt_user.Rang AND projekt_user.Projekt = ? AND projekt_user.User = user.id AND user.id = Owner AND Forum = ? AND Status != 3 ";
         $sqlstr .= "$permiss_where";
         $sqlstr .= "ORDER BY IsAngepinnt DESC, ErstelltAm DESC";
 

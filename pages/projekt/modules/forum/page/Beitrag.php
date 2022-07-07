@@ -18,6 +18,7 @@ $bbeschreibung = "";  // Beitrag Beschreibung
 $zugriffe = 0;
 $owner = -1;
 $bstatus = -1;
+$fid = -1;
 
 include "../../rang/projektRang.php";
 include_once "../../../../../php/rang/Rang.php";
@@ -28,7 +29,7 @@ $prang = new projektRang($_SESSION['PRang'], $pdo);
 
 
 //information getten
-$sqlstr = "SELECT BeitragKommentar,projekt_forum_beitrage.Name AS 'Name', Zugriffe,Owner,Status FROM projekt_forum_beitrage,projekt_forum_forn WHERE Forum = projekt_forum_forn.ID  AND projekt_forum_beitrage.ID = ?";
+$sqlstr = "SELECT BeitragKommentar,projekt_forum_beitrage.Name AS 'Name', Zugriffe,Owner,Status,Forum FROM projekt_forum_beitrage,projekt_forum_forn WHERE Forum = projekt_forum_forn.ID  AND projekt_forum_beitrage.ID = ?";
 $sth = $pdo->prepare($sqlstr);
 $sth->bindParam(1, $bid);
 $sth->execute();
@@ -38,6 +39,7 @@ foreach($sth->fetchAll() as $row) {
     $zugriffe = $row["Zugriffe"];
     $owner = $row["Owner"];
     $bstatus = $row["Status"];
+    $fid = $row["Forum"];
 }
 //zugriff rauf zählen
 $zugriffe++;
@@ -51,6 +53,8 @@ $sth->execute();
 <link href="pages/projekt/modules/forum/css/main.css?v=<?php echo time()?>" rel="stylesheet">
 <link href="pages/projekt/modules/forum/css/main_handy.css?v=<?php echo time()?>" rel="stylesheet">
 <link href="pages/projekt/modules/forum/css/main_tablet.css?v=<?php echo time()?>" rel="stylesheet">
+<!-- Modal -->
+
 
 <div class="beitrag_main_container">
         <div class="beitrag_teiler beitrag_teile_headline">
@@ -61,12 +65,12 @@ $sth->execute();
                     <span class="headline_button_coantiner">
                         <?php if($_SESSION["ID"] == $owner ||$prang->hasPermission("forum.beitrag.edit") || $rang->hasPermission("all.forum.beitrag.edit")) { ?><button class="button headline_button button_grun"><i class="bi bi-pencil"></i></button>   <?php }?>
                         <?php if($prang->hasPermission("forum.beitrag.close") || $rang->hasPermission("all.forum.beitrag.close")) { ?>
-                            <button onclick="toggle_close_beitrag(<?php echo $bid; ?>)" class="button headline_button buuton_blau">
+                            <button onclick="toggle_close_beitrag(<?php echo $bid; ?>)" class="button headline_button button_blau">
                                 <?php if($bstatus != 2) {?><i class="bi bi-lock"></i><?php  } ?>
                                 <?php if($bstatus == 2) {?><i class="bi bi-unlock"></i><?php } ?>
                             </button>
                         <?php }?>
-                        <?php if($prang->hasPermission("forum.beitrag.delete") || $rang->hasPermission("all.forum.beitrag.delete")) { ?><button class="button headline_button button_rot"><i class="bi bi-trash"></i></button>     <?php }?>
+                        <?php if($prang->hasPermission("forum.beitrag.delete") || $rang->hasPermission("all.forum.beitrag.delete")) { ?><button onclick="Delete_beitrag(<?php echo $bid; ?>, <?php echo $fid; ?>)" class="button headline_button button_rot"><i class="bi bi-trash"></i></button>     <?php }?>
                         <button class="button headline_button button_rot"><i class="bi bi-exclamation-octagon"></i></button>
                     </span>
                 </div>
