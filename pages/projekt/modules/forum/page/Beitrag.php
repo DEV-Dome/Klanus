@@ -48,14 +48,83 @@ $sth = $pdo->prepare($sqlstr);
 $sth->bindParam(1, $zugriffe);
 $sth->bindParam(2, $bid);
 $sth->execute();
+//abfrage ob das projeckt schon gemeldet wurde ...
+$beitrag_gemeldet = false;
+$grund = "";
+
+$sqlstr = "SELECT * FROM projekt_melden WHERE User = ?  AND Referenz = ? AND Modul = 4 AND Kategorie = 'Beitrag'";
+$sth = $pdo->prepare($sqlstr);
+$sth->bindParam(1, $_SESSION["ID"]);
+$sth->bindParam(2, $bid);
+$sth->execute();
+foreach($sth->fetchAll() as $row) {
+    $beitrag_gemeldet = true;
+    $grund = $row["Grund"];
+}
 ?>
 
 <link href="pages/projekt/modules/forum/css/main.css?v=<?php echo time()?>" rel="stylesheet">
 <link href="pages/projekt/modules/forum/css/main_handy.css?v=<?php echo time()?>" rel="stylesheet">
 <link href="pages/projekt/modules/forum/css/main_tablet.css?v=<?php echo time()?>" rel="stylesheet">
 <!-- Modal -->
+<link href="pages/projekt/modules/forum/css/modal.css?v=<?php echo time()?>" rel="stylesheet">
+
+<div id="myModal" class="modal">
+    <div id="modal-content" class="modal-content">
+        <span class="close">&times;</span>
 
 
+        <p class="modal_headline">Beitrag Melden</p>
+
+        <div id="edtior_melden_beitrag">
+            <?php
+                if($grund != ""){
+                    echo $grund;
+                }else {
+                    echo "<p>Wieso muss dieser Beitrag entfernt werden ?</p>";
+                }
+            ?>
+        </div>
+
+        <div class="feedback_hub" style="margin-top: 1%!important; margin-bottom: 1%; width: 92% !important;" id="feedback_hub">Feedback</div>
+
+        <?php
+        if(!$beitrag_gemeldet) {
+            ?>
+        <div class="modal_button_conatiner">
+            <button onclick="Mede_beitrag(<?php echo $bid; ?>)" class="button modal_button button_grun">Beitrag Melden</button>
+        </div>
+        <?php
+            }else  {
+                ?>
+                <div class="modal_button_conatiner">
+                    <p class="">Du hast disen Beitrag schon gemeldt!</p>
+                </div>
+                <?php
+            }
+        ?>
+    </div>
+</div>
+
+<div id="Modal_kommentar" class="modal">
+    <div id="modal-content_kommentar" class="modal-content">
+        <span onclick="document.getElementById('Modal_kommentar').style.display = 'none';" class="close">&times;</span>
+
+
+        <p class="modal_headline">Kommentar Melden</p>
+
+        <div id="edtior_melden_kommentar">
+                <p>Wieso muss dieser Kommentar entfernt werden ?</p>
+        </div>
+
+        <div class="feedback_hub" style="margin-top: 1%!important; margin-bottom: 1%; width: 92% !important;" id="feedback_hub_kommentar">Feedback</div>
+
+            <div class="modal_button_conatiner">
+                <button onclick="Mede_kommentar()" class="button modal_button button_grun">Kommentar Melden</button>
+            </div>
+    </div>
+</div>
+<!-- END Modall-->
 <div class="beitrag_main_container">
         <div class="beitrag_teiler beitrag_teile_headline">
             <div class="headline_conatiner headline_conatiner_beitrag" >
@@ -71,7 +140,7 @@ $sth->execute();
                             </button>
                         <?php }?>
                         <?php if($prang->hasPermission("forum.beitrag.delete") || $rang->hasPermission("all.forum.beitrag.delete")) { ?><button onclick="Delete_beitrag(<?php echo $bid; ?>, <?php echo $fid; ?>)" class="button headline_button button_rot"><i class="bi bi-trash"></i></button>     <?php }?>
-                        <button class="button headline_button button_rot"><i class="bi bi-exclamation-octagon"></i></button>
+                        <button onclick="document.getElementById('myModal').style.display = 'block';" class="button headline_button button_rot"><i class="bi bi-exclamation-octagon"></i></button>
                     </span>
                 </div>
 
@@ -133,7 +202,7 @@ $sth->execute();
                     <span class="beitrag_kommentar_user_beitrag">Folgende Benutzer sich für den Beitrag dedankt:</span><br>
                     <span class="beitrag_kommentar_user_danks" style="margin-top: 0% !important;"><?php echo $liks_str?></span>
                     <span class="beitrag_kommentar_user_button" >
-                        <button class="button meldebutton"><i class="bi bi-exclamation-octagon"></i></button>
+                        <button onclick="document.getElementById('Modal_kommentar').style.display = 'block';LastKommentarMelde = <?php echo $row["kid"]; ?>" class="button meldebutton"><i class="bi bi-exclamation-octagon"></i></button>
                         <button onclick="Update_like(<?php echo $row["kid"];?>, <?php echo $_GET["bid"];?>)"class="button likebutton"><i class="bi bi-hand-thumbs-up"></i></button>
                     </span>
                 </div>

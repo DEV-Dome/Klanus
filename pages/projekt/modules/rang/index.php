@@ -15,10 +15,10 @@ include_once "../../../../php/rang/Rang.php";
 $rang = new Rang($_SESSION['Rang'], $pdo);
 $prang = new projektRang($_SESSION['PRang'], $pdo)
 ?>
-<link href="acp/css/rang/rang.css" rel="stylesheet">
-<link href="acp/css/rang/rang_handy.css" rel="stylesheet">
-<link href="pages/projekt/modules/rang/css/main.css" rel="stylesheet">
-<link href="pages/projekt/modules/rang/css/main_tablet.css" rel="stylesheet">
+<link href="acp/css/rang/rang.css?v=<?php echo time()?>" rel="stylesheet">
+<link href="acp/css/rang/rang_handy.css?v=<?php echo time()?>" rel="stylesheet">
+<link href="pages/projekt/modules/rang/css/main.css?v=<?php echo time()?>" rel="stylesheet">
+<link href="pages/projekt/modules/rang/css/main_tablet.css?v=<?php echo time()?>" rel="stylesheet">
 
 <div class="headline_conatiner" >
     Rang verwaltung  <?php if($prang->hasPermission("rang.new") || $rang->hasPermission("all.rang.new")) { ?> <button onclick="loadProjektUnderPage('rang', 'createRang.php')" class="rangUbersichtName newRangButton" style="">Neuen Rang</button><?php } ?>

@@ -18,9 +18,9 @@ $rang = new Rang($_SESSION['Rang'], $pdo);
 $prang = new projektRang($_SESSION['PRang'], $pdo)
 ?>
 
-<link href="pages/projekt/modules/user/css/main.css" rel="stylesheet">
-<link href="pages/projekt/modules/user/css/main_handy.css" rel="stylesheet">
-<link href="pages/projekt/modules/user/css/main_tablet.css" rel="stylesheet">
+<link href="pages/projekt/modules/user/css/main.css?v=<?php echo time() ?>" rel="stylesheet">
+<link href="pages/projekt/modules/user/css/main_handy.css?v=<?php echo time() ?>" rel="stylesheet">
+<link href="pages/projekt/modules/user/css/main_tablet.css?v=<?php echo time() ?>" rel="stylesheet">
 
 <div class="headline_conatiner" >
     <span class="headline-text" >User verwaltung</span>

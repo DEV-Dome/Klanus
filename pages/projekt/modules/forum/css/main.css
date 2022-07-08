@@ -241,6 +241,7 @@
     float: right;
     margin-right: 5%;
     width: 30%;
+    border-radius: 12px;
 }
 .likebutton {
     background-color: rgb(1,116,223, 0.25);
@@ -249,6 +250,7 @@
     width: 40px;
     height: 40px;
     font-size: 140%;
+    border-radius: 12px;
 }
 .meldebutton {
     background-color: rgba(229, 51, 51, 0.25);
@@ -257,6 +259,7 @@
     width: 40px;
     height: 40px;
     font-size: 140%;
+    border-radius: 12px;
 }
 .senden_button{
     width: 200px;
@@ -299,6 +302,7 @@
     float: unset!important;
 
     margin-right: 1%!important;
+    border-radius: 12px;
 }
 .button_rot {
     background-color: rgba(229, 51, 51, 0.25);
@@ -308,6 +312,10 @@
 .button_grun {
     background-color: rgba(69, 255, 88, 0.25);
     color: #45FF58;
+}
+.button_gray {
+    background-color: rgba(199, 205, 216, 0.25);
+    color: #C7CDD8;
 }
 .button_blau {
     background-color: rgb(1,116,223, 0.25);

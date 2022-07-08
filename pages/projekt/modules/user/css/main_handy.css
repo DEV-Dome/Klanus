@@ -16,13 +16,9 @@
         display: none;
     }
     .deleteButton {
-        width: 35%;
-        height: 75px;
         margin-right: 15%;
     }
     .infoButton {
-        width: 35%;
-        height: 75px;
         margin-right: 6%;
     }
     .addbutton {

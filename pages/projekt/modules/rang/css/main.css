@@ -25,6 +25,12 @@
 }
 .button {
     margin-bottom: 2%;
+    margin-right: 6%;
+
+    width: 70px;
+    height: 70px !important;
+    float: right;
+
 }
 
 

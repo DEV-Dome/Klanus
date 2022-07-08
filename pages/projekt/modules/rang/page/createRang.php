@@ -102,7 +102,7 @@ if(isset($_GET["id"])){
     <div class="feedback_hub" id="feedback_hub">Feedback</div>
 
 
-    <?php if($id == null) {?><button onclick="addRang(document.getElementById('name').value, document.getElementById('beschreibung').value, document.getElementById('color').value)" class="button buttonSave">Speichern</button><?php }?>
-    <?php if($id != null) {?><button onclick="updateRang(document.getElementById('name').value, document.getElementById('beschreibung').value, <?php echo $id?> , document.getElementById('color').value)" class="button buttonSave">Ändern</button><?php }?>
-    <button onclick="loadProjektPage('rang')" class="button buttonSave buttonBack">Zurück</button>
+    <?php if($id == null) {?><button style="float:right; margin-right: 10%;" onclick="addRang(document.getElementById('name').value, document.getElementById('beschreibung').value, document.getElementById('color').value)" class="button buttonSave">Speichern</button><?php }?>
+    <?php if($id != null) {?><button style="float:right; margin-right: 10%;" onclick="updateRang(document.getElementById('name').value, document.getElementById('beschreibung').value, <?php echo $id?> , document.getElementById('color').value)" class="button buttonSave">Ändern</button><?php }?>
+    <button onclick="loadProjektPage('rang')" style="float:right;margin-right: 1%;" class="button buttonSave buttonBack">Zurück</button>
 </div>

@@ -242,7 +242,7 @@ FOREIGN KEY (Beitrag) REFERENCES projekt_forum_beitrage(ID),
 FOREIGN KEY (Owner) REFERENCES user(ID)
 )");
 
-echo "<p>Projekt Forum_Beiträge Tabelle erstellt.</p>";
+echo "<p>Projekt Forum_Beiträg_Kommentare Tabelle erstellt.</p>";
 
 $pdo->query("CREATE TABLE IF NOT EXISTS projekt_forum_beitrage_kommentare_like(
 ID INT(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -254,9 +254,22 @@ FOREIGN KEY (Kommentar) REFERENCES projekt_forum_beitrage_kommentare(ID),
 FOREIGN KEY (User) REFERENCES user(ID)
 )");
 
-echo "<p>Projekt Forum_Beiträge Tabelle erstellt.</p>";
+echo "<p>Projekt Forum_Beiträge_Like Tabelle erstellt.</p>";
 
+$pdo->query("CREATE TABLE IF NOT EXISTS projekt_melden(
+ID INT(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+User INT(10) NOT NULL,
+Grund TEXT NOT NULL,    
+Referenz TEXT NOT NULL,    
+Modul INT(10) NOT NULL,
+Kategorie VARCHAR(150) NOT NULL,
+Time DATETIME NOT NULL,    
+    
+FOREIGN KEY (User) REFERENCES user(ID),
+FOREIGN KEY (Modul) REFERENCES modul(ID)
+)");
 
+echo "<p>Projekt Melde Tabbelle Tabelle erstellt.</p>";
 
 include "DefaultPermission.php";
 include "DefaultProjektStatus.php";
