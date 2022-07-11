@@ -5,23 +5,6 @@ var modal = document.getElementById("myModal");
 var Modal_kommentar = document.getElementById("Modal_kommentar");
 var LastKommentarMelde = 0;
 
-if(!!document.getElementById("#editor")){
-    ClassicEditor.create( document.querySelector( '#editor' ) ).then( editortmp => {
-        editor = editortmp;
-    });
-}
-if(!!document.getElementById("#edtior_melden_beitrag")){
-    ClassicEditor.create( document.querySelector( '#edtior_melden_beitrag' ) ).then( editortmp => {
-        edtior_melden_beitrag = editortmp;
-    });
-}
-if(!!document.getElementById("#edtior_melden_kommentar")){
-    ClassicEditor.create( document.querySelector( '#edtior_melden_kommentar' ) ).then( editortmp => {
-        edtior_melden_kommentar = editortmp;
-    });
-}
-
-
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
@@ -37,6 +20,30 @@ span.onclick = function() {
 var span = document.getElementsByClassName("close")[1];
 span.onclick = function() {
     modal.style.display = "none";
+}
+
+function show_melde_moodal_beitrag(){
+    document.getElementById('myModal').style.display = 'block';
+    if(edtior_melden_beitrag == ""){
+        ClassicEditor.create( document.querySelector( '#edtior_melden_beitrag' ) ).then( editortmp => {
+            edtior_melden_beitrag = editortmp;
+        });
+    }
+}
+function show_melde_moodal_kommentar(){
+    document.getElementById('Modal_kommentar').style.display = 'block';
+    if(edtior_melden_kommentar == ""){
+        ClassicEditor.create( document.querySelector( '#edtior_melden_kommentar' ) ).then( editortmp => {
+            edtior_melden_kommentar = editortmp;
+        });
+    }
+}
+function createEditor(){
+    if(!!document.getElementById("editor") && editor == ""){
+        ClassicEditor.create( document.querySelector( '#editor' ) ).then( editortmp => {
+            editor = editortmp;
+        });
+    }
 }
 
 function start_neuen_kommentar(name, beitrag) {
@@ -155,7 +162,7 @@ function Mede_beitrag(beitrag){
 }
 function Mede_kommentar(){
     var form_data = new FormData();
-    var grund = edtior_melden_beitrag.getData();
+    var grund = edtior_melden_kommentar.getData();
 
     form_data.append("bid", LastKommentarMelde);
     form_data.append("grund", grund);
@@ -188,3 +195,4 @@ function Mede_kommentar(){
         }
     });
 }
+createEditor();

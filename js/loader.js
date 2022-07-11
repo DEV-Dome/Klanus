@@ -74,8 +74,6 @@ function loadProjektUnderPage(modul,seite){
         processData: false,
         data: form_data,
         success: function (response) {
-
-
             document.getElementById("MainSek").innerHTML = response;
             setUploadAktiv();
             loadbar(1);
@@ -95,6 +93,7 @@ function loadProjektUnderPage(modul,seite){
             }
             if(seite.startsWith("Beitrag.php")){
                 addScript("pages/projekt/modules/forum/js/beitrag.js?v=" + new Date().getTime());
+
             }
         },
         complete: function (){

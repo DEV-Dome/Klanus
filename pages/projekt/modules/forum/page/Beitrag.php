@@ -66,15 +66,17 @@ foreach($sth->fetchAll() as $row) {
 <link href="pages/projekt/modules/forum/css/main.css?v=<?php echo time()?>" rel="stylesheet">
 <link href="pages/projekt/modules/forum/css/main_handy.css?v=<?php echo time()?>" rel="stylesheet">
 <link href="pages/projekt/modules/forum/css/main_tablet.css?v=<?php echo time()?>" rel="stylesheet">
+
+<link href="pages/projekt/modules/forum/css/main_beitrag_handy.css?v=<?php echo time()?>" rel="stylesheet">
 <!-- Modal -->
 <link href="pages/projekt/modules/forum/css/modal.css?v=<?php echo time()?>" rel="stylesheet">
 
-<div id="myModal" class="modal">
+<div id="myModal" class="modal" style="display: none;">
     <div id="modal-content" class="modal-content">
         <span class="close">&times;</span>
 
 
-        <p class="modal_headline">Beitrag Melden</p>
+        <p class="modal_headline">Beitrag Melden:</p>
 
         <div id="edtior_melden_beitrag">
             <?php
@@ -106,7 +108,7 @@ foreach($sth->fetchAll() as $row) {
     </div>
 </div>
 
-<div id="Modal_kommentar" class="modal">
+<div id="Modal_kommentar" class="modal" style="display: none;">
     <div id="modal-content_kommentar" class="modal-content">
         <span onclick="document.getElementById('Modal_kommentar').style.display = 'none';" class="close">&times;</span>
 
@@ -139,8 +141,9 @@ foreach($sth->fetchAll() as $row) {
                                 <?php if($bstatus == 2) {?><i class="bi bi-unlock"></i><?php } ?>
                             </button>
                         <?php }?>
+                        <?php if($prang->hasPermission("forum.beitrag.close") || $rang->hasPermission("all.forum.beitrag.close")) { ?><button onclick="" class="button headline_button button_blau"><i class="bi bi-arrows-move"></i></button><?php }?>
                         <?php if($prang->hasPermission("forum.beitrag.delete") || $rang->hasPermission("all.forum.beitrag.delete")) { ?><button onclick="Delete_beitrag(<?php echo $bid; ?>, <?php echo $fid; ?>)" class="button headline_button button_rot"><i class="bi bi-trash"></i></button>     <?php }?>
-                        <button onclick="document.getElementById('myModal').style.display = 'block';" class="button headline_button button_rot"><i class="bi bi-exclamation-octagon"></i></button>
+                        <button onclick="show_melde_moodal_beitrag()" class="button headline_button button_rot"><i class="bi bi-exclamation-octagon"></i></button>
                     </span>
                 </div>
 
@@ -202,7 +205,7 @@ foreach($sth->fetchAll() as $row) {
                     <span class="beitrag_kommentar_user_beitrag">Folgende Benutzer sich für den Beitrag dedankt:</span><br>
                     <span class="beitrag_kommentar_user_danks" style="margin-top: 0% !important;"><?php echo $liks_str?></span>
                     <span class="beitrag_kommentar_user_button" >
-                        <button onclick="document.getElementById('Modal_kommentar').style.display = 'block';LastKommentarMelde = <?php echo $row["kid"]; ?>" class="button meldebutton"><i class="bi bi-exclamation-octagon"></i></button>
+                        <button onclick="show_melde_moodal_kommentar(); LastKommentarMelde = <?php echo $row["kid"]; ?>" class="button meldebutton"><i class="bi bi-exclamation-octagon"></i></button>
                         <button onclick="Update_like(<?php echo $row["kid"];?>, <?php echo $_GET["bid"];?>)"class="button likebutton"><i class="bi bi-hand-thumbs-up"></i></button>
                     </span>
                 </div>
