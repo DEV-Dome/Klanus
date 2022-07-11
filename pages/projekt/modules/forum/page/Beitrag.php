@@ -71,61 +71,11 @@ foreach($sth->fetchAll() as $row) {
 <!-- Modal -->
 <link href="pages/projekt/modules/forum/css/modal.css?v=<?php echo time()?>" rel="stylesheet">
 
-<div id="myModal" class="modal" style="display: none;">
-    <div id="modal-content" class="modal-content">
-        <span class="close">&times;</span>
-
-
-        <p class="modal_headline">Beitrag Melden:</p>
-
-        <div id="edtior_melden_beitrag">
-            <?php
-                if($grund != ""){
-                    echo $grund;
-                }else {
-                    echo "<p>Wieso muss dieser Beitrag entfernt werden ?</p>";
-                }
-            ?>
-        </div>
-
-        <div class="feedback_hub" style="margin-top: 1%!important; margin-bottom: 1%; width: 92% !important;" id="feedback_hub">Feedback</div>
-
-        <?php
-        if(!$beitrag_gemeldet) {
-            ?>
-        <div class="modal_button_conatiner">
-            <button onclick="Mede_beitrag(<?php echo $bid; ?>)" class="button modal_button button_grun">Beitrag Melden</button>
-        </div>
-        <?php
-            }else  {
-                ?>
-                <div class="modal_button_conatiner">
-                    <p class="">Du hast disen Beitrag schon gemeldt!</p>
-                </div>
-                <?php
-            }
-        ?>
-    </div>
-</div>
-
-<div id="Modal_kommentar" class="modal" style="display: none;">
-    <div id="modal-content_kommentar" class="modal-content">
-        <span onclick="document.getElementById('Modal_kommentar').style.display = 'none';" class="close">&times;</span>
-
-
-        <p class="modal_headline">Kommentar Melden</p>
-
-        <div id="edtior_melden_kommentar">
-                <p>Wieso muss dieser Kommentar entfernt werden ?</p>
-        </div>
-
-        <div class="feedback_hub" style="margin-top: 1%!important; margin-bottom: 1%; width: 92% !important;" id="feedback_hub_kommentar">Feedback</div>
-
-            <div class="modal_button_conatiner">
-                <button onclick="Mede_kommentar()" class="button modal_button button_grun">Kommentar Melden</button>
-            </div>
-    </div>
-</div>
+<?php
+include "beitrag_sonderanzeigen/Modal_beitrag_melden.php";
+include "beitrag_sonderanzeigen/Modal_kommentar_melden.php";
+include "beitrag_sonderanzeigen/Modal_Beitrag_verschieben.php";
+?>
 <!-- END Modall-->
 <div class="beitrag_main_container">
         <div class="beitrag_teiler beitrag_teile_headline">
@@ -141,7 +91,7 @@ foreach($sth->fetchAll() as $row) {
                                 <?php if($bstatus == 2) {?><i class="bi bi-unlock"></i><?php } ?>
                             </button>
                         <?php }?>
-                        <?php if($prang->hasPermission("forum.beitrag.close") || $rang->hasPermission("all.forum.beitrag.close")) { ?><button onclick="" class="button headline_button button_blau"><i class="bi bi-arrows-move"></i></button><?php }?>
+                        <?php if($prang->hasPermission("forum.beitrag.close") || $rang->hasPermission("all.forum.beitrag.close")) { ?><button onclick="modal_beitrag_verchieben.style.display = 'block';" class="button headline_button button_blau"><i class="bi bi-arrows-move"></i></button><?php }?>
                         <?php if($prang->hasPermission("forum.beitrag.delete") || $rang->hasPermission("all.forum.beitrag.delete")) { ?><button onclick="Delete_beitrag(<?php echo $bid; ?>, <?php echo $fid; ?>)" class="button headline_button button_rot"><i class="bi bi-trash"></i></button>     <?php }?>
                         <button onclick="show_melde_moodal_beitrag()" class="button headline_button button_rot"><i class="bi bi-exclamation-octagon"></i></button>
                     </span>

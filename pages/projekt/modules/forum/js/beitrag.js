@@ -2,6 +2,7 @@ var editor = "";
 var edtior_melden_beitrag = "";
 var edtior_melden_kommentar = "";
 var modal = document.getElementById("myModal");
+var modal_beitrag_verchieben = document.getElementById("Modal_beitrag_verschieben");
 var Modal_kommentar = document.getElementById("Modal_kommentar");
 var LastKommentarMelde = 0;
 
@@ -19,7 +20,11 @@ span.onclick = function() {
 }
 var span = document.getElementsByClassName("close")[1];
 span.onclick = function() {
-    modal.style.display = "none";
+    Modal_kommentar.style.display = "none";
+}
+var span = document.getElementsByClassName("close")[2];
+span.onclick = function() {
+    modal_beitrag_verchieben.style.display = "none";
 }
 
 function show_melde_moodal_beitrag(){
