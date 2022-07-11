@@ -5,15 +5,22 @@ var modal = document.getElementById("myModal");
 var Modal_kommentar = document.getElementById("Modal_kommentar");
 var LastKommentarMelde = 0;
 
-ClassicEditor.create( document.querySelector( '#editor' ) ).then( editortmp => {
-    editor = editortmp;
-});
-ClassicEditor.create( document.querySelector( '#edtior_melden_beitrag' ) ).then( editortmp => {
-    edtior_melden_beitrag = editortmp;
-});
-ClassicEditor.create( document.querySelector( '#edtior_melden_kommentar' ) ).then( editortmp => {
-    edtior_melden_kommentar = editortmp;
-});
+if(!!document.getElementById("#editor")){
+    ClassicEditor.create( document.querySelector( '#editor' ) ).then( editortmp => {
+        editor = editortmp;
+    });
+}
+if(!!document.getElementById("#edtior_melden_beitrag")){
+    ClassicEditor.create( document.querySelector( '#edtior_melden_beitrag' ) ).then( editortmp => {
+        edtior_melden_beitrag = editortmp;
+    });
+}
+if(!!document.getElementById("#edtior_melden_kommentar")){
+    ClassicEditor.create( document.querySelector( '#edtior_melden_kommentar' ) ).then( editortmp => {
+        edtior_melden_kommentar = editortmp;
+    });
+}
+
 
 window.onclick = function(event) {
     if (event.target == modal) {

@@ -63,3 +63,11 @@ function addScript(src) {
     document.getElementsByTagName('head')[0].appendChild(s);
     return s;  // to remove it later
 }
+function show_loader(){
+    document.getElementById("Loader").style.display = "Flex";
+    document.getElementById("MainSek_container").style.display = "none";
+}
+function hidden_loader(){
+    document.getElementById("Loader").style.display = "none";
+    document.getElementById("MainSek_container").style.display = "Block";
+}

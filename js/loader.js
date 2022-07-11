@@ -1,4 +1,6 @@
 function loadMainPage(seite){
+    show_loader();
+
     var form_data = new FormData();
 
     $.ajax({
@@ -15,10 +17,15 @@ function loadMainPage(seite){
                 //user Dashboard
                 addScript("js/user_dashboard/drag_and_drop.js?v=" + new Date().getTime());
             }
+
+        },
+        complete: function (){
+            hidden_loader();
         }
     });
 }
 function joinProjekt(id){
+    show_loader();
     var form_data = new FormData();
 
     $.ajax({
@@ -30,10 +37,14 @@ function joinProjekt(id){
         success: function (response) {
             document.getElementById("MainSek").innerHTML = response;
             loadbar(1);
+        },
+        complete: function (){
+            hidden_loader();
         }
     });
 }
 function loadProjektPage(seite){
+    show_loader();
     var form_data = new FormData();
 
     $.ajax({
@@ -46,10 +57,14 @@ function loadProjektPage(seite){
             document.getElementById("MainSek").innerHTML = response;
             setUploadAktiv();
             closebar();
+        },
+        complete: function (){
+            hidden_loader();
         }
     });
 }
 function loadProjektUnderPage(modul,seite){
+    show_loader();
     var form_data = new FormData();
 
     $.ajax({
@@ -81,7 +96,11 @@ function loadProjektUnderPage(modul,seite){
             if(seite.startsWith("Beitrag.php")){
                 addScript("pages/projekt/modules/forum/js/beitrag.js?v=" + new Date().getTime());
             }
+        },
+        complete: function (){
+            hidden_loader();
         }
+
     });
 }
 

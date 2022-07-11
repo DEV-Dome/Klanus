@@ -183,6 +183,28 @@ body {
 
     color: white;
     background-color: #17213D;
+
+}
+#Loader {
+    width: 81%;
+    min-height: 83vh;
+
+    margin: 0px;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-top: 2%;
+
+    border-radius: 10px;
+
+    color: white;
+    background-color: #17213D;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+
+    display: none;
 }
 #MainSekMobileController{
     display: none;

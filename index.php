@@ -94,8 +94,13 @@ if(!isset($_SESSION["Login"])){
         <div id="MainSek_container" >
             <div onclick="openbar()" id="MainSekMobileController" > <i  class="bi bi-justify mobileSwitchLlogo"></i> </div>
             <div id="MainSek"></div>
-        </div>
 
+        </div>
+        <!-- Loader -->
+        <div id="Loader" >
+            <img width="128px" height="128px" src="assets/ladeanimation.gif">
+            <p style="width: 100%; text-align: center">Inhalt wird geladen.</p>
+        </div>
         <?php if($login) {
         // Nur Anzeigen wenn man eingeloggt ist!
         ?>

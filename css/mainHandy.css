@@ -159,6 +159,22 @@
         color: white;
         background-color: #17213D;
     }
+
+    #Loader{
+        width: 90%;
+        height: 92%;
+
+        margin: 0px;
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: 2%;
+
+        border-radius: 10px;
+
+        color: white;
+        background-color: #17213D;
+    }
+
     #MainSekMobileController{
         display: block;
     }
