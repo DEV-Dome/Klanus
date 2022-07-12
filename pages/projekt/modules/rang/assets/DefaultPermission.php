@@ -58,6 +58,7 @@ addPermissionFrontEnd("forum.setting.forum.prioritat", "Forum: Kann Forum Reinfo
 addPermissionFrontEnd("forum.beitrag.close", "Forum: Kann Beiträge schlissen/öffnen", "Forum", $pdo);
 addPermissionFrontEnd("forum.beitrag.delete", "Forum: Kann Beiträge löschen", "Forum", $pdo);
 addPermissionFrontEnd("forum.beitrag.edit", "Forum: Kann Beiträge bearbeiten", "Forum", $pdo);
+addPermissionFrontEnd("forum.beitrag.move", "Forum: Kann Beiträge Verschieben", "Forum", $pdo);
 
 /*Ankündigungen*/
 addPermissionFrontEnd("ankundgungen.see", "Ankündigungen: Kann Menü Punkt sehen", "Ankündigungen", $pdo);

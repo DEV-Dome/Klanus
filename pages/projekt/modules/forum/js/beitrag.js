@@ -2,7 +2,7 @@ var editor = "";
 var edtior_melden_beitrag = "";
 var edtior_melden_kommentar = "";
 var modal = document.getElementById("myModal");
-var modal_beitrag_verchieben = document.getElementById("Modal_beitrag_verschieben");
+var modal_beitrag_verschieben = document.getElementById("Modal_beitrag_verschieben");
 var Modal_kommentar = document.getElementById("Modal_kommentar");
 var LastKommentarMelde = 0;
 
@@ -12,6 +12,9 @@ window.onclick = function(event) {
     }
     if (event.target == Modal_kommentar) {
         Modal_kommentar.style.display = "none";
+    }
+    if (event.target == modal_beitrag_verschieben) {
+        modal_beitrag_verschieben.style.display = "none";
     }
 }
 var span = document.getElementsByClassName("close")[0];
@@ -24,7 +27,7 @@ span.onclick = function() {
 }
 var span = document.getElementsByClassName("close")[2];
 span.onclick = function() {
-    modal_beitrag_verchieben.style.display = "none";
+    modal_beitrag_verschieben.style.display = "none";
 }
 
 function show_melde_moodal_beitrag(){
@@ -200,4 +203,35 @@ function Mede_kommentar(){
         }
     });
 }
+function Beitrag_move( to_fid, beitrag){
+    var form_data = new FormData();
+
+    form_data.append("bid", beitrag);
+    form_data.append("to_fid", to_fid);
+
+    $.ajax({
+        type: 'POST',
+        url: 'pages/projekt/modules/forum/assets/Beitrag_move.php',
+        contentType: false,
+        processData: false,
+        data: form_data,
+        success: function (response) {
+            if(response.startsWith("<erro>")){
+                document.getElementById("feedback_hub_kommentar").style.backgroundColor = "rgba(229, 51, 51, 0.25)";
+            }else {
+                document.getElementById("feedback_hub_kommentar").style.backgroundColor = "rgba(69, 255, 88, 0.25)";
+            }
+
+
+            if(response == "Beitrag gemovt"){
+                loadProjektUnderPage('forum', 'Beitrag.php?bid=' + beitrag);
+            }else {
+                document.getElementById("feedback_hub_kommentar").innerHTML = response;
+                document.getElementById("feedback_hub_kommentar").style.display = "block";
+            }
+            console.log(response);
+        }
+    });
+}
+
 createEditor();

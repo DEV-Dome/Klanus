@@ -19,13 +19,11 @@ $zugriffe = 0;
 $owner = -1;
 $bstatus = -1;
 $fid = -1;
-
 include "../../rang/projektRang.php";
 include_once "../../../../../php/rang/Rang.php";
 
 $rang = new Rang($_SESSION['Rang'], $pdo);
 $prang = new projektRang($_SESSION['PRang'], $pdo);
-
 
 
 //information getten
@@ -91,7 +89,7 @@ include "beitrag_sonderanzeigen/Modal_Beitrag_verschieben.php";
                                 <?php if($bstatus == 2) {?><i class="bi bi-unlock"></i><?php } ?>
                             </button>
                         <?php }?>
-                        <?php if($prang->hasPermission("forum.beitrag.close") || $rang->hasPermission("all.forum.beitrag.close")) { ?><button onclick="modal_beitrag_verchieben.style.display = 'block';" class="button headline_button button_blau"><i class="bi bi-arrows-move"></i></button><?php }?>
+                        <?php if($prang->hasPermission("forum.beitrag.move") || $rang->hasPermission("all.forum.beitrag.move")) { ?><button onclick="modal_beitrag_verschieben.style.display = 'block';" class="button headline_button button_blau"><i class="bi bi-arrows-move"></i></button><?php }?>
                         <?php if($prang->hasPermission("forum.beitrag.delete") || $rang->hasPermission("all.forum.beitrag.delete")) { ?><button onclick="Delete_beitrag(<?php echo $bid; ?>, <?php echo $fid; ?>)" class="button headline_button button_rot"><i class="bi bi-trash"></i></button>     <?php }?>
                         <button onclick="show_melde_moodal_beitrag()" class="button headline_button button_rot"><i class="bi bi-exclamation-octagon"></i></button>
                     </span>
@@ -125,9 +123,11 @@ include "beitrag_sonderanzeigen/Modal_Beitrag_verschieben.php";
                     }
                     //sonder beiträge
                     if($row["Status"] == 2){
-                        include "beitrag_sonderanzeigen/ticket_geschlossen.php";
+                        include "beitrag_sonderanzeigen/Beitrag_geschlossen.php";
                     }else if($row["Status"] == 3){
-                        include "beitrag_sonderanzeigen/ticket_gesoffnet.php";
+                        include "beitrag_sonderanzeigen/Beitrag_gesoffnet.php";
+                    }else if($row["Status"] == 4){
+                        include "beitrag_sonderanzeigen/Beitrag_verschoben.php";
                     } else {
                 ?>
                 <div class="beitrag_verwalter">
