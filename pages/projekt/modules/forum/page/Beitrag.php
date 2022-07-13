@@ -73,6 +73,7 @@ foreach($sth->fetchAll() as $row) {
 include "beitrag_sonderanzeigen/Modal_beitrag_melden.php";
 include "beitrag_sonderanzeigen/Modal_kommentar_melden.php";
 include "beitrag_sonderanzeigen/Modal_Beitrag_verschieben.php";
+include "beitrag_sonderanzeigen/Modal_beitrag_berabeiten.php";
 ?>
 <!-- END Modall-->
 <div class="beitrag_main_container">
@@ -82,7 +83,7 @@ include "beitrag_sonderanzeigen/Modal_Beitrag_verschieben.php";
                     <span class="headline-text" ><?php echo ($bname); ?></span>
 
                     <span class="headline_button_coantiner">
-                        <?php if($_SESSION["ID"] == $owner ||$prang->hasPermission("forum.beitrag.edit") || $rang->hasPermission("all.forum.beitrag.edit")) { ?><button class="button headline_button button_grun"><i class="bi bi-pencil"></i></button>   <?php }?>
+                        <?php if($_SESSION["ID"] == $owner ||$prang->hasPermission("forum.beitrag.edit") || $rang->hasPermission("all.forum.beitrag.edit")) { ?><button onclick="show_melde_modal_kommentar()" class="button headline_button button_grun"><i class="bi bi-pencil"></i></button>   <?php }?>
                         <?php if($prang->hasPermission("forum.beitrag.close") || $rang->hasPermission("all.forum.beitrag.close")) { ?>
                             <button onclick="toggle_close_beitrag(<?php echo $bid; ?>)" class="button headline_button button_blau">
                                 <?php if($bstatus != 2) {?><i class="bi bi-lock"></i><?php  } ?>

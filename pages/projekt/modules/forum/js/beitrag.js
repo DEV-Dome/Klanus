@@ -3,6 +3,7 @@ var edtior_melden_beitrag = "";
 var edtior_melden_kommentar = "";
 var modal = document.getElementById("myModal");
 var modal_beitrag_verschieben = document.getElementById("Modal_beitrag_verschieben");
+var Modal_beitrag_bearbeiten = document.getElementById("Modal_beitrag_bearbeiten");
 var Modal_kommentar = document.getElementById("Modal_kommentar");
 var LastKommentarMelde = 0;
 
@@ -16,6 +17,9 @@ window.onclick = function(event) {
     if (event.target == modal_beitrag_verschieben) {
         modal_beitrag_verschieben.style.display = "none";
     }
+    if (event.target == Modal_beitrag_bearbeiten) {
+        Modal_beitrag_bearbeiten.style.display = "none";
+    }
 }
 var span = document.getElementsByClassName("close")[0];
 span.onclick = function() {
@@ -28,6 +32,10 @@ span.onclick = function() {
 var span = document.getElementsByClassName("close")[2];
 span.onclick = function() {
     modal_beitrag_verschieben.style.display = "none";
+}
+var span = document.getElementsByClassName("close")[3];
+span.onclick = function() {
+    Modal_beitrag_bearbeiten.style.display = "none";
 }
 
 function show_melde_moodal_beitrag(){
@@ -45,6 +53,9 @@ function show_melde_moodal_kommentar(){
             edtior_melden_kommentar = editortmp;
         });
     }
+}
+function show_melde_modal_kommentar(){
+    Modal_beitrag_bearbeiten.style.display = 'block';
 }
 function createEditor(){
     if(!!document.getElementById("editor") && editor == ""){
