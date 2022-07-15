@@ -1,0 +1,33 @@
+.flex-conatiner{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+    width: 100%;
+
+}
+.flex-item {
+    min-height: 80px;
+
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-size: 18px;
+}
+.beitrag_bild {
+    width: 64px;
+    height: 64px;
+
+    margin-left: 2%;
+    margin-right: 2%;
+}
+.button {
+    width: 70px;
+    height: 70px;
+}
+.button_conatiner {
+    margin-right: 2%;
+}

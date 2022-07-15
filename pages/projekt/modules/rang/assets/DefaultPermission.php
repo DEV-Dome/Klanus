@@ -60,6 +60,9 @@ addPermissionFrontEnd("forum.beitrag.delete", "Forum: Kann Beiträge löschen", 
 addPermissionFrontEnd("forum.beitrag.edit", "Forum: Kann Beiträge bearbeiten", "Forum", $pdo);
 addPermissionFrontEnd("forum.beitrag.move", "Forum: Kann Beiträge Verschieben", "Forum", $pdo);
 
+/*Meldung [Report]*/
+addPermissionFrontEnd("report.menu", "Meldung: Kann den Menü punkt sehen", "Meldung", $pdo);
+
 /*Ankündigungen*/
 addPermissionFrontEnd("ankundgungen.see", "Ankündigungen: Kann Menü Punkt sehen", "Ankündigungen", $pdo);
 foreach ($pdo->query("SELECT * FROM projekt_rang_permission") as $row) {

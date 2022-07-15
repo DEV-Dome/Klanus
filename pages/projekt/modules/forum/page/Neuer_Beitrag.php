@@ -35,7 +35,7 @@ foreach($sth->fetchAll() as $row) {
 
 <div class="headline_conatiner" >
     <span class="headline-text" >Neuen Beitrag</span><br>
-    <span class="headline-text Beitrag_ubersicht_beschreibung" >Du erstellst einen neuen beitragim Fourm <?php echo $fname; ?></span>
+    <span class="headline-text Beitrag_ubersicht_beschreibung" >Du erstellst einen neuen beitrag im Fourm <?php echo $fname; ?></span>
 </div>
 
 <div class="page_main">

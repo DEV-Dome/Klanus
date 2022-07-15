@@ -5,14 +5,14 @@
 
         <p class="modal_headline">Beitrag beabeiten:</p>
 
-        <input type="text" placeholder="Neuer Beitrag Name" class="input_fild_normal">
+        <input type="text" placeholder="Neuer Beitrag Name" class="input_fild_normal" id="Beitrag_edit_name">
 
-        <p style="margin-top: 2%; margin-left: 2.15%; font-size: 17px;">Soll der Beitrag Angepinnt werden ? <input type="checkbox" ></p>
+        <p style="margin-top: 2%; margin-left: 2.15%; font-size: 17px;">Soll der Beitrag Angepinnt werden ? <input id="Beitrag_edit_pinned" type="checkbox" ></p>
 
-        <div class="feedback_hub" style="margin-top: 1%!important; margin-bottom: 1%; width: 92% !important;" id="feedback_hub">Feedback</div>
+        <div class="feedback_hub" style="margin-top: 1%!important; margin-bottom: 1%; width: 92% !important;" id="feedback_hub_edit_beitrag">Feedback</div>
 
         <div class="modal_button_conatiner">
-            <button onclick="" class="button modal_button button_grun">Beitrag Bearbeiten</button>
+            <button onclick="Beitrag_edit(document.getElementById('Beitrag_edit_name').value, document.getElementById('Beitrag_edit_pinned').checked , <?php echo $bid;?>)" class="button modal_button button_grun">Beitrag Bearbeiten</button>
         </div>
     </div>
 </div>

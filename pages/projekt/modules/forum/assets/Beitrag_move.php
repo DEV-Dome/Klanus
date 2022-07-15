@@ -12,6 +12,13 @@ $to_fid = trim(xss_clean($_POST["to_fid"]));
 $dt = new DateTime();
 $jetzt = $dt->format("Y.m.d H:i:s");
 
+$rang = new Rang($_SESSION['Rang'], $pdo);
+$prang = new projektRang($_SESSION['PRang'], $pdo);
+
+if(!($prang->hasPermission("forum.beitrag.move") || $rang->hasPermission("all.forum.beitrag.move"))) {
+    exit();
+}
+
 $sqlstr = "UPDATE projekt_forum_beitrage SET Forum = ? WHERE ID = ?";
 
 $sth = $pdo->prepare($sqlstr);

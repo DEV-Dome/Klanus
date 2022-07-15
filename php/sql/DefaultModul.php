@@ -11,6 +11,7 @@ addModul("User", "Hier können die Projekt User Verwaltet werden.", 1,1, "user",
 addModul("Einladungen", "Hier können die Projekt einladungen Verwaltet werden.", 1,1, "einladungen", "bi-receipt","",1, $pdo);
 addModul("Ankündigungen", "Hier kannst du ankündigungen zu deinen Projekt Posten!.", 1,1, "ankundigungen", "bi-broadcast-pin","",0, $pdo);
 addModul("Rang", "Hier können die Projekt Ränge geändert werden.", 1,1, "rang", "bi-person-lines-fill","rang.menu",1, $pdo);
+addModul("Meldungen", "Hier können user Meldnung bearbeitet werden.", 1,1, "meldung", "bi-shield-exclamation", "report.menu",1, $pdo);
 addModul("Einstellungen", "Hier können die Projekt einstellungen geändert werden.", 1,1, "einstellungen", "bi-gear", "",1, $pdo);
 
 

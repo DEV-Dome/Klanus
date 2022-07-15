@@ -106,7 +106,7 @@ foreach($sth->fetchAll() as $row) {
         $sqlzuordnung .= "user.ID AS 'uid', ";
         $sqlzuordnung .= "user.Name AS 'uname', ";
         $sqlzuordnung .= "projekt_forum_beitrage.ID AS 'bid', ";
-        $sqlzuordnung .= "Zugriffe, IsAngepinnt, ErstelltAm"; // alles andere
+        $sqlzuordnung .= "Zugriffe, IsAngepinnt, ErstelltAm, Status"; // alles andere
 
         $permiss_where = "";
 
@@ -186,7 +186,11 @@ foreach($sth->fetchAll() as $row) {
                 $sth_beitrag_zahl->bindParam(1, $row["bid"]);
                 $sth_beitrag_zahl->execute();
                 ?>
-                <div class="beitrag_name"><?php echo ($row["bname"]) ?> <br> <span class="beitrag_subtitle">erstellt von <span style="color: <?php echo $row["usercolor"]; ?>"><?php echo ucfirst($row["uname"]) ?></span></span></div>
+                <div class="beitrag_name"><?php echo ($row["bname"]); ?>
+                    <br> <span class="beitrag_subtitle">erstellt von <span style="color: <?php echo $row["usercolor"]; ?>"><?php echo ucfirst($row["uname"]) ?></span></span></div>
+
+
+
                 <div class="beitrag_antworten"><?php echo $sth_beitrag_zahl->rowCount() ?></div>
                 <div class="beitrag_zugriffe"><?php echo $row["Zugriffe"] ?></div>
                 <div class="beitrag_letzer_beitrag">von <span style="color: <?php echo $row["usercolor"]; ?>"><?php echo ucfirst($row["uname"]) ?></span><br><span class="beitrag_subtitle" >am <b ><?php echo $dt->format("d.m.Y") ?></b></span></div>

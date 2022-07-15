@@ -76,7 +76,7 @@ function start_neuen_kommentar(name, beitrag) {
 
     $.ajax({
         type: 'POST',
-        url: 'pages/projekt/modules/forum/assets/Neuer_Kommentar.php',
+        url: 'pages/projekt/modules/forum/assets/Kommentar_erstellen.php',
         contentType: false,
         processData: false,
         data: form_data,
@@ -135,7 +135,7 @@ function Delete_beitrag(beitrag, forum) {
 
     $.ajax({
         type: 'POST',
-        url: 'pages/projekt/modules/forum/assets/Delete_beitrag.php',
+        url: 'pages/projekt/modules/forum/assets/Beitrag_delete.php',
         contentType: false,
         processData: false,
         data: form_data,
@@ -241,6 +241,36 @@ function Beitrag_move( to_fid, beitrag){
                 document.getElementById("feedback_hub_kommentar").style.display = "block";
             }
             console.log(response);
+        }
+    });
+}
+function Beitrag_edit(name, pinned, beitrag){
+    var form_data = new FormData();
+
+    form_data.append("bid", beitrag);
+    form_data.append("name", name);
+    form_data.append("pinned", pinned);
+
+    $.ajax({
+        type: 'POST',
+        url: 'pages/projekt/modules/forum/assets/Beitrag_edit.php',
+        contentType: false,
+        processData: false,
+        data: form_data,
+        success: function (response) {
+            if(response.startsWith("<erro>")){
+                document.getElementById("feedback_hub_edit_beitrag").style.backgroundColor = "rgba(229, 51, 51, 0.25)";
+            }else {
+                document.getElementById("feedback_hub_edit_beitrag").style.backgroundColor = "rgba(69, 255, 88, 0.25)";
+            }
+
+
+            if(response == "Beitrag edit"){
+                loadProjektUnderPage('forum', 'Beitrag.php?bid=' + beitrag);
+            }else {
+                document.getElementById("feedback_hub_edit_beitrag").innerHTML = response;
+                document.getElementById("feedback_hub_edit_beitrag").style.display = "block";
+            }
         }
     });
 }

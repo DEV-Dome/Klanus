@@ -113,6 +113,10 @@ addPermission("all.forum.beitrag.move", "Forum: Kann Beiträge Verschieben", "Fo
 
 echo "<p>projekt Rechte eingerichtet [Forum].</p>";
 
+addPermission("all.report.menu", "Meldung: Kann den Menü punkt sehen", "Meldung", $pdo);
+
+echo "<p>projekt Rechte eingerichtet [Meldungen <Report>].</p>";
+
 /*Global*/
 addPermission("acp.use", "Admininterface: Ansehen & Bedienen", "ACP", $pdo);
 addPermission("acp.support", "Admininterface: Support sehen", "ACP", $pdo);

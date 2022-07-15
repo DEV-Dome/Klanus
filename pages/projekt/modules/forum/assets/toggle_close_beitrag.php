@@ -11,10 +11,17 @@ $bid = trim(xss_clean($_POST["bid"]));
 $dt = new DateTime();
 $jetzt = $dt->format("Y.m.d H:i:s");
 
+$rang = new Rang($_SESSION['Rang'], $pdo);
+$prang = new projektRang($_SESSION['PRang'], $pdo);
+
 $sqlstr = "SELECT * FROM projekt_forum_beitrage WHERE ID  = ?";
 $sth = $pdo->prepare($sqlstr);
 $sth->bindParam(1, $bid);
 $sth->execute();
+
+if(!($prang->hasPermission("forum.beitrag.close") || $rang->hasPermission("all.forum.beitrag.close"))) {
+    exit();
+}
 
 foreach($sth->fetchAll() as $row) {
     if($row["Status"] == 1){
