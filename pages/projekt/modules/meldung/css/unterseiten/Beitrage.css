@@ -12,10 +12,23 @@
     margin-top: 0.5%;
     margin-bottom: 0.5%;
 
+    padding: 2%;
+
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     font-size: 18px;
+}
+.flex-item-user-container {
+    display: flex;
+}
+.flex-item-user-name {
+    display: block;
+
+    margin-left: 20%;
+    margin-top: 10%;
+
+    font-size: 24px;
 }
 .beitrag_bild {
     width: 64px;
@@ -23,10 +36,14 @@
 
     margin-left: 2%;
     margin-right: 2%;
+
+    border-radius: 25px;
 }
 .button {
     width: 70px;
     height: 70px;
+    font-size: 36px;
+
 }
 .button_conatiner {
     margin-right: 2%;

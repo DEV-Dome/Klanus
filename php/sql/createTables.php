@@ -220,6 +220,7 @@ Forum INT(10) NOT NULL,
 Owner INT(10) NOT NULL,
 ErstelltAm DATETIME NOT NULL,    
 IsAngepinnt BOOL NOT NULL DEFAULT 0,
+Zugriffe INT(10) NOT NULL DEFAULT 0,
     
     
 FOREIGN KEY (Forum) REFERENCES projekt_forum_forn(ID),

@@ -1,0 +1,38 @@
+@media only screen and (max-width: 1100px) {
+    #pb_settings {
+        display: none;
+    }
+    .flex-item {
+        justify-content: center;
+    }
+    .flex-item-grund {
+        margin-left: 10%;
+        margin-right: 10%;
+        width: 80%;
+    }
+    .headline_conatiner {
+        font-size: 18px;
+    }
+    .flex-item-user-name {
+        width: 100%;
+    }
+
+
+}
+
+@media only screen  and (min-width: 1101px) and (max-width: 1500px) {
+    #pb_settings {
+        display: none;
+    }
+    .flex-item-user-container {
+        min-width: 10%;
+    }
+    .flex-item-grund {
+        margin-right: 7%;
+    }
+    .button_conatiner {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+}

@@ -156,6 +156,7 @@
 
     border-radius: 20px;
 }
+/*Neu Definierte Button*/
 .button_new {
     border: none;
     outline:none;
@@ -167,10 +168,16 @@
     background-color: rgba(69, 255, 88, 0.25);
     color: #45FF58;
 }
+.button_color_blue {
+    background-color: rgb(1,116,223, 0.25);
+    color: #0174DF;
+}
+
 .button_color_gray {
     background-color: rgba(199, 205, 216, 0.25);
     color: #C7CDD8;
 }
+/*Neu Definierte Button Ende*/
 .display_name:first-letter {
     text-transform: uppercase;
 }
